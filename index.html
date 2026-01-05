@@ -23,17 +23,18 @@
             padding: 20px 25px;
             border-left: 5px solid #f1c40f; /* Urban Sarısı */
             z-index: 1000;
-            max-width: 300px; /* Kutunun maksimum genişliği */
+            max-width: 300px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            border-radius: 0 0 10px 0; /* Hafif köşe yuvarlama */
+            border-radius: 0 0 10px 0;
         }
         
         /* LOGO AYARLARI */
         .site-logo {
-            width: 140px; /* Ekranda görüneceği boyut (Orijinali 500px olsa da buraya sığdırıyoruz) */
-            height: auto; /* Orantıyı korur */
+            width: 150px; /* Görünecek Genişlik (Telefonda/PC'de ideal boyut) */
+            height: auto; /* Yükseklik orantılı kalsın */
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px; /* Logonu hafif yumuşatır */
         }
 
         .header p { 
@@ -41,7 +42,7 @@
             font-family: 'Oswald', sans-serif;
             font-size: 14px; 
             letter-spacing: 1px;
-            color: #f1c40f; /* Alt yazıyı sarı yaptık */
+            color: #f1c40f; 
             text-transform: uppercase;
         }
 
@@ -113,7 +114,7 @@
 
     <div class="header">
         <img src="logo.png" alt="Urban Istanbul" class="site-logo" width="500" height="500">
-        <p>Tarihi Lezzet Rotaları</p>
+        <p>Keşif Rehberi</p>
     </div>
 
     <div id="map"></div>
@@ -121,17 +122,17 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        // 1. Haritayı Başlat (İstanbul Odaklı)
+        // 1. Haritayı Başlat
         var map = L.map('map', {
-            center: [41.012, 28.976], // Tarihi yarımada civarı
+            center: [41.012, 28.976], 
             zoom: 14,
-            zoomControl: false // Zoom butonunu kapat
+            zoomControl: false 
         });
 
         // Zoom butonunu sağ alta al
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-        // 2. Harita Teması (Siyah-Beyaz / Stadia Alidade Smooth Dark)
+        // 2. Harita Teması
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '© Urban Istanbul © OpenStreetMap',
             subdomains: 'abcd',
@@ -176,7 +177,7 @@
             }
         ];
 
-        // 5. İşaretleyicileri Döngüyle Ekle
+        // 5. İşaretleyicileri Ekle
         locations.forEach(loc => {
             var marker = L.marker([loc.lat, loc.lng], {icon: blackIcon}).addTo(map);
             
