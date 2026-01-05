@@ -168,7 +168,6 @@
         var layerIBB = L.layerGroup();
         var layerIskele = L.layerGroup();
         var layerTerminal = L.layerGroup();
-        var layerModern = L.layerGroup();
 
         var locations = [
             // --- PLAJLAR ---
@@ -254,9 +253,6 @@
             { title: "Maçka Demokrasi Parkı", lat: 41.0422, lng: 28.9939, type: "cat-park", category: "Park", desc: "Vadi parkı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg/640px-Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg" },
             { title: "Fenerbahçe Parkı", lat: 40.9678, lng: 29.0356, type: "cat-park", category: "Park", desc: "Deniz kenarı park.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fenerbahce_Park.jpg/640px-Fenerbahce_Park.jpg" },
 
-            // --- MODERN ---
-            { title: "Çamlıca Camii", lat: 41.0314, lng: 29.0719, type: "cat-modern", category: "Cami", desc: "Büyük cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Camlica_Mosque_Istanbul.jpg/640px-Camlica_Mosque_Istanbul.jpg" },
-
             // --- TARİHİ ---
             { title: "Ayasofya", lat: 41.0086, lng: 28.9802, type: "cat-tarih", category: "Tarihi", desc: "Mimari şaheser.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg" },
             { title: "Topkapı Sarayı", lat: 41.0130, lng: 28.9840, type: "cat-tarih", category: "Saray", desc: "Osmanlı sarayı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Topkap%C4%B1_Palace_01.jpg/640px-Topkap%C4%B1_Palace_01.jpg" },
@@ -300,22 +296,24 @@
             else if (loc.type === 'cat-ibb') { selectedIcon = goldIcon; targetLayer = layerIBB; } 
             else if (loc.type === 'cat-iskele') { selectedIcon = greyIcon; targetLayer = layerIskele; } 
             else if (loc.type === 'cat-terminal') { selectedIcon = blackIcon; targetLayer = layerTerminal; } 
-            else { selectedIcon = blueIcon; targetLayer = layerModern; }
-
-            var marker = L.marker([loc.lat, loc.lng], {icon: selectedIcon});
-            var popupContent = `
-                <div>
-                    <img src="${loc.img}" class="popup-img" alt="${loc.title}">
-                    <div class="popup-details">
-                        <span class="category-tag ${badgeClass}">${loc.category}</span>
-                        <h3>${loc.title}</h3>
-                        <p>${loc.desc}</p>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}" target="_blank" class="btn-rota">YOL TARİFİ AL</a>
+            
+            // Eğer kategori bulunursa marker ekle (Modern katmanı silindiği için else bloğu kaldırıldı)
+            if (targetLayer) {
+                var marker = L.marker([loc.lat, loc.lng], {icon: selectedIcon});
+                var popupContent = `
+                    <div>
+                        <img src="${loc.img}" class="popup-img" alt="${loc.title}">
+                        <div class="popup-details">
+                            <span class="category-tag ${badgeClass}">${loc.category}</span>
+                            <h3>${loc.title}</h3>
+                            <p>${loc.desc}</p>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}" target="_blank" class="btn-rota">YOL TARİFİ AL</a>
+                        </div>
                     </div>
-                </div>
-            `;
-            marker.bindPopup(popupContent);
-            targetLayer.addLayer(marker);
+                `;
+                marker.bindPopup(popupContent);
+                targetLayer.addLayer(marker);
+            }
         });
 
         // Tüm katmanları varsayılan olarak aç
@@ -327,7 +325,6 @@
         layerIBB.addTo(map);
         layerIskele.addTo(map);
         layerTerminal.addTo(map);
-        layerModern.addTo(map);
 
         var overlayMaps = {
             "<span style='color:#e74c3c'>■</span> Tarihi Yerler": layerTarih,
@@ -337,8 +334,7 @@
             "<span style='color:#3498db'>■</span> Plajlar": layerPlaj,
             "<span style='color:#f1c40f'>■</span> İBB Sosyal Tesisleri": layerIBB, 
             "<span style='color:#7f8c8d'>■</span> Vapur İskeleleri": layerIskele, 
-            "<span style='color:#2c3e50'>■</span> Terminaller & Havalimanları": layerTerminal,
-            "<span style='color:#3498db'>■</span> Modern Mekanlar": layerModern
+            "<span style='color:#2c3e50'>■</span> Terminaller & Havalimanları": layerTerminal
         };
 
         var isMobile = window.innerWidth < 768;
