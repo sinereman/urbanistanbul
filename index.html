@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Istanbul - Büyük Keşif Haritası</title>
+    <title>Urban Istanbul - İnteraktif Keşif Haritası</title>
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
@@ -11,6 +11,7 @@
     <style>
         body, html { margin: 0; padding: 0; height: 100%; width: 100%; font-family: 'Roboto', sans-serif; }
         
+        /* HEADER */
         .header {
             position: absolute; top: 20px; left: 20px;
             background: rgba(0, 0, 0, 0.9); color: #fff;
@@ -22,10 +23,24 @@
         
         .site-logo { width: auto; max-width: 100%; height: auto; max-height: 100px; display: block; margin-bottom: 10px; }
         .header p { margin: 5px 0 0; font-family: 'Oswald', sans-serif; font-size: 14px; color: #f1c40f; text-transform: uppercase; }
-        .info-note { font-size: 11px; color: #aaa; margin-top: 8px; border-top: 1px solid #333; padding-top: 5px; }
-
+        
+        /* HARİTA */
         #map { height: 100vh; width: 100%; background: #e0e0e0; }
 
+        /* FİLTRE KUTUSU TASARIMI (Leaflet Control Özelleştirme) */
+        .leaflet-control-layers {
+            background: rgba(0, 0, 0, 0.9) !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 8px !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+            padding: 10px !important;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+        }
+        .leaflet-control-layers-separator { border-top: 1px solid #444; }
+
+        /* POPUP TASARIMI */
         .leaflet-popup-content-wrapper { border-radius: 0; padding: 0; overflow: hidden; }
         .leaflet-popup-content { margin: 0; width: 300px !important; }
         .popup-img { width: 100%; height: 160px; object-fit: cover; display: block; }
@@ -37,11 +52,11 @@
         .btn-rota:hover { background: #f1c40f; color: #000; }
 
         /* RENKLER */
-        .cat-tarih { background-color: #c0392b; } /* Kırmızı */
-        .cat-park { background-color: #27ae60; } /* Yeşil */
-        .cat-muze { background-color: #8e44ad; } /* Mor */
-        .cat-modern { background-color: #2980b9; } /* Mavi */
-        .cat-meydan { background-color: #e67e22; } /* Turuncu - YENİ */
+        .cat-tarih { background-color: #e74c3c; } /* Kırmızı */
+        .cat-park { background-color: #2ecc71; } /* Yeşil */
+        .cat-muze { background-color: #9b59b6; } /* Mor */
+        .cat-modern { background-color: #3498db; } /* Mavi */
+        .cat-meydan { background-color: #e67e22; } /* Turuncu */
     </style>
 </head>
 <body>
@@ -49,9 +64,8 @@
     <div class="header">
         <img src="logo.png" alt="Urban Istanbul" class="site-logo">
         <p>İstanbul Keşif Rehberi</p>
-        <div class="info-note">
-            Taksim, Beşiktaş, Kadıköy Boğa gibi<br>
-            ikonik meydanlar haritaya eklendi.
+        <div style="font-size:11px; color:#aaa; margin-top:10px; border-top:1px solid #333; padding-top:5px;">
+            Sağ üstteki menüyü kullanarak<br>kategorileri filtreleyebilirsiniz.
         </div>
     </div>
 
@@ -60,88 +74,123 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        var map = L.map('map', { center: [41.025, 29.000], zoom: 12, zoomControl: false });
+        // 1. HARİTA OLUŞTURMA
+        var map = L.map('map', { center: [41.030, 29.010], zoom: 12, zoomControl: false });
         L.control.zoom({ position: 'bottomright' }).addTo(map);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '© Urban Istanbul', subdomains: 'abcd', maxZoom: 20 }).addTo(map);
+        
+        // Harita Katmanı (Koyu/Gri Tema)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { 
+            attribution: '© Urban Istanbul', subdomains: 'abcd', maxZoom: 20 
+        }).addTo(map);
 
-        var blackIcon = L.icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-            iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+        // 2. RENKLİ İKONLARIN TANIMLANMASI
+        var LeafIcon = L.Icon.extend({
+            options: {
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]
+            }
         });
 
+        var redIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'});
+        var greenIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png'});
+        var blueIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png'});
+        var violetIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png'});
+        var orangeIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png'});
+
+        // 3. KATMAN GRUPLARI (LAYER GROUPS)
+        // Her kategori için ayrı bir katman oluşturuyoruz
+        var layerTarih = L.layerGroup();
+        var layerPark = L.layerGroup();
+        var layerMeydan = L.layerGroup();
+        var layerMuze = L.layerGroup();
+        var layerModern = L.layerGroup();
+
+        // 4. MEKAN LİSTESİ
         var locations = [
-            // --- YENİ EKLENEN MEYDANLAR ---
-            { title: "Taksim Meydanı", lat: 41.0369, lng: 28.9850, type: "cat-meydan", category: "Meydan", desc: "İstanbul'un kalbi, Cumhuriyet Anıtı ve İstiklal Caddesi girişi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Taksim_Square_and_Monument.jpg/640px-Taksim_Square_and_Monument.jpg" },
-            { title: "Kadıköy Boğa Heykeli", lat: 40.9906, lng: 29.0296, type: "cat-meydan", category: "Meydan", desc: "Altıyol'da yer alan, Asya yakasının en meşhur buluşma noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kadikoy_Bull_Statue_2019.jpg/640px-Kadikoy_Bull_Statue_2019.jpg" },
-            { title: "Beşiktaş Meydanı", lat: 41.0423, lng: 29.0065, type: "cat-meydan", category: "Meydan", desc: "Barbaros Bulvarı inişi, Kartal Heykeli ve Çarşı girişi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
-            { title: "Sultanahmet Meydanı", lat: 41.0062, lng: 28.9758, type: "cat-meydan", category: "Meydan", desc: "Tarihi Hipodrom, Dikilitaş ve Yılanlı Sütun'un olduğu alan.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
-            { title: "Eminönü Meydanı", lat: 41.0173, lng: 28.9721, type: "cat-meydan", category: "Meydan", desc: "Yeni Cami önü, balık ekmek tekneleri ve iskeleler.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Ortaköy Meydanı", lat: 41.0475, lng: 29.0269, type: "cat-meydan", category: "Meydan", desc: "Boğaz kıyısında kumpirciler ve tarihi cami manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
-            { title: "Üsküdar Meydanı", lat: 41.0267, lng: 29.0156, type: "cat-meydan", category: "Meydan", desc: "Kız Kulesi karşısında yenilenen sahil meydanı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
-            { title: "Beyazıt Meydanı", lat: 41.0097, lng: 28.9647, type: "cat-meydan", category: "Meydan", desc: "İstanbul Üniversitesi tarihi kapısı ve sahaflar çarşısı girişi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Istanbul_University_Gate_Beyazit.jpg/640px-Istanbul_University_Gate_Beyazit.jpg" },
+            // --- MEYDANLAR (Turuncu) ---
+            { title: "Taksim Meydanı", lat: 41.0369, lng: 28.9850, type: "cat-meydan", category: "Meydan", desc: "İstanbul'un kalbi, Cumhuriyet Anıtı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Taksim_Square_and_Monument.jpg/640px-Taksim_Square_and_Monument.jpg" },
+            { title: "Kadıköy Boğa Heykeli", lat: 40.9906, lng: 29.0296, type: "cat-meydan", category: "Meydan", desc: "Asya yakasının en meşhur buluşma noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kadikoy_Bull_Statue_2019.jpg/640px-Kadikoy_Bull_Statue_2019.jpg" },
+            { title: "Beşiktaş Meydanı", lat: 41.0423, lng: 29.0065, type: "cat-meydan", category: "Meydan", desc: "Kartal Heykeli ve Çarşı girişi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
+            { title: "Sultanahmet Meydanı", lat: 41.0062, lng: 28.9758, type: "cat-meydan", category: "Meydan", desc: "Tarihi Hipodrom ve Dikilitaşlar.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
+            { title: "Eminönü Meydanı", lat: 41.0173, lng: 28.9721, type: "cat-meydan", category: "Meydan", desc: "Yeni Cami önü ve iskeleler.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
+            { title: "Ortaköy Meydanı", lat: 41.0475, lng: 29.0269, type: "cat-meydan", category: "Meydan", desc: "Boğaz kıyısında kumpirciler ve cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
+            { title: "Üsküdar Meydanı", lat: 41.0267, lng: 29.0156, type: "cat-meydan", category: "Meydan", desc: "Kız Kulesi karşısında yenilenen sahil.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
+            { title: "Beyazıt Meydanı", lat: 41.0097, lng: 28.9647, type: "cat-meydan", category: "Meydan", desc: "İstanbul Üniversitesi tarihi kapısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Istanbul_University_Gate_Beyazit.jpg/640px-Istanbul_University_Gate_Beyazit.jpg" },
 
-            // --- PARKLAR (Unsplash & Wiki) ---
-            { title: "Atatürk Arboretumu", lat: 41.1714, lng: 28.9839, type: "cat-park", category: "Doğa Müzesi", desc: "Belgrad Ormanı içinde binlerce çeşit ağaç ve bitki.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ataturk_Arboretum_2020_1.jpg/640px-Ataturk_Arboretum_2020_1.jpg" },
-            { title: "Emirgan Korusu", lat: 41.1075, lng: 29.0536, type: "cat-park", category: "Koru", desc: "Lale Festivali'nin merkezi ve tarihi köşkler.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" },
-            { title: "Yıldız Parkı", lat: 41.0494, lng: 29.0108, type: "cat-park", category: "Koru", desc: "Beşiktaş'ın ortasında tarihi saray bahçesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Yildiz_Palace_Sale_Kosku.jpg/640px-Yildiz_Palace_Sale_Kosku.jpg" },
-            { title: "Nakkaştepe Millet Bahçesi", lat: 41.0361, lng: 29.0403, type: "cat-park", category: "Millet Bahçesi", desc: "Boğaz Köprüsü manzaralı dev park.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bosphorus_Bridge_from_Nakka%C5%9Ftepe.jpg/640px-Bosphorus_Bridge_from_Nakka%C5%9Ftepe.jpg" },
-            { title: "Fethi Paşa Korusu", lat: 41.0328, lng: 29.0289, type: "cat-park", category: "Koru", desc: "Üsküdar'da Boğaz manzaralı nefes alanı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fethi_Pasa_Korusu.jpg/640px-Fethi_Pasa_Korusu.jpg" },
-            { title: "Baltalimanı Japon Bahçesi", lat: 41.0961, lng: 29.0531, type: "cat-park", category: "Tematik Park", desc: "Japon mimarisi ve Sakura ağaçları.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Baltalimani_Japanese_Garden_02.jpg/640px-Baltalimani_Japanese_Garden_02.jpg" },
-            { title: "Nezahat Gökyiğit Botanik Bahçesi", lat: 40.9953, lng: 29.1172, type: "cat-park", category: "Botanik Bahçe", desc: "Ataşehir'de bitki çeşitliliği merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nezahat_Gokyigit_Botanical_Garden.jpg/640px-Nezahat_Gokyigit_Botanical_Garden.jpg" },
-            { title: "Gülhane Parkı", lat: 41.0128, lng: 28.9809, type: "cat-park", category: "Tarihi Park", desc: "Topkapı Sarayı'nın eski has bahçesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/G%C3%BClhane_Park_Istanbul.jpg/640px-G%C3%BClhane_Park_Istanbul.jpg" },
-            { title: "Hidiv Kasrı Korusu", lat: 41.1042, lng: 29.0725, type: "cat-park", category: "Koru", desc: "Çubuklu'da tarihi kule ve koru.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Khedive_Palace_Istanbul.jpg/640px-Khedive_Palace_Istanbul.jpg" },
-            { title: "Belgrad Ormanı", lat: 41.1833, lng: 28.9167, type: "cat-park", category: "Orman", desc: "İstanbul'un su bentleri ve koşu parkuru.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belgrad_Forest_Road.jpg/640px-Belgrad_Forest_Road.jpg" },
-            { title: "Polonezköy Tabiat Parkı", lat: 41.1114, lng: 29.2131, type: "cat-park", category: "Tabiat Parkı", desc: "Yeşillikler içinde doğa yürüyüşü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Polonezk%C3%B6y_Nature_Park_entrance.jpg/640px-Polonezk%C3%B6y_Nature_Park_entrance.jpg" },
-            { title: "Aydos Ormanı", lat: 40.9483, lng: 29.2556, type: "cat-park", category: "Orman", desc: "İstanbul'un zirvesi ve göl manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Aydos_Hill.jpg/640px-Aydos_Hill.jpg" },
-            { title: "Maçka Demokrasi Parkı", lat: 41.0422, lng: 28.9939, type: "cat-park", category: "Park", desc: "Şehir merkezinde vadi parkı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg/640px-Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg" },
-            { title: "Fenerbahçe Parkı", lat: 40.9678, lng: 29.0356, type: "cat-park", category: "Park", desc: "Kadıköy'de denizle iç içe bir burun.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fenerbahce_Park.jpg/640px-Fenerbahce_Park.jpg" },
+            // --- PARKLAR (Yeşil) ---
+            { title: "Atatürk Arboretumu", lat: 41.1714, lng: 28.9839, type: "cat-park", category: "Doğa", desc: "Canlı ağaç müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ataturk_Arboretum_2020_1.jpg/640px-Ataturk_Arboretum_2020_1.jpg" },
+            { title: "Emirgan Korusu", lat: 41.1075, lng: 29.0536, type: "cat-park", category: "Koru", desc: "Lale Festivali merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" },
+            { title: "Yıldız Parkı", lat: 41.0494, lng: 29.0108, type: "cat-park", category: "Koru", desc: "Tarihi saray bahçesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Yildiz_Palace_Sale_Kosku.jpg/640px-Yildiz_Palace_Sale_Kosku.jpg" },
+            { title: "Nakkaştepe Millet Bahçesi", lat: 41.0361, lng: 29.0403, type: "cat-park", category: "Park", desc: "Boğaz Köprüsü manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bosphorus_Bridge_from_Nakka%C5%9Ftepe.jpg/640px-Bosphorus_Bridge_from_Nakka%C5%9Ftepe.jpg" },
+            { title: "Fethi Paşa Korusu", lat: 41.0328, lng: 29.0289, type: "cat-park", category: "Koru", desc: "Üsküdar'da Boğaz manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fethi_Pasa_Korusu.jpg/640px-Fethi_Pasa_Korusu.jpg" },
+            { title: "Baltalimanı Japon Bahçesi", lat: 41.0961, lng: 29.0531, type: "cat-park", category: "Park", desc: "Japon mimarisi ve Sakura.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Baltalimani_Japanese_Garden_02.jpg/640px-Baltalimani_Japanese_Garden_02.jpg" },
+            { title: "Nezahat Gökyiğit Botanik Bahçesi", lat: 40.9953, lng: 29.1172, type: "cat-park", category: "Botanik", desc: "Bitki çeşitliliği merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nezahat_Gokyigit_Botanical_Garden.jpg/640px-Nezahat_Gokyigit_Botanical_Garden.jpg" },
+            { title: "Gülhane Parkı", lat: 41.0128, lng: 28.9809, type: "cat-park", category: "Park", desc: "Topkapı Sarayı bahçesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/G%C3%BClhane_Park_Istanbul.jpg/640px-G%C3%BClhane_Park_Istanbul.jpg" },
+            { title: "Hidiv Kasrı Korusu", lat: 41.1042, lng: 29.0725, type: "cat-park", category: "Koru", desc: "Tarihi kule ve orman.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Khedive_Palace_Istanbul.jpg/640px-Khedive_Palace_Istanbul.jpg" },
+            { title: "Belgrad Ormanı", lat: 41.1833, lng: 28.9167, type: "cat-park", category: "Orman", desc: "Su bentleri ve koşu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belgrad_Forest_Road.jpg/640px-Belgrad_Forest_Road.jpg" },
+            { title: "Polonezköy Tabiat Parkı", lat: 41.1114, lng: 29.2131, type: "cat-park", category: "Doğa", desc: "Yeşillikler içinde yürüyüş.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Polonezk%C3%B6y_Nature_Park_entrance.jpg/640px-Polonezk%C3%B6y_Nature_Park_entrance.jpg" },
+            { title: "Aydos Ormanı", lat: 40.9483, lng: 29.2556, type: "cat-park", category: "Orman", desc: "İstanbul'un zirvesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Aydos_Hill.jpg/640px-Aydos_Hill.jpg" },
+            { title: "Maçka Demokrasi Parkı", lat: 41.0422, lng: 28.9939, type: "cat-park", category: "Park", desc: "Şehir merkezinde vadi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg/640px-Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg" },
+            { title: "Fenerbahçe Parkı", lat: 40.9678, lng: 29.0356, type: "cat-park", category: "Park", desc: "Denizle iç içe bir burun.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fenerbahce_Park.jpg/640px-Fenerbahce_Park.jpg" },
 
-            // --- MODERN & KÜLTÜR ---
-            { title: "Müze Gazhane", lat: 40.9994, lng: 29.0433, type: "cat-modern", category: "Kültür Merkezi", desc: "Tarihi gazhaneden modern kültür merkezine.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Museum_Gazhane.jpg/640px-Museum_Gazhane.jpg" },
-            { title: "Atatürk Kültür Merkezi (AKM)", lat: 41.0369, lng: 28.9881, type: "cat-modern", category: "Sanat Merkezi", desc: "Taksim'in simgesi opera binası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Atat%C3%BCrk_Cultural_Center_Istanbul_2021.jpg/640px-Atat%C3%BCrk_Cultural_Center_Istanbul_2021.jpg" },
-            { title: "Fişekhane", lat: 40.9833, lng: 28.9056, type: "cat-modern", category: "Yaşam Merkezi", desc: "Tarihi fabrikadan sanat ve gastronomiye.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Fi%C5%9Fekhane_Istanbul.jpg/640px-Fi%C5%9Fekhane_Istanbul.jpg" },
-            { title: "İstanbul Modern", lat: 41.0260, lng: 28.9830, type: "cat-modern", category: "Sanat Müzesi", desc: "Galataport'ta modern sanatın adresi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Istanbul_Modern_new_building_2023.jpg/640px-Istanbul_Modern_new_building_2023.jpg" },
-            { title: "Zorlu PSM", lat: 41.0661, lng: 29.0175, type: "cat-modern", category: "Sanat Merkezi", desc: "Dünya standartlarında performans merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Zorlu_Center_PSM.jpg/640px-Zorlu_Center_PSM.jpg" },
+            // --- MODERN & KÜLTÜR (Mavi) ---
+            { title: "Müze Gazhane", lat: 40.9994, lng: 29.0433, type: "cat-modern", category: "Kültür", desc: "Tarihi gazhane, modern kampüs.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Museum_Gazhane.jpg/640px-Museum_Gazhane.jpg" },
+            { title: "Atatürk Kültür Merkezi", lat: 41.0369, lng: 28.9881, type: "cat-modern", category: "Sanat", desc: "Taksim'in simgesi opera.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Atat%C3%BCrk_Cultural_Center_Istanbul_2021.jpg/640px-Atat%C3%BCrk_Cultural_Center_Istanbul_2021.jpg" },
+            { title: "Fişekhane", lat: 40.9833, lng: 28.9056, type: "cat-modern", category: "Yaşam", desc: "Tarihi fabrika, yeni yaşam.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Fi%C5%9Fekhane_Istanbul.jpg/640px-Fi%C5%9Fekhane_Istanbul.jpg" },
+            { title: "İstanbul Modern", lat: 41.0260, lng: 28.9830, type: "cat-modern", category: "Müze", desc: "Modern sanat müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Istanbul_Modern_new_building_2023.jpg/640px-Istanbul_Modern_new_building_2023.jpg" },
+            { title: "Zorlu PSM", lat: 41.0661, lng: 29.0175, type: "cat-modern", category: "Sanat", desc: "Performans merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Zorlu_Center_PSM.jpg/640px-Zorlu_Center_PSM.jpg" },
+            { title: "Çamlıca Camii", lat: 41.0314, lng: 29.0719, type: "cat-modern", category: "Cami", desc: "İstanbul'un en büyük camisi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Camlica_Mosque_Istanbul.jpg/640px-Camlica_Mosque_Istanbul.jpg" },
 
-            // --- TARİHİ ---
-            { title: "Ayasofya-i Kebir Cami", lat: 41.0086, lng: 28.9802, type: "cat-tarih", category: "Tarihi Mabet", desc: "1500 yıllık mimari şaheser.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg" },
-            { title: "Topkapı Sarayı", lat: 41.0130, lng: 28.9840, type: "cat-tarih", category: "Saray", desc: "Osmanlı padişahlarının 400 yıllık evi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Topkap%C4%B1_Palace_01.jpg/640px-Topkap%C4%B1_Palace_01.jpg" },
-            { title: "Yerebatan Sarnıcı", lat: 41.0084, lng: 28.9779, type: "cat-tarih", category: "Sarnıç", desc: "Büyüleyici yeraltı sarnıcı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Basilica_Cistern_Istanbul.jpg/640px-Basilica_Cistern_Istanbul.jpg" },
+            // --- TARİHİ (Kırmızı) ---
+            { title: "Ayasofya-i Kebir Cami", lat: 41.0086, lng: 28.9802, type: "cat-tarih", category: "Tarihi", desc: "1500 yıllık mimari şaheser.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg" },
+            { title: "Topkapı Sarayı", lat: 41.0130, lng: 28.9840, type: "cat-tarih", category: "Saray", desc: "Osmanlı padişahlarının evi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Topkap%C4%B1_Palace_01.jpg/640px-Topkap%C4%B1_Palace_01.jpg" },
+            { title: "Yerebatan Sarnıcı", lat: 41.0084, lng: 28.9779, type: "cat-tarih", category: "Sarnıç", desc: "Medusa başlarıyla ünlü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Basilica_Cistern_Istanbul.jpg/640px-Basilica_Cistern_Istanbul.jpg" },
             { title: "Sultanahmet Camii", lat: 41.0053, lng: 28.9769, type: "cat-tarih", category: "Cami", desc: "Mavi çinili cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Blue_Mosque_Courtyard_View.jpg/640px-Blue_Mosque_Courtyard_View.jpg" },
             { title: "Galata Kulesi", lat: 41.0256, lng: 28.9741, type: "cat-tarih", category: "Kule", desc: "Panoramik İstanbul manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
             { title: "Kız Kulesi", lat: 41.0211, lng: 29.0041, type: "cat-tarih", category: "Simge", desc: "Boğaz'ın ortasındaki efsane.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Maiden%27s_Tower_Istanbul.jpg/640px-Maiden%27s_Tower_Istanbul.jpg" },
-            { title: "Dolmabahçe Sarayı", lat: 41.0394, lng: 29.0017, type: "cat-tarih", category: "Saray", desc: "Boğaz kıyısında ihtişamlı saray.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Dolmabahce_Palace_001.jpg/640px-Dolmabahce_Palace_001.jpg" },
-            { title: "Süleymaniye Camii", lat: 41.0167, lng: 28.9631, type: "cat-tarih", category: "Mimar Sinan", desc: "Mimar Sinan'ın kalfalık eseri, İstanbul'un tacı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg/640px-Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg" },
+            { title: "Dolmabahçe Sarayı", lat: 41.0394, lng: 29.0017, type: "cat-tarih", category: "Saray", desc: "Boğaz kıyısında ihtişam.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Dolmabahce_Palace_001.jpg/640px-Dolmabahce_Palace_001.jpg" },
+            { title: "Süleymaniye Camii", lat: 41.0167, lng: 28.9631, type: "cat-tarih", category: "Sinan", desc: "İstanbul'un silüeti.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg/640px-Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg" },
             { title: "Pierre Loti Tepesi", lat: 41.0537, lng: 28.9333, type: "cat-tarih", category: "Manzara", desc: "Haliç manzaralı çay keyfi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pierre_Loti_Cafe_Istanbul.jpg/640px-Pierre_Loti_Cafe_Istanbul.jpg" },
-            { title: "Ortaköy Camii", lat: 41.0473, lng: 29.0272, type: "cat-tarih", category: "Simge", desc: "Boğaz Köprüsü manzaralı cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Ortak%C3%B6y_Mosque_Istanbul_2020.jpg/640px-Ortak%C3%B6y_Mosque_Istanbul_2020.jpg" },
+            { title: "Ortaköy Camii", lat: 41.0473, lng: 29.0272, type: "cat-tarih", category: "Simge", desc: "Boğaz Köprüsü manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Ortak%C3%B6y_Mosque_Istanbul_2020.jpg/640px-Ortak%C3%B6y_Mosque_Istanbul_2020.jpg" },
             { title: "Rumeli Hisarı", lat: 41.0839, lng: 29.0417, type: "cat-tarih", category: "Kale", desc: "Boğazın en dar noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
-            { title: "Beylerbeyi Sarayı", lat: 41.0428, lng: 29.0394, type: "cat-tarih", category: "Saray", desc: "Anadolu yakası yazlık sarayı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Beylerbeyi_Palace_Istanbul.jpg/640px-Beylerbeyi_Palace_Istanbul.jpg" },
-            { title: "Çamlıca Camii", lat: 41.0314, lng: 29.0719, type: "cat-modern", category: "Cami", desc: "İstanbul'un en büyük camisi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Camlica_Mosque_Istanbul.jpg/640px-Camlica_Mosque_Istanbul.jpg" },
+            { title: "Beylerbeyi Sarayı", lat: 41.0428, lng: 29.0394, type: "cat-tarih", category: "Saray", desc: "Yazlık saray.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Beylerbeyi_Palace_Istanbul.jpg/640px-Beylerbeyi_Palace_Istanbul.jpg" },
             { title: "Kapalıçarşı", lat: 41.0107, lng: 28.9680, type: "cat-tarih", category: "Çarşı", desc: "Tarihi alışveriş merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
             { title: "Mısır Çarşısı", lat: 41.0163, lng: 28.9706, type: "cat-tarih", category: "Çarşı", desc: "Baharat kokulu çarşı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Spice_Bazaar_Istanbul.jpg/640px-Spice_Bazaar_Istanbul.jpg" },
             { title: "Kariye Camii", lat: 41.0312, lng: 28.9392, type: "cat-tarih", category: "Mozaik", desc: "Eşsiz Bizans mozaikleri.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chora_Church_Istanbul_exterior_west_side.jpg/640px-Chora_Church_Istanbul_exterior_west_side.jpg" },
-            { title: "Fener Rum Patrikhanesi", lat: 41.0294, lng: 28.9517, type: "cat-tarih", category: "Dini Merkez", desc: "Tarihi dini merkez.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ecumenical_Patriarchate_of_Constantinople.jpg/640px-Ecumenical_Patriarchate_of_Constantinople.jpg" },
-            { title: "Demir Kilise", lat: 41.0322, lng: 28.9497, type: "cat-tarih", category: "Kilise", desc: "Tamamen demirden kilise.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/St._Stephen_Church_Istanbul_2018.jpg/640px-St._Stephen_Church_Istanbul_2018.jpg" },
+            { title: "Fener Rum Patrikhanesi", lat: 41.0294, lng: 28.9517, type: "cat-tarih", category: "Dini", desc: "Ortodoks dünyası merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ecumenical_Patriarchate_of_Constantinople.jpg/640px-Ecumenical_Patriarchate_of_Constantinople.jpg" },
+            { title: "Demir Kilise", lat: 41.0322, lng: 28.9497, type: "cat-tarih", category: "Kilise", desc: "Demirden yapılmış kilise.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/St._Stephen_Church_Istanbul_2018.jpg/640px-St._Stephen_Church_Istanbul_2018.jpg" },
             { title: "Eyüp Sultan Camii", lat: 41.0476, lng: 28.9344, type: "cat-tarih", category: "Kutsal", desc: "Manevi ziyaret noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ey%C3%BCp_Sultan_Mosque_Courtyard.jpg/640px-Ey%C3%BCp_Sultan_Mosque_Courtyard.jpg" },
-            { title: "Rahmi Koç Müzesi", lat: 41.0416, lng: 28.9486, type: "cat-muze", category: "Müze", desc: "Sanayi ve ulaşım tarihi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rahmi_M_Koc_Museum_Istanbul_submarine.jpg/640px-Rahmi_M_Koc_Museum_Istanbul_submarine.jpg" },
-            { title: "Miniatürk", lat: 41.0594, lng: 28.9442, type: "cat-muze", category: "Müze", desc: "Minyatür Türkiye parkı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Miniaturk_General_View.jpg/640px-Miniaturk_General_View.jpg" },
             { title: "Sent Antuan Kilisesi", lat: 41.0322, lng: 28.9769, type: "cat-tarih", category: "Kilise", desc: "İstiklal'de Gotik kilise.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/St_Anthony_of_Padua_Church_Istanbul_exterior.jpg/640px-St_Anthony_of_Padua_Church_Istanbul_exterior.jpg" },
-            { title: "Pera Müzesi", lat: 41.0316, lng: 28.9754, type: "cat-muze", category: "Müze", desc: "Sanat ve tarih müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Pera_Museum_Istanbul.jpg/640px-Pera_Museum_Istanbul.jpg" },
             { title: "Çiçek Pasajı", lat: 41.0340, lng: 28.9772, type: "cat-tarih", category: "Pasaj", desc: "Tarihi ve mimari pasaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cicek_Pasaji_Istanbul.jpg/640px-Cicek_Pasaji_Istanbul.jpg" },
             { title: "Ihlamur Kasrı", lat: 41.0506, lng: 29.0017, type: "cat-tarih", category: "Kasır", desc: "Beşiktaş'ta tarihi köşk.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Ihlamur_Kasr%C4%B1_Front.jpg/640px-Ihlamur_Kasr%C4%B1_Front.jpg" },
-            { title: "Masumiyet Müzesi", lat: 41.0310, lng: 28.9796, type: "cat-muze", category: "Müze", desc: "Orhan Pamuk'un müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Museum_of_Innocence_Istanbul.jpg/640px-Museum_of_Innocence_Istanbul.jpg" },
             { title: "Küçüksu Kasrı", lat: 41.0792, lng: 29.0628, type: "cat-tarih", category: "Kasır", desc: "Boğaz kıyısında zarif yapı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kucuksu_Pavilion_Istanbul.jpg/640px-Kucuksu_Pavilion_Istanbul.jpg" },
-            { title: "Büyükada Aya Yorgi", lat: 40.8522, lng: 29.1172, type: "cat-tarih", category: "Kilise", desc: "Adaların zirvesinde manzara.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hagia_Yorgi_Church_Buyukada.jpg/640px-Hagia_Yorgi_Church_Buyukada.jpg" },
+            { title: "Büyükada Aya Yorgi", lat: 40.8522, lng: 29.1172, type: "cat-tarih", category: "Kilise", desc: "Adaların zirvesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hagia_Yorgi_Church_Buyukada.jpg/640px-Hagia_Yorgi_Church_Buyukada.jpg" },
             { title: "Çinili Camii", lat: 41.0189, lng: 29.0233, type: "cat-tarih", category: "Cami", desc: "Çini sanatının zirvesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Cinili_Mosque_Uskudar.jpg/640px-Cinili_Mosque_Uskudar.jpg" },
-            { title: "Haydarpaşa Garı", lat: 40.9969, lng: 29.0197, type: "cat-tarih", category: "Tarihi Gar", desc: "Kadıköy'ün simgesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
-            { title: "Şerefiye Sarnıcı", lat: 41.0073, lng: 28.9726, type: "cat-tarih", category: "Sarnıç", desc: "Tarihi su sarnıcı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Theodosius_Cistern_10.jpg/640px-Theodosius_Cistern_10.jpg" }
+            { title: "Haydarpaşa Garı", lat: 40.9969, lng: 29.0197, type: "cat-tarih", category: "Gar", desc: "Kadıköy'ün simgesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
+            { title: "Şerefiye Sarnıcı", lat: 41.0073, lng: 28.9726, type: "cat-tarih", category: "Sarnıç", desc: "Tarihi su sarnıcı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Theodosius_Cistern_10.jpg/640px-Theodosius_Cistern_10.jpg" },
+
+            // --- MÜZELER (Mor) ---
+            { title: "Rahmi Koç Müzesi", lat: 41.0416, lng: 28.9486, type: "cat-muze", category: "Müze", desc: "Sanayi ve ulaşım tarihi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rahmi_M_Koc_Museum_Istanbul_submarine.jpg/640px-Rahmi_M_Koc_Museum_Istanbul_submarine.jpg" },
+            { title: "Miniatürk", lat: 41.0594, lng: 28.9442, type: "cat-muze", category: "Müze", desc: "Minyatür Türkiye parkı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Miniaturk_General_View.jpg/640px-Miniaturk_General_View.jpg" },
+            { title: "Pera Müzesi", lat: 41.0316, lng: 28.9754, type: "cat-muze", category: "Müze", desc: "Sanat ve tarih müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Pera_Museum_Istanbul.jpg/640px-Pera_Museum_Istanbul.jpg" },
+            { title: "Masumiyet Müzesi", lat: 41.0310, lng: 28.9796, type: "cat-muze", category: "Müze", desc: "Orhan Pamuk'un müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Museum_of_Innocence_Istanbul.jpg/640px-Museum_of_Innocence_Istanbul.jpg" }
         ];
 
+        // 5. İŞARETLEYİCİLERİ GRUPLARA DAĞITMA
         locations.forEach(loc => {
-            var marker = L.marker([loc.lat, loc.lng], {icon: blackIcon}).addTo(map);
-            var badgeClass = loc.type || 'cat-modern'; 
+            var selectedIcon;
+            var targetLayer;
+            var badgeClass = loc.type;
 
+            // Kategoriye göre ikon ve katman seçimi
+            if (loc.type === 'cat-tarih') { selectedIcon = redIcon; targetLayer = layerTarih; }
+            else if (loc.type === 'cat-park') { selectedIcon = greenIcon; targetLayer = layerPark; }
+            else if (loc.type === 'cat-meydan') { selectedIcon = orangeIcon; targetLayer = layerMeydan; }
+            else if (loc.type === 'cat-muze') { selectedIcon = violetIcon; targetLayer = layerMuze; }
+            else { selectedIcon = blueIcon; targetLayer = layerModern; }
+
+            var marker = L.marker([loc.lat, loc.lng], {icon: selectedIcon});
+            
             var popupContent = `
                 <div>
                     <img src="${loc.img}" class="popup-img" alt="${loc.title}">
@@ -153,8 +202,28 @@
                     </div>
                 </div>
             `;
+            
             marker.bindPopup(popupContent);
+            targetLayer.addLayer(marker); // İşaretleyiciyi ilgili katmana ekle
         });
+
+        // 6. KATMANLARI HARİTAYA EKLE (Başlangıçta hepsi görünsün)
+        layerTarih.addTo(map);
+        layerPark.addTo(map);
+        layerMeydan.addTo(map);
+        layerMuze.addTo(map);
+        layerModern.addTo(map);
+
+        // 7. FİLTRELEME MENÜSÜNÜ OLUŞTUR
+        var overlayMaps = {
+            "<span style='color:#e74c3c'>■</span> Tarihi Yerler": layerTarih,
+            "<span style='color:#2ecc71'>■</span> Parklar & Korular": layerPark,
+            "<span style='color:#e67e22'>■</span> Meydanlar": layerMeydan,
+            "<span style='color:#9b59b6'>■</span> Müzeler": layerMuze,
+            "<span style='color:#3498db'>■</span> Modern & Kültür": layerModern
+        };
+
+        L.control.layers(null, overlayMaps, { collapsed: false, position: 'topright' }).addTo(map);
 
     </script>
 </body>
