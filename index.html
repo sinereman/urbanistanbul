@@ -9,32 +9,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; font-family: 'Roboto', sans-serif; }
+        /* 1. SAYFA TİTREMESİNİ ENGELLEME */
+        body, html { 
+            margin: 0; padding: 0; 
+            height: 100%; width: 100%; 
+            overflow: hidden; /* Sayfa kaydırmayı kapat */
+            font-family: 'Roboto', sans-serif; 
+            -webkit-touch-callout: none; /* iOS basılı tutma menüsünü kapat */
+            user-select: none; /* Metin seçimini kapat */
+        }
         
-        /* HEADER (Bilgi Kutusu) - Masaüstü İçin */
+        /* 2. HARİTA ALANI (Tam Ekran ve Sabit) */
+        #map { 
+            position: absolute; 
+            top: 0; bottom: 0; left: 0; right: 0; 
+            width: 100%; height: 100%; 
+            z-index: 1; 
+            background: #e0e0e0;
+        }
+
+        /* 3. MASAÜSTÜ HEADER TASARIMI */
         .header {
-            position: absolute; top: 20px; left: 20px;
-            background: rgba(0, 0, 0, 0.9); color: #fff;
+            position: fixed; /* Absolute yerine Fixed yapıldı */
+            top: 20px; left: 20px;
+            background: rgba(0, 0, 0, 0.95); color: #fff;
             padding: 20px 25px; border-left: 5px solid #f1c40f;
-            z-index: 1000; max-width: 300px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-radius: 0 0 10px 0;
+            z-index: 2000; /* Haritanın çok üstünde */
+            max-width: 300px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5); 
+            border-radius: 0 0 10px 0;
             max-height: 85vh; overflow-y: auto; 
         }
         
         .site-logo { width: auto; max-width: 100%; height: auto; max-height: 100px; display: block; margin-bottom: 10px; }
-        .header p { margin: 5px 0 0; font-family: 'Oswald', sans-serif; font-size: 14px; color: #f1c40f; text-transform: uppercase; }
-        
-        /* HARİTA */
-        #map { height: 100vh; width: 100%; background: #e0e0e0; z-index: 1; }
+        .header-text p { margin: 5px 0 0; font-family: 'Oswald', sans-serif; font-size: 14px; color: #f1c40f; text-transform: uppercase; }
+        .info-note { font-size: 11px; color: #aaa; margin-top: 8px; border-top: 1px solid #333; padding-top: 5px; }
 
-        /* FİLTRE KUTUSU TASARIMI */
+        /* 4. FİLTRE KUTUSU (Leaflet Kontrolü) */
+        .leaflet-top.leaflet-right {
+            margin-top: 10px;
+            margin-right: 10px;
+            z-index: 2001; /* Header'dan bile yukarıda */
+        }
+        
         .leaflet-control-layers {
             background: rgba(0, 0, 0, 0.9) !important;
             color: #fff !important;
             border: none !important;
             border-radius: 8px !important;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
-            padding: 10px !important;
+            padding: 8px 12px !important;
             font-family: 'Roboto', sans-serif;
             font-size: 13px;
         }
@@ -42,53 +66,63 @@
 
         /* POPUP TASARIMI */
         .leaflet-popup-content-wrapper { border-radius: 0; padding: 0; overflow: hidden; }
-        .leaflet-popup-content { margin: 0; width: 300px !important; }
-        .popup-img { width: 100%; height: 160px; object-fit: cover; display: block; }
-        .popup-details { padding: 15px; background: #fff; }
-        .popup-details h3 { margin: 0 0 5px; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #222; }
+        .leaflet-popup-content { margin: 0; width: 260px !important; } /* Mobilde taşmasın diye daralttık */
+        .popup-img { width: 100%; height: 140px; object-fit: cover; display: block; }
+        .popup-details { padding: 12px; background: #fff; }
+        .popup-details h3 { margin: 0 0 5px; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #222; font-size: 16px; }
         .category-tag { font-size: 10px; padding: 3px 8px; border-radius: 3px; color: #fff; font-weight: bold; text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
         .btn-rota { display: block; text-align: center; background: #222; color: #fff; text-decoration: none; padding: 10px; font-weight: bold; font-size: 12px; text-transform: uppercase; transition: 0.3s; }
         .btn-rota:hover { background: #f1c40f; color: #000; }
 
-        /* --- MOBİL UYUMLULUK AYARLARI (TELEFONLAR İÇİN) --- */
+        /* 5. MOBİL UYUMLULUK (TELEFONLAR İÇİN KRİTİK AYARLAR) */
         @media (max-width: 768px) {
-            /* Header'ı aşağıya al */
             .header {
-                top: auto; /* Üstteki boşluğu iptal et */
-                bottom: 0; /* En alta yapıştır */
-                left: 0;
-                width: 100%; /* Ekranı kaplasın */
+                top: auto; 
+                bottom: 0; /* En alta çivile */
+                left: 0; right: 0; /* Genişliği tam kapla */
+                width: 100%; 
                 max-width: none;
-                border-radius: 15px 15px 0 0; /* Sadece üst köşeleri yuvarla */
+                border-radius: 15px 15px 0 0;
                 border-left: none;
-                border-top: 5px solid #f1c40f;
-                padding: 15px;
+                border-top: 4px solid #f1c40f;
+                padding: 10px 20px;
                 box-sizing: border-box;
-                display: flex; /* Yan yana dizilim */
+                display: flex; 
+                flex-direction: row;
                 align-items: center;
-                justify-content: space-between;
-                max-height: 120px;
+                justify-content: flex-start; /* Sola yasla */
+                gap: 15px; /* Logo ve yazı arası boşluk */
+                height: 80px; /* Sabit yükseklik ver ki oynamasın */
+                overflow: hidden;
             }
             
-            /* Mobilde logo küçülsün */
             .site-logo {
-                max-height: 40px;
+                height: 50px; /* Logo boyutu sabitlendi */
+                width: auto;
                 margin-bottom: 0;
+                flex-shrink: 0; /* Logo sıkışmasın */
             }
             
-            /* Mobilde yazılar yanına gelsin */
             .header-text {
-                margin-left: 15px;
                 flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
 
-            /* Zoom butonlarını yukarı taşı ki header kapatmasın */
+            .info-note { display: none; } /* Mobilde kalabalık yapmasın */
+            
+            /* Zoom butonlarını yukarı taşı (Header kapatmasın) */
             .leaflet-bottom.leaflet-right {
-                bottom: 130px !important;
+                bottom: 90px !important;
+                right: 10px !important;
             }
             
-            /* Mobilde bilgi notunu gizle (yer kazanmak için) */
-            .info-note { display: none; }
+            /* Filtre menüsü mobilde çok yer kaplamasın */
+            .leaflet-control-layers-expanded {
+                max-width: 200px;
+                font-size: 12px;
+            }
         }
 
         /* RENKLER */
@@ -105,9 +139,6 @@
         <img src="logo.png" alt="Urban Istanbul" class="site-logo">
         <div class="header-text">
             <p>İstanbul Keşif Rehberi</p>
-            <div class="info-note" style="font-size:11px; color:#aaa; margin-top:5px;">
-                Filtrelemek için menüyü kullanın.
-            </div>
         </div>
     </div>
 
@@ -116,10 +147,21 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        var map = L.map('map', { center: [41.030, 29.010], zoom: 12, zoomControl: false });
+        // Harita Ayarları (Mobilde kaymayı önleyen ayarlar eklendi)
+        var map = L.map('map', { 
+            center: [41.030, 29.010], 
+            zoom: 12, 
+            zoomControl: false,
+            tap: true // Mobil dokunmatik hassasiyeti
+        });
+        
         L.control.zoom({ position: 'bottomright' }).addTo(map);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '© Urban Istanbul', subdomains: 'abcd', maxZoom: 20 }).addTo(map);
+        
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { 
+            attribution: '© Urban Istanbul', subdomains: 'abcd', maxZoom: 20 
+        }).addTo(map);
 
+        // İkon Tanımları
         var LeafIcon = L.Icon.extend({ options: { shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }});
         var redIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'});
         var greenIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png'});
@@ -127,22 +169,24 @@
         var violetIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png'});
         var orangeIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png'});
 
+        // Katman Grupları
         var layerTarih = L.layerGroup();
         var layerPark = L.layerGroup();
         var layerMeydan = L.layerGroup();
         var layerMuze = L.layerGroup();
         var layerModern = L.layerGroup();
 
+        // --- VERİ LİSTESİ (Güncel ve Tam) ---
         var locations = [
             // MEYDANLAR
-            { title: "Taksim Meydanı", lat: 41.0369, lng: 28.9850, type: "cat-meydan", category: "Meydan", desc: "İstanbul'un kalbi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Taksim_Square_and_Monument.jpg/640px-Taksim_Square_and_Monument.jpg" },
-            { title: "Kadıköy Boğa Heykeli", lat: 40.9906, lng: 29.0296, type: "cat-meydan", category: "Meydan", desc: "Asya yakasının buluşma noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kadikoy_Bull_Statue_2019.jpg/640px-Kadikoy_Bull_Statue_2019.jpg" },
-            { title: "Beşiktaş Meydanı", lat: 41.0423, lng: 29.0065, type: "cat-meydan", category: "Meydan", desc: "Çarşı girişi ve Kartal heykeli.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
-            { title: "Sultanahmet Meydanı", lat: 41.0062, lng: 28.9758, type: "cat-meydan", category: "Meydan", desc: "Tarihi Hipodrom.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
-            { title: "Eminönü Meydanı", lat: 41.0173, lng: 28.9721, type: "cat-meydan", category: "Meydan", desc: "Yeni Cami önü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Ortaköy Meydanı", lat: 41.0475, lng: 29.0269, type: "cat-meydan", category: "Meydan", desc: "Boğaz kıyısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
-            { title: "Üsküdar Meydanı", lat: 41.0267, lng: 29.0156, type: "cat-meydan", category: "Meydan", desc: "Kız Kulesi karşısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
-            { title: "Beyazıt Meydanı", lat: 41.0097, lng: 28.9647, type: "cat-meydan", category: "Meydan", desc: "İstanbul Üniversitesi önü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Istanbul_University_Gate_Beyazit.jpg/640px-Istanbul_University_Gate_Beyazit.jpg" },
+            { title: "Taksim Meydanı", lat: 41.0369, lng: 28.9850, type: "cat-meydan", category: "Meydan", desc: "İstanbul'un kalbi, Cumhuriyet Anıtı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Taksim_Square_and_Monument.jpg/640px-Taksim_Square_and_Monument.jpg" },
+            { title: "Kadıköy Boğa Heykeli", lat: 40.9906, lng: 29.0296, type: "cat-meydan", category: "Meydan", desc: "Asya yakasının en meşhur buluşma noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kadikoy_Bull_Statue_2019.jpg/640px-Kadikoy_Bull_Statue_2019.jpg" },
+            { title: "Beşiktaş Meydanı", lat: 41.0423, lng: 29.0065, type: "cat-meydan", category: "Meydan", desc: "Kartal Heykeli ve Çarşı girişi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
+            { title: "Sultanahmet Meydanı", lat: 41.0062, lng: 28.9758, type: "cat-meydan", category: "Meydan", desc: "Tarihi Hipodrom ve Dikilitaşlar.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
+            { title: "Eminönü Meydanı", lat: 41.0173, lng: 28.9721, type: "cat-meydan", category: "Meydan", desc: "Yeni Cami önü ve iskeleler.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
+            { title: "Ortaköy Meydanı", lat: 41.0475, lng: 29.0269, type: "cat-meydan", category: "Meydan", desc: "Boğaz kıyısında kumpirciler ve cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
+            { title: "Üsküdar Meydanı", lat: 41.0267, lng: 29.0156, type: "cat-meydan", category: "Meydan", desc: "Kız Kulesi karşısında yenilenen sahil.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
+            { title: "Beyazıt Meydanı", lat: 41.0097, lng: 28.9647, type: "cat-meydan", category: "Meydan", desc: "İstanbul Üniversitesi tarihi kapısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Istanbul_University_Gate_Beyazit.jpg/640px-Istanbul_University_Gate_Beyazit.jpg" },
 
             // PARKLAR
             { title: "Atatürk Arboretumu", lat: 41.1714, lng: 28.9839, type: "cat-park", category: "Doğa", desc: "Canlı ağaç müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ataturk_Arboretum_2020_1.jpg/640px-Ataturk_Arboretum_2020_1.jpg" },
@@ -179,7 +223,7 @@
             { title: "Süleymaniye Camii", lat: 41.0167, lng: 28.9631, type: "cat-tarih", category: "Sinan", desc: "İstanbul'un silüeti.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg/640px-Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg" },
             { title: "Pierre Loti Tepesi", lat: 41.0537, lng: 28.9333, type: "cat-tarih", category: "Manzara", desc: "Haliç manzaralı çay keyfi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pierre_Loti_Cafe_Istanbul.jpg/640px-Pierre_Loti_Cafe_Istanbul.jpg" },
             { title: "Ortaköy Camii", lat: 41.0473, lng: 29.0272, type: "cat-tarih", category: "Simge", desc: "Boğaz Köprüsü manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Ortak%C3%B6y_Mosque_Istanbul_2020.jpg/640px-Ortak%C3%B6y_Mosque_Istanbul_2020.jpg" },
-            { title: "Rumeli Hisarı", lat: 41.0839, lng: 29.0417, type: "cat-tarih", category: "Kale", desc: "Boğazın en dar noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
+            { title: "Rumeli Hisarı", lat: 41.0839, lng: 29.0417, type: "cat-tarih", category: "Kale", desc: "Boğazın en dar noktasında Fatih Sultan Mehmet yapısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
             { title: "Beylerbeyi Sarayı", lat: 41.0428, lng: 29.0394, type: "cat-tarih", category: "Saray", desc: "Yazlık saray.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Beylerbeyi_Palace_Istanbul.jpg/640px-Beylerbeyi_Palace_Istanbul.jpg" },
             { title: "Kapalıçarşı", lat: 41.0107, lng: 28.9680, type: "cat-tarih", category: "Çarşı", desc: "Tarihi alışveriş merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
             { title: "Mısır Çarşısı", lat: 41.0163, lng: 28.9706, type: "cat-tarih", category: "Çarşı", desc: "Baharat kokulu çarşı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Spice_Bazaar_Istanbul.jpg/640px-Spice_Bazaar_Istanbul.jpg" },
@@ -203,6 +247,7 @@
             { title: "Masumiyet Müzesi", lat: 41.0310, lng: 28.9796, type: "cat-muze", category: "Müze", desc: "Orhan Pamuk'un müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Museum_of_Innocence_Istanbul.jpg/640px-Museum_of_Innocence_Istanbul.jpg" }
         ];
 
+        // İŞARETLEYİCİLERİ GRUPLARA DAĞIT
         locations.forEach(loc => {
             var selectedIcon;
             var targetLayer;
@@ -244,6 +289,7 @@
             "<span style='color:#3498db'>■</span> Modern & Kültür": layerModern
         };
 
+        // FİLTRE KONTROLÜ (Mobilde otomatik kapalı başlar)
         var isMobile = window.innerWidth < 768;
         L.control.layers(null, overlayMaps, { collapsed: isMobile, position: 'topright' }).addTo(map);
 
