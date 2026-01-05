@@ -206,4 +206,33 @@
             { title: "Yoros Kalesi", lat: 41.1783, lng: 29.0950, type: "cat-tarih", category: "Kale", desc: "Anadolu Kavağı'nda boğazın bittiği yer.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" }, // Placeholder
             { title: "Garipçe Köyü & Kalesi", lat: 41.2125, lng: 29.1092, type: "cat-tarih", category: "Köy", desc: "Boğazın Karadeniz çıkışında şirin balıkçı köyü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" }, // Placeholder
             { title: "Sakıp Sabancı Müzesi", lat: 41.1072, lng: 29.0561, type: "cat-muze", category: "Müze", desc: "Emirgan'da Atlı Köşk olarak bilinen sanat müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" }, // Placeholder
-            { title: "Sadberk Hanım Müzesi", lat: 41.1594, lng: 29.
+            { title: "Sadberk Hanım Müzesi", lat: 41.1594, lng: 29.0436, type: "cat-muze", category: "Müze", desc: "Sarıyer'de Türkiye'nin ilk özel müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" }, // Placeholder
+            { title: "Borusan Contemporary", lat: 41.0878, lng: 29.0483, type: "cat-muze", category: "Müze", desc: "Perili Köşk'te modern sanat.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" }, // Placeholder
+            { title: "Dragos Tepesi", lat: 40.9167, lng: 29.1500, type: "cat-park", category: "Manzara", desc: "Prens Adaları'nı en güzel gören noktalardan biri.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" } // Placeholder
+        ];
+
+        // 5. İşaretleyicileri Döngüyle Ekle
+        locations.forEach(loc => {
+            var marker = L.marker([loc.lat, loc.lng], {icon: blackIcon}).addTo(map);
+            
+            // Etiket rengini belirle (Varsayılan olarak mavi yap)
+            var badgeClass = loc.type || 'cat-modern'; 
+
+            var popupContent = `
+                <div>
+                    <img src="${loc.img}" class="popup-img" alt="${loc.title}">
+                    <div class="popup-details">
+                        <span class="category-tag ${badgeClass}">${loc.category}</span>
+                        <h3>${loc.title}</h3>
+                        <p>${loc.desc}</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}" target="_blank" class="btn-rota">YOL TARİFİ AL</a>
+                    </div>
+                </div>
+            `;
+            
+            marker.bindPopup(popupContent);
+        });
+
+    </script>
+</body>
+</html>
