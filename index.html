@@ -113,7 +113,7 @@
     <script>
         var map = L.map('map', { 
             center: [41.035, 29.000], 
-            zoom: 12, 
+            zoom: 11, // Zoom'u biraz açtık ki Beykoz/Pendik görünsün
             zoomControl: false,
             tap: true 
         });
@@ -144,8 +144,30 @@
         var layerIBB = L.layerGroup();
         var layerIskele = L.layerGroup();
 
-        // TAM LİSTE (TÜM VERİLER BURADA)
+        // TAM LİSTE (GÜNCELLENMİŞ)
         var locations = [
+            // --- YENİ EKLENEN İSKELELER ---
+            { title: "Yenikapı İDO İskelesi", lat: 41.0020, lng: 28.9564, type: "cat-iskele", category: "İDO & Ulaşım", desc: "Bursa, Yalova ve Bandırma feribotlarının ana merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Bostancı İskelesi", lat: 40.9524, lng: 29.0922, type: "cat-iskele", category: "İDO & Şehir Hatları", desc: "Adalar vapurunun ana durağı ve Bağdat Caddesi bağlantısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Pendik İDO İskelesi", lat: 40.8752, lng: 29.2361, type: "cat-iskele", category: "İDO & YHT", desc: "Yalova hızlı feribotu ve Yüksek Hızlı Tren bağlantı noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Beykoz İskelesi", lat: 41.1347, lng: 29.0903, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi Beykoz dalyanları ve korularına açılan kapı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Sarıyer İskelesi", lat: 41.1664, lng: 29.0556, type: "cat-iskele", category: "Boğaz Hattı", desc: "Börekçileriyle ünlü Sarıyer'in tarihi iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Kanlıca İskelesi", lat: 41.0987, lng: 29.0711, type: "cat-iskele", category: "Boğaz Hattı", desc: "Yoğurduyla meşhur tarihi boğaz iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Anadolu Kavağı İskelesi", lat: 41.1744, lng: 29.0894, type: "cat-iskele", category: "Turistik Rota", desc: "Boğaz turunun son durağı, Yoros Kalesi'nin eteği.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Rumeli Kavağı İskelesi", lat: 41.1817, lng: 29.0750, type: "cat-iskele", category: "Boğaz Hattı", desc: "Balıkçı restoranlarıyla ünlü boğazın en kuzey ucu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Çengelköy İskelesi", lat: 41.0488, lng: 29.0550, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi Çınaraltı ve yalılar bölgesinin iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "İstinye İskelesi", lat: 41.1131, lng: 29.0556, type: "cat-iskele", category: "Boğaz Hattı", desc: "İstinye koyunun sakin iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Kabataş İskelesi", lat: 41.0340, lng: 28.9920, type: "cat-iskele", category: "Ana Hub", desc: "Adalar, Bursa ve Tramvay bağlantısının merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+            { title: "Kuzguncuk İskelesi", lat: 41.0370, lng: 29.0300, type: "cat-iskele", category: "Boğaz Hattı", desc: "Renkli evleri ve tarihi dokusuyla ünlü semtin iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" }, // Temsili
+
+            // --- MEVCUT İSKELELER ---
+            { title: "Eminönü İskelesi", lat: 41.0150, lng: 28.9730, type: "cat-iskele", category: "Ulaşım", desc: "Boğaz ve Kadıköy vapurlarının ana merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
+            { title: "Kadıköy İskelesi", lat: 40.9910, lng: 29.0220, type: "cat-iskele", category: "Ulaşım", desc: "Asya yakasının dünyaya açılan kapısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
+            { title: "Beşiktaş İskelesi", lat: 41.0415, lng: 29.0060, type: "cat-iskele", category: "Ulaşım", desc: "Üsküdar ve Kadıköy motorlarının kalbi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
+            { title: "Üsküdar İskelesi", lat: 41.0275, lng: 29.0150, type: "cat-iskele", category: "Ulaşım", desc: "Marmaray ve vapurların kesişim noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
+            { title: "Karaköy İskelesi", lat: 41.0220, lng: 28.9750, type: "cat-iskele", category: "Ulaşım", desc: "Galata Kulesi'ne giden en kısa deniz yolu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
+            { title: "Ortaköy İskelesi", lat: 41.0470, lng: 29.0275, type: "cat-iskele", category: "Turistik", desc: "Boğaz turlarının popüler kalkış noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
+
             // --- İBB SOSYAL TESİSLERİ ---
             { title: "İBB Arnavutköy Sosyal Tesisi", lat: 41.0672, lng: 29.0432, type: "cat-ibb", category: "Ucuz Yemek & Manzara", desc: "Boğaz'ın içinde, ahşap mimarili uygun fiyatlı restoran.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" },
             { title: "İBB Çamlıca Sosyal Tesisi", lat: 41.0267, lng: 29.0664, type: "cat-ibb", category: "Ucuz Yemek & Manzara", desc: "Tepeden panoramik İstanbul manzarası eşliğinde yemek.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Camlica_Hill_View.jpg/640px-Camlica_Hill_View.jpg" },
@@ -153,14 +175,6 @@
             { title: "İBB Fethipaşa Sosyal Tesisi", lat: 41.0335, lng: 29.0280, type: "cat-ibb", category: "Koru & Yemek", desc: "Üsküdar korusunun içinde, Sarayburnu manzaralı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fethi_Pasa_Korusu.jpg/640px-Fethi_Pasa_Korusu.jpg" },
             { title: "İBB Cihangir Sosyal Tesisi", lat: 41.0311, lng: 28.9833, type: "cat-ibb", category: "Manzara & Çay", desc: "Sanatçılar Parkı içinde, Boğaz'a nazır.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
             { title: "İBB İstinye Sosyal Tesisi", lat: 41.1132, lng: 29.0553, type: "cat-ibb", category: "Sahil & Yemek", desc: "İstinye koyunda denize sıfır keyif.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
-
-            // --- VAPUR İSKELELERİ ---
-            { title: "Eminönü Vapur İskelesi", lat: 41.0150, lng: 28.9730, type: "cat-iskele", category: "Ulaşım", desc: "Boğaz ve Kadıköy vapurlarının ana merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Kadıköy Vapur İskelesi", lat: 40.9910, lng: 29.0220, type: "cat-iskele", category: "Ulaşım", desc: "Asya yakasının dünyaya açılan kapısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
-            { title: "Beşiktaş Vapur İskelesi", lat: 41.0415, lng: 29.0060, type: "cat-iskele", category: "Ulaşım", desc: "Üsküdar ve Kadıköy motorlarının kalbi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
-            { title: "Üsküdar Vapur İskelesi", lat: 41.0275, lng: 29.0150, type: "cat-iskele", category: "Ulaşım", desc: "Marmaray ve vapurların kesişim noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
-            { title: "Karaköy Vapur İskelesi", lat: 41.0220, lng: 28.9750, type: "cat-iskele", category: "Ulaşım", desc: "Galata Kulesi'ne giden en kısa deniz yolu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
-            { title: "Ortaköy İskelesi", lat: 41.0470, lng: 29.0275, type: "cat-iskele", category: "Turistik", desc: "Boğaz turlarının popüler kalkış noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
 
             // --- MEYDANLAR ---
             { title: "Taksim Meydanı", lat: 41.0369, lng: 28.9850, type: "cat-meydan", category: "Meydan", desc: "İstanbul'un kalbi, Cumhuriyet Anıtı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Taksim_Square_and_Monument.jpg/640px-Taksim_Square_and_Monument.jpg" },
