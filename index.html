@@ -45,16 +45,15 @@
         .header-text p { margin: 5px 0 0; font-family: 'Oswald', sans-serif; font-size: 14px; color: #f1c40f; text-transform: uppercase; }
         .info-note { font-size: 11px; color: #aaa; margin-top: 8px; border-top: 1px solid #333; padding-top: 5px; }
 
-        /* --- FİLTRE MENÜSÜ DÜZELTMESİ (KRİTİK) --- */
+        /* --- FİLTRE MENÜSÜ --- */
         .leaflet-top.leaflet-right { 
             margin-top: 10px; 
             margin-right: 10px; 
-            z-index: 3000; /* Header'dan yukarıda */
+            z-index: 3000; 
         }
         
-        /* Butonun kendisi (Kapalı Hali) */
         .leaflet-control-layers-toggle {
-            background-color: #f1c40f !important; /* SARI ARKA PLAN - ARTIK GÖRÜNECEK */
+            background-color: #f1c40f !important; 
             border-radius: 5px;
             width: 44px !important;
             height: 44px !important;
@@ -62,7 +61,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
-        /* Menünün Açık Hali */
         .leaflet-control-layers-expanded {
             background: rgba(0, 0, 0, 0.95) !important;
             color: #fff !important;
@@ -101,11 +99,8 @@
             .header-text { flex-grow: 1; }
             .info-note { display: none; } 
             
-            /* Zoom ve Filtre butonlarını yukarı al (Header kapatmasın) */
             .leaflet-bottom.leaflet-right { bottom: 90px !important; right: 10px !important; }
             .leaflet-top.leaflet-right { top: 10px !important; right: 10px !important; }
-            
-            /* Filtre menüsü mobilde */
             .leaflet-control-layers-expanded { max-width: 220px; font-size: 12px; }
         }
 
@@ -118,6 +113,7 @@
         .cat-ibb { background-color: #f1c40f; color: #000; } 
         .cat-iskele { background-color: #7f8c8d; } 
         .cat-terminal { background-color: #2c3e50; } 
+        .cat-lezzet { background-color: #d84315; } /* YENİ RENK: Kiremit */
     </style>
 </head>
 <body>
@@ -158,6 +154,7 @@
         var goldIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png'});
         var greyIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png'});
         var blackIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png'});
+        var yellowIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png'}); // YENİ İKON
 
         // KATMAN GRUPLARI
         var layerTarih = L.layerGroup();
@@ -168,8 +165,18 @@
         var layerIBB = L.layerGroup();
         var layerIskele = L.layerGroup();
         var layerTerminal = L.layerGroup();
+        var layerLezzet = L.layerGroup(); // YENİ KATMAN
 
         var locations = [
+            // --- TARİHİ LEZZETLER (YENİ) ---
+            { title: "Vefa Bozacısı", lat: 41.0157, lng: 28.9594, type: "cat-lezzet", category: "Tarihi Lezzet", desc: "1876'dan beri değişmeyen gelenek.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Vefa_Bozacisi.jpg/640px-Vefa_Bozacisi.jpg" },
+            { title: "Tarihi Sultanahmet Köftecisi", lat: 41.0076, lng: 28.9765, type: "cat-lezzet", category: "Tarihi Lezzet", desc: "1920'den beri Selim Usta.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
+            { title: "Hafız Mustafa 1864", lat: 41.0143, lng: 28.9734, type: "cat-lezzet", category: "Tatlı", desc: "İstanbul'un en eski şekerlemecisi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
+            { title: "Karaköy Güllüoğlu", lat: 41.0232, lng: 28.9772, type: "cat-lezzet", category: "Baklava", desc: "Dünyaca ünlü baklavacı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
+            { title: "Ali Muhiddin Hacı Bekir", lat: 41.0150, lng: 28.9720, type: "cat-lezzet", category: "Lokum", desc: "Lokumun mucidi (1777).", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
+            { title: "Baylan Pastanesi", lat: 40.9880, lng: 29.0250, type: "cat-lezzet", category: "Pastane", desc: "Kup Griye ile meşhur tarihi pastane.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
+            { title: "Çaycı Hacıbaba", lat: 41.0084, lng: 28.9700, type: "cat-lezzet", category: "Çay", desc: "Tarihi Kapalıçarşı çaycısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
+
             // --- PLAJLAR ---
             { title: "Kilyos Plajı", lat: 41.2427, lng: 29.0347, type: "cat-plaj", category: "Plaj", desc: "Karadeniz kıyısında popüler plaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kilyos_beach.jpg/640px-Kilyos_beach.jpg" },
             { title: "Florya Güneş Plajı", lat: 40.9700, lng: 28.7900, type: "cat-plaj", category: "Plaj", desc: "Tarihi ve temiz plaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Florya_Atat%C3%BCrk_Marine_Mansion.jpg/640px-Florya_Atat%C3%BCrk_Marine_Mansion.jpg" },
@@ -296,8 +303,8 @@
             else if (loc.type === 'cat-ibb') { selectedIcon = goldIcon; targetLayer = layerIBB; } 
             else if (loc.type === 'cat-iskele') { selectedIcon = greyIcon; targetLayer = layerIskele; } 
             else if (loc.type === 'cat-terminal') { selectedIcon = blackIcon; targetLayer = layerTerminal; } 
+            else if (loc.type === 'cat-lezzet') { selectedIcon = yellowIcon; targetLayer = layerLezzet; } // YENİ KONTROL
             
-            // Eğer kategori bulunursa marker ekle (Modern katmanı silindiği için else bloğu kaldırıldı)
             if (targetLayer) {
                 var marker = L.marker([loc.lat, loc.lng], {icon: selectedIcon});
                 var popupContent = `
@@ -325,6 +332,7 @@
         layerIBB.addTo(map);
         layerIskele.addTo(map);
         layerTerminal.addTo(map);
+        layerLezzet.addTo(map); // YENİ EKLEME
 
         var overlayMaps = {
             "<span style='color:#e74c3c'>■</span> Tarihi Yerler": layerTarih,
@@ -334,7 +342,8 @@
             "<span style='color:#3498db'>■</span> Plajlar": layerPlaj,
             "<span style='color:#f1c40f'>■</span> İBB Sosyal Tesisleri": layerIBB, 
             "<span style='color:#7f8c8d'>■</span> Vapur İskeleleri": layerIskele, 
-            "<span style='color:#2c3e50'>■</span> Terminaller & Havalimanları": layerTerminal
+            "<span style='color:#2c3e50'>■</span> Terminaller & Havalimanları": layerTerminal,
+            "<span style='color:#d84315'>■</span> Tarihi Lezzetler": layerLezzet // YENİ MENÜ ÖĞESİ
         };
 
         var isMobile = window.innerWidth < 768;
