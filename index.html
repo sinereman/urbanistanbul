@@ -45,29 +45,30 @@
         .header-text p { margin: 5px 0 0; font-family: 'Oswald', sans-serif; font-size: 14px; color: #f1c40f; text-transform: uppercase; }
         .info-note { font-size: 11px; color: #aaa; margin-top: 8px; border-top: 1px solid #333; padding-top: 5px; }
 
-        /* FİLTRE MENÜSÜ DÜZELTMESİ (GÖRÜNÜRLÜK AYARI) */
+        /* --- FİLTRE MENÜSÜ DÜZELTMESİ (KRİTİK) --- */
         .leaflet-top.leaflet-right { 
             margin-top: 10px; 
             margin-right: 10px; 
-            z-index: 3000; /* En üste çıkar */
+            z-index: 3000; /* Header'dan yukarıda */
         }
         
-        .leaflet-control-layers {
-            background: rgba(0, 0, 0, 0.9) !important;
-            color: #fff !important;
-            border: 2px solid #f1c40f !important; /* Görünür çerçeve */
-            border-radius: 8px !important;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
-        }
-
-        /* İKON RENGİNİ BEYAZ YAP (Kritik Düzeltme) */
+        /* Butonun kendisi (Kapalı Hali) */
         .leaflet-control-layers-toggle {
-            filter: invert(100%) !important; /* Siyah ikonu beyaza çevirir */
-            background-size: 20px 20px !important;
+            background-color: #f1c40f !important; /* SARI ARKA PLAN - ARTIK GÖRÜNECEK */
+            border-radius: 5px;
+            width: 44px !important;
+            height: 44px !important;
+            background-size: 26px 26px !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
+        /* Menünün Açık Hali */
         .leaflet-control-layers-expanded {
-            padding: 10px 15px !important;
+            background: rgba(0, 0, 0, 0.95) !important;
+            color: #fff !important;
+            border: 2px solid #f1c40f !important;
+            border-radius: 8px !important;
+            padding: 15px !important;
             font-family: 'Roboto', sans-serif;
             font-size: 13px;
             line-height: 1.8;
@@ -100,11 +101,12 @@
             .header-text { flex-grow: 1; }
             .info-note { display: none; } 
             
-            /* Zoom butonlarını yukarı al */
+            /* Zoom ve Filtre butonlarını yukarı al (Header kapatmasın) */
             .leaflet-bottom.leaflet-right { bottom: 90px !important; right: 10px !important; }
+            .leaflet-top.leaflet-right { top: 10px !important; right: 10px !important; }
             
             /* Filtre menüsü mobilde */
-            .leaflet-control-layers-expanded { max-width: 200px; font-size: 11px; }
+            .leaflet-control-layers-expanded { max-width: 220px; font-size: 12px; }
         }
 
         /* RENK KODLARI */
@@ -166,6 +168,7 @@
         var layerIBB = L.layerGroup();
         var layerIskele = L.layerGroup();
         var layerTerminal = L.layerGroup();
+        var layerModern = L.layerGroup();
 
         var locations = [
             // --- PLAJLAR ---
@@ -213,7 +216,7 @@
             { title: "Anadolu Kavağı", lat: 41.1744, lng: 29.0894, type: "cat-iskele", category: "Turistik", desc: "Boğaz turunun son durağı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
             { title: "Rumeli Kavağı", lat: 41.1817, lng: 29.0750, type: "cat-iskele", category: "Boğaz Hattı", desc: "Boğazın kuzey ucu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
             { title: "Çengelköy İskelesi", lat: 41.0488, lng: 29.0550, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi Çınaraltı iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "İstinye İskelesi", lat: 41.1131, lng: 29.0556, type: "cat-iskele", category: "Boğaz Hattı", desc: "İstinye koyu iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
+            { title: "İstinye İskelesi", lat: 41.1131, lng: 29.0556, type: "cat-iskele", category: "Boğaz Hattı", desc: "İstinye koyunun sakin iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
             { title: "Kabataş İskelesi", lat: 41.0340, lng: 28.9920, type: "cat-iskele", category: "Ana Hub", desc: "Adalar ve Bursa bağlantısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
             { title: "Kuzguncuk İskelesi", lat: 41.0370, lng: 29.0300, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi semt iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
 
