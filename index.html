@@ -28,13 +28,15 @@
             border-radius: 0 0 10px 0;
         }
         
-        /* LOGO AYARLARI */
+        /* LOGO AYARLARI (Kutuya Sığdırma) */
         .site-logo {
-            width: 150px; /* Görünecek Genişlik (Telefonda/PC'de ideal boyut) */
-            height: auto; /* Yükseklik orantılı kalsın */
+            width: auto;      /* Genişlik serbest */
+            max-width: 100%;  /* Ama kutudan taşmasın */
+            height: auto;     
+            max-height: 100px; /* Yükseklik çok artmasın */
             display: block;
             margin-bottom: 10px;
-            border-radius: 4px; /* Logonu hafif yumuşatır */
+            border-radius: 4px; 
         }
 
         .header p { 
@@ -113,8 +115,8 @@
 <body>
 
     <div class="header">
-        <img src="logo.png" alt="Urban Istanbul" class="site-logo" width="500" height="500">
-        <p>Keşif Rehberi</p>
+        <img src="logo.png" alt="Urban Istanbul" class="site-logo">
+        <p>İstanbul'un İkonik Rotaları</p>
     </div>
 
     <div id="map"></div>
@@ -122,14 +124,13 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-        // 1. Haritayı Başlat
+        // 1. Haritayı Başlat (Tarihi Yarımada Merkezli)
         var map = L.map('map', {
             center: [41.012, 28.976], 
             zoom: 14,
             zoomControl: false 
         });
 
-        // Zoom butonunu sağ alta al
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
         // 2. Harita Teması
@@ -149,30 +150,102 @@
             shadowSize: [41, 41]
         });
 
-        // 4. Veriler
+        // 4. Yeni ve Genişletilmiş Mekan Listesi
         var locations = [
+            {
+                title: "Ayasofya-i Kebir Cami",
+                lat: 41.0086,
+                lng: 28.9802,
+                category: "Tarihi Mabet",
+                desc: "1500 yıllık tarihiyle dünya mimarisinin başyapıtı. Hem kilise hem cami tarihini barındırır.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg"
+            },
+            {
+                title: "Topkapı Sarayı",
+                lat: 41.0130,
+                lng: 28.9840,
+                category: "Saray & Müze",
+                desc: "Osmanlı padişahlarının 400 yıl boyunca yaşadığı, kutsal emanetlerin bulunduğu muazzam saray.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Topkap%C4%B1_Palace_01.jpg/640px-Topkap%C4%B1_Palace_01.jpg"
+            },
+            {
+                title: "Yerebatan Sarnıcı",
+                lat: 41.0084,
+                lng: 28.9779,
+                category: "Gizemli Sarnıç",
+                desc: "Suların içinden yükselen 336 sütun ve Medusa başlarıyla büyüleyici bir yeraltı dünyası.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Basilica_Cistern_Istanbul.jpg/640px-Basilica_Cistern_Istanbul.jpg"
+            },
+            {
+                title: "Sultanahmet Camii",
+                lat: 41.0053,
+                lng: 28.9769,
+                category: "Tarihi Cami",
+                desc: "Mavi çinileriyle ünlü, İstanbul'un altı minareli silüetinin en önemli parçası.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Blue_Mosque_Courtyard_View.jpg/640px-Blue_Mosque_Courtyard_View.jpg"
+            },
+            {
+                title: "Galata Kulesi",
+                lat: 41.0256,
+                lng: 28.9741,
+                category: "Kule & Manzara",
+                desc: "Cenevizlilerden kalan, İstanbul'u 360 derece izleyebileceğiniz en ikonik kule.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg"
+            },
+            {
+                title: "Dolmabahçe Sarayı",
+                lat: 41.0394,
+                lng: 29.0017,
+                category: "Saray",
+                desc: "Boğaz kıyısında, Osmanlı'nın son dönem ihtişamını yansıtan Barok ve Rokoko tarzı saray.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Dolmabahce_Palace_001.jpg/640px-Dolmabahce_Palace_001.jpg"
+            },
+            {
+                title: "Süleymaniye Camii",
+                lat: 41.0167,
+                lng: 28.9631,
+                category: "Mimar Sinan Eseri",
+                desc: "Mimar Sinan'ın 'kalfalık eserim' dediği, Haliç'e nazır muhteşem külliye.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg/640px-Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg"
+            },
+            {
+                title: "Aya İrini Müzesi",
+                lat: 41.0097,
+                lng: 28.9811,
+                category: "Tarihi Kilise",
+                desc: "Topkapı Sarayı avlusunda, camiye çevrilmemiş ender Bizans kiliselerinden biri.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hagia_Irene%2C_Istanbul_%2852112279404%29_%28cropped%29.jpg/640px-Hagia_Irene%2C_Istanbul_%2852112279404%29_%28cropped%29.jpg"
+            },
+            {
+                title: "Şerefiye Sarnıcı",
+                lat: 41.0073,
+                lng: 28.9726,
+                category: "Tarihi Sarnıç",
+                desc: "1600 yıllık tarihiyle Yerebatan'dan daha eski, ışık şovlarıyla ünlü sarnıç.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Theodosius_Cistern_10.jpg/640px-Theodosius_Cistern_10.jpg"
+            },
+            {
+                title: "Sent Antuan Kilisesi",
+                lat: 41.0322,
+                lng: 28.9769,
+                category: "Katolik Kilisesi",
+                desc: "İstiklal Caddesi'nin kalbinde, kırmızı tuğlalı görkemli Gotik yapı.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/St_Anthony_of_Padua_Church_Istanbul_exterior.jpg/640px-St_Anthony_of_Padua_Church_Istanbul_exterior.jpg"
+            },
             {
                 title: "Vefa Bozacısı",
                 lat: 41.0163,
                 lng: 28.9592,
-                category: "Tarihi İçecek",
-                desc: "1876'dan beri değişmeyen atmosfer. Mermer zeminler ve aynalar arasında boza keyfi.",
+                category: "Lezzet Durağı",
+                desc: "1876'dan beri değişmeyen atmosferiyle tarihi bir kış geleneği.",
                 img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Vefa_Bozac%C4%B1s%C4%B1_interior.jpg/640px-Vefa_Bozac%C4%B1s%C4%B1_interior.jpg"
-            },
-            {
-                title: "Pandeli Restaurant",
-                lat: 41.0167,
-                lng: 28.9716,
-                category: "Gastronomi",
-                desc: "Mısır Çarşısı'nın hemen girişinde, mavi çinilerle kaplı efsanevi restoran.",
-                img: "https://im.haberturk.com/2019/12/27/ver1577443586/2553335_810x458.jpg"
             },
             {
                 title: "Pierre Loti Tepesi",
                 lat: 41.0537,
                 lng: 28.9333,
                 category: "Manzara & Çay",
-                desc: "Haliç'e tepeden bakan en ikonik manzara noktası. Gün batımında ziyaret edilmeli.",
+                desc: "Haliç'e tepeden bakan en ikonik manzara noktası.",
                 img: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Pierre_Loti_Cafe_Istanbul.jpg"
             }
         ];
