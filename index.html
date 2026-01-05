@@ -13,30 +13,36 @@
         /* GENEL AYARLAR */
         body, html { margin: 0; padding: 0; height: 100%; width: 100%; font-family: 'Roboto', sans-serif; }
 
-        /* HEADER (ÜST BİLGİ) */
+        /* HEADER (ÜST BİLGİ KUTUSU) */
         .header {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.9); /* Yarı saydam siyah */
+            background: rgba(0, 0, 0, 0.9); /* Siyah Zemin */
             color: #fff;
-            padding: 20px 30px;
+            padding: 20px 25px;
             border-left: 5px solid #f1c40f; /* Urban Sarısı */
             z-index: 1000;
-            max-width: 300px;
+            max-width: 300px; /* Kutunun maksimum genişliği */
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-radius: 0 0 10px 0; /* Hafif köşe yuvarlama */
         }
-        .header h1 { 
-            margin: 0; 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 28px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
+        
+        /* LOGO AYARLARI */
+        .site-logo {
+            width: 140px; /* Ekranda görüneceği boyut (Orijinali 500px olsa da buraya sığdırıyoruz) */
+            height: auto; /* Orantıyı korur */
+            display: block;
+            margin-bottom: 8px;
         }
+
         .header p { 
             margin: 5px 0 0; 
+            font-family: 'Oswald', sans-serif;
             font-size: 14px; 
-            color: #ccc; 
+            letter-spacing: 1px;
+            color: #f1c40f; /* Alt yazıyı sarı yaptık */
+            text-transform: uppercase;
         }
 
         /* HARİTA ALANI */
@@ -106,7 +112,7 @@
 <body>
 
     <div class="header">
-        <h1>URBAN ISTANBUL</h1>
+        <img src="logo.png" alt="Urban Istanbul" class="site-logo" width="500" height="500">
         <p>Tarihi Lezzet Rotaları</p>
     </div>
 
@@ -119,16 +125,15 @@
         var map = L.map('map', {
             center: [41.012, 28.976], // Tarihi yarımada civarı
             zoom: 14,
-            zoomControl: false // Zoom butonunu kapat (daha temiz görünüm için)
+            zoomControl: false // Zoom butonunu kapat
         });
 
         // Zoom butonunu sağ alta al
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
         // 2. Harita Teması (Siyah-Beyaz / Stadia Alidade Smooth Dark)
-        // Alternatif açık ton için: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; Urban Istanbul &copy; OpenStreetMap',
+            attribution: '© Urban Istanbul © OpenStreetMap',
             subdomains: 'abcd',
             maxZoom: 20
         }).addTo(map);
@@ -143,7 +148,7 @@
             shadowSize: [41, 41]
         });
 
-        // 4. Veriler (Burası sonradan veritabanına bağlanabilir)
+        // 4. Veriler
         var locations = [
             {
                 title: "Vefa Bozacısı",
