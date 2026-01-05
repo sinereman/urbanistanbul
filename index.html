@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Istanbul - Keşif Rehberi</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* GENEL AYARLAR */
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; font-family: 'Roboto', sans-serif; }
+
+        /* HEADER (ÜST BİLGİ) */
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.9); /* Yarı saydam siyah */
+            color: #fff;
+            padding: 20px 30px;
+            border-left: 5px solid #f1c40f; /* Urban Sarısı */
+            z-index: 1000;
+            max-width: 300px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .header h1 { 
+            margin: 0; 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 28px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+        .header p { 
+            margin: 5px 0 0; 
+            font-size: 14px; 
+            color: #ccc; 
+        }
+
+        /* HARİTA ALANI */
+        #map { height: 100vh; width: 100%; background: #e0e0e0; }
+
+        /* POPUP (AÇILAN KUTU) TASARIMI */
+        .leaflet-popup-content-wrapper {
+            border-radius: 0;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .leaflet-popup-content {
+            margin: 0;
+            width: 300px !important;
+        }
+        .popup-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+        .popup-details {
+            padding: 15px;
+            background: #fff;
+        }
+        .popup-details h3 {
+            margin: 0 0 5px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            color: #222;
+        }
+        .popup-details .category {
+            font-size: 11px;
+            background: #222;
+            color: #f1c40f;
+            padding: 2px 6px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .popup-details p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .btn-rota {
+            display: block;
+            text-align: center;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-rota:hover {
+            background: #f1c40f;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>URBAN ISTANBUL</h1>
+        <p>Tarihi Lezzet Rotaları</p>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // 1. Haritayı Başlat (İstanbul Odaklı)
+        var map = L.map('map', {
+            center: [41.012, 28.976], // Tarihi yarımada civarı
+            zoom: 14,
+            zoomControl: false // Zoom butonunu kapat (daha temiz görünüm için)
+        });
+
+        // Zoom butonunu sağ alta al
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+        // 2. Harita Teması (Siyah-Beyaz / Stadia Alidade Smooth Dark)
+        // Alternatif açık ton için: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; Urban Istanbul &copy; OpenStreetMap',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        // 3. İkon Tasarımı (Siyah Pin)
+        var blackIcon = L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+
+        // 4. Veriler (Burası sonradan veritabanına bağlanabilir)
+        var locations = [
+            {
+                title: "Vefa Bozacısı",
+                lat: 41.0163,
+                lng: 28.9592,
+                category: "Tarihi İçecek",
+                desc: "1876'dan beri değişmeyen atmosfer. Mermer zeminler ve aynalar arasında boza keyfi.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Vefa_Bozac%C4%B1s%C4%B1_interior.jpg/640px-Vefa_Bozac%C4%B1s%C4%B1_interior.jpg"
+            },
+            {
+                title: "Pandeli Restaurant",
+                lat: 41.0167,
+                lng: 28.9716,
+                category: "Gastronomi",
+                desc: "Mısır Çarşısı'nın hemen girişinde, mavi çinilerle kaplı efsanevi restoran.",
+                img: "https://im.haberturk.com/2019/12/27/ver1577443586/2553335_810x458.jpg"
+            },
+            {
+                title: "Pierre Loti Tepesi",
+                lat: 41.0537,
+                lng: 28.9333,
+                category: "Manzara & Çay",
+                desc: "Haliç'e tepeden bakan en ikonik manzara noktası. Gün batımında ziyaret edilmeli.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Pierre_Loti_Cafe_Istanbul.jpg"
+            }
+        ];
+
+        // 5. İşaretleyicileri Döngüyle Ekle
+        locations.forEach(loc => {
+            var marker = L.marker([loc.lat, loc.lng], {icon: blackIcon}).addTo(map);
+            
+            var popupContent = `
+                <div>
+                    <img src="${loc.img}" class="popup-img">
+                    <div class="popup-details">
+                        <span class="category">${loc.category}</span>
+                        <h3>${loc.title}</h3>
+                        <p>${loc.desc}</p>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}" target="_blank" class="btn-rota">YOL TARİFİ AL</a>
+                    </div>
+                </div>
+            `;
+            
+            marker.bindPopup(popupContent);
+        });
+
+    </script>
+</body>
+</html>
