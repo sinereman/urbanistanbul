@@ -1,15 +1,16 @@
 backend:
-  name: github
-  repo: sinereman/urbanistanbul
+  name: netlify-git-gateway
   branch: main
 
 media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "etkinlikler"
     label: "Etkinlikler"
     folder: "_etkinlikler"
     create: true
+    slug: "{{slug}}"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Kategori", name: "kategori", widget: "select", options: ["Tiyatro", "Sergi", "Müzik", "Lezzet", "Festival"]}
@@ -22,6 +23,7 @@ collections:
     label: "Atölye Yazıları"
     folder: "_atolye"
     create: true
+    slug: "{{slug}}"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Konu", name: "konu", widget: "select", options: ["Fotoğrafçılık", "Yazarlık", "Film", "Müzik Teorisi"]}
