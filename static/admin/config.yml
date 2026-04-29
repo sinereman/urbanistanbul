@@ -2,8 +2,6 @@ backend:
   name: github
   repo: sinereman/urbanistanbul
   branch: main
-  base_url: https://urbanistanbul.com
-  auth_endpoint: admin/oauth
   auth_type: pkce
   app_id: 0v23liFRnXh41x2VMieI
 
