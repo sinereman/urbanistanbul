@@ -2,8 +2,6 @@ backend:
   name: github
   repo: sinereman/urbanistanbul
   branch: main
-  auth_type: pkce
-  app_id: 0v23liFRnXh41x2VMieI
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
@@ -17,7 +15,7 @@ collections:
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Kategori", name: "kategori", widget: "select", options: ["Tiyatro", "Sergi", "Müzik", "Lezzet", "Festival"]}
-      - {label: "Tarih", name: "tarih", widget: "date"}
+      - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
       - {label: "Mekan", name: "mekan", widget: "string"}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image"}
       - {label: "İçerik", name: "body", widget: "markdown"}
