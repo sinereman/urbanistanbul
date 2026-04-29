@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: sinereman/urbanistanbul
+  branch: main
+
+media_folder: "images/uploads"
+
+collections:
+  - name: "etkinlikler"
+    label: "Etkinlikler"
+    folder: "_etkinlikler"
+    create: true
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Kategori", name: "kategori", widget: "select", options: ["Tiyatro", "Sergi", "Müzik", "Lezzet", "Festival"]}
+      - {label: "Tarih", name: "tarih", widget: "date"}
+      - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+  - name: "atolye"
+    label: "Atölye Yazıları"
+    folder: "_atolye"
+    create: true
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Konu", name: "konu", widget: "select", options: ["Fotoğrafçılık", "Yazarlık", "Film", "Müzik Teorisi"]}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
