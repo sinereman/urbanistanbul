@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="list-page">
+
+  <div class="sec-header">
+    <div class="sec-label">{{ .Title | upper }}</div>
+    <div class="sec-label">{{ len .Pages }} içerik</div>
+  </div>
+
+  <div class="event-grid event-grid--list">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="event-card">
+      {{ if .Params.image }}
+        {{ if eq .Params.foto_yon "dikey" }}
+        <div class="event-thumb event-thumb--portrait-card">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+        </div>
+        {{ else }}
+        <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
+        {{ end }}
+      {{ else }}
+      <div class="event-thumb thumb-{{ .Params.kategori | lower | default "default" }}">
+        {{ if eq .Params.kategori "Tiyatro" }}🎭
+        {{ else if eq .Params.kategori "Sergi" }}🖼
+        {{ else if eq .Params.kategori "Müzik" }}🎵
+        {{ else if eq .Params.kategori "Lezzet" }}🍽
+        {{ else }}📅{{ end }}
+      </div>
+      {{ end }}
+      {{ with .Params.kategori }}<div class="event-cat pill-{{ . | lower }}">{{ . | upper }}</div>{{ end }}
+      {{ with .Params.konu }}<div class="event-cat pill-foto">{{ . | upper }}</div>{{ end }}
+      <div class="event-title">{{ .Title }}</div>
+      <div class="event-where">{{ .Params.mekan }}</div>
+      <div class="event-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
+    </a>
+    {{ end }}
+  </div>
+
+</div>
+{{ end }}

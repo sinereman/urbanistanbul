@@ -1,0 +1,68 @@
+{{ define "main" }}
+<article class="single-page">
+
+  {{ $isDikey := eq .Params.foto_yon "dikey" }}
+
+  <!-- SINGLE HERO -->
+  <div class="single-hero {{ if $isDikey }}single-hero--portrait{{ end }}">
+    {{ if .Params.image }}
+      {{ if $isDikey }}
+      <!-- Dikey fotoğraf: blur arka plan + ortada net -->
+      <div class="single-hero-blur" style="background-image: url('{{ .Params.image }}')"></div>
+      <div class="single-hero-portrait-wrap">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="single-hero-portrait-img" />
+      </div>
+      {{ else }}
+      <!-- Yatay fotoğraf: tam genişlik -->
+      <div class="single-hero-landscape" style="background-image: url('{{ .Params.image }}')"></div>
+      {{ end }}
+    {{ else }}
+    <div class="single-hero-placeholder">
+      <svg width="320" height="200" viewBox="0 0 320 200" fill="none">
+        <path d="M40 160 Q80 80 120 120 Q160 160 200 80 Q240 0 280 60" stroke="white" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+    {{ end }}
+    <div class="single-hero-overlay"></div>
+    <div class="single-hero-content">
+      {{ with .Params.kategori }}<div class="hero-cat pill-{{ . | lower }}">{{ . | upper }}</div>{{ end }}
+      {{ with .Params.konu }}<div class="hero-cat pill-foto">{{ . | upper }}</div>{{ end }}
+      <h1 class="single-title">{{ .Title }}</h1>
+      <div class="single-meta">
+        {{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}<span>·</span>{{ end }}
+        {{ with .Params.mekan }}{{ . }}{{ end }}
+      </div>
+    </div>
+  </div>
+
+  <!-- İÇERİK -->
+  <div class="single-body">
+    <div class="single-content">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <!-- BENZER İÇERİKLER -->
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ if $related }}
+  <div class="sec-header">
+    <div class="sec-label">BENZER İÇERİKLER</div>
+  </div>
+  <div class="event-grid">
+    {{ range $related }}
+    <a href="{{ .Permalink }}" class="event-card">
+      {{ if .Params.image }}
+      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="event-thumb thumb-{{ .Params.kategori | lower | default "default" }}">📅</div>
+      {{ end }}
+      {{ with .Params.kategori }}<div class="event-cat pill-{{ . | lower }}">{{ . | upper }}</div>{{ end }}
+      <div class="event-title">{{ .Title }}</div>
+      <div class="event-where">{{ .Params.mekan }}</div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</article>
+{{ end }}

@@ -1,0 +1,151 @@
+{{ define "main" }}
+
+{{ $etkinlikler := where .Site.RegularPages "Section" "etkinlikler" }}
+{{ $hero := index $etkinlikler 0 }}
+{{ $side := after 1 $etkinlikler }}
+
+<!-- HERO -->
+<section class="hero">
+  {{ if $hero }}
+  <div class="hero-main" {{ if $hero.Params.image }}style="background-image: url('{{ $hero.Params.image }}'); background-size: cover; background-position: center;"{{ end }}>
+    {{ if not $hero.Params.image }}
+    <div class="hero-img-placeholder">
+      <svg width="320" height="200" viewBox="0 0 320 200" fill="none">
+        <path d="M40 160 Q80 80 120 120 Q160 160 200 80 Q240 0 280 60" stroke="white" stroke-width="1.5" fill="none"/>
+        <circle cx="160" cy="100" r="60" stroke="white" stroke-width="0.5" fill="none"/>
+      </svg>
+    </div>
+    {{ end }}
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      {{ with $hero.Params.kategori }}
+      <div class="hero-cat pill-{{ . | lower | replaceRE " " "-" }}">{{ . | upper }}</div>
+      {{ end }}
+      <h1 class="hero-title">{{ $hero.Title }}</h1>
+      <p class="hero-meta">
+        {{ with $hero.Params.tarih }}{{ dateFormat "2 January 2006" . }}<span>·</span>{{ end }}
+        {{ with $hero.Params.mekan }}{{ . }}{{ end }}
+      </p>
+      <a href="{{ $hero.Permalink }}" class="hero-read">Devamını oku →</a>
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="hero-side">
+    {{ range first 3 $side }}
+    <a href="{{ .Permalink }}" class="hero-side-item">
+      <div>
+        {{ with .Params.kategori }}
+        <div class="side-cat pill-{{ . | lower | replaceRE " " "-" }}">{{ . | upper }}</div>
+        {{ end }}
+        <div class="side-title">{{ .Title }}</div>
+      </div>
+      <div class="side-meta">{{ with .Params.mekan }}{{ . }}{{ end }}{{ with .Params.tarih }} · {{ dateFormat "2 Jan" . }}{{ end }}</div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+<!-- BU HAFTA -->
+<div class="sec-header">
+  <div class="sec-label">BU HAFTA İSTANBUL'DA / THIS WEEK IN İSTANBUL</div>
+  <a href="/etkinlikler" class="sec-more">tümünü gör →</a>
+</div>
+<div class="event-grid">
+  {{ range first 3 $etkinlikler }}
+  <a href="{{ .Permalink }}" class="event-card">
+    {{ if .Params.image }}
+      {{ $img := .Params.image }}
+      {{ if or (strings.Contains $img "portrait") (eq .Params.foto_yon "dikey") }}
+      <div class="event-thumb event-thumb--portrait" style="background-image: url('{{ $img }}')"></div>
+      {{ else }}
+      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ $img }}')"></div>
+      {{ end }}
+    {{ else }}
+      <div class="event-thumb thumb-{{ .Params.kategori | lower | replaceRE " " "-" }}">
+        {{ if eq .Params.kategori "Tiyatro" }}🎭
+        {{ else if eq .Params.kategori "Sergi" }}🖼
+        {{ else if eq .Params.kategori "Müzik" }}🎵
+        {{ else if eq .Params.kategori "Lezzet" }}🍽
+        {{ else }}📅{{ end }}
+      </div>
+    {{ end }}
+    <div class="event-cat pill-{{ .Params.kategori | lower | replaceRE " " "-" }}">{{ .Params.kategori | upper }}</div>
+    <div class="event-title">{{ .Title }}</div>
+    <div class="event-where">{{ .Params.mekan }}</div>
+    <div class="event-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
+  </a>
+  {{ end }}
+</div>
+
+<!-- MAP STRIP -->
+<div class="map-strip">
+  <div class="map-info">
+    <div class="sec-label">İNTERAKTİF HARİTA / INTERACTIVE MAP</div>
+    <div class="map-info-title">İstanbul Keşif Haritası</div>
+    <div class="map-info-sub">Tarihi yerler, parklar, müzeler, vapur iskeleleri ve daha fazlası. Kategoriye göre filtrele, keşfet.</div>
+    <a href="/harita" class="map-btn">Haritayı aç →</a>
+  </div>
+  <div class="map-visual">
+    <div class="map-dots">
+      <div class="dot" style="left:50%;top:45%;background:var(--gold)"></div>
+      <div class="dot" style="left:30%;top:30%;background:var(--cat-sergi)"></div>
+      <div class="dot" style="left:65%;top:25%;background:var(--cat-tiyatro)"></div>
+      <div class="dot" style="left:20%;top:60%;background:var(--cat-lezzet)"></div>
+      <div class="dot" style="left:75%;top:60%;background:var(--cat-muzik)"></div>
+      <div class="dot" style="left:40%;top:70%;background:var(--cat-fotograf)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ATÖLYE -->
+{{ $atolye := where .Site.RegularPages "Section" "atolye" }}
+{{ if $atolye }}
+<div class="sec-header">
+  <div class="sec-label">ATÖLYE — BUGÜN ÖĞRENEBİLİRSİN / LEARN TODAY</div>
+  <a href="/atolye" class="sec-more">tüm dersler →</a>
+</div>
+<div class="atolye-grid">
+  {{ range first 2 $atolye }}
+  <a href="{{ .Permalink }}" class="atolye-card">
+    {{ if .Params.image }}
+    <div class="atolye-img-wrap {{ if eq .Params.foto_yon "dikey" }}atolye-img-wrap--portrait{{ end }}">
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" class="atolye-img" />
+    </div>
+    {{ else }}
+    <div class="atolye-num">{{ printf "%02d" .Params.sira | default "01" }}</div>
+    {{ end }}
+    <div class="atolye-tag">{{ .Params.konu | upper }}</div>
+    <div class="atolye-title">{{ .Title }}</div>
+    <div class="atolye-desc">{{ .Summary | truncate 120 }}</div>
+    <div class="atolye-read">Okumaya başla →</div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+
+<!-- AD STRIP -->
+<div class="ad-strip">
+  <div class="ad-label">REKLAM</div>
+  <div class="ad-box">sponsor içerik alanı — 728 × 90</div>
+</div>
+
+<!-- TEKNOLOJİ -->
+{{ $teknoloji := where .Site.RegularPages "Section" "teknoloji" }}
+{{ if $teknoloji }}
+<div class="sec-header">
+  <div class="sec-label">TEKNOLOJİ & ŞEHİR / TECH & CITY</div>
+  <a href="/teknoloji" class="sec-more">tümü →</a>
+</div>
+<div class="tech-row">
+  {{ range first 4 $teknoloji }}
+  <a href="{{ .Permalink }}" class="tech-card">
+    <div class="tech-cat">TEKNOLOJİ</div>
+    <div class="tech-title">{{ .Title }}</div>
+    <div class="tech-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ if .IsHome }}URBANİSTANBUL — İstanbul'un Kültür Rehberi{{ else }}{{ .Title }} — URBANİSTANBUL{{ end }}</title>
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner" id="tickerInner">
+      <span>🎭 Yükleniyor...</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-top">
+      <a href="/" class="logo">URBAN<em>İSTANBUL</em></a>
+      <div class="nav-center">
+        <a href="/etkinlikler">ETKİNLİKLER</a>
+        <a href="/kesfet">KEŞFet</a>
+        <a href="/atolye">ATÖLYE</a>
+        <a href="/teknoloji">TEKNOLOJİ</a>
+        <a href="/harita">HARİTA</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <span class="active">TR</span> · <span>EN</span>
+        </div>
+        <div class="nav-date" id="navDate"></div>
+      </div>
+    </div>
+  </nav>
+
+  {{ block "main" . }}{{ end }}
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-col">
+        <div class="footer-col-title">ETKİNLİKLER</div>
+        <a href="/etkinlikler/kategori/tiyatro">Tiyatro</a>
+        <a href="/etkinlikler/kategori/sergi">Sergiler</a>
+        <a href="/etkinlikler/kategori/muzik">Müzik & Konser</a>
+        <a href="/etkinlikler/kategori/lezzet">Lezzet & Mekan</a>
+        <a href="/etkinlikler/kategori/festival">Festival</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">ATÖLYE</div>
+        <a href="/atolye/konu/fotografcilik">Fotoğrafçılık</a>
+        <a href="/atolye/konu/yazarlik">Yazarlık</a>
+        <a href="/atolye/konu/film">Film & Sinema</a>
+        <a href="/atolye/konu/muzik-teorisi">Müzik Teorisi</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">KEŞFet İSTANBUL</div>
+        <a href="/harita">İnteraktif Harita</a>
+        <a href="/kesfet">Semt Rehberleri</a>
+        <a href="/kesfet/gizli">Gizli Kalmış Yerler</a>
+        <a href="/teknoloji">Teknoloji</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">HAKKINDA</div>
+        <a href="/hakkinda">Biz Kimiz</a>
+        <a href="/reklam">Reklam Ver</a>
+        <a href="/iletisim">İletişim</a>
+        <a href="/en">English</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">URBAN<em>İSTANBUL</em></div>
+      <div class="footer-copy">© {{ now.Year }} URBANİSTANBUL · İstanbul'un kültür rehberi</div>
+    </div>
+  </footer>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    const d = new Date();
+    const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+    const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+    document.getElementById('navDate').textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+  <script src="/js/ticker.js"></script>
+</body>
+</html>
