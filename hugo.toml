@@ -1,7 +1,6 @@
 baseURL = "https://urbanistanbul.com/"
 languageCode = "tr-TR"
 title = "URBANİSTANBUL"
-theme = ""
 enableRobotsTXT = true
 enableEmoji = true
 
