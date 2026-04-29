@@ -4,11 +4,12 @@ date: 2026-04-29
 kategori: "Tiyatro"
 tarih: 2026-05-01
 mekan: "Zorlu PSM, Beşiktaş"
+image: "/images/uploads/hamlet.jpg"
 foto_yon: "yatay"
 draft: false
 ---
 
-Shakespeare'in en ünlü trajedisi Hamlet, bu sezon Zorlu PSM sahnesinde izleyiciyle buluşuyor. 
+Shakespeare'in en ünlü trajedisi Hamlet, bu sezon Zorlu PSM sahnesinde izleyiciyle buluşuyor.
 
 "Olmak ya da olmamak" sorusunun yankılandığı bu zamansız eser, güçlü oyuncu kadrosu ve etkileyici sahne tasarımıyla İstanbul seyircisine unutulmaz bir deneyim yaşatacak.
 
