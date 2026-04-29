@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: sinereman/urbanistanbul
+  name: git-gateway
   branch: main
-  auth_type: pkce
-  app_id: 0v23liFRnXh41x2VMieI
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
