@@ -1,355 +1,831 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Urban Istanbul - İnteraktif Keşif Haritası</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URBANİSTANBUL — İstanbul'un Kültür Rehberi</title>
+  <meta name="description" content="İstanbul'da bu hafta ne var? Tiyatro, sergi, konser, lezzet ve daha fazlası. Fotoğrafçılık atölyeleri ve şehir keşfi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #C8A96E;
+      --gold-light: #e8d5b0;
+      --black: #111110;
+      --white: #FAFAF8;
+      --gray-1: #F4F3F0;
+      --gray-2: #E8E7E3;
+      --gray-3: #AEADA8;
+      --gray-4: #6B6A67;
+      --cat-tiyatro: #7c3aed;
+      --cat-tiyatro-bg: #f5f0ff;
+      --cat-sergi: #0ea5e9;
+      --cat-sergi-bg: #f0f9ff;
+      --cat-lezzet: #06b6d4;
+      --cat-lezzet-bg: #ecfeff;
+      --cat-muzik: #f59e0b;
+      --cat-muzik-bg: #fffbeb;
+      --cat-fotograf: #22c55e;
+      --cat-fotograf-bg: #f0fdf4;
+      --cat-teknoloji: #6366f1;
+      --cat-teknoloji-bg: #eef2ff;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --border: 1px solid var(--gray-2);
+    }
 
-    <style>
-        /* TEMEL AYARLAR */
-        body, html { 
-            margin: 0; padding: 0; 
-            height: 100%; width: 100%; 
-            overflow: hidden; 
-            font-family: 'Roboto', sans-serif; 
-            -webkit-touch-callout: none;
-            user-select: none;
-        }
-        
-        /* HARİTA */
-        #map { 
-            position: absolute; 
-            top: 0; bottom: 0; left: 0; right: 0; 
-            width: 100%; height: 100%; 
-            z-index: 1; 
-            background: #e0e0e0;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* HEADER */
-        .header {
-            position: fixed; 
-            top: 20px; left: 20px;
-            background: rgba(0, 0, 0, 0.95); color: #fff;
-            padding: 20px 25px; border-left: 5px solid #f1c40f;
-            z-index: 2000; 
-            max-width: 300px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5); 
-            border-radius: 0 0 10px 0;
-            max-height: 85vh; overflow-y: auto; 
-        }
-        
-        .site-logo { width: auto; max-width: 100%; height: auto; max-height: 100px; display: block; margin-bottom: 10px; }
-        .header-text p { margin: 5px 0 0; font-family: 'Oswald', sans-serif; font-size: 14px; color: #f1c40f; text-transform: uppercase; }
-        .info-note { font-size: 11px; color: #aaa; margin-top: 8px; border-top: 1px solid #333; padding-top: 5px; }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
-        /* --- FİLTRE MENÜSÜ --- */
-        .leaflet-top.leaflet-right { 
-            margin-top: 10px; 
-            margin-right: 10px; 
-            z-index: 3000; 
-        }
-        
-        .leaflet-control-layers-toggle {
-            background-color: #f1c40f !important; 
-            border-radius: 5px;
-            width: 44px !important;
-            height: 44px !important;
-            background-size: 26px 26px !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .leaflet-control-layers-expanded {
-            background: rgba(0, 0, 0, 0.95) !important;
-            color: #fff !important;
-            border: 2px solid #f1c40f !important;
-            border-radius: 8px !important;
-            padding: 15px !important;
-            font-family: 'Roboto', sans-serif;
-            font-size: 13px;
-            line-height: 1.8;
-        }
-        
-        .leaflet-control-layers-separator { border-top: 1px solid #444; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-        /* POPUP TASARIMI */
-        .leaflet-popup-content-wrapper { border-radius: 0; padding: 0; overflow: hidden; }
-        .leaflet-popup-content { margin: 0; width: 260px !important; } 
-        .popup-img { width: 100%; height: 140px; object-fit: cover; display: block; }
-        .popup-details { padding: 12px; background: #fff; }
-        .popup-details h3 { margin: 0 0 5px; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #222; font-size: 16px; }
-        .category-tag { font-size: 10px; padding: 3px 8px; border-radius: 3px; color: #fff; font-weight: bold; text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
-        .btn-rota { display: block; text-align: center; background: #222; color: #fff; text-decoration: none; padding: 10px; font-weight: bold; font-size: 12px; text-transform: uppercase; transition: 0.3s; }
-        .btn-rota:hover { background: #f1c40f; color: #000; }
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--black);
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 7px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 32s linear infinite;
+    }
+    .ticker-inner span { margin: 0 40px; }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
-        /* MOBİL UYUMLULUK */
-        @media (max-width: 768px) {
-            .header {
-                top: auto; bottom: 0; left: 0; right: 0; 
-                width: 100%; max-width: none;
-                border-radius: 15px 15px 0 0;
-                border-left: none; border-top: 4px solid #f1c40f;
-                padding: 10px 20px;
-                display: flex; align-items: center; justify-content: flex-start; gap: 15px; 
-                height: 80px; 
-            }
-            .site-logo { height: 50px; width: auto; margin-bottom: 0; flex-shrink: 0; }
-            .header-text { flex-grow: 1; }
-            .info-note { display: none; } 
-            
-            .leaflet-bottom.leaflet-right { bottom: 90px !important; right: 10px !important; }
-            .leaflet-top.leaflet-right { top: 10px !important; right: 10px !important; }
-            .leaflet-control-layers-expanded { max-width: 220px; font-size: 12px; }
-        }
+    /* ── NAV ── */
+    nav {
+      border-bottom: var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 100;
+    }
+    .nav-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 58px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--black);
+    }
+    .logo em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .nav-center {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-center a {
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      color: var(--gray-4);
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 1.5px solid transparent;
+    }
+    .nav-center a:hover { color: var(--black); border-bottom-color: var(--gold); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .lang-switch {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--gray-3);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .lang-switch:hover { color: var(--black); }
+    .lang-switch .active { color: var(--black); font-weight: 500; }
+    .nav-date {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--gray-3);
+      border-left: var(--border);
+      padding-left: 16px;
+    }
 
-        /* RENK KODLARI */
-        .cat-tarih { background-color: #e74c3c; } 
-        .cat-park { background-color: #2ecc71; } 
-        .cat-muze { background-color: #9b59b6; } 
-        .cat-plaj { background-color: #3498db; } 
-        .cat-meydan { background-color: #e67e22; } 
-        .cat-ibb { background-color: #f1c40f; color: #000; } 
-        .cat-iskele { background-color: #7f8c8d; } 
-        .cat-terminal { background-color: #2c3e50; } 
-        /* DÜZELTME: Rengi sarı yapıp yazı rengini siyah yaptık */
-        .cat-lezzet { background-color: #ffeb3b; color: #000; } 
-    </style>
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      min-height: 480px;
+      border-bottom: var(--border);
+    }
+    .hero-main {
+      padding: 40px 32px;
+      border-right: var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      background: var(--gray-1);
+    }
+    .hero-img-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #1a0a2e 0%, #0d1b2a 60%, #111110 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-img-placeholder svg { opacity: 0.08; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-cat {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 2px;
+      background: var(--cat-tiyatro);
+      color: #ede9fe;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 14px;
+      max-width: 520px;
+    }
+    .hero-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+    }
+    .hero-meta span { color: var(--gold); margin: 0 6px; }
+    .hero-read {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .hero-read:hover { opacity: 0.7; }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-side-item {
+      flex: 1;
+      padding: 20px 24px;
+      border-bottom: var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .hero-side-item:last-child { border-bottom: none; }
+    .hero-side-item:hover { background: var(--gray-1); }
+    .side-cat {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .side-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--black);
+      flex: 1;
+    }
+    .side-meta {
+      font-size: 10px;
+      color: var(--gray-3);
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── SECTION HEADER ── */
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 20px 32px 16px;
+      border-bottom: var(--border);
+    }
+    .sec-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--gray-3);
+      font-weight: 500;
+    }
+    .sec-more {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+    .sec-more:hover { opacity: 0.7; }
+
+    /* ── EVENT GRID ── */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: var(--border);
+    }
+    .event-card {
+      border-right: var(--border);
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .event-card:last-child { border-right: none; }
+    .event-card:hover { background: var(--gray-1); }
+    .event-thumb {
+      width: 100%;
+      height: 120px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      opacity: 0.6;
+    }
+    .event-cat {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+    .event-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .event-where {
+      font-size: 11px;
+      color: var(--gray-4);
+      margin-bottom: 4px;
+    }
+    .event-date {
+      font-size: 10px;
+      color: var(--gray-3);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── MAP STRIP ── */
+    .map-strip {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      border-bottom: var(--border);
+      min-height: 160px;
+    }
+    .map-info {
+      padding: 28px 32px;
+      border-right: var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+    .map-info .sec-label { padding: 0; }
+    .map-info-title {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .map-info-sub {
+      font-size: 12px;
+      color: var(--gray-4);
+      line-height: 1.6;
+    }
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      width: fit-content;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .map-btn:hover { opacity: 0.7; }
+    .map-visual {
+      background: #e8f0e0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-dots {
+      position: relative;
+      width: 160px;
+      height: 100px;
+    }
+    .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      opacity: 0.4;
+    }
+
+    /* ── ATOLYE ── */
+    .atolye-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: var(--border);
+    }
+    .atolye-card {
+      padding: 28px 32px;
+      border-right: var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .atolye-card:last-child { border-right: none; }
+    .atolye-card:hover { background: var(--gray-1); }
+    .atolye-num {
+      font-family: var(--serif);
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--gray-2);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .atolye-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 2px;
+      background: var(--cat-fotograf-bg);
+      color: var(--cat-fotograf);
+      margin-bottom: 10px;
+    }
+    .atolye-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .atolye-desc {
+      font-size: 13px;
+      color: var(--gray-4);
+      line-height: 1.65;
+    }
+    .atolye-read {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--cat-fotograf);
+      border-bottom: 1px solid var(--cat-fotograf);
+      padding-bottom: 2px;
+    }
+
+    /* ── AD STRIP ── */
+    .ad-strip {
+      padding: 12px 32px;
+      border-bottom: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--gray-1);
+    }
+    .ad-label {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: var(--gray-3);
+    }
+    .ad-box {
+      font-size: 10px;
+      color: var(--gray-3);
+      border: 1px dashed var(--gray-2);
+      padding: 6px 40px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── TECH ROW ── */
+    .tech-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: var(--border);
+    }
+    .tech-card {
+      padding: 20px 24px;
+      border-right: var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .tech-card:last-child { border-right: none; }
+    .tech-card:hover { background: var(--gray-1); }
+    .tech-cat {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 2px;
+      background: var(--cat-teknoloji-bg);
+      color: var(--cat-teknoloji);
+      margin-bottom: 10px;
+    }
+    .tech-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .tech-date {
+      font-size: 10px;
+      color: var(--gray-3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 2px solid var(--black);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      border-bottom: var(--border);
+    }
+    .footer-col {
+      padding: 28px 24px;
+      border-right: var(--border);
+    }
+    .footer-col:first-child { padding-left: 32px; }
+    .footer-col:last-child { border-right: none; }
+    .footer-col-title {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gray-3);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: var(--gray-4);
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--black); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .footer-logo em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--gray-3);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CATEGORY HELPERS ── */
+    .pill-tiyatro { background: var(--cat-tiyatro); color: #ede9fe; }
+    .pill-sergi   { background: var(--cat-sergi);   color: #e0f2fe; }
+    .pill-lezzet  { background: var(--cat-lezzet);  color: #cffafe; }
+    .pill-muzik   { background: var(--cat-muzik);   color: #1a1200; }
+    .pill-foto    { background: var(--cat-fotograf); color: #052e16; }
+    .pill-tek     { background: var(--cat-teknoloji); color: #eef2ff; }
+
+    .thumb-tiyatro { background: #f5f0ff; }
+    .thumb-sergi   { background: #f0f9ff; }
+    .thumb-lezzet  { background: #ecfeff; }
+    .thumb-muzik   { background: #fffbeb; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content { animation: fadeUp 0.7s ease both; }
+    .hero-title   { animation: fadeUp 0.7s 0.1s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-center, .nav-date { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-side { display: none; }
+      .hero-title { font-size: 28px; }
+      .event-grid { grid-template-columns: 1fr 1fr; }
+      .atolye-grid { grid-template-columns: 1fr; }
+      .tech-row { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .map-strip { grid-template-columns: 1fr; }
+      .map-visual { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="logo.png" alt="Urban Istanbul" class="site-logo">
-        <div class="header-text">
-            <p>İstanbul Keşif Rehberi</p>
-        </div>
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner">
+      <span>🎭 Hamlet — Zorlu PSM — 1–5 Mayıs</span>
+      <span>🖼 Ara Güler Retrospektif — Pera Müzesi</span>
+      <span>🎵 Borusan Filarmoni Açık Hava — Emirgan</span>
+      <span>📸 Fotoğraf Atölyesi — Karaköy — Cumartesi</span>
+      <span>🍽 Pop-up Pazar — Karaköy — Pazar 10:00–18:00</span>
+      <span>🎭 Hamlet — Zorlu PSM — 1–5 Mayıs</span>
+      <span>🖼 Ara Güler Retrospektif — Pera Müzesi</span>
+      <span>🎵 Borusan Filarmoni Açık Hava — Emirgan</span>
+      <span>📸 Fotoğraf Atölyesi — Karaköy — Cumartesi</span>
+      <span>🍽 Pop-up Pazar — Karaköy — Pazar 10:00–18:00</span>
     </div>
+  </div>
 
-    <div id="map"></div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-top">
+      <a href="/" class="logo">URBAN<em>İSTANBUL</em></a>
+      <div class="nav-center">
+        <a href="/etkinlikler">ETKİNLİKLER</a>
+        <a href="/kesfet">KEŞFet</a>
+        <a href="/atolye">ATÖLYE</a>
+        <a href="/teknoloji">TEKNOLOJİ</a>
+        <a href="/harita">HARİTA</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <span class="active">TR</span> · <span>EN</span>
+        </div>
+        <div class="nav-date" id="navDate"></div>
+      </div>
+    </div>
+  </nav>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-img-placeholder">
+        <svg width="320" height="200" viewBox="0 0 320 200" fill="none">
+          <path d="M40 160 Q80 80 120 120 Q160 160 200 80 Q240 0 280 60" stroke="white" stroke-width="1.5" fill="none"/>
+          <circle cx="160" cy="100" r="60" stroke="white" stroke-width="0.5" fill="none"/>
+          <circle cx="160" cy="100" r="40" stroke="white" stroke-width="0.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <div class="hero-cat pill-tiyatro">TİYATRO</div>
+        <h1 class="hero-title">Borusan Filarmoni'nin açık hava konseri Emirgan Korusu'nda başlıyor</h1>
+        <p class="hero-meta">3 Mayıs 2026 <span>·</span> Emirgan Korusu <span>·</span> 20:00</p>
+        <a href="#" class="hero-read">Devamını oku →</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-side-item">
+        <div>
+          <div class="side-cat pill-sergi" style="background:var(--cat-sergi);color:#e0f2fe;">SERGİ</div>
+          <div class="side-title">Ara Güler Retrospektif — İstanbul'un hafızası Pera'da</div>
+        </div>
+        <div class="side-meta">Pera Müzesi · Sürekli</div>
+      </div>
+      <div class="hero-side-item">
+        <div>
+          <div class="side-cat pill-muzik" style="background:var(--cat-muzik);color:#1a1200;">MÜZİK</div>
+          <div class="side-title">Caz festivali Karaköy sokaklarını yeniden dolduruyor</div>
+        </div>
+        <div class="side-meta">Karaköy · 10–12 Mayıs</div>
+      </div>
+      <div class="hero-side-item">
+        <div>
+          <div class="side-cat pill-lezzet" style="background:var(--cat-lezzet);color:#cffafe;">LEZZET</div>
+          <div class="side-title">Karaköy'ün yeni pop-up pazarı her pazar açılıyor</div>
+        </div>
+        <div class="side-meta">Karaköy · Pazar 10:00–18:00</div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        var map = L.map('map', { 
-            center: [41.035, 29.000], 
-            zoom: 11, 
-            zoomControl: false,
-            tap: true 
-        });
-        
-        L.control.zoom({ position: 'bottomright' }).addTo(map);
-        
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { 
-            attribution: '© Urban Istanbul', subdomains: 'abcd', maxZoom: 20 
-        }).addTo(map);
+  <!-- BU HAFTA -->
+  <div class="sec-header">
+    <div class="sec-label">BU HAFTA İSTANBUL'DA / THIS WEEK IN İSTANBUL</div>
+    <a href="/etkinlikler" class="sec-more">tümünü gör →</a>
+  </div>
+  <div class="event-grid">
+    <div class="event-card">
+      <div class="event-thumb thumb-tiyatro">🎭</div>
+      <div class="event-cat pill-tiyatro">TİYATRO</div>
+      <div class="event-title">Hamlet — Shakespeare'in zamansız trajedisi</div>
+      <div class="event-where">Zorlu PSM, Beşiktaş</div>
+      <div class="event-date">1 – 5 Mayıs 2026</div>
+    </div>
+    <div class="event-card">
+      <div class="event-thumb thumb-sergi">🖼</div>
+      <div class="event-cat pill-sergi">SERGİ</div>
+      <div class="event-title">Ara Güler Retrospektif — 70 yılın gözleri</div>
+      <div class="event-where">Pera Müzesi, Tepebaşı</div>
+      <div class="event-date">Sürekli sergi</div>
+    </div>
+    <div class="event-card">
+      <div class="event-thumb thumb-lezzet">🍽</div>
+      <div class="event-cat pill-lezzet">LEZZET</div>
+      <div class="event-title">Pop-up Pazar — Üreticiden sofraya</div>
+      <div class="event-where">Karaköy Meydanı</div>
+      <div class="event-date">Her Pazar · 10:00–18:00</div>
+    </div>
+  </div>
 
-        // İKONLAR
-        var LeafIcon = L.Icon.extend({ options: { shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }});
-        
-        var redIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'});
-        var greenIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png'});
-        var blueIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png'});
-        var violetIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png'});
-        var orangeIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png'});
-        var goldIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png'});
-        var greyIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png'});
-        var blackIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png'});
-        var yellowIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png'}); 
+  <!-- MAP STRIP -->
+  <div class="map-strip">
+    <div class="map-info">
+      <div class="sec-label">İNTERAKTİF HARİTA / INTERACTIVE MAP</div>
+      <div class="map-info-title">İstanbul Keşif Haritası</div>
+      <div class="map-info-sub">Tarihi yerler, parklar, müzeler, vapur iskeleleri ve daha fazlası. Kategoriye göre filtrele, keşfet.</div>
+      <a href="/harita" class="map-btn">Haritayı aç →</a>
+    </div>
+    <div class="map-visual">
+      <div class="map-dots">
+        <div class="dot" style="left:50%;top:45%;background:var(--gold)"></div>
+        <div class="dot" style="left:30%;top:30%;background:var(--cat-sergi)"></div>
+        <div class="dot" style="left:65%;top:25%;background:var(--cat-tiyatro)"></div>
+        <div class="dot" style="left:20%;top:60%;background:var(--cat-lezzet)"></div>
+        <div class="dot" style="left:75%;top:60%;background:var(--cat-muzik)"></div>
+        <div class="dot" style="left:40%;top:70%;background:var(--cat-fotograf)"></div>
+      </div>
+    </div>
+  </div>
 
-        // KATMAN GRUPLARI
-        var layerTarih = L.layerGroup();
-        var layerPark = L.layerGroup();
-        var layerMeydan = L.layerGroup();
-        var layerMuze = L.layerGroup();
-        var layerPlaj = L.layerGroup();
-        var layerIBB = L.layerGroup();
-        var layerIskele = L.layerGroup();
-        var layerTerminal = L.layerGroup();
-        var layerLezzet = L.layerGroup(); 
+  <!-- ATÖLYE -->
+  <div class="sec-header">
+    <div class="sec-label">ATÖLYE — BUGÜN ÖĞRENEBİLİRSİN / LEARN TODAY</div>
+    <a href="/atolye" class="sec-more">tüm dersler →</a>
+  </div>
+  <div class="atolye-grid">
+    <div class="atolye-card">
+      <div class="atolye-num">01</div>
+      <div class="atolye-tag">FOTOĞRAFÇILIK</div>
+      <div class="atolye-title">Işık okumayı öğrenmek — altın saat ve İstanbul silueti</div>
+      <div class="atolye-desc">Altın saat, mavi saat nedir? Boğaz'da doğru pozlamayı yakalamak için hangi ayarları kullanmalısın? Temel ışık okuma rehberi.</div>
+      <a href="#" class="atolye-read">Okumaya başla →</a>
+    </div>
+    <div class="atolye-card">
+      <div class="atolye-num">02</div>
+      <div class="atolye-tag">FOTOĞRAFÇILIK</div>
+      <div class="atolye-title">Boğaz'da kompozisyon — köprüler, vapurlar ve üçte bir kuralı</div>
+      <div class="atolye-desc">Köprüler, vapurlar ve ufuk çizgisi — üçte bir kuralını sokak fotoğrafına nasıl uygularsın? İstanbul'a özgü çerçeveleme teknikleri.</div>
+      <a href="#" class="atolye-read">Okumaya başla →</a>
+    </div>
+  </div>
 
-        var locations = [
-            // --- TARİHİ LEZZETLER ---
-            { title: "Vefa Bozacısı", lat: 41.0157, lng: 28.9594, type: "cat-lezzet", category: "Tarihi Lezzet", desc: "1876'dan beri değişmeyen gelenek.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Vefa_Bozacisi.jpg/640px-Vefa_Bozacisi.jpg" },
-            { title: "Tarihi Sultanahmet Köftecisi", lat: 41.0076, lng: 28.9765, type: "cat-lezzet", category: "Tarihi Lezzet", desc: "1920'den beri Selim Usta.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
-            { title: "Hafız Mustafa 1864", lat: 41.0143, lng: 28.9734, type: "cat-lezzet", category: "Tatlı", desc: "İstanbul'un en eski şekerlemecisi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Karaköy Güllüoğlu", lat: 41.0232, lng: 28.9772, type: "cat-lezzet", category: "Baklava", desc: "Dünyaca ünlü baklavacı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
-            { title: "Ali Muhiddin Hacı Bekir", lat: 41.0150, lng: 28.9720, type: "cat-lezzet", category: "Lokum", desc: "Lokumun mucidi (1777).", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
-            { title: "Baylan Pastanesi", lat: 40.9880, lng: 29.0250, type: "cat-lezzet", category: "Pastane", desc: "Kup Griye ile meşhur tarihi pastane.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
-            { title: "Çaycı Hacıbaba", lat: 41.0084, lng: 28.9700, type: "cat-lezzet", category: "Çay", desc: "Tarihi Kapalıçarşı çaycısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
+  <!-- AD STRIP -->
+  <div class="ad-strip">
+    <div class="ad-label">REKLAM</div>
+    <div class="ad-box">sponsor içerik alanı — 728 × 90</div>
+  </div>
 
-            // --- PLAJLAR ---
-            { title: "Kilyos Plajı", lat: 41.2427, lng: 29.0347, type: "cat-plaj", category: "Plaj", desc: "Karadeniz kıyısında popüler plaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kilyos_beach.jpg/640px-Kilyos_beach.jpg" },
-            { title: "Florya Güneş Plajı", lat: 40.9700, lng: 28.7900, type: "cat-plaj", category: "Plaj", desc: "Tarihi ve temiz plaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Florya_Atat%C3%BCrk_Marine_Mansion.jpg/640px-Florya_Atat%C3%BCrk_Marine_Mansion.jpg" },
-            { title: "Caddebostan Plajı", lat: 40.9600, lng: 29.0600, type: "cat-plaj", category: "Plaj", desc: "Anadolu yakasının canlı sahili.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fenerbahce_Park.jpg/640px-Fenerbahce_Park.jpg" },
-            { title: "Riva Plajı", lat: 41.2225, lng: 29.2189, type: "cat-plaj", category: "Plaj", desc: "Doğa ile iç içe kumsal.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
-            { title: "Şile Ayazma Plajı", lat: 41.1764, lng: 29.6117, type: "cat-plaj", category: "Plaj", desc: "İnce kumlu geniş plaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kilyos_beach.jpg/640px-Kilyos_beach.jpg" },
-            { title: "Büyükada Plajları", lat: 40.8600, lng: 29.1200, type: "cat-plaj", category: "Plaj", desc: "Adalar'ın en temiz koyları.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hagia_Yorgi_Church_Buyukada.jpg/640px-Hagia_Yorgi_Church_Buyukada.jpg" },
+  <!-- TEKNOLOJİ -->
+  <div class="sec-header">
+    <div class="sec-label">TEKNOLOJİ & ŞEHİR / TECH & CITY</div>
+    <a href="/teknoloji" class="sec-more">tümü →</a>
+  </div>
+  <div class="tech-row">
+    <div class="tech-card">
+      <div class="tech-cat">TEKNOLOJİ</div>
+      <div class="tech-title">İstanbul'un yeni co-working haritası: 2026'da nerede çalışmalı?</div>
+      <div class="tech-date">28 Nisan 2026</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-cat">TEKNOLOJİ</div>
+      <div class="tech-title">Akıllı şehir projesi — İETT verilerini nasıl açık kaynak yaptı</div>
+      <div class="tech-date">25 Nisan 2026</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-cat">TEKNOLOJİ</div>
+      <div class="tech-title">Startup Sahnesi: Karaköy merkezli 5 girişim yatırım aldı</div>
+      <div class="tech-date">22 Nisan 2026</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-cat">TEKNOLOJİ</div>
+      <div class="tech-title">E-bisiklet paylaşım ağı Kadıköy'den tüm Anadolu yakasına yayılıyor</div>
+      <div class="tech-date">20 Nisan 2026</div>
+    </div>
+  </div>
 
-            // --- HAVALİMANLARI ---
-            { title: "İstanbul Havalimanı (IST)", lat: 41.2769, lng: 28.7297, type: "cat-terminal", category: "Havalimanı", desc: "Ana uluslararası havalimanı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Istanbul_Airport_Main_Terminal_Entrance.jpg/640px-Istanbul_Airport_Main_Terminal_Entrance.jpg" },
-            { title: "Sabiha Gökçen Havalimanı (SAW)", lat: 40.8983, lng: 29.3092, type: "cat-terminal", category: "Havalimanı", desc: "Anadolu yakası havalimanı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sabiha_Gokcen_Airport_New_Terminal.jpg/640px-Sabiha_Gokcen_Airport_New_Terminal.jpg" },
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-col">
+        <div class="footer-col-title">ETKİNLİKLER</div>
+        <a href="#">Tiyatro</a>
+        <a href="#">Sergiler</a>
+        <a href="#">Müzik & Konser</a>
+        <a href="#">Lezzet & Mekan</a>
+        <a href="#">Festival</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">ATÖLYE</div>
+        <a href="#">Fotoğrafçılık</a>
+        <a href="#">Yazarlık</a>
+        <a href="#">Film & Sinema</a>
+        <a href="#">Müzik Teorisi</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">KEŞFet İSTANBUL</div>
+        <a href="#">İnteraktif Harita</a>
+        <a href="#">Semt Rehberleri</a>
+        <a href="#">Gizli Kalmış Yerler</a>
+        <a href="#">Teknoloji</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">HAKKINDA</div>
+        <a href="#">Biz Kimiz</a>
+        <a href="#">Reklam Ver</a>
+        <a href="#">İletişim</a>
+        <a href="#">English</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">URBAN<em>İSTANBUL</em></div>
+      <div class="footer-copy">© 2026 URBANİSTANBUL · İstanbul'un kültür rehberi</div>
+    </div>
+  </footer>
 
-            // --- OTOBÜS TERMİNALLERİ ---
-            { title: "Esenler Otogarı", lat: 41.0406, lng: 28.8927, type: "cat-terminal", category: "Otobüs Terminali", desc: "Büyük İstanbul Otogarı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Istanbul_Otogari.jpg/640px-Istanbul_Otogari.jpg" },
-            { title: "Harem Otogarı", lat: 41.0122, lng: 29.0108, type: "cat-terminal", category: "Otobüs Terminali", desc: "Anadolu yakası tarihi otogarı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Harem_Otogar%C4%B1.jpg/640px-Harem_Otogar%C4%B1.jpg" },
-            { title: "Alibeyköy Cep Otogarı", lat: 41.0778, lng: 28.9461, type: "cat-terminal", category: "Otobüs Terminali", desc: "Kuzey hattı otogarı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Istanbul_Otogari.jpg/640px-Istanbul_Otogari.jpg" },
-            { title: "Dudullu Otogarı", lat: 40.9978, lng: 29.1633, type: "cat-terminal", category: "Otobüs Terminali", desc: "Anadolu yakası modern terminal.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Harem_Otogar%C4%B1.jpg/640px-Harem_Otogar%C4%B1.jpg" },
+  <script>
+    const d = new Date();
+    const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+    const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+    document.getElementById('navDate').textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  </script>
 
-            // --- KÜLTÜR & SANAT ---
-            { title: "Müze Gazhane", lat: 40.9994, lng: 29.0433, type: "cat-muze", category: "Kültür Merkezi", desc: "Tarihi gazhane, modern kampüs.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Museum_Gazhane.jpg/640px-Museum_Gazhane.jpg" },
-            { title: "AKM", lat: 41.0369, lng: 28.9881, type: "cat-muze", category: "Sanat Merkezi", desc: "Taksim'in simgesi opera binası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Atat%C3%BCrk_Cultural_Center_Istanbul_2021.jpg/640px-Atat%C3%BCrk_Cultural_Center_Istanbul_2021.jpg" },
-            { title: "Fişekhane", lat: 40.9833, lng: 28.9056, type: "cat-muze", category: "Yaşam Merkezi", desc: "Tarihi fabrika, yeni yaşam alanı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Fi%C5%9Fekhane_Istanbul.jpg/640px-Fi%C5%9Fekhane_Istanbul.jpg" },
-            { title: "İstanbul Modern", lat: 41.0260, lng: 28.9830, type: "cat-muze", category: "Sanat Müzesi", desc: "Modern sanat müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Istanbul_Modern_new_building_2023.jpg/640px-Istanbul_Modern_new_building_2023.jpg" },
-            { title: "Zorlu PSM", lat: 41.0661, lng: 29.0175, type: "cat-muze", category: "Sanat Merkezi", desc: "Konser merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Zorlu_Center_PSM.jpg/640px-Zorlu_Center_PSM.jpg" },
-            { title: "Rahmi Koç Müzesi", lat: 41.0416, lng: 28.9486, type: "cat-muze", category: "Müze", desc: "Sanayi ve ulaşım müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rahmi_M_Koc_Museum_Istanbul_submarine.jpg/640px-Rahmi_M_Koc_Museum_Istanbul_submarine.jpg" },
-            { title: "Miniatürk", lat: 41.0594, lng: 28.9442, type: "cat-muze", category: "Müze", desc: "Minyatür Türkiye parkı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Miniaturk_General_View.jpg/640px-Miniaturk_General_View.jpg" },
-            { title: "Pera Müzesi", lat: 41.0316, lng: 28.9754, type: "cat-muze", category: "Sanat Müzesi", desc: "Kaplumbağa Terbiyecisi'nin evi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Pera_Museum_Istanbul.jpg/640px-Pera_Museum_Istanbul.jpg" },
-            { title: "Masumiyet Müzesi", lat: 41.0310, lng: 28.9796, type: "cat-muze", category: "Müze", desc: "Orhan Pamuk'un müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Museum_of_Innocence_Istanbul.jpg/640px-Museum_of_Innocence_Istanbul.jpg" },
-
-            // --- VAPUR İSKELELERİ ---
-            { title: "Eminönü İskelesi", lat: 41.0150, lng: 28.9730, type: "cat-iskele", category: "Ulaşım", desc: "Boğaz ve Kadıköy vapurlarının merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Kadıköy İskelesi", lat: 40.9910, lng: 29.0220, type: "cat-iskele", category: "Ulaşım", desc: "Asya yakasının ana iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
-            { title: "Beşiktaş İskelesi", lat: 41.0415, lng: 29.0060, type: "cat-iskele", category: "Ulaşım", desc: "Üsküdar ve Kadıköy motorları.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
-            { title: "Üsküdar İskelesi", lat: 41.0275, lng: 29.0150, type: "cat-iskele", category: "Ulaşım", desc: "Marmaray ve vapur kesişimi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
-            { title: "Karaköy İskelesi", lat: 41.0220, lng: 28.9750, type: "cat-iskele", category: "Ulaşım", desc: "Galata Kulesi'ne giden yol.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
-            { title: "Ortaköy İskelesi", lat: 41.0470, lng: 29.0275, type: "cat-iskele", category: "Turistik", desc: "Boğaz turları kalkış noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
-            { title: "Yenikapı İDO", lat: 41.0020, lng: 28.9564, type: "cat-iskele", category: "İDO", desc: "Bursa ve Yalova feribotları.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Bostancı İskelesi", lat: 40.9524, lng: 29.0922, type: "cat-iskele", category: "Şehir Hatları", desc: "Adalar vapuru durağı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Pendik İDO", lat: 40.8752, lng: 29.2361, type: "cat-iskele", category: "İDO", desc: "Yalova hızlı feribotu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Beykoz İskelesi", lat: 41.1347, lng: 29.0903, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi Beykoz iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Sarıyer İskelesi", lat: 41.1664, lng: 29.0556, type: "cat-iskele", category: "Boğaz Hattı", desc: "Sarıyer'in tarihi iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Kanlıca İskelesi", lat: 41.0987, lng: 29.0711, type: "cat-iskele", category: "Boğaz Hattı", desc: "Yoğurduyla meşhur iskele.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Anadolu Kavağı", lat: 41.1744, lng: 29.0894, type: "cat-iskele", category: "Turistik", desc: "Boğaz turunun son durağı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Rumeli Kavağı", lat: 41.1817, lng: 29.0750, type: "cat-iskele", category: "Boğaz Hattı", desc: "Boğazın kuzey ucu.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Çengelköy İskelesi", lat: 41.0488, lng: 29.0550, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi Çınaraltı iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "İstinye İskelesi", lat: 41.1131, lng: 29.0556, type: "cat-iskele", category: "Boğaz Hattı", desc: "İstinye koyunun sakin iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Kabataş İskelesi", lat: 41.0340, lng: 28.9920, type: "cat-iskele", category: "Ana Hub", desc: "Adalar ve Bursa bağlantısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Kuzguncuk İskelesi", lat: 41.0370, lng: 29.0300, type: "cat-iskele", category: "Boğaz Hattı", desc: "Tarihi semt iskelesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-
-            // --- İBB SOSYAL TESİSLERİ ---
-            { title: "İBB Arnavutköy", lat: 41.0672, lng: 29.0432, type: "cat-ibb", category: "Sosyal Tesis", desc: "Boğaz manzaralı restoran.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" },
-            { title: "İBB Çamlıca", lat: 41.0267, lng: 29.0664, type: "cat-ibb", category: "Sosyal Tesis", desc: "Panoramik İstanbul manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Camlica_Hill_View.jpg/640px-Camlica_Hill_View.jpg" },
-            { title: "İBB Haliç", lat: 41.0250, lng: 28.9600, type: "cat-ibb", category: "Sosyal Tesis", desc: "Haliç kıyısında lezzet.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rahmi_M_Koc_Museum_Istanbul_submarine.jpg/640px-Rahmi_M_Koc_Museum_Istanbul_submarine.jpg" },
-            { title: "İBB Fethipaşa", lat: 41.0335, lng: 29.0280, type: "cat-ibb", category: "Sosyal Tesis", desc: "Koru içinde, Sarayburnu manzaralı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fethi_Pasa_Korusu.jpg/640px-Fethi_Pasa_Korusu.jpg" },
-            { title: "İBB Cihangir", lat: 41.0311, lng: 28.9833, type: "cat-ibb", category: "Sosyal Tesis", desc: "Boğaz'a nazır çay keyfi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
-            { title: "İBB İstinye", lat: 41.1132, lng: 29.0553, type: "cat-ibb", category: "Sosyal Tesis", desc: "Denize sıfır keyif.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
-
-            // --- MEYDANLAR ---
-            { title: "Taksim Meydanı", lat: 41.0369, lng: 28.9850, type: "cat-meydan", category: "Meydan", desc: "İstanbul'un kalbi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Taksim_Square_and_Monument.jpg/640px-Taksim_Square_and_Monument.jpg" },
-            { title: "Kadıköy Boğa", lat: 40.9906, lng: 29.0296, type: "cat-meydan", category: "Meydan", desc: "Buluşma noktası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kadikoy_Bull_Statue_2019.jpg/640px-Kadikoy_Bull_Statue_2019.jpg" },
-            { title: "Beşiktaş Meydanı", lat: 41.0423, lng: 29.0065, type: "cat-meydan", category: "Meydan", desc: "Kartal Heykeli ve Çarşı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Besiktas_Pier_Istanbul.jpg/640px-Besiktas_Pier_Istanbul.jpg" },
-            { title: "Sultanahmet", lat: 41.0062, lng: 28.9758, type: "cat-meydan", category: "Meydan", desc: "Tarihi Hipodrom.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sultanahmet_Square_Obelisks.jpg/640px-Sultanahmet_Square_Obelisks.jpg" },
-            { title: "Eminönü Meydanı", lat: 41.0173, lng: 28.9721, type: "cat-meydan", category: "Meydan", desc: "Yeni Cami önü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Eminonu_Square_Istanbul.jpg/640px-Eminonu_Square_Istanbul.jpg" },
-            { title: "Ortaköy Meydanı", lat: 41.0475, lng: 29.0269, type: "cat-meydan", category: "Meydan", desc: "Kumpirciler ve cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Ortak%C3%B6y_Square_and_Mosque.jpg/640px-Ortak%C3%B6y_Square_and_Mosque.jpg" },
-            { title: "Üsküdar Meydanı", lat: 41.0267, lng: 29.0156, type: "cat-meydan", category: "Meydan", desc: "Kız Kulesi karşısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uskudar_Square_Fountain.jpg/640px-Uskudar_Square_Fountain.jpg" },
-            { title: "Beyazıt Meydanı", lat: 41.0097, lng: 28.9647, type: "cat-meydan", category: "Meydan", desc: "İstanbul Üniversitesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Istanbul_University_Gate_Beyazit.jpg/640px-Istanbul_University_Gate_Beyazit.jpg" },
-
-            // --- PARKLAR ---
-            { title: "Atatürk Arboretumu", lat: 41.1714, lng: 28.9839, type: "cat-park", category: "Doğa", desc: "Canlı ağaç müzesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ataturk_Arboretum_2020_1.jpg/640px-Ataturk_Arboretum_2020_1.jpg" },
-            { title: "Emirgan Korusu", lat: 41.1075, lng: 29.0536, type: "cat-park", category: "Koru", desc: "Lale Festivali.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emirgan_Park_Yellow_Pavilion.jpg/640px-Emirgan_Park_Yellow_Pavilion.jpg" },
-            { title: "Yıldız Parkı", lat: 41.0494, lng: 29.0108, type: "cat-park", category: "Koru", desc: "Tarihi saray bahçesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Yildiz_Palace_Sale_Kosku.jpg/640px-Yildiz_Palace_Sale_Kosku.jpg" },
-            { title: "Nakkaştepe", lat: 41.0361, lng: 29.0403, type: "cat-park", category: "Millet Bahçesi", desc: "Boğaz manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bosphorus_Bridge_from_Nakka%C5%9Ftepe.jpg/640px-Bosphorus_Bridge_from_Nakka%C5%9Ftepe.jpg" },
-            { title: "Fethi Paşa Korusu", lat: 41.0328, lng: 29.0289, type: "cat-park", category: "Koru", desc: "Boğaz manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fethi_Pasa_Korusu.jpg/640px-Fethi_Pasa_Korusu.jpg" },
-            { title: "Baltalimanı Japon Bahçesi", lat: 41.0961, lng: 29.0531, type: "cat-park", category: "Park", desc: "Japon bahçesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Baltalimani_Japanese_Garden_02.jpg/640px-Baltalimani_Japanese_Garden_02.jpg" },
-            { title: "Nezahat Gökyiğit", lat: 40.9953, lng: 29.1172, type: "cat-park", category: "Botanik", desc: "Botanik bahçe.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nezahat_Gokyigit_Botanical_Garden.jpg/640px-Nezahat_Gokyigit_Botanical_Garden.jpg" },
-            { title: "Gülhane Parkı", lat: 41.0128, lng: 28.9809, type: "cat-park", category: "Park", desc: "Tarihi park.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/G%C3%BClhane_Park_Istanbul.jpg/640px-G%C3%BClhane_Park_Istanbul.jpg" },
-            { title: "Hidiv Kasrı Korusu", lat: 41.1042, lng: 29.0725, type: "cat-park", category: "Koru", desc: "Tarihi kule.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Khedive_Palace_Istanbul.jpg/640px-Khedive_Palace_Istanbul.jpg" },
-            { title: "Belgrad Ormanı", lat: 41.1833, lng: 28.9167, type: "cat-park", category: "Orman", desc: "Su bentleri.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belgrad_Forest_Road.jpg/640px-Belgrad_Forest_Road.jpg" },
-            { title: "Polonezköy", lat: 41.1114, lng: 29.2131, type: "cat-park", category: "Doğa", desc: "Doğa yürüyüşü.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Polonezk%C3%B6y_Nature_Park_entrance.jpg/640px-Polonezk%C3%B6y_Nature_Park_entrance.jpg" },
-            { title: "Aydos Ormanı", lat: 40.9483, lng: 29.2556, type: "cat-park", category: "Orman", desc: "İstanbul'un zirvesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Aydos_Hill.jpg/640px-Aydos_Hill.jpg" },
-            { title: "Maçka Demokrasi Parkı", lat: 41.0422, lng: 28.9939, type: "cat-park", category: "Park", desc: "Vadi parkı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg/640px-Ma%C3%A7ka_Demokrasi_Park%C4%B1_aerial.jpg" },
-            { title: "Fenerbahçe Parkı", lat: 40.9678, lng: 29.0356, type: "cat-park", category: "Park", desc: "Deniz kenarı park.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fenerbahce_Park.jpg/640px-Fenerbahce_Park.jpg" },
-
-            // --- TARİHİ ---
-            { title: "Ayasofya", lat: 41.0086, lng: 28.9802, type: "cat-tarih", category: "Tarihi", desc: "Mimari şaheser.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Hagia_Sophia_Mars_2013.jpg/640px-Hagia_Sophia_Mars_2013.jpg" },
-            { title: "Topkapı Sarayı", lat: 41.0130, lng: 28.9840, type: "cat-tarih", category: "Saray", desc: "Osmanlı sarayı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Topkap%C4%B1_Palace_01.jpg/640px-Topkap%C4%B1_Palace_01.jpg" },
-            { title: "Yerebatan Sarnıcı", lat: 41.0084, lng: 28.9779, type: "cat-tarih", category: "Sarnıç", desc: "Yeraltı sarnıcı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Basilica_Cistern_Istanbul.jpg/640px-Basilica_Cistern_Istanbul.jpg" },
-            { title: "Sultanahmet Camii", lat: 41.0053, lng: 28.9769, type: "cat-tarih", category: "Cami", desc: "Mavi cami.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Blue_Mosque_Courtyard_View.jpg/640px-Blue_Mosque_Courtyard_View.jpg" },
-            { title: "Galata Kulesi", lat: 41.0256, lng: 28.9741, type: "cat-tarih", category: "Kule", desc: "Seyir kulesi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Galata_Tower_Istanbul.jpg/640px-Galata_Tower_Istanbul.jpg" },
-            { title: "Kız Kulesi", lat: 41.0211, lng: 29.0041, type: "cat-tarih", category: "Simge", desc: "Boğaz incisi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Maiden%27s_Tower_Istanbul.jpg/640px-Maiden%27s_Tower_Istanbul.jpg" },
-            { title: "Dolmabahçe Sarayı", lat: 41.0394, lng: 29.0017, type: "cat-tarih", category: "Saray", desc: "İhtişamlı saray.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Dolmabahce_Palace_001.jpg/640px-Dolmabahce_Palace_001.jpg" },
-            { title: "Süleymaniye Camii", lat: 41.0167, lng: 28.9631, type: "cat-tarih", category: "Sinan", desc: "Mimar Sinan eseri.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg/640px-Suleymaniye_Mosque_Istanbul_Turkey_Panoramic.jpg" },
-            { title: "Pierre Loti", lat: 41.0537, lng: 28.9333, type: "cat-tarih", category: "Manzara", desc: "Haliç manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pierre_Loti_Cafe_Istanbul.jpg/640px-Pierre_Loti_Cafe_Istanbul.jpg" },
-            { title: "Ortaköy Camii", lat: 41.0473, lng: 29.0272, type: "cat-tarih", category: "Simge", desc: "Boğaz manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Ortak%C3%B6y_Mosque_Istanbul_2020.jpg/640px-Ortak%C3%B6y_Mosque_Istanbul_2020.jpg" },
-            { title: "Rumeli Hisarı", lat: 41.0839, lng: 29.0417, type: "cat-tarih", category: "Kale", desc: "Tarihi hisar.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Rumelihisari_Istanbul_Turkey.jpg/640px-Rumelihisari_Istanbul_Turkey.jpg" },
-            { title: "Beylerbeyi Sarayı", lat: 41.0428, lng: 29.0394, type: "cat-tarih", category: "Saray", desc: "Yazlık saray.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Beylerbeyi_Palace_Istanbul.jpg/640px-Beylerbeyi_Palace_Istanbul.jpg" },
-            { title: "Kapalıçarşı", lat: 41.0107, lng: 28.9680, type: "cat-tarih", category: "Çarşı", desc: "Tarihi çarşı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Grand_Bazaar_Istanbul.jpg/640px-Grand_Bazaar_Istanbul.jpg" },
-            { title: "Mısır Çarşısı", lat: 41.0163, lng: 28.9706, type: "cat-tarih", category: "Çarşı", desc: "Baharat çarşısı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Spice_Bazaar_Istanbul.jpg/640px-Spice_Bazaar_Istanbul.jpg" },
-            { title: "Kariye Camii", lat: 41.0312, lng: 28.9392, type: "cat-tarih", category: "Mozaik", desc: "Bizans mozaikleri.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chora_Church_Istanbul_exterior_west_side.jpg/640px-Chora_Church_Istanbul_exterior_west_side.jpg" },
-            { title: "Fener Rum Patrikhanesi", lat: 41.0294, lng: 28.9517, type: "cat-tarih", category: "Dini", desc: "Ortodoks merkezi.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ecumenical_Patriarchate_of_Constantinople.jpg/640px-Ecumenical_Patriarchate_of_Constantinople.jpg" },
-            { title: "Demir Kilise", lat: 41.0322, lng: 28.9497, type: "cat-tarih", category: "Kilise", desc: "Demir kilise.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/St._Stephen_Church_Istanbul_2018.jpg/640px-St._Stephen_Church_Istanbul_2018.jpg" },
-            { title: "Eyüp Sultan", lat: 41.0476, lng: 28.9344, type: "cat-tarih", category: "Kutsal", desc: "Manevi merkez.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ey%C3%BCp_Sultan_Mosque_Courtyard.jpg/640px-Ey%C3%BCp_Sultan_Mosque_Courtyard.jpg" },
-            { title: "Sent Antuan", lat: 41.0322, lng: 28.9769, type: "cat-tarih", category: "Kilise", desc: "Gotik kilise.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/St_Anthony_of_Padua_Church_Istanbul_exterior.jpg/640px-St_Anthony_of_Padua_Church_Istanbul_exterior.jpg" },
-            { title: "Çiçek Pasajı", lat: 41.0340, lng: 28.9772, type: "cat-tarih", category: "Pasaj", desc: "Tarihi pasaj.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cicek_Pasaji_Istanbul.jpg/640px-Cicek_Pasaji_Istanbul.jpg" },
-            { title: "Ihlamur Kasrı", lat: 41.0506, lng: 29.0017, type: "cat-tarih", category: "Kasır", desc: "Tarihi köşk.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Ihlamur_Kasr%C4%B1_Front.jpg/640px-Ihlamur_Kasr%C4%B1_Front.jpg" },
-            { title: "Küçüksu Kasrı", lat: 41.0792, lng: 29.0628, type: "cat-tarih", category: "Kasır", desc: "Zarif köşk.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kucuksu_Pavilion_Istanbul.jpg/640px-Kucuksu_Pavilion_Istanbul.jpg" },
-            { title: "Büyükada Aya Yorgi", lat: 40.8522, lng: 29.1172, type: "cat-tarih", category: "Kilise", desc: "Ada manzarası.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hagia_Yorgi_Church_Buyukada.jpg/640px-Hagia_Yorgi_Church_Buyukada.jpg" },
-            { title: "Çinili Camii", lat: 41.0189, lng: 29.0233, type: "cat-tarih", category: "Cami", desc: "Çini sanatı.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Cinili_Mosque_Uskudar.jpg/640px-Cinili_Mosque_Uskudar.jpg" },
-            { title: "Haydarpaşa Garı", lat: 40.9969, lng: 29.0197, type: "cat-tarih", category: "Gar", desc: "Tarihi gar.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Haydarpasa_Terminal_Istanbul.jpg/640px-Haydarpasa_Terminal_Istanbul.jpg" },
-            { title: "Şerefiye Sarnıcı", lat: 41.0073, lng: 28.9726, type: "cat-tarih", category: "Sarnıç", desc: "Tarihi sarnıç.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Theodosius_Cistern_10.jpg/640px-Theodosius_Cistern_10.jpg" }
-        ];
-
-        // İŞARETLEYİCİLERİ GRUPLARA DAĞIT
-        locations.forEach(loc => {
-            var selectedIcon;
-            var targetLayer;
-            var badgeClass = loc.type;
-
-            if (loc.type === 'cat-tarih') { selectedIcon = redIcon; targetLayer = layerTarih; }
-            else if (loc.type === 'cat-park') { selectedIcon = greenIcon; targetLayer = layerPark; }
-            else if (loc.type === 'cat-meydan') { selectedIcon = orangeIcon; targetLayer = layerMeydan; }
-            else if (loc.type === 'cat-muze') { selectedIcon = violetIcon; targetLayer = layerMuze; }
-            else if (loc.type === 'cat-plaj') { selectedIcon = blueIcon; targetLayer = layerPlaj; }
-            else if (loc.type === 'cat-ibb') { selectedIcon = goldIcon; targetLayer = layerIBB; } 
-            else if (loc.type === 'cat-iskele') { selectedIcon = greyIcon; targetLayer = layerIskele; } 
-            else if (loc.type === 'cat-terminal') { selectedIcon = blackIcon; targetLayer = layerTerminal; } 
-            else if (loc.type === 'cat-lezzet') { selectedIcon = yellowIcon; targetLayer = layerLezzet; } 
-            
-            if (targetLayer) {
-                var marker = L.marker([loc.lat, loc.lng], {icon: selectedIcon});
-                var popupContent = `
-                    <div>
-                        <img src="${loc.img}" class="popup-img" alt="${loc.title}">
-                        <div class="popup-details">
-                            <span class="category-tag ${badgeClass}">${loc.category}</span>
-                            <h3>${loc.title}</h3>
-                            <p>${loc.desc}</p>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}" target="_blank" class="btn-rota">YOL TARİFİ AL</a>
-                        </div>
-                    </div>
-                `;
-                marker.bindPopup(popupContent);
-                targetLayer.addLayer(marker);
-            }
-        });
-
-        // Tüm katmanları varsayılan olarak aç
-        layerTarih.addTo(map);
-        layerPark.addTo(map);
-        layerMeydan.addTo(map);
-        layerMuze.addTo(map);
-        layerPlaj.addTo(map);
-        layerIBB.addTo(map);
-        layerIskele.addTo(map);
-        layerTerminal.addTo(map);
-        layerLezzet.addTo(map);
-
-        var overlayMaps = {
-            "<span style='color:#e74c3c'>■</span> Tarihi Yerler": layerTarih,
-            "<span style='color:#2ecc71'>■</span> Parklar & Korular": layerPark,
-            "<span style='color:#e67e22'>■</span> Meydanlar": layerMeydan,
-            "<span style='color:#9b59b6'>■</span> Kültür, Sanat & Müzeler": layerMuze,
-            "<span style='color:#3498db'>■</span> Plajlar": layerPlaj,
-            "<span style='color:#f1c40f'>■</span> İBB Sosyal Tesisleri": layerIBB, 
-            "<span style='color:#7f8c8d'>■</span> Vapur İskeleleri": layerIskele, 
-            "<span style='color:#2c3e50'>■</span> Terminaller & Havalimanları": layerTerminal,
-            "<span style='color:#ffeb3b'>■</span> Tarihi Lezzetler": layerLezzet // DÜZELTME: Kutu rengini sarı yaptık
-        };
-
-        var isMobile = window.innerWidth < 768;
-        L.control.layers(null, overlayMaps, { collapsed: isMobile, position: 'topright' }).addTo(map);
-
-    </script>
 </body>
 </html>
