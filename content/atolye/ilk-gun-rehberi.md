@@ -1,182 +1,91 @@
 ---
-title: "Kameranı Aldın, Dışarı Çıktın — İlk Günün Rehberi"
+title: "Kameranı Aldın, Dışarı Çıktın: İlk Günün Hayatta Kalma Rehberi"
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 8
-image: ""
+image: "/images/blog/first-day-photography-guide.jpg"
 foto_yon: "yatay"
 draft: false
+description: "Yeni bir kamera heyecanıyla hemen Balat'a koşmayın. Kameranızı tanımadan sokağa çıkmak, o büyülü anları harcamak demektir. İşte ilk 30 günün yol haritası."
 ---
 
-Dur.
+Dur. 
 
-Balat'a gitme. Henüz değil.
+**Balat'a gitme. Henüz değil.**
 
-Balat sabırla bekliyor. O sarı duvarlar, o rengarenk çamaşırlar, o tarihi çıkmaz sokaklar — hepsi orada, sizi bekliyor. Ama kameranızı tanımadan Balat'a gittiğinizde ne olur? Menüde kaybolursunuz. Ayarları ararken an geçer. Pişmanlıkla dönersiniz. Ve Balat'ı "harcamış" olursunuz — o ilk büyülü keşfi, o taze bakışı tekrar yakalayamazsınız.
+Balat sabırla bekliyor. O sarı duvarlar, rengarenk çamaşırlar ve tarihi çıkmaz sokaklar hep orada olacak. Ancak kameranızı tam anlamıyla tanımadan Balat'a gittiğinizde, menüde kaybolur, ayar yaparken o "an"ı kaçırırsınız. Sonuç? Pişmanlık ve harcanmış bir keşif hissi.
 
-Önce kameranızı tanıyın. Sonra sadece makineye güvenin. Geri kalanı keşfetmek için zaman bol.
+Önce kameranızı elinizin bir uzantısı haline getirin. Geri kalanı keşfetmek için zaman çok.
 
 ---
 
-## İlk Gün: Evin İçi
+## İlk Gün: Güvenli Bölge (Evin İçi)
 
-İlk gün dışarı çıkmayın.
+Yeni kamera kutusundan çıkmış, parmaklar titriyor ve sokak sizi çağırıyor olabilir. Ancak en iyi eğitim, acele edilmeyen bir ortamda başlar. İlk gün dışarı çıkmayın; kameranızla evde "tanışın".
 
-Bu garip bir tavsiye gibi görünür — yeni kamera kutusundan çıkmış, parmaklar titriyor, sokak çağırıyor. Ama bu sabırsızlık sizi yavaşlatır.
-
-Evin içinde, kontrollü bir ortamda, acelesi olmadan kamerayı elinize alın.
-
-**Yapacaklarınız:**
-
-Önce menüyü açın. Kaybolun. Geri çıkın. Tekrar girin. Her menü kalemi tek tek okuyun — anlamadıklarınızı atlayın, ileride dönersiniz. Şu an amaç haritayı çıkarmak, her yeri keşfetmek değil.
-
-Sonra şu dört ayarı bulun ve ezberleyin: ISO, diyafram, enstantane, çekim modu. Bunlar kameranın dört temel parametresidir. Nerede olduklarını, nasıl değiştirildiklerini bilmeden sokağa çıkmayın.
-
-Deklanşörü boşa basın. Sesi duyun. Sessiz modda nasıl değiştiğini öğrenin.
+### Yapacaklarınız:
+1.  **Menü Haritası:** Menüde rastgele kaybolun. Hangi ayarın nerede olduğunu ezberlemeye çalışmayın, sadece "burada böyle bir şey varmış" deyin.
+2.  **Dört Temel Ayar:** ISO, Diyafram, Enstantane ve Çekim Modu (P, A, S, M) düğmelerinin yerini bulun. Gözünüzü vizörden ayırmadan bu değerleri değiştirebiliyor musunuz? Hedefiniz bu.
+3.  **Deklanşörün Sesi:** Mekanik ve sessiz deklanşör arasındaki farkı duyun. Sokakta ne kadar "gürültü" yapacağınızı bilin.
 
 ---
 
 ## Otomatik Modlar: A, P, S, M Ne Demek?
 
-Her kamerada bu dört mod vardır. Hangisiyle başlamalısınız?
-
-**P — Program Otomatik**
-
-Kamera hem diyaframı hem enstantaneyi seçer. Siz yalnızca ISO'ya ve kompozisyona odaklanırsınız.
-
-İlk günün modu budur. Kamerayı tanırken P modunda çekin. Kamera ayarları halleder, siz çerçevelemeyi öğrenirsiniz. Sonuçlara bakın: kamera hangi değerleri seçmiş? Neden? Bu değerlere bakarak P modunu anlamaya başlarsınız.
-
-**A (veya Av) — Diyafram Öncelikli**
-
-Siz diyaframı seçersiniz, kamera enstantaneyi ayarlar. Fotoğrafçılığın en sık kullanılan modudur.
-
-Diyafram ne anlama gelir? Küçük sayı (f/1.8, f/2) geniş açıklık demektir — arka plan bulanır, az ışıkta çalışabilirsiniz. Büyük sayı (f/8, f/11) dar açıklık demektir — her şey keskin, geniş manzaralar için idealdir.
-
-İlk haftanın sonunda A moduna geçin.
-
-**S (veya Tv) — Enstantane Öncelikli**
-
-Siz enstantaneyi seçersiniz, kamera diyaframı ayarlar. Hareket dondurmak ya da uzun pozlama için kullanılır.
-
-1/1000 saniye koşan çocuğu dondurur. 1/30 saniye yürüyen insanı bulanıklaştırır. 1 saniye akan suyu eritir.
-
-**M — Manuel**
-
-Her şeyi siz kontrol edersiniz. Diyafram, enstantane, ISO — üçü de elinizde.
-
-Manuel moda acele etmeyin. Önce A modunu içselleştirin, sonra geçin. Manuel mod esneklik verir ama hız alır. Sokakta hız çoğu zaman esneklikten daha değerlidir.
+*   **P (Program):** Kamera her şeyi ayarlar, siz sadece çerçeveye ve ISO'ya odaklanırsınız. İlk 100 kareniz için en iyi arkadaştır.
+*   **A (Diyafram Öncelikli):** En çok kullanacağınız moddur. Siz arka planın ne kadar bulanık olacağına (f/1.8 vs f/8) karar verirsiniz, kamera geri kalanını halleder.
+*   **S (Enstantane Öncelikli):** Hareketli sahnelerin (koşan bir çocuk veya akan Boğaz suyu) ilacıdır.
+*   **M (Manuel):** Her şey elinizde. Acele etmeyin; manuel mod esneklik verir ama hız çalar. Sokakta ise hız her şeydir.
 
 ---
 
-## Fujifilm İçin Özel Not
+## Markalara Göre İlk Ayarlar
 
-Fujifilm kullanıyorsanız işiniz biraz farklıdır — ve daha güzeldir.
+### Fujifilm Kullanıyorsanız:
+Fiziksel kadranların tadını çıkarın. 
+- **Diyafram:** A (Otomatik)
+- **Enstantane:** A (Otomatik)
+- **ISO:** Auto (Üst sınırı 3200 yapabilirsiniz)
+- **Film Simülasyonu:** Classic Chrome (Sokağın ruhuna en yakın olanıdır)
 
-Fujifilm'in üst gövdelerinde (X-T serisi, X-E serisi, X-Pro serisi) fiziksel kadranlar vardır. Diyafram lens üzerinde döner. Enstantane üst kadranla ayarlanır. ISO ayrı bir kadran ya da diyafram kadranının içindedir.
+### Nikon Kullanıyorsanız:
+Nikon'un ergonomisi ve "U" (User) modları hayat kurtarır.
+- **Fn Butonları:** Sık kullandığınız ISO veya Netleme modlarını mutlaka Fn tuşlarına atayın.
+- **Picture Control:** "Standard" veya "Flat" ile başlayın.
+- **Nikon ZR / Cinema Serisi:** Eğer video odaklı bir gövdeniz varsa, shutter speed yerine "shutter angle" (180 derece kuralı) ayarını öğrenerek başlayın.
 
-Bu sistemde menüye girmenize çoğu zaman gerek yoktur. Her şey parmak ucunuzdadır, gözünüz vizörden ayrılmadan.
-
-**Başlangıç için Fujifilm ayarı:**
-- Diyafram: A (otomatik)
-- Enstantane: A (otomatik)
-- ISO: Auto (800'e kadar serbest bırakın)
-- Film simülasyonu: Classic Chrome ya da Provia
-- Jpeg kalite: Fine
-
-Bu ayarlarla P modunun Fujifilm versiyonunu elde edersiniz. Tamamen otomatik ama fiziksel kadranlarla kontrol hissi kaybolmaz.
-
----
-
-## Sony İçin Özel Not
-
-Sony gövdeler menü ağırlıklı çalışır. Fiziksel kadran azdır, özelleştirme geniştir.
-
-Sony başlangıcı için iki şeyi öncelikle yapın:
-
-Birincisi: favori menüsünü kurun. Sony'nin "My Menu" özelliği en sık kullandığınız ayarları tek yerde toplar. ISO, beyaz dengesi, JPEG kalite, sessiz çekim — bunları My Menu'ya ekleyin.
-
-İkincisi: en az iki tuşu özelleştirin. C1 ve C2 butonları çoğu Sony gövdede özelleştirilebilir. Birine ISO, diğerine AF modu atayın. Çekim sırasında menüye girmeden bu ikisini değiştirebilmek büyük fark yaratır.
-
-**Başlangıç için Sony ayarı:**
-- Çekim modu: P
-- ISO: Auto (3200'e kadar)
-- Resim profili: Standart ya da Vivid
-- JPEG kalite: Extra Fine
+### Sony Kullanıyorsanız:
+- **My Menu:** Sony’nin karmaşık menüsünden kurtulmak için en sık kullandığınız 5 ayarı "My Menu" sekmesine toplayın.
+- **Eye-AF:** Netleme modunu "Human/Animal" olarak ayarlayın ve kameranın göz takibi mucizesine güvenin.
 
 ---
 
-## Kaç Güne İhtiyaç Var?
+## 30 Günlük Yol Haritası
 
-Kamerayı "öğrenmek" yıllar sürer. Ama temel konforu yakalamak için gerçekçi bir çerçeve:
-
-**1. gün — Ev içi:**
-Menüyü keşfedin. Dört temel modu öğrenin. 100 boş kare çekin — evin köşesini, masayı, pencereyi. Ekrana bakın, histogram nedir öğrenin.
-
-**2-3. gün — Güvenli dış mekan:**
-Mahallenizde, tanıdık bir parkta, alışkın olduğunuz bir caddede çekin. Kalabalık yok, baskı yok. P modunda başlayın. Işığın nasıl değiştiğini izleyin — sabah, öğle, akşam.
-
-**4-5. gün — A moduna geçiş:**
-Diyaframı kendiniz seçin. f/2 ile f/8 arasında gidip gelin. Arka planın nasıl değiştiğini görün. ISO'yu elle ayarlamayı deneyin.
-
-**1. hafta sonu — İlk gerçek çekim:**
-Artık Karaköy'e gidebilirsiniz. Ya da Eminönü. Tanıdık ama hareketli, bol ışıklı, bağışlayıcı bir ortam. Balat değil henüz — ama gerçek sokak.
-
-**2-4. hafta:**
-Her gün 50-100 kare çekin. Evden çıkarken kamera yanınızda olsun. Alışkanlık oluşturun. Kamera elinizde doğal hissettirmeye başlayana kadar.
-
-**1. ayın sonunda:**
-Artık Balat'a gidebilirsiniz.
+| Zaman Dilimi | Görev | Mekan Önerisi |
+| :--- | :--- | :--- |
+| **1. Gün** | Menü ve buton yerleşimi | Kendi odanız |
+| **2-3. Gün** | Işık takibi (Sabah/Akşam) | Mahalle parkı |
+| **1. Hafta** | A (Diyafram) modunda derinlik denemeleri | Pazar yerleri |
+| **2. Hafta** | Kompozisyon ve ufuk çizgisi | Boğaz hattı (Açık hava) |
+| **1. Ay Sonu** | Gerçek "Urban" sınavı | **Balat, Eminönü, Kapalıçarşı** |
 
 ---
 
 ## Nereye Gitmeyin — Henüz
 
-Bazı yerler kameranıza güvendiğinizde çok daha değerlidir. Kameranızı tanımadan gittiğinizde o yerleri "harcarsınız."
-
-**Balat:** İstanbul'un en fotoğraflanan semtlerinden biri. Ama doğru saatte, doğru ışıkla, doğru hazırlıkla gittiğinizde başka bir şeydir. Sabah erken, henüz turistler gelmeden, sokak lambalarının hâlâ yandığı o yarım saatte. Bunu kaçırmamak için kameranız elinizde ikinci doğa olmalıdır.
-
-**Eminönü gün batımı:** Altın saat hızlıdır. On beş dakika, belki yirmi. Menüde kaybolacak zamanınız yoktur.
-
-**Kapalıçarşı iç mekan:** Düşük ışık, hareket eden kalabalık, dar geçitler. ISO ayarını bilmeden buraya girmeyin.
-
-**Boğaz teknesi çekimi:** Hem hareket hem ışık hem kompozisyon aynı anda. Üçünü aynı anda yönetmek için önce ikisini ayrı ayrı öğrenin.
+Bazı yerler kameranıza %100 güvendiğinizde değerlidir:
+*   **Eminönü Gün Batımı:** Altın saat sadece 15-20 dakika sürer. Menüde ayar ararken güneş batar.
+*   **Kapalıçarşı:** Işığın az, kalabalığın çok olduğu, teknik olarak en zorlayıcı yerlerden biridir. ISO ve AF-C (Sürekli netleme) hakimiyeti ister.
 
 ---
 
-## Nereye Gidin — Önce
+## Urbankare Notu: Çok Çekin, Az Saklayın
 
-Kameranızı tanımak için doğru yerler: bağışlayıcı, ışıklı, acelesi olmayan mekânlar.
+Fotoğrafçılık bir kas hafızası işidir. İlk haftanızda 1000 kare çekin ve 990 tanesini acımadan silin. Kalan 10 kareye bakın ve kendinize sorun: **"Bu fotoğraf neden işe yaradı?"**
 
-**Mahalle parkı, sabah 8-10:** Işık yumuşaktır. İnsanlar sabah rutinindedir, poz vermez, kaçmaz. Köpekler, çocuklar, bankta oturan yaşlılar — bunlar harika pratik sahneleridir.
-
-**Pazar yeri, öğle üzeri:** Renk, doku, hareket. Ama kimse sizi umursamaz. Herkes kendi işindedir. Hata yapın, tekrarlayın, öğrenin.
-
-**Kendi evinizin balkonu ya da penceresi, farklı saatlerde:** Aynı sahne farklı ışıkta nasıl değişir? Sabah, öğle, akşam, gece — bu dört farklı ışığı aynı noktadan çekmek inanılmaz bir öğreticidir.
-
-**Boğaz kıyısı gündüz, açık havada:** Bol ışık affedicidir. Hata görünmez. Ama kompozisyon, çerçeveleme, ufuk çizgisi — bunları öğrenmek için mükemmeldir.
+Bu sorunun cevabı, sizi teknik rehberlerden daha hızlı geliştirecektir.
 
 ---
 
-## Tek Kural: Çok Çekin, Az Saklayın
-
-Fotoğrafçılık öğrenmenin tek yolu çekmektir. Çok çekmek. Hata yapmak. Ekrana bakmak. Neden yanlış olduğunu anlamak. Tekrar çekmek.
-
-İlk hafta 1000 kare çekin. 990'ını silin. 10 tanesine bakın ve sorun: "Bu neden işe yaradı?"
-
-Bu sorunun cevabı sizi ilerletir. Teknik rehberler, YouTube videoları, bu yazı — bunların hiçbiri o soruyu kendi kendinize sormak kadar öğretici değildir.
-
----
-
-## Son Söz
-
-Kamera bir araçtır. Ama her araç gibi, onu tanımadan ustalaşamazsınız.
-
-Bir marangoz ilk baltasını aldığında ormana gitmez. Önce elinde hisseder. Ağırlığını tanır. Nasıl tutacağını öğrenir.
-
-Siz de öyle yapın. Kameranızı elinizde hissedin. Ağırlığını, butonlarını, sesini tanıyın.
-
-Sonra Balat bekliyor. Ve o sarı duvarlar, o renkli çamaşırlar — hepsini hak ettiğiniz gibi göreceksiniz.
-
----
-
-*Urbankare serisinin devamında: "Balat Fotoğraf Rotası — Işık, Renk ve Doğru Saatler" ve "Pozlama Üçgeni — Diyafram, Enstantane, ISO Sıfırdan"*
+*Urbankare serisinin devamında: "Balat Fotoğraf Rotası: Işık, Renk ve Doğru Saatler" ve "Pozlama Üçgeni: Diyafram, Enstantane, ISO Sıfırdan"*
