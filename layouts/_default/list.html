@@ -1,36 +1,47 @@
 {{ define "main" }}
 <div class="list-page">
 
-  <div class="sec-header">
-    <div class="sec-label">{{ .Title | upper }}</div>
-    <div class="sec-label">{{ len .Pages }} içerik</div>
+  <div class="ed-section-header" style="margin-bottom:0;">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">{{ .Title | upper }}</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len .Pages }} içerik</span>
   </div>
 
-  <div class="event-grid event-grid--list">
+  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
     {{ range .Pages }}
-    <a href="{{ .Permalink }}" class="event-card">
+    <a href="{{ .Permalink }}" class="ed-event-card">
       {{ if .Params.image }}
         {{ if eq .Params.foto_yon "dikey" }}
-        <div class="event-thumb event-thumb--portrait-card">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}" />
-        </div>
+        <div class="ed-event-img ed-event-img--portrait" style="background-image: url('{{ .Params.image }}')"></div>
         {{ else }}
-        <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
+        <div class="ed-event-img" style="background-image: url('{{ .Params.image }}')"></div>
         {{ end }}
       {{ else }}
-      <div class="event-thumb thumb-{{ .Params.kategori | lower | default "default" }}">
-        {{ if eq .Params.kategori "Tiyatro" }}🎭
-        {{ else if eq .Params.kategori "Sergi" }}🖼
-        {{ else if eq .Params.kategori "Müzik" }}🎵
-        {{ else if eq .Params.kategori "Lezzet" }}🍽
-        {{ else }}📅{{ end }}
+      <div class="ed-event-img ed-event-img--empty thumb-{{ .Params.kategori | lower | default "default" }}{{ if .Params.konu }} thumb-foto{{ end }}">
+        {{ if or (eq .Params.konu "Fotoğrafçılık") (eq .Params.konu "Yazarlık") (eq .Params.konu "Film") (eq .Params.konu "Müzik Teorisi") }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="13" r="4"/><path d="M5 7h2l2-3h6l2 3h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>
+        {{ else if eq .Params.kategori "Tiyatro" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+        {{ else if eq .Params.kategori "Sergi" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
+        {{ else if eq .Params.kategori "Müzik" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        {{ else if eq .Params.kategori "Lezzet" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        {{ else }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        {{ end }}
       </div>
       {{ end }}
-      {{ with .Params.kategori }}<div class="event-cat pill-{{ . | lower }}">{{ . | upper }}</div>{{ end }}
-      {{ with .Params.konu }}<div class="event-cat pill-foto">{{ . | upper }}</div>{{ end }}
-      <div class="event-title">{{ .Title }}</div>
-      <div class="event-where">{{ .Params.mekan }}</div>
-      <div class="event-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
+
+      {{ with .Params.kategori }}<span class="ed-pill pill-{{ . | lower }}">{{ . | upper }}</span>{{ end }}
+      {{ with .Params.konu }}<span class="ed-pill pill-foto">{{ . | upper }}</span>{{ end }}
+      <div class="ed-event-title">{{ .Title }}</div>
+      <div class="ed-event-meta">
+        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
     </a>
     {{ end }}
   </div>
