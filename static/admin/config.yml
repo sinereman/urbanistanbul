@@ -9,28 +9,108 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "etkinlikler"
-    label: "Etkinlikler"
-    folder: "content/etkinlikler"
+  - name: "tiyatro"
+    label: "Tiyatro"
+    folder: "content/tiyatro"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Kategori", name: "kategori", widget: "select", options: ["Tiyatro", "Sergi", "Müzik", "Lezzet", "Festival"]}
       - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
       - {label: "Mekan", name: "mekan", widget: "string"}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
       - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
       - {label: "İçerik", name: "body", widget: "markdown"}
 
+  - name: "sergi"
+    label: "Sergi & Sanat"
+    folder: "content/sergi"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+  - name: "muzik"
+    label: "Müzik & Konser"
+    folder: "content/muzik"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+  - name: "lezzet"
+    label: "Lezzet & Mekan"
+    folder: "content/lezzet"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+  - name: "festival"
+    label: "Festival"
+    folder: "content/festival"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Festival Türü", name: "tur", widget: "select", options: ["Müzik", "Sinema", "Sanat", "Tiyatro", "Dans", "Edebiyat", "Diğer"]}
+      - {label: "Tarih Başlangıç", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Tarih Bitiş", name: "tarih_bitis", widget: "datetime", time_format: false, required: false}
+      - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+  - name: "perde"
+    label: "Perde — Sinema"
+    folder: "content/perde"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Tür", name: "tur", widget: "select", options: ["Film İncelemesi", "Vizyon", "Yönetmen Dosyası", "Festival", "İstanbul Sineması"]}
+      - {label: "Yönetmen", name: "yonetmen", widget: "string", required: false}
+      - {label: "Yıl", name: "yil", widget: "string", required: false}
+      - {label: "Vizyon Tarihi", name: "tarih", widget: "datetime", time_format: false, required: false}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+  - name: "kesfet"
+    label: "Keşfet İstanbul"
+    folder: "content/kesfet"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Semt", name: "semt", widget: "string", required: false}
+      - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
   - name: "atolye"
-    label: "Atölye Yazıları"
+    label: "Atölye"
     folder: "content/atolye"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Konu", name: "konu", widget: "select", options: ["Fotoğrafçılık", "Yazarlık", "Film", "Müzik Teorisi"]}
+      - {label: "Konu", name: "konu", widget: "select", options: ["Fotoğrafçılık", "Müzik", "Yazarlık", "Sinema", "Seramik", "Deri", "Yemek", "Resim", "Diğer"]}
       - {label: "Sıra", name: "sira", widget: "number", default: 1}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
       - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
@@ -45,4 +125,5 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
+      - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
       - {label: "İçerik", name: "body", widget: "markdown"}
