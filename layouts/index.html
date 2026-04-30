@@ -178,7 +178,7 @@
   <a href="/atolye" class="sec-more">tüm dersler →</a>
 </div>
 <div class="atolye-grid">
-  {{ range first 2 $atolye }}
+  {{ range first 2 ($atolye.ByDate.Reverse) }}
   <a href="{{ .Permalink }}" class="atolye-card">
     {{ if .Params.image }}
     <div class="atolye-img-wrap {{ if eq .Params.foto_yon "dikey" }}atolye-img-wrap--portrait{{ end }}">
