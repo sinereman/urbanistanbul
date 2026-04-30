@@ -3,7 +3,7 @@ title: "APS-C mi Full Frame mi? Sokaktaki Görünmezlik Sanatı"
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 3
-image: "/images/blog/aps-c-vs-full-frame-istanbul.jpg"
+image: "/images/uploads/apsc-vs-fullframe.jpg"
 foto_yon: "yatay"
 draft: false
 description: "Sokak fotoğrafçılığında teknik veriler mi yoksa görünmezlik mi daha önemli? APS-C ve Full Frame arasındaki gerçek farkı şehir odaklı bir perspektifle inceliyoruz."
