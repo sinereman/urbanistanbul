@@ -84,14 +84,9 @@ nav { border-bottom: var(--border); position: sticky; top: 0; background: var(--
 .event-card:hover { background: var(--gray-1); }
 
 /* ── GÖRSEL TİPLERİ ── */
-/* Yatay fotoğraf — tam genişlik, sabit yükseklik */
 .event-thumb { width: 100%; height: 120px; border-radius: 4px; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; opacity: 0.6; }
 .event-thumb--landscape { background-size: cover; background-position: center; opacity: 1; }
-
-/* Dikey fotoğraf — yan yana düzen */
 .event-thumb--portrait { height: 160px; background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 1; background-color: var(--gray-1); }
-
-/* Liste sayfasında dikey fotoğraf */
 .event-thumb--portrait-card { height: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--gray-1); border-radius: 4px; margin-bottom: 14px; }
 .event-thumb--portrait-card img { height: 100%; width: auto; object-fit: contain; }
 
@@ -106,6 +101,15 @@ nav { border-bottom: var(--border); position: sticky; top: 0; background: var(--
 .thumb-lezzet { background: #ecfeff; }
 .thumb-müzik, .thumb-muzik { background: #fffbeb; }
 .thumb-default { background: var(--gray-1); }
+
+/* ── KATEGORİ BANDI ── */
+.cat-band { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: var(--border); }
+.cat-band-item { padding: 16px 20px; border-right: var(--border); display: flex; flex-direction: column; gap: 4px; cursor: pointer; transition: background 0.2s; border-top: 3px solid transparent; text-decoration: none; }
+.cat-band-item:last-child { border-right: none; }
+.cat-band-item:hover { background: var(--gray-1); }
+.cat-band-icon { font-size: 20px; }
+.cat-band-label { font-size: 10px; letter-spacing: 0.1em; font-weight: 500; }
+.cat-band-count { font-size: 11px; color: var(--gray-3); }
 
 /* ── MAP STRIP ── */
 .map-strip { display: grid; grid-template-columns: 1fr 240px; border-bottom: var(--border); min-height: 160px; }
@@ -128,8 +132,6 @@ nav { border-bottom: var(--border); position: sticky; top: 0; background: var(--
 .atolye-title { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.3; color: var(--black); margin-bottom: 8px; }
 .atolye-desc { font-size: 13px; color: var(--gray-4); line-height: 1.65; }
 .atolye-read { margin-top: 16px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: 0.06em; color: var(--cat-fotograf); border-bottom: 1px solid var(--cat-fotograf); padding-bottom: 2px; }
-
-/* Atölye fotoğraf düzenleri */
 .atolye-img-wrap { width: 100%; height: 180px; overflow: hidden; border-radius: 4px; margin-bottom: 14px; }
 .atolye-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .atolye-img-wrap--portrait { height: 260px; background: var(--gray-1); display: flex; align-items: center; justify-content: center; }
@@ -140,8 +142,6 @@ nav { border-bottom: var(--border); position: sticky; top: 0; background: var(--
 .single-hero { position: relative; min-height: 400px; display: flex; align-items: flex-end; overflow: hidden; border-bottom: var(--border); }
 .single-hero-landscape { position: absolute; inset: 0; background-size: cover; background-position: center; }
 .single-hero-placeholder { position: absolute; inset: 0; background: linear-gradient(160deg, #1a0a2e 0%, #0d1b2a 100%); }
-
-/* Dikey fotoğraf — blur arka plan tekniği */
 .single-hero--portrait { min-height: 480px; justify-content: center; align-items: center; }
 .single-hero-blur { position: absolute; inset: 0; background-size: cover; background-position: center; filter: blur(20px); transform: scale(1.1); opacity: 0.6; }
 .single-hero-portrait-wrap { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 40px; }
@@ -198,6 +198,9 @@ footer { border-top: 2px solid var(--black); }
 .pill-festival { background: #be185d; color: #fdf2f8; }
 .pill-yazarlık, .pill-yazarlik { background: #92400e; color: #fef3c7; }
 .pill-film { background: #1e3a5f; color: #dbeafe; }
+.pill-atolye { background: var(--cat-fotograf); color: #052e16; }
+.pill-etkinlikler { background: var(--gold); color: var(--black); }
+.pill-kesfet { background: var(--gold); color: var(--black); }
 
 /* ── ANİMASYONLAR ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -217,4 +220,5 @@ footer { border-top: 2px solid var(--black); }
   .map-visual { display: none; }
   .single-title { font-size: 26px; }
   .single-body { padding: 24px 20px; }
+  .cat-band { grid-template-columns: repeat(3, 1fr); }
 }
