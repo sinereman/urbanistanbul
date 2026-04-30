@@ -3,7 +3,7 @@ title: "Kameranı Aldın, Dışarı Çıktın: İlk Günün Hayatta Kalma Rehber
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 8
-image: "/images/blog/first-day-photography-guide.jpg"
+image: "/images/uploads/first-day-photography-guide.jpg"
 foto_yon: "yatay"
 draft: false
 description: "Yeni bir kamera heyecanıyla hemen Balat'a koşmayın. Kameranızı tanımadan sokağa çıkmak, o büyülü anları harcamak demektir. İşte ilk 30 günün yol haritası."
