@@ -1,0 +1,4 @@
+---
+title: "Etkinlikler"
+draft: false
+---
