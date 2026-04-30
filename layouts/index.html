@@ -5,224 +5,251 @@
 {{ $lezzet := where .Site.RegularPages "Section" "lezzet" }}
 {{ $muzik := where .Site.RegularPages "Section" "muzik" }}
 {{ $etkinlikler := where .Site.RegularPages "Section" "etkinlikler" }}
+{{ $atolye := where .Site.RegularPages "Section" "atolye" }}
+{{ $teknoloji := where .Site.RegularPages "Section" "teknoloji" }}
+{{ $kesfet := where .Site.RegularPages "Section" "kesfet" }}
 
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $lezzet | union $muzik | union $etkinlikler }}
 {{ $hero := index $tumEtkinlikler 0 }}
 {{ $side := after 1 $tumEtkinlikler }}
 
-<!-- HERO -->
-<section class="hero">
+<!-- ═══ MASTHEAD DATE BAR ═══ -->
+<div class="masthead-bar">
+  <div class="masthead-left">
+    <span class="masthead-city">İSTANBUL</span>
+    <span class="masthead-sep">·</span>
+    <span class="masthead-date" id="mastheadDate"></span>
+  </div>
+  <div class="masthead-center">
+    <span class="masthead-tagline">Kültür · Sanat · Şehir · Atölye</span>
+  </div>
+  <div class="masthead-right">
+    <a href="/en" class="masthead-lang">EN</a>
+  </div>
+</div>
+
+<!-- ═══ HERO EDITORIAL GRID ═══ -->
+<section class="editorial-hero">
+
+  <!-- Sol: Ana haber büyük -->
   {{ if $hero }}
-  <div class="hero-main" {{ if $hero.Params.image }}style="background-image: url('{{ $hero.Params.image }}'); background-size: cover; background-position: center;"{{ end }}>
-    {{ if not $hero.Params.image }}
-    <div class="hero-img-placeholder">
-      <svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 180 Q60 120 120 150 Q180 180 240 100 Q300 20 360 80 Q390 110 400 100" stroke="white" stroke-width="0.8" fill="none" opacity="0.15"/>
-        <path d="M0 200 Q80 140 160 170 Q240 200 320 120 Q360 80 400 90" stroke="white" stroke-width="0.5" fill="none" opacity="0.1"/>
-        <circle cx="200" cy="120" r="80" stroke="white" stroke-width="0.4" fill="none" opacity="0.08"/>
-        <circle cx="200" cy="120" r="50" stroke="white" stroke-width="0.4" fill="none" opacity="0.06"/>
-        <line x1="0" y1="120" x2="400" y2="120" stroke="white" stroke-width="0.3" opacity="0.05"/>
+  <a href="{{ $hero.Permalink }}" class="ed-hero-main">
+    {{ if $hero.Params.image }}
+    <div class="ed-hero-img" style="background-image:url('{{ $hero.Params.image }}')"></div>
+    {{ else }}
+    <div class="ed-hero-img ed-hero-img--empty">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5" opacity="0.2">
+        <rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
       </svg>
     </div>
     {{ end }}
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="hero-cat pill-{{ $hero.Section | lower }}">{{ $hero.Section | upper }}</span>
-        {{ with $hero.Params.tarih }}<span class="hero-date-badge">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+    <div class="ed-hero-overlay"></div>
+    <div class="ed-hero-content">
+      <div class="ed-hero-top">
+        <span class="ed-pill pill-{{ $hero.Section | lower }}">{{ $hero.Section | upper }}</span>
+        {{ with $hero.Params.tarih }}<span class="ed-hero-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
       </div>
-      <h1 class="hero-title">{{ $hero.Title }}</h1>
-      <p class="hero-meta">
-        {{ with $hero.Params.mekan }}
-        <span class="hero-meta-item">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          {{ . }}
-        </span>
-        {{ end }}
-      </p>
-      <a href="{{ $hero.Permalink }}" class="hero-read">
-        Devamını oku
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <h1 class="ed-hero-title">{{ $hero.Title }}</h1>
+      {{ with $hero.Params.mekan }}<p class="ed-hero-where">{{ . }}</p>{{ end }}
     </div>
-  </div>
+  </a>
   {{ end }}
 
-  <div class="hero-side">
+  <!-- Sağ: 3 yan haber dikey -->
+  <div class="ed-hero-stack">
     {{ range first 3 $side }}
-    <a href="{{ .Permalink }}" class="hero-side-item">
-      <div class="hero-side-top">
-        <span class="side-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</span>
-        {{ with .Params.tarih }}<span class="side-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+    <a href="{{ .Permalink }}" class="ed-stack-item">
+      {{ if .Params.image }}
+      <div class="ed-stack-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ end }}
+      <div class="ed-stack-body">
+        <div class="ed-stack-top">
+          <span class="ed-pill pill-{{ .Section | lower }}">{{ .Section | upper }}</span>
+          {{ with .Params.tarih }}<span class="ed-stack-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+        </div>
+        <div class="ed-stack-title">{{ .Title }}</div>
+        {{ with .Params.mekan }}<div class="ed-stack-where">{{ . }}</div>{{ end }}
       </div>
-      <div class="side-title">{{ .Title }}</div>
-      <div class="side-meta">{{ with .Params.mekan }}{{ . }}{{ end }}</div>
     </a>
     {{ end }}
   </div>
+
 </section>
 
-<!-- BU HAFTA -->
-<div class="sec-header">
-  <div class="sec-label">BU HAFTA İSTANBUL'DA <span class="sec-label-en">/ THIS WEEK IN İSTANBUL</span></div>
-  <a href="/etkinlikler" class="sec-more">tümünü gör →</a>
+<!-- ═══ BÖLÜM BAŞLIĞI: BU HAFTA ═══ -->
+<div class="ed-section-header">
+  <div class="ed-section-rule"></div>
+  <div class="ed-section-label">BU HAFTA İSTANBUL'DA</div>
+  <div class="ed-section-rule"></div>
+  <a href="/etkinlikler" class="ed-section-more">tümü →</a>
 </div>
-<div class="event-grid">
-  {{ range first 3 $tumEtkinlikler }}
-  <a href="{{ .Permalink }}" class="event-card">
+
+<!-- ═══ ETKİNLİK GRID — 4 KOLON ═══ -->
+<div class="ed-event-grid">
+  {{ range first 4 $tumEtkinlikler }}
+  <a href="{{ .Permalink }}" class="ed-event-card">
     {{ if .Params.image }}
-      {{ if eq .Params.foto_yon "dikey" }}
-      <div class="event-thumb event-thumb--portrait" style="background-image: url('{{ .Params.image }}')"></div>
+    <div class="ed-event-img {{ if eq .Params.foto_yon "dikey" }}ed-event-img--portrait{{ end }}"
+         style="background-image:url('{{ .Params.image }}')"></div>
+    {{ else }}
+    <div class="ed-event-img ed-event-img--empty thumb-{{ .Section | lower }}">
+      {{ if eq .Section "tiyatro" }}
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+      {{ else if eq .Section "sergi" }}
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
+      {{ else if eq .Section "muzik" }}
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      {{ else if eq .Section "lezzet" }}
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
       {{ else }}
-      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       {{ end }}
-    {{ else }}
-      <div class="event-thumb thumb-{{ .Section | lower }} event-thumb--empty">
-        {{ if eq .Section "tiyatro" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
-        {{ else if eq .Section "sergi" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><circle cx="8" cy="6" r="1" fill="currentColor"/></svg>
-        {{ else if eq .Section "muzik" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        {{ else if eq .Section "lezzet" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        {{ else }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        {{ end }}
-      </div>
+    </div>
     {{ end }}
-    <div class="event-body">
-      <div class="event-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</div>
-      <div class="event-title">{{ .Title }}</div>
-      <div class="event-meta">
-        {{ with .Params.mekan }}<span class="event-where">{{ . }}</span>{{ end }}
-        {{ with .Params.tarih }}<span class="event-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-      </div>
+    <span class="ed-pill pill-{{ .Section | lower }}">{{ .Section | upper }}</span>
+    <div class="ed-event-title">{{ .Title }}</div>
+    <div class="ed-event-meta">
+      {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+      {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
     </div>
   </a>
   {{ end }}
 </div>
 
-<!-- KATEGORİ BANDI -->
-<div class="cat-band">
-  <a href="/tiyatro" class="cat-band-item" style="--accent:var(--cat-tiyatro)">
-    <div class="cat-band-icon-wrap">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-tiyatro)" stroke-width="1.2"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
-    </div>
-    <span class="cat-band-label" style="color:var(--cat-tiyatro)">TİYATRO</span>
-    <span class="cat-band-count">{{ len $tiyatro }} etkinlik</span>
+<!-- ═══ KATEGORİ BANDI ═══ -->
+<div class="ed-cat-strip">
+  <a href="/tiyatro" class="ed-cat-item" style="--c:var(--cat-tiyatro)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cat-tiyatro)" stroke-width="1.5"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+    <span>TİYATRO</span>
+    <em>{{ len $tiyatro }}</em>
   </a>
-  <a href="/sergi" class="cat-band-item" style="--accent:var(--cat-sergi)">
-    <div class="cat-band-icon-wrap">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-sergi)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><circle cx="8" cy="6" r="1" fill="var(--cat-sergi)"/></svg>
-    </div>
-    <span class="cat-band-label" style="color:var(--cat-sergi)">SERGİ</span>
-    <span class="cat-band-count">{{ len $sergi }} etkinlik</span>
+  <a href="/sergi" class="ed-cat-item" style="--c:var(--cat-sergi)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cat-sergi)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
+    <span>SERGİ</span>
+    <em>{{ len $sergi }}</em>
   </a>
-  <a href="/muzik" class="cat-band-item" style="--accent:var(--cat-muzik)">
-    <div class="cat-band-icon-wrap">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-muzik)" stroke-width="1.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-    </div>
-    <span class="cat-band-label" style="color:var(--cat-muzik)">MÜZİK</span>
-    <span class="cat-band-count">{{ len $muzik }} etkinlik</span>
+  <a href="/muzik" class="ed-cat-item" style="--c:var(--cat-muzik)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cat-muzik)" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    <span>MÜZİK</span>
+    <em>{{ len $muzik }}</em>
   </a>
-  <a href="/lezzet" class="cat-band-item" style="--accent:var(--cat-lezzet)">
-    <div class="cat-band-icon-wrap">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-lezzet)" stroke-width="1.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-    </div>
-    <span class="cat-band-label" style="color:var(--cat-lezzet)">LEZZET</span>
-    <span class="cat-band-count">{{ len $lezzet }} etkinlik</span>
+  <a href="/lezzet" class="ed-cat-item" style="--c:var(--cat-lezzet)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cat-lezzet)" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+    <span>LEZZET</span>
+    <em>{{ len $lezzet }}</em>
   </a>
-  <a href="/kesfet" class="cat-band-item" style="--accent:var(--gold)">
-    <div class="cat-band-icon-wrap">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-    </div>
-    <span class="cat-band-label" style="color:var(--gold)">KEŞFet</span>
-    <span class="cat-band-count">İstanbul</span>
+  <a href="/kesfet" class="ed-cat-item" style="--c:var(--gold)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/></svg>
+    <span>KEŞFet</span>
+    <em>İstanbul</em>
+  </a>
+  <a href="/atolye" class="ed-cat-item" style="--c:var(--cat-fotograf)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cat-fotograf)" stroke-width="1.5"><circle cx="12" cy="13" r="4"/><path d="M5 7h2l2-3h6l2 3h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>
+    <span>URBANKARE</span>
+    <em>Atölye</em>
   </a>
 </div>
 
-<!-- MAP STRIP -->
-<div class="map-strip">
-  <div class="map-info">
-    <div class="sec-label">İNTERAKTİF HARİTA <span class="sec-label-en">/ INTERACTIVE MAP</span></div>
-    <div class="map-info-title">İstanbul Keşif Haritası</div>
-    <div class="map-info-sub">Tarihi yerler, parklar, müzeler, vapur iskeleleri ve daha fazlası. Kategoriye göre filtrele, keşfet.</div>
-    <a href="/harita" class="map-btn">
-      Haritayı aç
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<!-- ═══ İKİ KOLON: ATÖLYE + HARİTA ═══ -->
+<div class="ed-two-col">
+
+  <!-- Sol: Atölye editorial -->
+  <div class="ed-atolye-col">
+    <div class="ed-col-header">
+      <span class="ed-col-title">URBANKARE</span>
+      <a href="/atolye" class="ed-col-more">tüm dersler →</a>
+    </div>
+    {{ range first 3 ($atolye.ByDate.Reverse) }}
+    <a href="{{ .Permalink }}" class="ed-atolye-item">
+      {{ if .Params.image }}
+      <div class="ed-atolye-thumb" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-atolye-num">{{ if .Params.sira }}{{ printf "%02d" .Params.sira }}{{ else }}—{{ end }}</div>
+      {{ end }}
+      <div class="ed-atolye-body">
+        <span class="ed-pill pill-foto" style="font-size:8px;padding:1px 6px;">{{ .Params.konu | upper }}</span>
+        <div class="ed-atolye-title">{{ .Title }}</div>
+        <div class="ed-atolye-desc">{{ .Summary | truncate 80 }}</div>
+      </div>
     </a>
-  </div>
-  <div class="map-visual">
-    <svg width="200" height="130" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 80 Q50 50 80 65 Q110 80 140 40 Q160 20 180 35" stroke="var(--gray-2)" stroke-width="1" fill="none"/>
-      <path d="M20 95 Q60 75 100 85 Q140 95 180 60" stroke="var(--gray-2)" stroke-width="0.5" fill="none"/>
-      <circle cx="100" cy="65" r="5" fill="var(--gold)" opacity="0.9"/>
-      <circle cx="100" cy="65" r="10" fill="var(--gold)" opacity="0.15"/>
-      <circle cx="60" cy="55" r="3.5" fill="var(--cat-sergi)" opacity="0.8"/>
-      <circle cx="60" cy="55" r="7" fill="var(--cat-sergi)" opacity="0.12"/>
-      <circle cx="145" cy="42" r="3.5" fill="var(--cat-tiyatro)" opacity="0.8"/>
-      <circle cx="145" cy="42" r="7" fill="var(--cat-tiyatro)" opacity="0.12"/>
-      <circle cx="40" cy="88" r="3.5" fill="var(--cat-lezzet)" opacity="0.8"/>
-      <circle cx="160" cy="75" r="3.5" fill="var(--cat-muzik)" opacity="0.8"/>
-      <circle cx="85" cy="90" r="3.5" fill="var(--cat-fotograf)" opacity="0.8"/>
-    </svg>
-  </div>
-</div>
-
-<!-- ATÖLYE — URBANKARE -->
-{{ $atolye := where .Site.RegularPages "Section" "atolye" }}
-{{ if $atolye }}
-<div class="sec-header">
-  <div class="sec-label">URBANKARE — ATÖLYE <span class="sec-label-en">/ LEARN TODAY</span></div>
-  <a href="/atolye" class="sec-more">tüm dersler →</a>
-</div>
-<div class="atolye-grid">
-  {{ range first 2 ($atolye.ByDate.Reverse) }}
-  <a href="{{ .Permalink }}" class="atolye-card">
-    {{ if .Params.image }}
-    <div class="atolye-img-wrap {{ if eq .Params.foto_yon "dikey" }}atolye-img-wrap--portrait{{ end }}">
-      <img src="{{ .Params.image }}" alt="{{ .Title }}" class="atolye-img" />
-    </div>
-    {{ else }}
-    <div class="atolye-num">{{ if .Params.sira }}{{ printf "%02d" .Params.sira }}{{ else }}01{{ end }}</div>
     {{ end }}
-    <div class="atolye-meta">
-      <span class="atolye-tag">{{ .Params.konu | upper }}</span>
-    </div>
-    <div class="atolye-title">{{ .Title }}</div>
-    <div class="atolye-desc">{{ .Summary | truncate 120 }}</div>
-    <div class="atolye-read">
-      Okumaya başla
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </div>
-  </a>
-  {{ end }}
-</div>
-{{ end }}
+  </div>
 
-<!-- AD STRIP -->
-<div class="ad-strip">
-  <div class="ad-label">REKLAM</div>
-  <div class="ad-box">sponsor içerik alanı — 728 × 90</div>
+  <!-- Sağ: Harita + keşfet -->
+  <div class="ed-map-col">
+    <div class="ed-col-header">
+      <span class="ed-col-title">İNTERAKTİF HARİTA</span>
+      <a href="/harita" class="ed-col-more">aç →</a>
+    </div>
+    <a href="/harita" class="ed-map-block">
+      <div class="ed-map-visual">
+        <svg width="100%" height="160" viewBox="0 0 320 160" fill="none">
+          <rect width="320" height="160" fill="#f0ede8"/>
+          <path d="M30 100 Q80 60 130 80 Q180 100 230 50 Q270 20 300 40" stroke="#d4cfc8" stroke-width="1.5" fill="none"/>
+          <path d="M30 120 Q90 90 150 105 Q210 120 280 75" stroke="#d4cfc8" stroke-width="0.8" fill="none"/>
+          <circle cx="160" cy="80" r="6" fill="var(--gold)"/>
+          <circle cx="160" cy="80" r="12" fill="var(--gold)" opacity="0.2"/>
+          <circle cx="80" cy="70" r="4" fill="var(--cat-sergi)" opacity="0.8"/>
+          <circle cx="220" cy="55" r="4" fill="var(--cat-tiyatro)" opacity="0.8"/>
+          <circle cx="60" cy="105" r="4" fill="var(--cat-lezzet)" opacity="0.8"/>
+          <circle cx="250" cy="90" r="4" fill="var(--cat-muzik)" opacity="0.8"/>
+          <circle cx="120" cy="110" r="4" fill="var(--cat-fotograf)" opacity="0.8"/>
+        </svg>
+      </div>
+      <div class="ed-map-info">
+        <div class="ed-map-title">İstanbul Keşif Haritası</div>
+        <div class="ed-map-sub">Tarihi yerler, parklar, müzeler ve daha fazlası</div>
+        <span class="ed-map-btn">Haritayı aç →</span>
+      </div>
+    </a>
+
+    {{ if $kesfet }}
+    <div class="ed-col-header" style="margin-top:24px;">
+      <span class="ed-col-title">KEŞFet İSTANBUL</span>
+      <a href="/kesfet" class="ed-col-more">tümü →</a>
+    </div>
+    {{ range first 2 $kesfet }}
+    <a href="{{ .Permalink }}" class="ed-kesfet-item">
+      <div class="ed-kesfet-title">{{ .Title }}</div>
+    </a>
+    {{ end }}
+    {{ end }}
+  </div>
+
 </div>
 
-<!-- TEKNOLOJİ -->
-{{ $teknoloji := where .Site.RegularPages "Section" "teknoloji" }}
+<!-- ═══ REKLAM ═══ -->
+<div class="ed-ad">
+  <span class="ed-ad-label">REKLAM</span>
+  <div class="ed-ad-box">sponsor içerik alanı — 728 × 90</div>
+</div>
+
+<!-- ═══ TEKNOLOJİ BANDI ═══ -->
 {{ if $teknoloji }}
-<div class="sec-header">
-  <div class="sec-label">TEKNOLOJİ & ŞEHİR <span class="sec-label-en">/ TECH & CITY</span></div>
-  <a href="/teknoloji" class="sec-more">tümü →</a>
+<div class="ed-section-header">
+  <div class="ed-section-rule"></div>
+  <div class="ed-section-label">TEKNOLOJİ & ŞEHİR</div>
+  <div class="ed-section-rule"></div>
+  <a href="/teknoloji" class="ed-section-more">tümü →</a>
 </div>
-<div class="tech-row">
+<div class="ed-tech-grid">
   {{ range first 4 $teknoloji }}
-  <a href="{{ .Permalink }}" class="tech-card">
-    <div class="tech-cat">TEKNOLOJİ</div>
-    <div class="tech-title">{{ .Title }}</div>
-    <div class="tech-date">{{ with .Params.tarih }}{{ dateFormat "2 Jan 2006" . }}{{ end }}</div>
+  <a href="{{ .Permalink }}" class="ed-tech-card">
+    <div class="ed-tech-accent"></div>
+    <span class="ed-pill" style="background:var(--cat-teknoloji-bg);color:var(--cat-teknoloji);font-size:8px;padding:1px 6px;letter-spacing:0.08em;">TEKNOLOJİ</span>
+    <div class="ed-tech-title">{{ .Title }}</div>
+    {{ with .Params.tarih }}<div class="ed-tech-date">{{ dateFormat "2 Jan 2006" . }}</div>{{ end }}
   </a>
   {{ end }}
 </div>
 {{ end }}
+
+<script>
+  const d = new Date();
+  const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+  const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+  const el = document.getElementById('mastheadDate');
+  if(el) el.textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+</script>
 
 {{ end }}
