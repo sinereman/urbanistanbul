@@ -19,7 +19,7 @@ Bu sorunun cevabı, çoğu zaman o hantal çantaları evde bıraktıran **APS-C*
 
 ## Teknik Farklar: Kağıt Üzerindeki Gerçekler
 
-Full frame sensör ($36 \times 24$ mm), APS-C sensöre (yaklaşık $23.5 \times 15.6$ mm) göre yüzey alanı olarak yaklaşık 2,3 kat daha büyüktür. Bu fiziksel fark, kağıt üzerinde üç temel avantaj sağlar:
+Full frame sensör (36 × 24 mm), APS-C sensöre (yaklaşık 23.5 × 15.6 mm) göre yüzey alanı olarak yaklaşık 2,3 kat daha büyüktür. Bu fiziksel fark, kağıt üzerinde üç temel avantaj sağlar:
 
 *   **Düşük Işık Otoritesi:** Daha büyük pikseller, daha az "noise" (kumlanma). ISO 6400 ve üzerinde Full Frame'in üstünlüğü tartışmasızdır.
 *   **Dinamik Aralık:** Gölgelerdeki detaylar ve patlamayan gökyüzü. Kontrastlı sahnelerde Full Frame daha geniş bir oyun alanı sunar.
