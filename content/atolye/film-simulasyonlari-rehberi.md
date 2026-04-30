@@ -3,7 +3,7 @@ title: "Film Simülasyonları Rehberi: ACROS'tan Velvia'ya, Kodak'tan Agfa'ya"
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 4
-image: "/images/blog/fujifilm-film-simulations-guide.jpg"
+image: "fujifilm-film-simulations-guide.jpg"
 foto_yon: "yatay"
 draft: false
 description: "Film simülasyonu bir filtre değildir; bir dönemin optik ve kimyasal mirasını yeniden canlandırma sanatıdır. Fujifilm, Kodak ve Agfa dünyasına derin bir bakış."
