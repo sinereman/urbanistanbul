@@ -26,6 +26,12 @@
       {{ range first 3 (where .Site.RegularPages "Section" "sergi") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
       {{ end }}
+      {{ range first 3 (where .Site.RegularPages "Section" "festival") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
+      {{ end }}
+      {{ range first 3 (where .Site.RegularPages "Section" "perde") }}
+      <span>{{ .Title }}</span>
+      {{ end }}
       {{ range first 5 (where .Site.RegularPages "Section" "tiyatro") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
       {{ end }}
@@ -43,10 +49,11 @@
       </a>
       <div class="nav-center">
         <a href="/etkinlikler">ETKİNLİKLER</a>
-        <a href="/kesfet">KEŞFet</a>
+        <a href="/festival">FESTİVAL</a>
+        <a href="/perde">PERDE</a>
         <a href="/atolye">ATÖLYE</a>
+        <a href="/kesfet">KEŞFet</a>
         <a href="/teknoloji">TEKNOLOJİ</a>
-        <a href="/harita">HARİTA</a>
       </div>
       <div class="nav-right">
         <div class="lang-switch">
@@ -68,17 +75,19 @@
         <a href="/sergi">Sergiler</a>
         <a href="/muzik">Müzik & Konser</a>
         <a href="/lezzet">Lezzet & Mekan</a>
+        <a href="/festival">Festival</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">ATÖLYE</div>
+        <div class="footer-col-title">PERDE & ATÖLYE</div>
+        <a href="/perde">Perde — Sinema</a>
+        <a href="/atolye">Atölye</a>
         <a href="/atolye">Urbankare</a>
-        <a href="/atolye">Fotoğrafçılık</a>
         <a href="/atolye">İstanbul Rotaları</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">KEŞFet İSTANBUL</div>
-        <a href="/harita">İnteraktif Harita</a>
         <a href="/kesfet">Semt Rehberleri</a>
+        <a href="/kesfet">Antika Pazarları</a>
         <a href="/teknoloji">Teknoloji</a>
       </div>
       <div class="footer-col">
