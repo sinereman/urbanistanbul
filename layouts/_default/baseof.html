@@ -7,22 +7,43 @@
   <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
 
   <!-- TICKER -->
   <div class="ticker" aria-hidden="true">
-    <div class="ticker-inner" id="tickerInner">
-      <span>🎭 Yükleniyor...</span>
+    <div class="ticker-inner">
+      {{ range first 5 (where .Site.RegularPages "Section" "tiyatro") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}{{ with .Params.tarih }} · {{ dateFormat "2 Jan" . }}{{ end }}</span>
+      {{ end }}
+      {{ range first 5 (where .Site.RegularPages "Section" "muzik") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
+      {{ end }}
+      {{ range first 3 (where .Site.RegularPages "Section" "sergi") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
+      {{ end }}
+      {{ range first 5 (where .Site.RegularPages "Section" "tiyatro") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
+      {{ end }}
+      {{ range first 5 (where .Site.RegularPages "Section" "muzik") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
+      {{ end }}
     </div>
   </div>
 
   <!-- NAV -->
   <nav>
     <div class="nav-top">
-      <a href="/" class="logo">URBAN<em>İSTANBUL</em></a>
+      <a href="/" class="logo">
+        {{ $logo := resources.Get "images/logo.png" }}
+        {{ if $logo }}
+        <img src="/images/logo.png" alt="URBANİSTANBUL" />
+        {{ else }}
+        <span class="logo-text">URBAN<em>İSTANBUL</em></span>
+        {{ end }}
+      </a>
       <div class="nav-center">
         <a href="/etkinlikler">ETKİNLİKLER</a>
         <a href="/kesfet">KEŞFet</a>
@@ -46,24 +67,21 @@
     <div class="footer-top">
       <div class="footer-col">
         <div class="footer-col-title">ETKİNLİKLER</div>
-        <a href="/etkinlikler/kategori/tiyatro">Tiyatro</a>
-        <a href="/etkinlikler/kategori/sergi">Sergiler</a>
-        <a href="/etkinlikler/kategori/muzik">Müzik & Konser</a>
-        <a href="/etkinlikler/kategori/lezzet">Lezzet & Mekan</a>
-        <a href="/etkinlikler/kategori/festival">Festival</a>
+        <a href="/tiyatro">Tiyatro</a>
+        <a href="/sergi">Sergiler</a>
+        <a href="/muzik">Müzik & Konser</a>
+        <a href="/lezzet">Lezzet & Mekan</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">ATÖLYE</div>
-        <a href="/atolye/konu/fotografcilik">Fotoğrafçılık</a>
-        <a href="/atolye/konu/yazarlik">Yazarlık</a>
-        <a href="/atolye/konu/film">Film & Sinema</a>
-        <a href="/atolye/konu/muzik-teorisi">Müzik Teorisi</a>
+        <a href="/atolye">Urbankare</a>
+        <a href="/atolye">Fotoğrafçılık</a>
+        <a href="/atolye">İstanbul Rotaları</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">KEŞFet İSTANBUL</div>
         <a href="/harita">İnteraktif Harita</a>
         <a href="/kesfet">Semt Rehberleri</a>
-        <a href="/kesfet/gizli">Gizli Kalmış Yerler</a>
         <a href="/teknoloji">Teknoloji</a>
       </div>
       <div class="footer-col">
@@ -88,12 +106,9 @@
     document.getElementById('navDate').textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
-        }
+        if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); }
       });
     }
   </script>
-  <script src="/js/ticker.js"></script>
 </body>
 </html>
