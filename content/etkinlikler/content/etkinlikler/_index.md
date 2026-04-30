@@ -1,4 +1,0 @@
----
-title: "Etkinlikler"
-draft: false
----
