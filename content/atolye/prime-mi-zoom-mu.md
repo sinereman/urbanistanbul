@@ -3,24 +3,25 @@ title: "Prime mi Zoom mu? Şehir Fotoğrafçısının Lens Rehberi"
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 5
-image: ""
+image: "/images/blog/prime-vs-zoom-lens-guide.jpg"
 foto_yon: "yatay"
 draft: false
+description: "Fotoğrafçılığın bitmeyen tartışması: Prime lens sizi disipline mi eder, yoksa zoom lens mi hayat kurtarır? Şehir fotoğrafçısı için ikilemin ötesine geçiyoruz."
 ---
 
 Fotoğrafçılık dünyasında bazı tartışmalar hiç bitmez. Canon mı Nikon mı. Film mi dijital mi. Ve her zaman, her forumda, her kahvehane sohbetinde: prime mi zoom mu?
 
-Bir taraf şunu söyler: "Prime lens sizi disipline eder. Ayaklarınızla zoom yaparsınız. Daha iyi görmeyi öğrenirsiniz."
+Bir taraf şunu söyler: *"Prime lens sizi disipline eder. Ayaklarınızla zoom yaparsınız. Daha iyi görmeyi öğrenirsiniz."*
 
-Diğer taraf şunu söyler: "Zoom lens esneklik verir. Tek objektifle her sahneyi yakalarsınız. Pratiktir, gerçekçidir."
+Diğer taraf şunu söyler: *"Zoom lens esneklik verir. Tek objektifle her sahneyi yakalarsınız. Pratiktir, gerçekçidir."*
 
 Her iki taraf da kısmen haklıdır. Ama şehir fotoğrafçısı için mesele bu tartışmadan daha nüanslıdır.
 
 Çünkü şehirde her şey değişir. Sokak daraldığında geri çekilecek yer yoktur. Kalabalıkta yaklaşmak mümkün olmayabilir. Işık bir saniyede dönüşür. Ve bazen en güzel kare, beklediğiniz mesafeden değil bambaşka bir noktadan gelir.
 
-O yüzden soruyu yeniden çerçeveleyerek başlayalım: şehir fotoğrafçısının lensi her zaman prime olmak zorunda mı?
+O yüzden soruyu yeniden çerçeveleyerek başlayalım: Şehir fotoğrafçısının lensi her zaman prime olmak zorunda mı?
 
-Cevap: hayır. Ama prime lens size bir şey öğretir ki zoom lens hiçbir zaman öğretemez.
+Cevap: Hayır. Ama prime lens size bir şey öğretir ki zoom lens hiçbir zaman öğretemez.
 
 ---
 
@@ -30,7 +31,7 @@ Prime lens sabit odak uzaklığına sahip lenstir. 35mm diyorsanız 35mm'dir. Ya
 
 Bu kısıtlama ilk başta dezavantaj gibi görünür. Zamanla anlarsınız ki bu en büyük avantajdır.
 
-Tek bir odak uzaklığıyla uzun süre çalıştığınızda o uzaklık içselleşir. Sahneye bakmadan önce zihninizde çerçeveliyorsunuzdur. "Bu kare 50mm'e sığar mı?" sorusunu sormak yerine "Bu kare" diye düşünürsünüz, sadece. Bakış açınız o lensle bütünleşir.
+Tek bir odak uzaklığıyla uzun süre çalıştığınızda o uzaklık içselleşir. Sahneye bakmadan önce zihninizde çerçeveliyorsunuzdur. *"Bu kare 50mm'e sığar mı?"* sorusunu sormak yerine *"Bu kare"* diye düşünürsünüz, sadece. Bakış açınız o lensle bütünleşir.
 
 Henri Cartier-Bresson ömrünün büyük bölümünde 50mm kullandı. Sebastião Salgado 35mm'e bağlıydı. Saul Leiter 90mm ile New York'u kadrajladı. Bu tercihler tesadüf değildi. Her biri kendi bakışını o odak uzaklığında bulmuştu.
 
@@ -52,7 +53,7 @@ Zoom lens, odak uzaklığını değiştirmenize izin verir. 24-70mm diyorsanız 
 
 Büyük, ağır, f/2.8 sabit diyaframlı bir 24-70mm profesyonel zoom lens mükemmel görüntü kalitesi sunar. Ama ağırdır. Dikkat çeker. Yorar. Ve bir süre sonra çantada kalır.
 
-Küçük, hafif, f/4 ya da f/3.5-5.6 aralığında değişken diyaframlı bir zoom lens ise farklı bir denklem sunar: mükemmel değil ama her yerde hazır.
+Küçük, hafif, f/4 ya da f/3.5-5.6 aralığında değişken diyaframlı bir zoom lens ise farklı bir denklem sunar: Mükemmel değil ama her yerde hazır.
 
 **Zoom lensin asıl değeri şurada ortaya çıkar:**
 
@@ -86,21 +87,18 @@ Bu lenslerle şehirde ne yakalanabilir?
 
 **35mm — Şehrin Dili**
 35mm şehre en yakın odak uzaklığıdır. İnsan gözünün periferal görüşüne yakındır. Sahneye dahil hissettirirsiniz. Karaköy'de, Beyoğlu'nda, Kadıköy pazarında 35mm evinizdir.
-
-Önerilen: Fujifilm XF 35mm f/2, Sony FE 35mm f/1.8, Sigma 35mm f/2 DN
+*Önerilen: Fujifilm XF 35mm f/2, Sony FE 35mm f/1.8, Sigma 35mm f/2 DN*
 
 **40mm — Biçilmiş Kaftan**
 Bu serinin önceki yazılarında da söyledik: 40mm tartışmayı bitirir. Ne çok geniş ne çok dar. İnsan gözünün en doğal karşılığı. Ricoh GR IIIx'in sabit lensi 40mm eşdeğeridir — sebepsiz değil.
 
 **50mm — Klasiğin Nedeni**
 50mm neden klasiktir? Çünkü bir adım geri çekildiğinizde insan boyutunu verir. Bir adım öne gittiğinizde portre olur. Hem sokak hem portre hem belgesel — her şeyde yeterlidir.
-
-Önerilen: Fujifilm XF 50mm f/2, Sigma 45mm f/2.8 DN, Voigtländer Nokton 50mm f/1.2
+*Önerilen: Fujifilm XF 50mm f/2, Sigma 45mm f/2.8 DN, Voigtländer Nokton 50mm f/1.2*
 
 **28mm — Sokağa Dahil Olmak**
 28mm sizi sahnenin içine çeker. Uzaktan gözlemlemezsiniz, katılırsınız. Geniş açının yarattığı perspektif bozulması bazen bir güçtür: ön plandaki figür büyür, arka plan küçülür, derinlik abartılır.
-
-Önerilen: Fujifilm XF 27mm f/2.8 (APS-C'de 40mm eşdeğeri değil, 41mm — pratikte aynı), Ricoh GR IIIx sabit lens
+*Önerilen: Fujifilm XF 27mm f/2.8 (APS-C'de 40mm eşdeğeri değil, 41mm — pratikte aynı), Ricoh GR IIIx sabit lens*
 
 ---
 
@@ -122,7 +120,7 @@ Daha geniş bir aralık isteyenler için. 16mm ile mimarinin tamamı, 80mm ile u
 
 ## Hangisi Benim Lensim?
 
-Bu sorunun cevabı bir başka soruya bağlıdır: nasıl çekiyorsunuz?
+Bu sorunun cevabı bir başka soruya bağlıdır: Nasıl çekiyorsunuz?
 
 **Planlayarak mı, yoksa tepki vererek mi?**
 
@@ -144,7 +142,7 @@ Lens tartışması bir noktada kendiliğinden sona erer.
 
 Yeterince çektiğinizde hangi lensin hangi his verdiğini içgüdüsel olarak bilirsiniz. 35mm ile bakarsınız, 50mm ile düşünürsünüz. O ayrım kadar kişiseldir.
 
-Ama şunu bilin: dünyanın en iyi zoom lensi ile çekilen sıkıcı bir fotoğraf, en ucuz prime lens ile çekilen canlı bir kareden daima daha kötüdür.
+Ama şunu bilin: Dünyanın en iyi zoom lensi ile çekilen sıkıcı bir fotoğraf, en ucuz prime lens ile çekilen canlı bir kareden daima daha kötüdür.
 
 Lens değişmez. Siz değişirsiniz.
 
