@@ -1,5 +1,5 @@
 ---
-title: "CPL Filtre: Taksinin Camından Göğe Bakan Şoför İçin"
+title: "CPL Filtre: Camım Ardından Bakan O kız İçin"
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 6
