@@ -1,0 +1,4 @@
+---
+title: "Tiyatro"
+draft: false
+---
