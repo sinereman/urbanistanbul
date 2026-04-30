@@ -1,0 +1,4 @@
+---
+title: "Teknoloji"
+draft: false
+---
