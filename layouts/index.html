@@ -16,21 +16,34 @@
   <div class="hero-main" {{ if $hero.Params.image }}style="background-image: url('{{ $hero.Params.image }}'); background-size: cover; background-position: center;"{{ end }}>
     {{ if not $hero.Params.image }}
     <div class="hero-img-placeholder">
-      <svg width="320" height="200" viewBox="0 0 320 200" fill="none">
-        <path d="M40 160 Q80 80 120 120 Q160 160 200 80 Q240 0 280 60" stroke="white" stroke-width="1.5" fill="none"/>
-        <circle cx="160" cy="100" r="60" stroke="white" stroke-width="0.5" fill="none"/>
+      <svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 180 Q60 120 120 150 Q180 180 240 100 Q300 20 360 80 Q390 110 400 100" stroke="white" stroke-width="0.8" fill="none" opacity="0.15"/>
+        <path d="M0 200 Q80 140 160 170 Q240 200 320 120 Q360 80 400 90" stroke="white" stroke-width="0.5" fill="none" opacity="0.1"/>
+        <circle cx="200" cy="120" r="80" stroke="white" stroke-width="0.4" fill="none" opacity="0.08"/>
+        <circle cx="200" cy="120" r="50" stroke="white" stroke-width="0.4" fill="none" opacity="0.06"/>
+        <line x1="0" y1="120" x2="400" y2="120" stroke="white" stroke-width="0.3" opacity="0.05"/>
       </svg>
     </div>
     {{ end }}
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-cat pill-{{ $hero.Section | lower }}">{{ $hero.Section | upper }}</div>
+      <div class="hero-eyebrow">
+        <span class="hero-cat pill-{{ $hero.Section | lower }}">{{ $hero.Section | upper }}</span>
+        {{ with $hero.Params.tarih }}<span class="hero-date-badge">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
       <h1 class="hero-title">{{ $hero.Title }}</h1>
       <p class="hero-meta">
-        {{ with $hero.Params.tarih }}{{ dateFormat "2 January 2006" . }}<span>·</span>{{ end }}
-        {{ with $hero.Params.mekan }}{{ . }}{{ end }}
+        {{ with $hero.Params.mekan }}
+        <span class="hero-meta-item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          {{ . }}
+        </span>
+        {{ end }}
       </p>
-      <a href="{{ $hero.Permalink }}" class="hero-read">Devamını oku →</a>
+      <a href="{{ $hero.Permalink }}" class="hero-read">
+        Devamını oku
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
   {{ end }}
@@ -38,11 +51,12 @@
   <div class="hero-side">
     {{ range first 3 $side }}
     <a href="{{ .Permalink }}" class="hero-side-item">
-      <div>
-        <div class="side-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</div>
-        <div class="side-title">{{ .Title }}</div>
+      <div class="hero-side-top">
+        <span class="side-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</span>
+        {{ with .Params.tarih }}<span class="side-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
       </div>
-      <div class="side-meta">{{ with .Params.mekan }}{{ . }}{{ end }}{{ with .Params.tarih }} · {{ dateFormat "2 Jan" . }}{{ end }}</div>
+      <div class="side-title">{{ .Title }}</div>
+      <div class="side-meta">{{ with .Params.mekan }}{{ . }}{{ end }}</div>
     </a>
     {{ end }}
   </div>
@@ -50,7 +64,7 @@
 
 <!-- BU HAFTA -->
 <div class="sec-header">
-  <div class="sec-label">BU HAFTA İSTANBUL'DA / THIS WEEK IN İSTANBUL</div>
+  <div class="sec-label">BU HAFTA İSTANBUL'DA <span class="sec-label-en">/ THIS WEEK IN İSTANBUL</span></div>
   <a href="/etkinlikler" class="sec-more">tümünü gör →</a>
 </div>
 <div class="event-grid">
@@ -63,46 +77,66 @@
       <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
       {{ end }}
     {{ else }}
-      <div class="event-thumb thumb-{{ .Section | lower }}">
-        {{ if eq .Section "tiyatro" }}🎭
-        {{ else if eq .Section "sergi" }}🖼
-        {{ else if eq .Section "muzik" }}🎵
-        {{ else if eq .Section "lezzet" }}🍽
-        {{ else }}📅{{ end }}
+      <div class="event-thumb thumb-{{ .Section | lower }} event-thumb--empty">
+        {{ if eq .Section "tiyatro" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+        {{ else if eq .Section "sergi" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><circle cx="8" cy="6" r="1" fill="currentColor"/></svg>
+        {{ else if eq .Section "muzik" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        {{ else if eq .Section "lezzet" }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        {{ else }}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        {{ end }}
       </div>
     {{ end }}
-    <div class="event-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</div>
-    <div class="event-title">{{ .Title }}</div>
-    <div class="event-where">{{ .Params.mekan }}</div>
-    <div class="event-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
+    <div class="event-body">
+      <div class="event-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</div>
+      <div class="event-title">{{ .Title }}</div>
+      <div class="event-meta">
+        {{ with .Params.mekan }}<span class="event-where">{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span class="event-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
+    </div>
   </a>
   {{ end }}
 </div>
 
 <!-- KATEGORİ BANDI -->
 <div class="cat-band">
-  <a href="/tiyatro" class="cat-band-item" style="border-color:var(--cat-tiyatro)">
-    <span class="cat-band-icon">🎭</span>
+  <a href="/tiyatro" class="cat-band-item" style="--accent:var(--cat-tiyatro)">
+    <div class="cat-band-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-tiyatro)" stroke-width="1.2"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
     <span class="cat-band-label" style="color:var(--cat-tiyatro)">TİYATRO</span>
     <span class="cat-band-count">{{ len $tiyatro }} etkinlik</span>
   </a>
-  <a href="/sergi" class="cat-band-item" style="border-color:var(--cat-sergi)">
-    <span class="cat-band-icon">🖼</span>
+  <a href="/sergi" class="cat-band-item" style="--accent:var(--cat-sergi)">
+    <div class="cat-band-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-sergi)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><circle cx="8" cy="6" r="1" fill="var(--cat-sergi)"/></svg>
+    </div>
     <span class="cat-band-label" style="color:var(--cat-sergi)">SERGİ</span>
     <span class="cat-band-count">{{ len $sergi }} etkinlik</span>
   </a>
-  <a href="/muzik" class="cat-band-item" style="border-color:var(--cat-muzik)">
-    <span class="cat-band-icon">🎵</span>
+  <a href="/muzik" class="cat-band-item" style="--accent:var(--cat-muzik)">
+    <div class="cat-band-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-muzik)" stroke-width="1.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </div>
     <span class="cat-band-label" style="color:var(--cat-muzik)">MÜZİK</span>
     <span class="cat-band-count">{{ len $muzik }} etkinlik</span>
   </a>
-  <a href="/lezzet" class="cat-band-item" style="border-color:var(--cat-lezzet)">
-    <span class="cat-band-icon">🍽</span>
+  <a href="/lezzet" class="cat-band-item" style="--accent:var(--cat-lezzet)">
+    <div class="cat-band-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cat-lezzet)" stroke-width="1.2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+    </div>
     <span class="cat-band-label" style="color:var(--cat-lezzet)">LEZZET</span>
     <span class="cat-band-count">{{ len $lezzet }} etkinlik</span>
   </a>
-  <a href="/kesfet" class="cat-band-item" style="border-color:var(--gold)">
-    <span class="cat-band-icon">🗺</span>
+  <a href="/kesfet" class="cat-band-item" style="--accent:var(--gold)">
+    <div class="cat-band-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    </div>
     <span class="cat-band-label" style="color:var(--gold)">KEŞFet</span>
     <span class="cat-band-count">İstanbul</span>
   </a>
@@ -111,20 +145,28 @@
 <!-- MAP STRIP -->
 <div class="map-strip">
   <div class="map-info">
-    <div class="sec-label">İNTERAKTİF HARİTA / INTERACTIVE MAP</div>
+    <div class="sec-label">İNTERAKTİF HARİTA <span class="sec-label-en">/ INTERACTIVE MAP</span></div>
     <div class="map-info-title">İstanbul Keşif Haritası</div>
     <div class="map-info-sub">Tarihi yerler, parklar, müzeler, vapur iskeleleri ve daha fazlası. Kategoriye göre filtrele, keşfet.</div>
-    <a href="/harita" class="map-btn">Haritayı aç →</a>
+    <a href="/harita" class="map-btn">
+      Haritayı aç
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </div>
   <div class="map-visual">
-    <div class="map-dots">
-      <div class="dot" style="left:50%;top:45%;background:var(--gold)"></div>
-      <div class="dot" style="left:30%;top:30%;background:var(--cat-sergi)"></div>
-      <div class="dot" style="left:65%;top:25%;background:var(--cat-tiyatro)"></div>
-      <div class="dot" style="left:20%;top:60%;background:var(--cat-lezzet)"></div>
-      <div class="dot" style="left:75%;top:60%;background:var(--cat-muzik)"></div>
-      <div class="dot" style="left:40%;top:70%;background:var(--cat-fotograf)"></div>
-    </div>
+    <svg width="200" height="130" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 80 Q50 50 80 65 Q110 80 140 40 Q160 20 180 35" stroke="var(--gray-2)" stroke-width="1" fill="none"/>
+      <path d="M20 95 Q60 75 100 85 Q140 95 180 60" stroke="var(--gray-2)" stroke-width="0.5" fill="none"/>
+      <circle cx="100" cy="65" r="5" fill="var(--gold)" opacity="0.9"/>
+      <circle cx="100" cy="65" r="10" fill="var(--gold)" opacity="0.15"/>
+      <circle cx="60" cy="55" r="3.5" fill="var(--cat-sergi)" opacity="0.8"/>
+      <circle cx="60" cy="55" r="7" fill="var(--cat-sergi)" opacity="0.12"/>
+      <circle cx="145" cy="42" r="3.5" fill="var(--cat-tiyatro)" opacity="0.8"/>
+      <circle cx="145" cy="42" r="7" fill="var(--cat-tiyatro)" opacity="0.12"/>
+      <circle cx="40" cy="88" r="3.5" fill="var(--cat-lezzet)" opacity="0.8"/>
+      <circle cx="160" cy="75" r="3.5" fill="var(--cat-muzik)" opacity="0.8"/>
+      <circle cx="85" cy="90" r="3.5" fill="var(--cat-fotograf)" opacity="0.8"/>
+    </svg>
   </div>
 </div>
 
@@ -132,7 +174,7 @@
 {{ $atolye := where .Site.RegularPages "Section" "atolye" }}
 {{ if $atolye }}
 <div class="sec-header">
-  <div class="sec-label">URBANKARE — ATÖLYE / LEARN TODAY</div>
+  <div class="sec-label">URBANKARE — ATÖLYE <span class="sec-label-en">/ LEARN TODAY</span></div>
   <a href="/atolye" class="sec-more">tüm dersler →</a>
 </div>
 <div class="atolye-grid">
@@ -143,12 +185,17 @@
       <img src="{{ .Params.image }}" alt="{{ .Title }}" class="atolye-img" />
     </div>
     {{ else }}
-    <div class="atolye-num">{{ printf "%02d" .Params.sira | default "01" }}</div>
+    <div class="atolye-num">{{ if .Params.sira }}{{ printf "%02d" .Params.sira }}{{ else }}01{{ end }}</div>
     {{ end }}
-    <div class="atolye-tag">{{ .Params.konu | upper }}</div>
+    <div class="atolye-meta">
+      <span class="atolye-tag">{{ .Params.konu | upper }}</span>
+    </div>
     <div class="atolye-title">{{ .Title }}</div>
     <div class="atolye-desc">{{ .Summary | truncate 120 }}</div>
-    <div class="atolye-read">Okumaya başla →</div>
+    <div class="atolye-read">
+      Okumaya başla
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
   </a>
   {{ end }}
 </div>
@@ -164,7 +211,7 @@
 {{ $teknoloji := where .Site.RegularPages "Section" "teknoloji" }}
 {{ if $teknoloji }}
 <div class="sec-header">
-  <div class="sec-label">TEKNOLOJİ & ŞEHİR / TECH & CITY</div>
+  <div class="sec-label">TEKNOLOJİ & ŞEHİR <span class="sec-label-en">/ TECH & CITY</span></div>
   <a href="/teknoloji" class="sec-more">tümü →</a>
 </div>
 <div class="tech-row">
@@ -172,7 +219,7 @@
   <a href="{{ .Permalink }}" class="tech-card">
     <div class="tech-cat">TEKNOLOJİ</div>
     <div class="tech-title">{{ .Title }}</div>
-    <div class="tech-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
+    <div class="tech-date">{{ with .Params.tarih }}{{ dateFormat "2 Jan 2006" . }}{{ end }}</div>
   </a>
   {{ end }}
 </div>
