@@ -3,7 +3,7 @@ title: "Prime mi Zoom mu? Şehir Fotoğrafçısının Lens Rehberi"
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 5
-image: "/images/blog/prime-vs-zoom-lens-guide.jpg"
+image: "/images/uploads/prime-vs-zoom-lens-guide.jpg"
 foto_yon: "yatay"
 draft: false
 description: "Fotoğrafçılığın bitmeyen tartışması: Prime lens sizi disipline mi eder, yoksa zoom lens mi hayat kurtarır? Şehir fotoğrafçısı için ikilemin ötesine geçiyoruz."
