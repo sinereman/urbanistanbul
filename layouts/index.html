@@ -1,8 +1,14 @@
 {{ define "main" }}
 
+{{ $tiyatro := where .Site.RegularPages "Section" "tiyatro" }}
+{{ $sergi := where .Site.RegularPages "Section" "sergi" }}
+{{ $lezzet := where .Site.RegularPages "Section" "lezzet" }}
+{{ $muzik := where .Site.RegularPages "Section" "muzik" }}
 {{ $etkinlikler := where .Site.RegularPages "Section" "etkinlikler" }}
-{{ $hero := index $etkinlikler 0 }}
-{{ $side := after 1 $etkinlikler }}
+
+{{ $tumEtkinlikler := union $tiyatro $sergi | union $lezzet | union $muzik | union $etkinlikler }}
+{{ $hero := index $tumEtkinlikler 0 }}
+{{ $side := after 1 $tumEtkinlikler }}
 
 <!-- HERO -->
 <section class="hero">
@@ -18,9 +24,7 @@
     {{ end }}
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      {{ with $hero.Params.kategori }}
-      <div class="hero-cat pill-{{ . | lower | replaceRE " " "-" }}">{{ . | upper }}</div>
-      {{ end }}
+      <div class="hero-cat pill-{{ $hero.Section | lower }}">{{ $hero.Section | upper }}</div>
       <h1 class="hero-title">{{ $hero.Title }}</h1>
       <p class="hero-meta">
         {{ with $hero.Params.tarih }}{{ dateFormat "2 January 2006" . }}<span>·</span>{{ end }}
@@ -35,9 +39,7 @@
     {{ range first 3 $side }}
     <a href="{{ .Permalink }}" class="hero-side-item">
       <div>
-        {{ with .Params.kategori }}
-        <div class="side-cat pill-{{ . | lower | replaceRE " " "-" }}">{{ . | upper }}</div>
-        {{ end }}
+        <div class="side-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</div>
         <div class="side-title">{{ .Title }}</div>
       </div>
       <div class="side-meta">{{ with .Params.mekan }}{{ . }}{{ end }}{{ with .Params.tarih }} · {{ dateFormat "2 Jan" . }}{{ end }}</div>
@@ -52,30 +54,58 @@
   <a href="/etkinlikler" class="sec-more">tümünü gör →</a>
 </div>
 <div class="event-grid">
-  {{ range first 3 $etkinlikler }}
+  {{ range first 3 $tumEtkinlikler }}
   <a href="{{ .Permalink }}" class="event-card">
     {{ if .Params.image }}
-      {{ $img := .Params.image }}
-      {{ if or (strings.Contains $img "portrait") (eq .Params.foto_yon "dikey") }}
-      <div class="event-thumb event-thumb--portrait" style="background-image: url('{{ $img }}')"></div>
+      {{ if eq .Params.foto_yon "dikey" }}
+      <div class="event-thumb event-thumb--portrait" style="background-image: url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ $img }}')"></div>
+      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
       {{ end }}
     {{ else }}
-      <div class="event-thumb thumb-{{ .Params.kategori | lower | replaceRE " " "-" }}">
-        {{ if eq .Params.kategori "Tiyatro" }}🎭
-        {{ else if eq .Params.kategori "Sergi" }}🖼
-        {{ else if eq .Params.kategori "Müzik" }}🎵
-        {{ else if eq .Params.kategori "Lezzet" }}🍽
+      <div class="event-thumb thumb-{{ .Section | lower }}">
+        {{ if eq .Section "tiyatro" }}🎭
+        {{ else if eq .Section "sergi" }}🖼
+        {{ else if eq .Section "muzik" }}🎵
+        {{ else if eq .Section "lezzet" }}🍽
         {{ else }}📅{{ end }}
       </div>
     {{ end }}
-    <div class="event-cat pill-{{ .Params.kategori | lower | replaceRE " " "-" }}">{{ .Params.kategori | upper }}</div>
+    <div class="event-cat pill-{{ .Section | lower }}">{{ .Section | upper }}</div>
     <div class="event-title">{{ .Title }}</div>
     <div class="event-where">{{ .Params.mekan }}</div>
     <div class="event-date">{{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}{{ end }}</div>
   </a>
   {{ end }}
+</div>
+
+<!-- KATEGORİ BANDI -->
+<div class="cat-band">
+  <a href="/tiyatro" class="cat-band-item" style="border-color:var(--cat-tiyatro)">
+    <span class="cat-band-icon">🎭</span>
+    <span class="cat-band-label" style="color:var(--cat-tiyatro)">TİYATRO</span>
+    <span class="cat-band-count">{{ len $tiyatro }} etkinlik</span>
+  </a>
+  <a href="/sergi" class="cat-band-item" style="border-color:var(--cat-sergi)">
+    <span class="cat-band-icon">🖼</span>
+    <span class="cat-band-label" style="color:var(--cat-sergi)">SERGİ</span>
+    <span class="cat-band-count">{{ len $sergi }} etkinlik</span>
+  </a>
+  <a href="/muzik" class="cat-band-item" style="border-color:var(--cat-muzik)">
+    <span class="cat-band-icon">🎵</span>
+    <span class="cat-band-label" style="color:var(--cat-muzik)">MÜZİK</span>
+    <span class="cat-band-count">{{ len $muzik }} etkinlik</span>
+  </a>
+  <a href="/lezzet" class="cat-band-item" style="border-color:var(--cat-lezzet)">
+    <span class="cat-band-icon">🍽</span>
+    <span class="cat-band-label" style="color:var(--cat-lezzet)">LEZZET</span>
+    <span class="cat-band-count">{{ len $lezzet }} etkinlik</span>
+  </a>
+  <a href="/kesfet" class="cat-band-item" style="border-color:var(--gold)">
+    <span class="cat-band-icon">🗺</span>
+    <span class="cat-band-label" style="color:var(--gold)">KEŞFet</span>
+    <span class="cat-band-count">İstanbul</span>
+  </a>
 </div>
 
 <!-- MAP STRIP -->
@@ -98,11 +128,11 @@
   </div>
 </div>
 
-<!-- ATÖLYE -->
+<!-- ATÖLYE — URBANKARE -->
 {{ $atolye := where .Site.RegularPages "Section" "atolye" }}
 {{ if $atolye }}
 <div class="sec-header">
-  <div class="sec-label">ATÖLYE — BUGÜN ÖĞRENEBİLİRSİN / LEARN TODAY</div>
+  <div class="sec-label">URBANKARE — ATÖLYE / LEARN TODAY</div>
   <a href="/atolye" class="sec-more">tüm dersler →</a>
 </div>
 <div class="atolye-grid">
