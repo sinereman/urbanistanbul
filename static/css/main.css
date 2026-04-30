@@ -222,3 +222,83 @@ footer { border-top: 2px solid var(--black); }
   .single-body { padding: 24px 20px; }
   .cat-band { grid-template-columns: repeat(3, 1fr); }
 }
+/* ── YENİ EKLENEN STİLLER — main.css sonuna ekle ── */
+
+/* Sec label EN versiyonu */
+.sec-label-en { color: var(--gray-3); font-weight: 400; }
+
+/* Hero eyebrow */
+.hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.hero-date-badge { font-size: 10px; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); }
+
+/* Hero meta item */
+.hero-meta-item { display: inline-flex; align-items: center; gap: 5px; color: rgba(255,255,255,0.5); font-size: 12px; }
+.hero-meta-item svg { opacity: 0.6; }
+
+/* Hero side top */
+.hero-side-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.side-date { font-size: 10px; color: var(--gray-3); letter-spacing: 0.04em; }
+
+/* Event body */
+.event-body { padding: 0; }
+.event-meta { display: flex; flex-direction: column; gap: 3px; margin-top: 8px; }
+.event-where { font-size: 11px; color: var(--gray-4); }
+.event-date { font-size: 10px; color: var(--gray-3); letter-spacing: 0.04em; }
+
+/* Event thumb empty — görsel yokken */
+.event-thumb--empty { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  opacity: 1;
+}
+.event-thumb--empty svg { opacity: 0.25; }
+
+.thumb-tiyatro.event-thumb--empty { background: var(--cat-tiyatro-bg); }
+.thumb-sergi.event-thumb--empty   { background: var(--cat-sergi-bg); }
+.thumb-lezzet.event-thumb--empty  { background: var(--cat-lezzet-bg); }
+.thumb-muzik.event-thumb--empty   { background: var(--cat-muzik-bg); }
+.thumb-default.event-thumb--empty { background: var(--gray-1); }
+
+/* Cat band icon wrap */
+.cat-band-icon-wrap { 
+  width: 36px; 
+  height: 36px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+.cat-band-item:hover .cat-band-icon-wrap {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.cat-band-item {
+  padding: 18px 20px 16px;
+  border-top: 2px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.cat-band-item:hover {
+  border-top-color: var(--accent);
+}
+
+/* Atolye meta */
+.atolye-meta { margin-bottom: 8px; }
+
+/* Map visual upgrade */
+.map-visual { background: var(--gray-1); }
+
+/* Tech card upgrade */
+.tech-card { position: relative; }
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--cat-teknoloji);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.tech-card:hover::before { opacity: 1; }
