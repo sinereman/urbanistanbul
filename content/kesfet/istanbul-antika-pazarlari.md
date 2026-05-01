@@ -1,6 +1,7 @@
 ---
 title: "İstanbul'un Antika Pazarları — Asırlık Nesnelerin Şehrinde Bir Rehber"
 date: 2026-04-30
+image: "/images/uploads/istanbul-antika-pazarlari.jpg"
 draft: false
 ---
 
