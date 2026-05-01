@@ -135,7 +135,7 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .ed-cat-item:hover span { color: rgba(255,255,255,0.9); }
 .ed-cat-item em { font-style: normal; font-size: 10px; color: rgba(255,255,255,0.25); }
 
-/* ══ İKİ KOLON ══ */
+/* ══ İKİ KOLON (legacy) ══ */
 .ed-two-col { display: grid; grid-template-columns: 1fr 340px; border-bottom: var(--border); }
 .ed-atolye-col { border-right: var(--border); padding: 28px 32px; }
 .ed-map-col { padding: 28px 24px; }
@@ -151,16 +151,36 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .ed-atolye-body { display: flex; flex-direction: column; gap: 5px; }
 .ed-atolye-title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.3; color: var(--black); }
 .ed-atolye-desc { font-size: 12px; color: var(--gray-4); line-height: 1.55; }
-.ed-map-block { display: block; text-decoration: none; border: var(--border); border-radius: 3px; overflow: hidden; transition: opacity 0.2s; }
-.ed-map-block:hover { opacity: 0.85; }
-.ed-map-visual { background: var(--gray-1); }
-.ed-map-info { padding: 14px 16px; border-top: var(--border); background: var(--cobalt); }
-.ed-map-title { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
-.ed-map-sub { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.5; }
-.ed-map-btn { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--yellow); border-bottom: 1px solid var(--yellow); padding-bottom: 1px; letter-spacing: 0.04em; font-weight: 500; }
 .ed-kesfet-item { display: block; padding: 10px 0; border-bottom: var(--border); text-decoration: none; transition: opacity 0.2s; }
 .ed-kesfet-item:hover { opacity: 0.7; }
 .ed-kesfet-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.35; color: var(--black); }
+
+/* ══ PERDE GRID — 3 KOLON ══ */
+.ed-perde-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--border); }
+.ed-perde-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; }
+.ed-perde-card:last-child { border-right: none; }
+.ed-perde-card:hover { background: var(--gray-1); }
+.ed-perde-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--cat-perde); transform: scaleX(0); transition: transform 0.25s; }
+.ed-perde-card:hover::after { transform: scaleX(1); }
+.ed-perde-img { width: 100%; height: 200px; background-size: cover; background-position: center; flex-shrink: 0; }
+.ed-perde-img--empty { background: linear-gradient(135deg, var(--cat-perde) 0%, #0a1040 100%); display: flex; align-items: center; justify-content: center; }
+.ed-perde-body { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.ed-perde-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--black); }
+.ed-perde-desc { font-size: 12px; color: var(--gray-4); line-height: 1.55; }
+
+/* ══ ATÖLYE + KEŞFet GRID ══ */
+.ed-atolye-kesfet-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--border); }
+.ed-ak-col { padding: 24px 28px; border-right: var(--border); }
+.ed-ak-col:last-child { border-right: none; }
+.ed-atolye-cards { display: flex; flex-direction: column; }
+.ed-atolye-big-card { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding: 14px 0; border-bottom: var(--border); text-decoration: none; transition: opacity 0.2s; }
+.ed-atolye-big-card:last-child { border-bottom: none; }
+.ed-atolye-big-card:hover { opacity: 0.75; }
+.ed-atolye-big-img { width: 100px; height: 100px; border-radius: 2px; background-size: cover; background-position: center; flex-shrink: 0; }
+.ed-atolye-big-img--empty { display: flex; align-items: center; justify-content: center; background: var(--gray-1); font-family: var(--serif); font-size: 28px; color: var(--gray-2); }
+.ed-atolye-big-body { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+.ed-atolye-big-title { font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.3; color: var(--black); }
+.ed-atolye-big-desc { font-size: 12px; color: var(--gray-4); line-height: 1.5; }
 
 /* ══ REKLAM ══ */
 .ed-ad { padding: 10px 32px; border-bottom: var(--border); display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--gray-1); }
@@ -271,6 +291,9 @@ footer { border-top: 3px solid var(--cobalt); }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .single-title { font-size: 28px; }
   .single-body { padding: 28px 20px; }
+  .ed-perde-grid { grid-template-columns: 1fr; }
+  .ed-atolye-kesfet-grid { grid-template-columns: 1fr; }
+  .ed-ak-col { border-right: none; border-bottom: var(--border); }
 }
 @media (max-width: 600px) {
   .nav-center { display: none; }
@@ -278,38 +301,6 @@ footer { border-top: 3px solid var(--cobalt); }
   .ed-event-grid { grid-template-columns: 1fr; }
   .ed-tech-grid { grid-template-columns: 1fr; }
   .event-grid--list { grid-template-columns: 1fr 1fr; }
+  .ed-atolye-big-card { grid-template-columns: 72px 1fr; }
+  .ed-atolye-big-img { width: 72px; height: 72px; }
 }
-/* ══ PERDE KARTI ══ */
-.ed-perde-card {
-  display: block;
-  text-decoration: none;
-  border-bottom: var(--border);
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  transition: opacity 0.2s;
-}
-.ed-perde-card:last-child { border-bottom: none; margin-bottom: 0; }
-.ed-perde-card:hover { opacity: 0.85; }
-.ed-perde-img {
-  width: 100%;
-  height: 180px;
-  border-radius: 3px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 12px;
-}
-.ed-perde-img--empty {
-  background: linear-gradient(135deg, var(--cat-perde) 0%, #0a1040 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ed-perde-body { display: flex; flex-direction: column; gap: 6px; }
-.ed-perde-title {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--black);
-}
-.ed-perde-desc { font-size: 12px; color: var(--gray-4); line-height: 1.55; }
