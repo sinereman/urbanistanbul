@@ -233,6 +233,13 @@
   {{ range first 4 $teknoloji }}
   <a href="{{ .Permalink }}" class="ed-tech-card">
     <div class="ed-tech-accent"></div>
+    {{ if .Params.image }}
+    <div class="ed-tech-img" style="background-image:url('{{ .Params.image }}')"></div>
+    {{ else }}
+    <div class="ed-tech-img ed-tech-img--empty">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    </div>
+    {{ end }}
     <span class="ed-pill" style="background:var(--cat-teknoloji-bg);color:var(--cat-teknoloji);font-size:8px;padding:1px 6px;letter-spacing:0.08em;">TEKNOLOJİ</span>
     <div class="ed-tech-title">{{ .Title }}</div>
     {{ with .Params.tarih }}<div class="ed-tech-date">{{ dateFormat "2 Jan 2006" . }}</div>{{ end }}
