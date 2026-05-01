@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+{{ $tiyatro := where .Site.RegularPages "Section" "tiyatro" }}
+{{ $sergi := where .Site.RegularPages "Section" "sergi" }}
+{{ $muzik := where .Site.RegularPages "Section" "muzik" }}
+
+<div class="list-page">
+
+  <!-- ═══ MÜZİK & KONSER ═══ -->
+  {{ if $muzik }}
+  <div class="ed-section-header">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">MÜZİK & KONSER</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len $muzik }} içerik</span>
+  </div>
+  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+    {{ range $muzik.ByDate.Reverse }}
+    <a href="{{ .Permalink }}" class="ed-event-card">
+      {{ if .Params.image }}
+      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-event-img ed-event-img--empty thumb-muzik">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      {{ end }}
+      <span class="ed-pill pill-muzik">MÜZİK</span>
+      <div class="ed-event-title">{{ .Title }}</div>
+      <div class="ed-event-meta">
+        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- ═══ TİYATRO ═══ -->
+  {{ if $tiyatro }}
+  <div class="ed-section-header" style="margin-top:8px;">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">TİYATRO</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len $tiyatro }} içerik</span>
+  </div>
+  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+    {{ range $tiyatro.ByDate.Reverse }}
+    <a href="{{ .Permalink }}" class="ed-event-card">
+      {{ if .Params.image }}
+      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-event-img ed-event-img--empty thumb-tiyatro">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      {{ end }}
+      <span class="ed-pill pill-tiyatro">TİYATRO</span>
+      <div class="ed-event-title">{{ .Title }}</div>
+      <div class="ed-event-meta">
+        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- ═══ SERGİ ═══ -->
+  {{ if $sergi }}
+  <div class="ed-section-header" style="margin-top:8px;">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">SERGİ</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len $sergi }} içerik</span>
+  </div>
+  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+    {{ range $sergi.ByDate.Reverse }}
+    <a href="{{ .Permalink }}" class="ed-event-card">
+      {{ if .Params.image }}
+      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-event-img ed-event-img--empty thumb-sergi">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
+      </div>
+      {{ end }}
+      <span class="ed-pill pill-sergi">SERGİ</span>
+      <div class="ed-event-title">{{ .Title }}</div>
+      <div class="ed-event-meta">
+        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</div>
+{{ end }}
