@@ -2,6 +2,7 @@
 title: "İstanbul Perdede: Şehri Dünyaya Gösteren 12 Film ve Bu Hafta Vizyonda"
 date: 2026-05-01
 tur: "Film İncelemesi"
+slug: "istanbul-perdede-12-film"
 image: ""
 foto_yon: "yatay"
 draft: false
