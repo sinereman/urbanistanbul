@@ -3,7 +3,7 @@ title: "Spider-Noir: Nicolas Cage, 1930'lar New York'u ve Süper Kahraman Sinema
 date: 2026-05-01
 tur: "Vizyon"
 slug: "spider-noir-nicolas-cage"
-image: ""
+image: "/images/uploads/spider-noir-nicolas-cage.jpg"
 foto_yon: "yatay"
 draft: false
 ---
