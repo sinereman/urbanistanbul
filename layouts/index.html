@@ -131,25 +131,25 @@
 <!-- ═══ PERDE + ATÖLYE İKİ KOLON ═══ -->
 <div class="ed-two-col">
 
-  <!-- Sol: Perde — son yazılar -->
+  <!-- Sol: Perde — tam görsel kartlar -->
   <div class="ed-atolye-col">
     <div class="ed-col-header">
       <span class="ed-col-title">PERDE — SİNEMA</span>
       <a href="/perde" class="ed-col-more">tümü →</a>
     </div>
-    {{ range first 3 ($perde.ByDate.Reverse) }}
-    <a href="{{ .Permalink }}" class="ed-atolye-item">
+    {{ range first 2 ($perde.ByDate.Reverse) }}
+    <a href="{{ .Permalink }}" class="ed-perde-card">
       {{ if .Params.image }}
-      <div class="ed-atolye-thumb" style="background-image:url('{{ .Params.image }}')"></div>
+      <div class="ed-perde-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="ed-atolye-num" style="background:var(--cat-perde-bg);color:var(--cat-perde);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
+      <div class="ed-perde-img ed-perde-img--empty">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
       </div>
       {{ end }}
-      <div class="ed-atolye-body">
-        <span class="ed-pill pill-perde" style="font-size:8px;padding:1px 6px;">{{ if .Params.tur }}{{ .Params.tur | upper }}{{ else }}PERDE{{ end }}</span>
-        <div class="ed-atolye-title">{{ .Title }}</div>
-        <div class="ed-atolye-desc">{{ .Summary | truncate 80 }}</div>
+      <div class="ed-perde-body">
+        <span class="ed-pill pill-perde">{{ if .Params.tur }}{{ .Params.tur | upper }}{{ else }}PERDE{{ end }}</span>
+        <div class="ed-perde-title">{{ .Title }}</div>
+        <div class="ed-perde-desc">{{ .Summary | truncate 100 }}</div>
       </div>
     </a>
     {{ end }}
