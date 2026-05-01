@@ -105,7 +105,7 @@ Hazır olun.
 
 DaVinci Resolve 21 beta, Blackmagic Design'ın web sitesinden ücretsiz indirilebilir. macOS, Windows ve Linux'ta çalışıyor. Mevcut Lightroom katalogları içe aktarılabiliyor — geçiş için büyük bir engel yok.
 
-Studio sürümü için 295 dolarlık tek seferlik lisans, B&H ve benzeri bayilerden edinilebilir.
+Studio sürümü için 295 dolarlık tek seferlik lisans, onaylı bayilerden edinilebilir.
 
 ---
 
