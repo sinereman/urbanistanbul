@@ -1,5 +1,5 @@
 ---
-title: "İstanbul Perdede: Şehri Dünyaya Gösteren 12 Film ve Bu Hafta Vizyonda"
+title: "İstanbul Perdede: Şehri Dünyaya Gösteren 12 Film ve Bu Hafta Vizyonda FUZE (2026)"
 date: 2026-05-01
 tur: "Film İncelemesi"
 slug: "istanbul-perdede-12-film"
