@@ -23,9 +23,7 @@
     <div class="ed-hero-img" style="background-image:url('{{ $hero.Params.image }}')"></div>
     {{ else }}
     <div class="ed-hero-img ed-hero-img--empty">
-      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5" opacity="0.2">
-        <rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
-      </svg>
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5" opacity="0.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
     </div>
     {{ end }}
     <div class="ed-hero-overlay"></div>
@@ -39,7 +37,6 @@
     </div>
   </a>
   {{ end }}
-
   <div class="ed-hero-stack">
     {{ range first 3 $side }}
     <a href="{{ .Permalink }}" class="ed-stack-item">
@@ -128,74 +125,92 @@
   </a>
 </div>
 
-<!-- ═══ PERDE + ATÖLYE İKİ KOLON ═══ -->
-<div class="ed-two-col">
-
-  <!-- Sol: Perde — tam görsel kartlar -->
-  <div class="ed-atolye-col">
-    <div class="ed-col-header">
-      <span class="ed-col-title">PERDE — SİNEMA</span>
-      <a href="/perde" class="ed-col-more">tümü →</a>
+<!-- ═══ PERDE FULL WIDTH ═══ -->
+{{ if $perde }}
+<div class="ed-section-header">
+  <div class="ed-section-rule"></div>
+  <div class="ed-section-label">PERDE — SİNEMA</div>
+  <div class="ed-section-rule"></div>
+  <a href="/perde" class="ed-section-more">tümü →</a>
+</div>
+<div class="ed-perde-grid">
+  {{ range first 3 ($perde.ByDate.Reverse) }}
+  <a href="{{ .Permalink }}" class="ed-perde-card">
+    {{ if .Params.image }}
+    <div class="ed-perde-img" style="background-image:url('{{ .Params.image }}')"></div>
+    {{ else }}
+    <div class="ed-perde-img ed-perde-img--empty">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
     </div>
-    {{ range first 2 ($perde.ByDate.Reverse) }}
-    <a href="{{ .Permalink }}" class="ed-perde-card">
-      {{ if .Params.image }}
-      <div class="ed-perde-img" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="ed-perde-img ed-perde-img--empty">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
-      </div>
-      {{ end }}
-      <div class="ed-perde-body">
-        <span class="ed-pill pill-perde">{{ if .Params.tur }}{{ .Params.tur | upper }}{{ else }}PERDE{{ end }}</span>
-        <div class="ed-perde-title">{{ .Title }}</div>
-        <div class="ed-perde-desc">{{ .Summary | truncate 100 }}</div>
-      </div>
-    </a>
     {{ end }}
-  </div>
+    <div class="ed-perde-body">
+      <span class="ed-pill pill-perde">{{ if .Params.tur }}{{ .Params.tur | upper }}{{ else }}PERDE{{ end }}</span>
+      <div class="ed-perde-title">{{ .Title }}</div>
+      <div class="ed-perde-desc">{{ .Summary | truncate 90 }}</div>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
 
-  <!-- Sağ: Atölye + Keşfet -->
-  <div class="ed-map-col">
+<!-- ═══ ATÖLYE + KEŞFet ═══ -->
+<div class="ed-section-header">
+  <div class="ed-section-rule"></div>
+  <div class="ed-section-label">ATÖLYE & KEŞFet</div>
+  <div class="ed-section-rule"></div>
+</div>
+<div class="ed-atolye-kesfet-grid">
+
+  <!-- Atölye — 2 büyük kart -->
+  <div class="ed-ak-col">
     <div class="ed-col-header">
       <span class="ed-col-title">URBANKARE — ATÖLYE</span>
       <a href="/atolye" class="ed-col-more">tüm dersler →</a>
     </div>
+    <div class="ed-atolye-cards">
     {{ range first 2 ($atolye.ByDate.Reverse) }}
-    <a href="{{ .Permalink }}" class="ed-atolye-item">
+    <a href="{{ .Permalink }}" class="ed-atolye-big-card">
       {{ if .Params.image }}
-      <div class="ed-atolye-thumb" style="background-image:url('{{ .Params.image }}')"></div>
+      <div class="ed-atolye-big-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="ed-atolye-num">{{ if .Params.sira }}{{ printf "%02d" .Params.sira }}{{ else }}—{{ end }}</div>
+      <div class="ed-atolye-big-img ed-atolye-big-img--empty">
+        <span>{{ if .Params.sira }}{{ printf "%02d" .Params.sira }}{{ else }}—{{ end }}</span>
+      </div>
       {{ end }}
-      <div class="ed-atolye-body">
+      <div class="ed-atolye-big-body">
         <span class="ed-pill pill-foto" style="font-size:8px;padding:1px 6px;">{{ .Params.konu | upper }}</span>
-        <div class="ed-atolye-title">{{ .Title }}</div>
-        <div class="ed-atolye-desc">{{ .Summary | truncate 70 }}</div>
+        <div class="ed-atolye-big-title">{{ .Title }}</div>
+        <div class="ed-atolye-big-desc">{{ .Summary | truncate 80 }}</div>
       </div>
     </a>
     {{ end }}
-
- {{ if $kesfet }}
-<div class="ed-col-header" style="margin-top:20px;">
-  <span class="ed-col-title">KEŞFet İSTANBUL</span>
-  <a href="/kesfet" class="ed-col-more">tümü →</a>
-</div>
-{{ range first 2 ($kesfet.ByDate.Reverse) }}
-<a href="{{ .Permalink }}" class="ed-atolye-item">
-  {{ if .Params.image }}
-  <div class="ed-atolye-thumb" style="background-image:url('{{ .Params.image }}')"></div>
-  {{ else }}
-  <div class="ed-atolye-num" style="background:var(--cobalt);color:var(--yellow);font-size:13px;letter-spacing:0.06em;">KEŞFet</div>
-  {{ end }}
-  <div class="ed-atolye-body">
-    <span class="ed-pill pill-kesfet" style="font-size:8px;padding:1px 6px;">KEŞFet</span>
-    <div class="ed-atolye-title">{{ .Title }}</div>
-    <div class="ed-atolye-desc">{{ .Summary | truncate 70 }}</div>
+    </div>
   </div>
-</a>
-{{ end }}
-{{ end }}
+
+  <!-- Keşfet — 2 büyük kart -->
+  <div class="ed-ak-col">
+    <div class="ed-col-header">
+      <span class="ed-col-title">KEŞFet İSTANBUL</span>
+      <a href="/kesfet" class="ed-col-more">tümü →</a>
+    </div>
+    <div class="ed-atolye-cards">
+    {{ range first 2 ($kesfet.ByDate.Reverse) }}
+    <a href="{{ .Permalink }}" class="ed-atolye-big-card">
+      {{ if .Params.image }}
+      <div class="ed-atolye-big-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-atolye-big-img ed-atolye-big-img--empty" style="background:var(--cobalt);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/></svg>
+      </div>
+      {{ end }}
+      <div class="ed-atolye-big-body">
+        <span class="ed-pill pill-kesfet" style="font-size:8px;padding:1px 6px;">KEŞFet</span>
+        <div class="ed-atolye-big-title">{{ .Title }}</div>
+        <div class="ed-atolye-big-desc">{{ .Summary | truncate 80 }}</div>
+      </div>
+    </a>
+    {{ end }}
+    </div>
   </div>
 
 </div>
