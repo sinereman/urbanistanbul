@@ -8,7 +8,7 @@ foto_yon: "yatay"
 draft: false
 ---
 
-Bu hafta İstanbul sinemalarında tansiyon yükseliyor. Aaron Taylor-Johnson ve Theo James'in başrollerini paylaştığı, David Mackenzie imzalı **Fuze**, bugün (1 Mayıs 2026) itibarıyla Türkiye salonlarındaki yerini alıyor. Ama biz bu hafta bir adım geri çekilerek daha büyük bir soruyu sormak istiyoruz: İstanbul perdede nasıl görünüyor?
+Bu hafta İstanbul sinemalarında tansiyon yükseliyor. Aaron Taylor-Johnson ve Theo James'in başrollerini paylaştığı, David Mackenzie imzalı **Fuze**, bugün (8 Mayıs 2026) itibarıyla Türkiye salonlarındaki yerini alıyor. Ama biz bu hafta bir adım geri çekilerek daha büyük bir soruyu sormak istiyoruz: İstanbul perdede nasıl görünüyor?
 
 Bu şehir, yüzyıllardır dünyanın en büyük hikaye anlatıcılarını kendine çekmiş bir mıknatıs. Boğaz'ın iki yakası, Kapalıçarşı'nın labirenti, Beyoğlu'nun arka sokakları... Bunlar sadece mekân değil; her biri patlamaya hazır birer dramatik potansiyel.
 
