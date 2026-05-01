@@ -318,3 +318,34 @@ footer { border-top: 3px solid var(--cobalt); }
   align-items: center;
   justify-content: center;
 }
+/* ══ ORTA REKLAM BANDI ══ */
+.ed-mid-ad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 32px;
+  background: var(--black);
+  border-bottom: var(--border);
+  min-height: 64px;
+}
+.ed-mid-ad-label {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.2);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.ed-mid-ad-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ed-mid-ad-placeholder {
+  font-size: 10px;
+  color: rgba(255,255,255,0.15);
+  border: 1px dashed rgba(255,255,255,0.08);
+  padding: 8px 60px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
