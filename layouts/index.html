@@ -176,17 +176,26 @@
     </a>
     {{ end }}
 
-    {{ if $kesfet }}
-    <div class="ed-col-header" style="margin-top:20px;">
-      <span class="ed-col-title">KEŞFet İSTANBUL</span>
-      <a href="/kesfet" class="ed-col-more">tümü →</a>
-    </div>
-    {{ range first 2 $kesfet }}
-    <a href="{{ .Permalink }}" class="ed-kesfet-item">
-      <div class="ed-kesfet-title">{{ .Title }}</div>
-    </a>
-    {{ end }}
-    {{ end }}
+ {{ if $kesfet }}
+<div class="ed-col-header" style="margin-top:20px;">
+  <span class="ed-col-title">KEŞFet İSTANBUL</span>
+  <a href="/kesfet" class="ed-col-more">tümü →</a>
+</div>
+{{ range first 2 ($kesfet.ByDate.Reverse) }}
+<a href="{{ .Permalink }}" class="ed-atolye-item">
+  {{ if .Params.image }}
+  <div class="ed-atolye-thumb" style="background-image:url('{{ .Params.image }}')"></div>
+  {{ else }}
+  <div class="ed-atolye-num" style="background:var(--cobalt);color:var(--yellow);font-size:13px;letter-spacing:0.06em;">KEŞFet</div>
+  {{ end }}
+  <div class="ed-atolye-body">
+    <span class="ed-pill pill-kesfet" style="font-size:8px;padding:1px 6px;">KEŞFet</span>
+    <div class="ed-atolye-title">{{ .Title }}</div>
+    <div class="ed-atolye-desc">{{ .Summary | truncate 70 }}</div>
+  </div>
+</a>
+{{ end }}
+{{ end }}
   </div>
 
 </div>
