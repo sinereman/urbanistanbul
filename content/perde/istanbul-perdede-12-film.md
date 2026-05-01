@@ -19,7 +19,7 @@ Bu şehir, yüzyıllardır dünyanın en büyük hikaye anlatıcılarını kendi
 **Yönetmen:** David Mackenzie (*Hell or High Water*, *Comancheria*)
 **Oyuncular:** Aaron Taylor-Johnson, Theo James, Gugu Mbatha-Raw, Sam Worthington
 **Süre:** 96 dakika
-**Türkiye Vizyon Tarihi:** 1 Mayıs 2026
+**Türkiye Vizyon Tarihi:** 8 Mayıs 2026
 **Tahmini Bütçe:** $20 Milyon
 
 *Hell or High Water* ile modern Batı filminin sınırlarını yeniden çizen David Mackenzie, kamerasını bu kez Londra'nın Paddington bölgesine çeviriyor. Bir inşaat alanında İkinci Dünya Savaşı'ndan kalma patlamaya hazır bir bomba bulunur. Şehrin büyük bölümü boşaltılırken oluşan bu kaotik sessizliği fırsat bilen bir suç çetesi, tahliye bölgesindeki bankayı soymak için harekete geçer.
