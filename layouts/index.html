@@ -12,8 +12,10 @@
 {{ $perde := where .Site.RegularPages "Section" "perde" }}
 
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $lezzet | union $muzik | union $etkinlikler | union $festival }}
-{{ $hero := index $tumEtkinlikler 0 }}
-{{ $side := after 1 $tumEtkinlikler }}
+{{ $tumEtkinliklerSorted := $tumEtkinlikler.ByDate.Reverse }}
+{{ $hero := index $tumEtkinliklerSorted 0 }}
+{{ $side := after 1 $tumEtkinliklerSorted }}
+
 
 <!-- ═══ HERO ═══ -->
 <section class="editorial-hero">
