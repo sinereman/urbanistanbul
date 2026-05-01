@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+{{ $kesfet := where .Site.RegularPages "Section" "kesfet" }}
+{{ $lezzet := where .Site.RegularPages "Section" "lezzet" }}
+
+<div class="list-page">
+
+  <!-- ═══ KEŞFet İSTANBUL ═══ -->
+  {{ if $kesfet }}
+  <div class="ed-section-header">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">KEŞFet İSTANBUL</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len $kesfet }} içerik</span>
+  </div>
+  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+    {{ range $kesfet.ByDate.Reverse }}
+    <a href="{{ .Permalink }}" class="ed-event-card">
+      {{ if .Params.image }}
+      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-event-img ed-event-img--empty" style="background:var(--cobalt);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/></svg>
+      </div>
+      {{ end }}
+      <span class="ed-pill pill-kesfet">KEŞFet</span>
+      <div class="ed-event-title">{{ .Title }}</div>
+      <div class="ed-event-meta">
+        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- ═══ LEZZET ═══ -->
+  {{ if $lezzet }}
+  <div class="ed-section-header" style="margin-top:8px;">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">LEZZET</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len $lezzet }} içerik</span>
+  </div>
+  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+    {{ range $lezzet.ByDate.Reverse }}
+    <a href="{{ .Permalink }}" class="ed-event-card">
+      {{ if .Params.image }}
+      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="ed-event-img ed-event-img--empty thumb-lezzet">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+      </div>
+      {{ end }}
+      <span class="ed-pill pill-lezzet">LEZZET</span>
+      <div class="ed-event-title">{{ .Title }}</div>
+      <div class="ed-event-meta">
+        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</div>
+{{ end }}
