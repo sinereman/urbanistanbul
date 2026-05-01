@@ -1,6 +1,6 @@
 ---
 title: "Tiësto İstanbul'a Geliyor: Piramitlerin DJ'i Ağustos'ta Sahne Alıyor"
-date: 2026-05-02
+date: 
 tarih: 2026-08-08
 mekan: "İstanbul Festivali, İstanbul"
 image: "/images/uploads/tiesto-istanbul-2026.jpg"
