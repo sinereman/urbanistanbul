@@ -5,7 +5,7 @@
 
 <div class="list-page">
 
-  <!-- ═══ KEŞFet İSTANBUL ═══ -->
+  <!-- KEŞFet İSTANBUL -->
   {{ if $kesfet }}
   <div class="ed-section-header">
     <div class="ed-section-rule"></div>
@@ -13,7 +13,7 @@
     <div class="ed-section-rule"></div>
     <span class="ed-section-more">{{ len $kesfet }} içerik</span>
   </div>
-  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="ed-event-grid" style="grid-template-columns:repeat(3,1fr);">
     {{ range $kesfet.ByDate.Reverse }}
     <a href="{{ .Permalink }}" class="ed-event-card">
       {{ if .Params.image }}
@@ -34,7 +34,7 @@
   </div>
   {{ end }}
 
-  <!-- ═══ LEZZET ═══ -->
+  <!-- LEZZET -->
   {{ if $lezzet }}
   <div class="ed-section-header" style="margin-top:8px;">
     <div class="ed-section-rule"></div>
@@ -42,7 +42,7 @@
     <div class="ed-section-rule"></div>
     <span class="ed-section-more">{{ len $lezzet }} içerik</span>
   </div>
-  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="ed-event-grid" style="grid-template-columns:repeat(3,1fr);">
     {{ range $lezzet.ByDate.Reverse }}
     <a href="{{ .Permalink }}" class="ed-event-card">
       {{ if .Params.image }}
@@ -63,34 +63,36 @@
   </div>
   {{ end }}
 
-</div>
-{{ end }}
-{{ if $mekan }}
-<div class="ed-section-header" style="margin-top:8px;">
-  <div class="ed-section-rule"></div>
-  <div class="ed-section-label">MEKÂN & MİMARİ</div>
-  <div class="ed-section-rule"></div>
-  <span class="ed-section-more">{{ len $mekan }} içerik</span>
-</div>
-<div class="etk-news-grid">
-  {{ range $mekan.ByDate.Reverse }}
-  <a href="{{ .Permalink }}" class="etk-news-card">
-    {{ if .Params.image }}
-    <div class="etk-news-img" style="background-image:url('{{ .Params.image }}')"></div>
-    {{ else }}
-    <div class="etk-news-img etk-news-img--empty" style="background:var(--cobalt);">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    </div>
-    {{ end }}
-    <div class="etk-news-body">
-      <span class="ed-pill pill-kesfet" style="background:#1e3a5f;color:#dbeafe;">MEKÂN</span>
-      <div class="etk-news-title">{{ .Title }}</div>
-      <div class="etk-news-desc">{{ .Summary | truncate 90 }}</div>
-      <div class="etk-news-meta">
-        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+  <!-- MEKÂN & MİMARİ -->
+  {{ if $mekan }}
+  <div class="ed-section-header" style="margin-top:8px;">
+    <div class="ed-section-rule"></div>
+    <div class="ed-section-label">MEKÂN & MİMARİ</div>
+    <div class="ed-section-rule"></div>
+    <span class="ed-section-more">{{ len $mekan }} içerik</span>
+  </div>
+  <div class="etk-news-grid">
+    {{ range $mekan.ByDate.Reverse }}
+    <a href="{{ .Permalink }}" class="etk-news-card">
+      {{ if .Params.image }}
+      <div class="etk-news-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="etk-news-img etk-news-img--empty" style="background:var(--cobalt);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-    </div>
-  </a>
+      {{ end }}
+      <div class="etk-news-body">
+        <span class="ed-pill" style="background:#1e3a5f;color:#dbeafe;display:inline-block;font-size:9px;letter-spacing:0.1em;font-weight:600;padding:2px 8px;border-radius:2px;">MEKÂN</span>
+        <div class="etk-news-title">{{ .Title }}</div>
+        <div class="etk-news-desc">{{ .Summary | truncate 90 }}</div>
+        <div class="etk-news-meta">
+          {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
   {{ end }}
+
 </div>
 {{ end }}
