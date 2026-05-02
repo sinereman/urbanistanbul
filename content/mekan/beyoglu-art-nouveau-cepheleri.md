@@ -1,6 +1,6 @@
 ---
 title: "Beyoğlu'nun Art Nouveau Cepheleri: İstiklal'de Bir Yüzyılın İzleri"
-date: 2026-05-03
+date: 2026-05-02
 slug: "beyoglu-art-nouveau-cepheleri"
 image: "/images/uploads/beyoglu-art-nouveau-cepheleri.jpg"
 foto_yon: "yatay"
