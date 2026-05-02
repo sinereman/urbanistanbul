@@ -19,12 +19,14 @@
         <div class="etk-slide-img etk-slide-img--empty"></div>
         {{ end }}
         <div class="etk-slide-overlay"></div>
-        <div class="etk-slide-content">
-          <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
-          {{ with $p.Params.tarih }}<span class="etk-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-          <h2 class="etk-slide-title">{{ $p.Title }}</h2>
-          {{ with $p.Params.mekan }}<p class="etk-slide-mekan">{{ . }}</p>{{ end }}
-        </div>
+      <div class="etk-slide-content">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
+    {{ with $p.Params.tarih }}<span class="etk-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+  </div>
+  <h2 class="etk-slide-title">{{ $p.Title }}</h2>
+  {{ with $p.Params.mekan }}<p class="etk-slide-mekan">{{ . }}</p>{{ end }}
+</div>
       </a>
       {{ end }}
     </div>
