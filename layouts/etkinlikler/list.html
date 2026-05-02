@@ -19,14 +19,14 @@
         <div class="etk-slide-img etk-slide-img--empty"></div>
         {{ end }}
         <div class="etk-slide-overlay"></div>
-      <div class="etk-slide-content">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
-    {{ with $p.Params.tarih }}<span class="etk-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-  </div>
-  <h2 class="etk-slide-title">{{ $p.Title }}</h2>
-  {{ with $p.Params.mekan }}<p class="etk-slide-mekan">{{ . }}</p>{{ end }}
-</div>
+        <div class="etk-slide-content">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
+            {{ with $p.Params.tarih }}<span class="etk-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+          </div>
+          <h2 class="etk-slide-title">{{ $p.Title }}</h2>
+          {{ with $p.Params.mekan }}<p class="etk-slide-mekan">{{ . }}</p>{{ end }}
+        </div>
       </a>
       {{ end }}
     </div>
@@ -51,21 +51,24 @@
     <div class="ed-section-rule"></div>
     <span class="ed-section-more">{{ len $muzik }} içerik</span>
   </div>
-  <div class="ed-event-grid" style="grid-template-columns:repeat(3,1fr);">
+  <div class="etk-news-grid">
     {{ range $muzik.ByDate.Reverse }}
-    <a href="{{ .Permalink }}" class="ed-event-card">
+    <a href="{{ .Permalink }}" class="etk-news-card">
       {{ if .Params.image }}
-      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      <div class="etk-news-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="ed-event-img ed-event-img--empty thumb-muzik">
+      <div class="etk-news-img etk-news-img--empty thumb-muzik">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       </div>
       {{ end }}
-      <span class="ed-pill pill-muzik">MÜZİK</span>
-      <div class="ed-event-title">{{ .Title }}</div>
-      <div class="ed-event-meta">
-        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      <div class="etk-news-body">
+        <span class="ed-pill pill-muzik">MÜZİK</span>
+        <div class="etk-news-title">{{ .Title }}</div>
+        <div class="etk-news-desc">{{ .Summary | truncate 90 }}</div>
+        <div class="etk-news-meta">
+          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        </div>
       </div>
     </a>
     {{ end }}
@@ -80,21 +83,24 @@
     <div class="ed-section-rule"></div>
     <span class="ed-section-more">{{ len $tiyatro }} içerik</span>
   </div>
-  <div class="ed-event-grid" style="grid-template-columns:repeat(3,1fr);">
+  <div class="etk-news-grid">
     {{ range $tiyatro.ByDate.Reverse }}
-    <a href="{{ .Permalink }}" class="ed-event-card">
+    <a href="{{ .Permalink }}" class="etk-news-card">
       {{ if .Params.image }}
-      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      <div class="etk-news-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="ed-event-img ed-event-img--empty thumb-tiyatro">
+      <div class="etk-news-img etk-news-img--empty thumb-tiyatro">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
       </div>
       {{ end }}
-      <span class="ed-pill pill-tiyatro">TİYATRO</span>
-      <div class="ed-event-title">{{ .Title }}</div>
-      <div class="ed-event-meta">
-        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      <div class="etk-news-body">
+        <span class="ed-pill pill-tiyatro">TİYATRO</span>
+        <div class="etk-news-title">{{ .Title }}</div>
+        <div class="etk-news-desc">{{ .Summary | truncate 90 }}</div>
+        <div class="etk-news-meta">
+          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        </div>
       </div>
     </a>
     {{ end }}
@@ -109,21 +115,24 @@
     <div class="ed-section-rule"></div>
     <span class="ed-section-more">{{ len $sergi }} içerik</span>
   </div>
-  <div class="ed-event-grid" style="grid-template-columns:repeat(3,1fr);">
+  <div class="etk-news-grid">
     {{ range $sergi.ByDate.Reverse }}
-    <a href="{{ .Permalink }}" class="ed-event-card">
+    <a href="{{ .Permalink }}" class="etk-news-card">
       {{ if .Params.image }}
-      <div class="ed-event-img" style="background-image:url('{{ .Params.image }}')"></div>
+      <div class="etk-news-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="ed-event-img ed-event-img--empty thumb-sergi">
+      <div class="etk-news-img etk-news-img--empty thumb-sergi">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
       </div>
       {{ end }}
-      <span class="ed-pill pill-sergi">SERGİ</span>
-      <div class="ed-event-title">{{ .Title }}</div>
-      <div class="ed-event-meta">
-        {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+      <div class="etk-news-body">
+        <span class="ed-pill pill-sergi">SERGİ</span>
+        <div class="etk-news-title">{{ .Title }}</div>
+        <div class="etk-news-desc">{{ .Summary | truncate 90 }}</div>
+        <div class="etk-news-meta">
+          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        </div>
       </div>
     </a>
     {{ end }}
@@ -133,6 +142,7 @@
 </div>
 
 <style>
+/* ── SLIDER ── */
 .etk-slider {
   position: relative;
   width: 100%;
@@ -231,10 +241,86 @@
 }
 .etk-dot.active { background: var(--yellow); transform: scale(1.3); }
 
+/* ── HABER KARTI ── */
+.etk-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: var(--border);
+}
+.etk-news-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  border-right: var(--border);
+  transition: background 0.2s;
+  position: relative;
+}
+.etk-news-card:last-child { border-right: none; }
+.etk-news-card:hover { background: var(--gray-1); }
+.etk-news-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+.etk-news-card:hover::after { transform: scaleX(1); }
+.etk-news-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+.etk-news-img--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.etk-news-img--empty svg { opacity: 0.2; }
+.etk-news-body {
+  padding: 14px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+.etk-news-body .ed-pill { align-self: flex-start; }
+.etk-news-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--black);
+}
+.etk-news-desc {
+  font-size: 12px;
+  color: var(--gray-4);
+  line-height: 1.6;
+}
+.etk-news-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+.etk-news-meta span {
+  font-size: 10px;
+  color: var(--gray-3);
+  letter-spacing: 0.03em;
+}
+
 @media (max-width: 900px) {
   .etk-slider { aspect-ratio: 4/3; }
   .etk-slide-title { font-size: 24px; }
   .etk-slide-content { padding: 20px; }
+  .etk-news-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .etk-news-grid { grid-template-columns: 1fr; }
 }
 </style>
 
