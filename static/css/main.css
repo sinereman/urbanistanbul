@@ -109,6 +109,7 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .ed-event-card:hover::after { transform: scaleX(1); }
 .ed-event-card:last-child { border-right: none; }
 .ed-event-card:hover { background: var(--gray-1); }
+.ed-event-card .ed-pill { display: inline-block; width: auto; align-self: flex-start; }
 .ed-event-img { width: 100%; height: 110px; border-radius: 2px; background-size: cover; background-position: center; margin-bottom: 2px; }
 .ed-event-img--empty { display: flex; align-items: center; justify-content: center; }
 .ed-event-img--empty svg { opacity: 0.18; }
@@ -196,6 +197,25 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .ed-tech-card:hover .ed-tech-accent { opacity: 1; }
 .ed-tech-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.4; color: var(--black); }
 .ed-tech-date { font-size: 10px; color: var(--gray-3); margin-top: auto; }
+.ed-tech-img { width: 100%; height: 120px; border-radius: 2px; background-size: cover; background-position: center; margin-bottom: 4px; }
+.ed-tech-img--empty { background: var(--gray-1); display: flex; align-items: center; justify-content: center; }
+
+/* ══ HABER KARTI (etkinlikler, keşfet, mekân) ══ */
+.etk-news-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--border); }
+.etk-news-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; }
+.etk-news-card:last-child { border-right: none; }
+.etk-news-card:hover { background: var(--gray-1); }
+.etk-news-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s; }
+.etk-news-card:hover::after { transform: scaleX(1); }
+.etk-news-img { width: 100%; aspect-ratio: 16/9; min-height: 160px; background-size: cover; background-position: center; flex-shrink: 0; }
+.etk-news-img--empty { display: flex; align-items: center; justify-content: center; }
+.etk-news-img--empty svg { opacity: 0.2; }
+.etk-news-body { padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+.etk-news-body .ed-pill { align-self: flex-start; }
+.etk-news-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--black); }
+.etk-news-desc { font-size: 12px; color: var(--gray-4); line-height: 1.6; }
+.etk-news-meta { display: flex; flex-direction: column; gap: 2px; margin-top: auto; padding-top: 8px; }
+.etk-news-meta span { font-size: 10px; color: var(--gray-3); letter-spacing: 0.03em; }
 
 /* ══ PILL SİSTEMİ ══ */
 .ed-pill, .pill-tiyatro, .pill-sergi, .pill-lezzet, .pill-muzik, .pill-müzik,
@@ -219,6 +239,12 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .pill-yazarlik, .pill-yazarlık { background: #92400e;         color: #fef3c7; }
 .pill-film               { background: var(--cat-perde);       color: #dbeafe; }
 .pill-müzik-teorisi, .pill-muzik-teorisi { background: var(--cat-muzik); color: var(--black); }
+
+/* ══ ORTA REKLAM BANDI ══ */
+.ed-mid-ad { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 14px 32px; background: var(--black); border-bottom: var(--border); min-height: 64px; }
+.ed-mid-ad-label { font-size: 9px; letter-spacing: 0.12em; color: rgba(255,255,255,0.2); font-weight: 500; flex-shrink: 0; }
+.ed-mid-ad-box { display: flex; align-items: center; justify-content: center; }
+.ed-mid-ad-placeholder { font-size: 10px; color: rgba(255,255,255,0.15); border: 1px dashed rgba(255,255,255,0.08); padding: 8px 60px; border-radius: 2px; letter-spacing: 0.04em; }
 
 /* ══ FOOTER ══ */
 footer { border-top: 3px solid var(--cobalt); }
@@ -294,6 +320,7 @@ footer { border-top: 3px solid var(--cobalt); }
   .ed-perde-grid { grid-template-columns: 1fr; }
   .ed-atolye-kesfet-grid { grid-template-columns: 1fr; }
   .ed-ak-col { border-right: none; border-bottom: var(--border); }
+  .etk-news-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
   .nav-center { display: none; }
@@ -303,49 +330,5 @@ footer { border-top: 3px solid var(--cobalt); }
   .event-grid--list { grid-template-columns: 1fr 1fr; }
   .ed-atolye-big-card { grid-template-columns: 72px 1fr; }
   .ed-atolye-big-img { width: 72px; height: 72px; }
-}
-.ed-tech-img {
-  width: 100%;
-  height: 120px;
-  border-radius: 2px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 4px;
-}
-.ed-tech-img--empty {
-  background: var(--gray-1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* ══ ORTA REKLAM BANDI ══ */
-.ed-mid-ad {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 14px 32px;
-  background: var(--black);
-  border-bottom: var(--border);
-  min-height: 64px;
-}
-.ed-mid-ad-label {
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.2);
-  font-weight: 500;
-  flex-shrink: 0;
-}
-.ed-mid-ad-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ed-mid-ad-placeholder {
-  font-size: 10px;
-  color: rgba(255,255,255,0.15);
-  border: 1px dashed rgba(255,255,255,0.08);
-  padding: 8px 60px;
-  border-radius: 2px;
-  letter-spacing: 0.04em;
+  .etk-news-grid { grid-template-columns: 1fr; }
 }
