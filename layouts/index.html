@@ -11,7 +11,7 @@
 {{ $festival := where .Site.RegularPages "Section" "festival" }}
 {{ $perde := where .Site.RegularPages "Section" "perde" }}
 
-{{ $tumEtkinlikler := union $tiyatro $sergi | union $lezzet | union $muzik | union $etkinlikler | union $festival }}
+{{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $etkinlikler | union $festival }}
 {{ $tumEtkinliklerSorted := $tumEtkinlikler.ByDate.Reverse }}
 {{ $heroSlides := first 5 $tumEtkinliklerSorted }}
 
