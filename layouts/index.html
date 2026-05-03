@@ -168,7 +168,7 @@
   <a href="/etkinlikler" class="ed-section-more">tümü →</a>
 </div>
 <div class="ed-event-grid">
-  {{ range first 4 $tumEtkinliklerSorted }}
+  {{ range first 8 $tumEtkinliklerSorted }}
   <a href="{{ .Permalink }}" class="ed-event-card">
     {{ if .Params.image }}
     <div class="ed-event-img {{ if eq .Params.foto_yon "dikey" }}ed-event-img--portrait{{ end }}" style="background-image:url('{{ .Params.image }}')"></div>
