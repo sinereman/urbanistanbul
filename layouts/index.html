@@ -18,10 +18,11 @@
 {{ $f1 := index $festivalSorted 0 }}
 {{ $f2 := index $festivalSorted 1 }}
 
-{{ $m1 := index ($muzik.ByDate.Reverse) 0 }}
-{{ $m2 := index ($muzik.ByDate.Reverse) 1 }}
-{{ $m3 := index ($muzik.ByDate.Reverse) 2 }}
-{{ $m4 := index ($muzik.ByDate.Reverse) 3 }}
+{{ $muzikSorted := $muzik.ByDate.Reverse }}
+{{ $m1 := index $muzikSorted 0 }}
+{{ $m2 := index $muzikSorted 1 }}
+{{ $m3 := index $muzikSorted 2 }}
+{{ $m4 := index $muzikSorted 3 }}
 
 {{ $t1 := index ($teknoloji.ByDate.Reverse) 0 }}
 {{ $t2 := index ($teknoloji.ByDate.Reverse) 1 }}
@@ -29,7 +30,13 @@
 {{ $p1 := index ($perde.ByDate.Reverse) 0 }}
 {{ $p2 := index ($perde.ByDate.Reverse) 1 }}
 
-{{ $heroSlides := slice $f1 $f2 $m1 $m2 $m3 $m4 $t1 $t2 $p1 $p2 }}
+{{ $heroSlides := slice $f1 $f2 $m1 $m2 }}
+{{ if $m3 }}{{ $heroSlides = $heroSlides | append $m3 }}{{ end }}
+{{ if $m4 }}{{ $heroSlides = $heroSlides | append $m4 }}{{ end }}
+{{ if $t1 }}{{ $heroSlides = $heroSlides | append $t1 }}{{ end }}
+{{ if $t2 }}{{ $heroSlides = $heroSlides | append $t2 }}{{ end }}
+{{ if $p1 }}{{ $heroSlides = $heroSlides | append $p1 }}{{ end }}
+{{ if $p2 }}{{ $heroSlides = $heroSlides | append $p2 }}{{ end }}
 
 <!-- ═══ HERO SLIDER ═══ -->
 <section class="hero-slider" id="heroSlider">
@@ -90,7 +97,7 @@
 .hero-arrow:hover { background: rgba(0,0,0,0.75); transform: translateY(-50%) scale(1.05); }
 .hero-arrow--prev { left: 24px; }
 .hero-arrow--next { right: 24px; }
-.hero-dots { position: absolute; bottom: 20px; left: 36px; z-index: 20; display: flex; gap: 8px; align-items: center; }
+.hero-dots { position: absolute; bottom: 20px; left: 36px; z-index: 20; display: flex; gap: 6px; align-items: center; }
 .hero-dot { width: 24px; height: 3px; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; position: relative; overflow: hidden; border-radius: 2px; }
 .hero-dot-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--yellow); }
 .hero-dot.active .hero-dot-progress { width: 100%; }
