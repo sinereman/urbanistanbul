@@ -16,6 +16,7 @@
 
 {{ $f1 := index ($festival.ByDate.Reverse) 0 }}
 {{ $f2 := index ($festival.ByDate.Reverse) 1 }}
+{{ $f3 := index ($festival.ByDate.Reverse) 2 }}
 
 {{ $muzikSorted := $muzik.ByDate.Reverse }}
 {{ $m1 := index $muzikSorted 0 }}
@@ -29,7 +30,10 @@
 {{ $p1 := index ($perde.ByDate.Reverse) 0 }}
 {{ $p2 := index ($perde.ByDate.Reverse) 1 }}
 
-{{ $heroSlides := slice $f1 $f2 $m1 $m2 }}
+{{ $heroSlides := slice $f1 $f2 }}
+{{ if $f3 }}{{ $heroSlides = $heroSlides | append $f3 }}{{ end }}
+{{ if $m1 }}{{ $heroSlides = $heroSlides | append $m1 }}{{ end }}
+{{ if $m2 }}{{ $heroSlides = $heroSlides | append $m2 }}{{ end }}
 {{ if $m3 }}{{ $heroSlides = $heroSlides | append $m3 }}{{ end }}
 {{ if $m4 }}{{ $heroSlides = $heroSlides | append $m4 }}{{ end }}
 {{ if $t1 }}{{ $heroSlides = $heroSlides | append $t1 }}{{ end }}
