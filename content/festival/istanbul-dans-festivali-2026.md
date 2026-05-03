@@ -1,6 +1,6 @@
 ---
 title: "14. İstanbul Dans Festivali: 100 Ülkeden Dansçılar Boğaz'ı Salsa ile Geçiyor"
-date: 2026-05-04
+date: 2026-05-03
 tur: "Dans"
 tarih: 2026-05-14
 tarih_bitis: 2026-05-20
