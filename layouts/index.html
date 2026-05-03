@@ -14,9 +14,8 @@
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $etkinlikler | union $festival }}
 {{ $tumEtkinliklerSorted := $tumEtkinlikler.ByDate.Reverse }}
 
-{{ $festivalSorted := last 2 ($festival.ByParam "tarih") }}
-{{ $f1 := index $festivalSorted 0 }}
-{{ $f2 := index $festivalSorted 1 }}
+{{ $f1 := index ($festival.ByDate.Reverse) 0 }}
+{{ $f2 := index ($festival.ByDate.Reverse) 1 }}
 
 {{ $muzikSorted := $muzik.ByDate.Reverse }}
 {{ $m1 := index $muzikSorted 0 }}
