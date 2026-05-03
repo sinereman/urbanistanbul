@@ -1,314 +1,90 @@
-{{ define "main" }}
+---
+title: "14. İstanbul Dans Festivali: 100 Ülkeden Dansçılar Boğaz'ı Salsa ile Geçiyor"
+date: 2026-05-03
+tur: "Dans"
+tarih: 2026-05-14
+tarih_bitis: 2026-05-20
+mekan: "Green Park Hotel Bostancı, İstanbul"
+slug: "istanbul-dans-festivali-2026"
+image: ""
+foto_yon: "yatay"
+draft: false
+---
 
-{{ $tiyatro := where .Site.RegularPages "Section" "tiyatro" }}
-{{ $sergi := where .Site.RegularPages "Section" "sergi" }}
-{{ $lezzet := where .Site.RegularPages "Section" "lezzet" }}
-{{ $muzik := where .Site.RegularPages "Section" "muzik" }}
-{{ $etkinlikler := where .Site.RegularPages "Section" "etkinlikler" }}
-{{ $atolye := where .Site.RegularPages "Section" "atolye" }}
-{{ $teknoloji := where .Site.RegularPages "Section" "teknoloji" }}
-{{ $kesfet := where .Site.RegularPages "Section" "kesfet" }}
-{{ $festival := where .Site.RegularPages "Section" "festival" }}
-{{ $perde := where .Site.RegularPages "Section" "perde" }}
+Düşünün: Boğaz'ın ortasında bir vapur. Kız Kulesi'nden Ortaköy Camii'ne, Rumeli Hisarı'ndan FSM Köprüsü'ne uzanan o eşsiz siluet. Ve geminin güvertesinde, İstanbul'un en güzel manzarasıyla çerçevelenmiş, dünyanın dört bir yanından gelen insanlar dans ediyor.
 
-{{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $etkinlikler | union $festival }}
-{{ $tumEtkinliklerSorted := $tumEtkinlikler.ByDate.Reverse }}
+Bu sahne 14 Mayıs 2026'da gerçekleşecek.
 
-{{ $etkinlikSlide := first 4 $tumEtkinliklerSorted }}
-{{ $teknolojiSlide := first 2 ($teknoloji.ByDate.Reverse) }}
-{{ $perdeSlide := first 2 ($perde.ByDate.Reverse) }}
-{{ $kesfetSlide := first 2 ($kesfet.ByDate.Reverse) }}
-{{ $heroSlides := $kesfetSlide | union $perdeSlide | union $teknolojiSlide | union $etkinlikSlide }}
+14. İstanbul Dans Festivali'nin açılışı Boğaz'da bir gemi partisiyle başlıyor. Ve oradan yedi gün boyunca durmayacak.
 
-<!-- ═══ HERO SLIDER ═══ -->
-<section class="hero-slider" id="heroSlider">
-  <div class="hero-slider-track">
-    {{ range $i, $p := $heroSlides }}
-    <div class="hero-slide {{ if eq $i 0 }}active{{ end }}">
-      <a href="{{ $p.Permalink }}" class="hero-slide-link">
-        {{ if $p.Params.image }}
-        <div class="hero-slide-img" style="background-image:url('{{ $p.Params.image }}')"></div>
-        {{ else }}
-        <div class="hero-slide-img hero-slide-img--empty"></div>
-        {{ end }}
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-content">
-          <div class="hero-slide-top">
-            <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
-            {{ with $p.Params.tarih }}<span class="hero-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-          </div>
-          <h1 class="hero-slide-title">{{ $p.Title }}</h1>
-          {{ with $p.Params.mekan }}<p class="hero-slide-mekan">{{ . }}</p>{{ end }}
-        </div>
-      </a>
-    </div>
-    {{ end }}
-  </div>
-  <button class="hero-arrow hero-arrow--prev" id="heroPrev" aria-label="Önceki">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <button class="hero-arrow hero-arrow--next" id="heroNext" aria-label="Sonraki">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-  <div class="hero-dots">
-    {{ range $i, $p := $heroSlides }}
-    <button class="hero-dot {{ if eq $i 0 }}active{{ end }}" data-index="{{ $i }}">
-      <span class="hero-dot-progress"></span>
-    </button>
-    {{ end }}
-  </div>
-</section>
+---
 
-<style>
-.hero-slider { position: relative; width: 100%; min-height: 520px; border-bottom: var(--border); overflow: hidden; background: var(--black); }
-.hero-slider-track { position: relative; width: 100%; height: 100%; min-height: 520px; }
-.hero-slide { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 0.7s ease; }
-.hero-slide.active { opacity: 1; pointer-events: auto; }
-.hero-slide-link { display: flex; flex-direction: column; justify-content: flex-end; position: absolute; inset: 0; text-decoration: none; }
-.hero-slide-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 8s ease; }
-.hero-slide.active .hero-slide-img { transform: scale(1.04); }
-.hero-slide-img--empty { background: linear-gradient(135deg, var(--cobalt-dark) 0%, #0a1040 100%); }
-.hero-slide-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 50%, transparent 100%); z-index: 1; }
-.hero-slide-content { position: relative; z-index: 2; padding: 40px 36px; display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
-.hero-slide-top { display: flex; align-items: center; gap: 10px; }
-.hero-slide-date { font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; }
-.hero-slide-title { font-family: var(--serif); font-size: 44px; font-weight: 500; line-height: 1.12; color: var(--white); margin: 0; }
-.hero-slide.active .hero-slide-title { animation: fadeUp 0.6s ease both; }
-.hero-slide-mekan { font-size: 12px; color: rgba(255,255,255,0.45); margin: 0; letter-spacing: 0.04em; }
-.hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); color: var(--white); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, transform 0.2s; }
-.hero-arrow:hover { background: rgba(0,0,0,0.75); transform: translateY(-50%) scale(1.05); }
-.hero-arrow--prev { left: 24px; }
-.hero-arrow--next { right: 24px; }
-.hero-dots { position: absolute; bottom: 20px; left: 36px; z-index: 20; display: flex; gap: 8px; align-items: center; }
-.hero-dot { width: 28px; height: 3px; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; position: relative; overflow: hidden; border-radius: 2px; }
-.hero-dot-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--yellow); }
-.hero-dot.active .hero-dot-progress { width: 100%; }
-@media (max-width: 900px) {
-  .hero-slider, .hero-slider-track { min-height: 360px; }
-  .hero-slide-title { font-size: 28px; }
-  .hero-slide-content { padding: 24px 20px; }
-}
-</style>
+## 14 Yıllık Bir Festival
 
-<script>
-(function() {
-  var slides   = document.querySelectorAll('.hero-slide');
-  var dots     = document.querySelectorAll('.hero-dot');
-  var progBars = document.querySelectorAll('.hero-dot-progress');
-  var btnPrev  = document.getElementById('heroPrev');
-  var btnNext  = document.getElementById('heroNext');
-  var current  = 0;
-  var total    = slides.length;
-  var interval = null;
-  var duration = 7000;
-  var startTime, rafId;
-  if (!total) return;
-  function animateProgress() {
-    cancelAnimationFrame(rafId);
-    progBars[current].style.transition = 'none';
-    progBars[current].style.width = '0%';
-    startTime = performance.now();
-    function frame(now) {
-      var elapsed = now - startTime;
-      var pct = Math.min(elapsed / duration * 100, 100);
-      progBars[current].style.width = pct + '%';
-      if (pct < 100) { rafId = requestAnimationFrame(frame); }
-    }
-    rafId = requestAnimationFrame(frame);
-  }
-  function goTo(n, userAction) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    progBars[current].style.width = '0%';
-    current = (n + total) % total;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-    animateProgress();
-    if (userAction) {
-      clearInterval(interval);
-      interval = setInterval(function() { goTo(current + 1, false); }, duration);
-    }
-  }
-  animateProgress();
-  interval = setInterval(function() { goTo(current + 1, false); }, duration);
-  btnPrev.addEventListener('click', function(e) { e.preventDefault(); goTo(current - 1, true); });
-  btnNext.addEventListener('click', function(e) { e.preventDefault(); goTo(current + 1, true); });
-  dots.forEach(function(d) {
-    d.addEventListener('click', function(e) { e.preventDefault(); goTo(parseInt(d.dataset.index), true); });
-  });
-})();
-</script>
+İstanbul Dans Festivali, 2011'de Kemal Keskin tarafından kuruldu. Kuruluşundan bu yana dünyanın en büyük ve en prestijli sosyal dans etkinliklerinden biri olarak büyüdü.
 
-<!-- ═══ BU HAFTA ═══ -->
-<div class="ed-section-header">
-  <div class="ed-section-rule"></div>
-  <div class="ed-section-label">GÜNDEMDE</div>
-  <div class="ed-section-rule"></div>
-  <a href="/etkinlikler" class="ed-section-more">tümü →</a>
-</div>
-<div class="ed-event-grid">
-  {{ range first 4 $tumEtkinliklerSorted }}
-  <a href="{{ .Permalink }}" class="ed-event-card">
-    {{ if .Params.image }}
-    <div class="ed-event-img {{ if eq .Params.foto_yon "dikey" }}ed-event-img--portrait{{ end }}" style="background-image:url('{{ .Params.image }}')"></div>
-    {{ else }}
-    <div class="ed-event-img ed-event-img--empty thumb-{{ .Section | lower }}">
-      {{ if eq .Section "tiyatro" }}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
-      {{ else if eq .Section "sergi" }}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
-      {{ else if eq .Section "muzik" }}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      {{ else if eq .Section "lezzet" }}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
-      {{ else if eq .Section "festival" }}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      {{ else }}<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      {{ end }}
-    </div>
-    {{ end }}
-    <span class="ed-pill pill-{{ .Section | lower }}">{{ .Section | upper }}</span>
-    <div class="ed-event-title">{{ .Title }}</div>
-    <div class="ed-event-meta">
-      {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-      {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
-    </div>
-  </a>
-  {{ end }}
-</div>
+Festival, 14-20 Mayıs 2026 tarihleri arasında İstanbul'un Anadolu yakasında yer alan beş yıldızlı Green Park Hotel Bostancı'da gerçekleşecek. 100'den fazla ülkeden 6.000'i aşkın dansçıyı bir araya getiriyor.
 
-<!-- ═══ REKLAM BANDI ═══ -->
-<div class="ed-mid-ad">
-  <span class="ed-mid-ad-label">REKLAM</span>
-  <div class="ed-mid-ad-box">
-    <span class="ed-mid-ad-placeholder">urbanistanbul.com · Reklam alanı · 728 × 90</span>
-  </div>
-</div>
+Bu rakamlar soyut kalmasın: dünyanın her köşesinden insanlar İstanbul'a yalnızca dans etmek için geliyor. Brezilya'dan, Japonya'dan, Nijerya'dan, Almanya'dan, Arjantin'den. Ortak dilleri ritim.
 
-<!-- ═══ PERDE ═══ -->
-{{ if $perde }}
-<div class="ed-section-header">
-  <div class="ed-section-rule"></div>
-  <div class="ed-section-label">PERDE — SİNEMA</div>
-  <div class="ed-section-rule"></div>
-  <a href="/perde" class="ed-section-more">tümü →</a>
-</div>
-<div class="ed-perde-grid">
-  {{ range first 3 ($perde.ByDate.Reverse) }}
-  <a href="{{ .Permalink }}" class="ed-perde-card">
-    {{ if .Params.image }}
-    <div class="ed-perde-img" style="background-image:url('{{ .Params.image }}')"></div>
-    {{ else }}
-    <div class="ed-perde-img ed-perde-img--empty">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
-    </div>
-    {{ end }}
-    <div class="ed-perde-body">
-      <span class="ed-pill pill-perde">{{ if .Params.tur }}{{ .Params.tur | upper }}{{ else }}PERDE{{ end }}</span>
-      <div class="ed-perde-title">{{ .Title }}</div>
-      <div class="ed-perde-desc">{{ .Summary | truncate 90 }}</div>
-    </div>
-  </a>
-  {{ end }}
-</div>
-{{ end }}
+---
 
-<!-- ═══ ATÖLYE + KEŞFet ═══ -->
-<div class="ed-section-header">
-  <div class="ed-section-rule"></div>
-  <div class="ed-section-label">ATÖLYE & KEŞFet</div>
-  <div class="ed-section-rule"></div>
-</div>
-<div class="ed-atolye-kesfet-grid">
+## 7 Dans Pisti, 250 Workshop
 
-  <!-- Atölye -->
-  <div class="ed-ak-col">
-    <div class="ed-col-header">
-      <span class="ed-col-title">URBANKARE — ATÖLYE</span>
-      <a href="/atolye" class="ed-col-more">tüm dersler →</a>
-    </div>
-    <div class="ed-atolye-cards">
-    {{ range first 2 ($atolye.ByDate.Reverse) }}
-    <a href="{{ .Permalink }}" class="ed-kesfet-news-card">
-      {{ if .Params.image }}
-      <div class="ed-kesfet-news-img" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="ed-kesfet-news-img ed-kesfet-news-img--empty" style="background:var(--cat-fotograf-bg);">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cat-fotograf)" stroke-width="1" opacity="0.5"><circle cx="12" cy="13" r="4"/><path d="M5 7h2l2-3h6l2 3h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>
-      </div>
-      {{ end }}
-      <div class="ed-kesfet-news-body">
-        <span class="ed-pill pill-foto" style="font-size:8px;padding:1px 6px;">{{ .Params.konu | upper }}</span>
-        <div class="ed-atolye-big-title">{{ .Title }}</div>
-        <div class="ed-atolye-big-desc">{{ .Summary | truncate 80 }}</div>
-      </div>
-    </a>
-    {{ end }}
-    </div>
-  </div>
+Festivalin en etkileyici tarafı ölçeği.
 
-  <!-- KEŞFet -->
-  <div class="ed-ak-col">
-    <div class="ed-col-header">
-      <span class="ed-col-title">KEŞFet İSTANBUL</span>
-      <a href="/kesfet" class="ed-col-more">tümü →</a>
-    </div>
-    <div class="ed-atolye-cards">
-    {{ range first 2 ($kesfet.ByDate.Reverse) }}
-    <a href="{{ .Permalink }}" class="ed-kesfet-news-card">
-      {{ if .Params.image }}
-      <div class="ed-kesfet-news-img" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="ed-kesfet-news-img ed-kesfet-news-img--empty">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a14.5 14.5 0 0 0 0 20"/></svg>
-      </div>
-      {{ end }}
-      <div class="ed-kesfet-news-body">
-        <span class="ed-pill pill-kesfet" style="font-size:8px;padding:1px 6px;">KEŞFet</span>
-        <div class="ed-atolye-big-title">{{ .Title }}</div>
-        <div class="ed-atolye-big-desc">{{ .Summary | truncate 80 }}</div>
-      </div>
-    </a>
-    {{ end }}
-    </div>
-  </div>
+Salsa LA/NY, Salsa Cuban, Bachata, Kizomba, Zouk, Tango ve Urban/Afro olmak üzere 7 farklı dans pistinde gündüz ve gece partiler gerçekleşiyor. Program boyunca 300 uluslararası eğitmenin yönetiminde 250'den fazla workshop düzenleniyor.
 
-</div>
+Bu workshoplar yalnızca ileri seviye dansçılar için değil. Salsa, Bachata, Kizomba, Tango, Zouk, Afro, Reggaeton, Hip Hop, Topuklu Dans, Dansehall, Zumba, Samba, Flamenko, Göbek Dansı, Bollywood, Sirtaki ve daha fazlası — her seviyeden katılımcı için ayrı programlar var.
 
-<!-- ═══ REKLAM ═══ -->
-<div class="ed-ad">
-  <span class="ed-ad-label">REKLAM</span>
-  <div class="ed-ad-box">sponsor içerik alanı — 728 × 90</div>
-</div>
+Dans bilmeden gelmek bir engel değil. Festival bunu biliyor.
 
-<!-- ═══ TEKNOLOJİ ═══ -->
-{{ if $teknoloji }}
-<div class="ed-section-header">
-  <div class="ed-section-rule"></div>
-  <div class="ed-section-label">TEKNOLOJİ & ŞEHİR</div>
-  <div class="ed-section-rule"></div>
-  <a href="/teknoloji" class="ed-section-more">tümü →</a>
-</div>
-<div class="ed-tech-grid">
-  {{ range first 4 $teknoloji }}
-  <a href="{{ .Permalink }}" class="ed-tech-card">
-    <div class="ed-tech-accent"></div>
-    {{ if .Params.image }}
-    <div class="ed-tech-img" style="background-image:url('{{ .Params.image }}')"></div>
-    {{ else }}
-    <div class="ed-tech-img ed-tech-img--empty">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-    </div>
-    {{ end }}
-    <span class="ed-pill" style="background:var(--cat-teknoloji-bg);color:var(--cat-teknoloji);font-size:8px;padding:1px 6px;letter-spacing:0.08em;display:inline-block;align-self:flex-start;">TEKNOLOJİ</span>
-    <div class="ed-tech-title">{{ .Title }}</div>
-    {{ with .Params.tarih }}<div class="ed-tech-date">{{ dateFormat "2 Jan 2006" . }}</div>{{ end }}
-  </a>
-  {{ end }}
-</div>
-{{ end }}
+---
 
-<script>
-  const d = new Date();
-  const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
-  const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
-  const el = document.getElementById('mastheadDate');
-  if(el) el.textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-</script>
+## Boğaz'da Gemi Partisi
 
-{{ end }}
+Açılış etkinliği, İstanbul'un en ikonik noktalarını kapsayan 4 saatlik bir Boğaz tekne turu. Kız Kulesi'nden başlayan rota Ortaköy Camii, Rumeli Hisarı, FSM Köprüsü ve Kandilli kıyısından geçerek Üsküdar sahiline uzanıyor.
+
+Tekne üzerinde dans, güneş, Boğaz manzarası ve dünyanın her yerinden yeni tanışıklıklar. Festival organizasyonunun en yaratıcı detayı bu açılış: İstanbul'u dansın içinden görmek.
+
+---
+
+## Adalarda Dans
+
+Festival programının en özgün etkinliklerinden biri Prens Adaları'nda gerçekleşiyor. 18-19 Mayıs Pazartesi ve Salı günleri adalarda plaj partileri ve workshoplar düzenleniyor.
+
+Deniz, ada atmosferi ve dans bir arada. İstanbul'un bu gizli köşesinde festivale katılmak ayrı bir deneyim.
+
+---
+
+## Tarihi Şehir Turu
+
+15 Mayıs Cuma günü katılımcılara Ayasofya, Sultanahmet Camii, Topkapı Sarayı ve Kapalıçarşı'yı kapsayan yarım günlük tarihi şehir turu sunuluyor.
+
+Dans festivalinin İstanbul'u seyahat deneyimiyle birleştirmesi rastlantı değil. Festival, İstanbul'u yalnızca bir mekan olarak değil, bir deneyim olarak sunuyor. Şehrin tarihi dokusu ve dans kültürü birbirine dolanıyor.
+
+---
+
+## Neden İstanbul?
+
+Dans festivalleri dünyada pek çok şehirde düzenleniyor. Ama İstanbul'un bu tür bir etkinlik için özel bir yeri var.
+
+İki kıta arasında, Boğaz kıyısında, tarihin her köşeye sızdığı bir şehir. Uluslararası katılımcılar için hem kültürel bir yolculuk hem de dans deneyimi. Mayıs ayının İstanbul iklimi — ılık, rüzgârlı, baharın en güzel hali — açık hava etkinlikleri için neredeyse mükemmel.
+
+Ve bir de şu var: İstanbul, dans için yabancı değil. Tarihi boyunca farklı kültürlerin buluşma noktası olan bu şehir, ritmin de doğal evi.
+
+---
+
+## Pratik Bilgiler
+
+**Tarih:** 14-20 Mayıs 2026
+**Mekan:** Green Park Hotel Bostancı, Kadıköy / İstanbul
+**Ulaşım:** Kadıköy iskelesi ile Bostancı arası vapur. Ya da Bostancı metro durağı.
+**Bilet ve kayıt:** istanbuldancefestivals.com
+**WhatsApp:** +90 539 488 45 52
+
+Erken kayıt indirimleri için resmi siteyi takip edin.
+
+---
+
+*URBANİSTANBUL Festival bölümünde devamında: Rooftop Festival İstanbul ve Akbank Caz Festivali 2026*
