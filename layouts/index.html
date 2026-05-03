@@ -18,7 +18,7 @@
 {{ $teknolojiSlide := first 2 ($teknoloji.ByDate.Reverse) }}
 {{ $perdeSlide := first 2 ($perde.ByDate.Reverse) }}
 {{ $kesfetSlide := first 2 ($kesfet.ByDate.Reverse) }}
-{{ $heroSlides := $etkinlikSlide | union $teknolojiSlide | union $perdeSlide | union $kesfetSlide }}
+{{ $heroSlides := $kesfetSlide | union $perdeSlide | union $teknolojiSlide | union $etkinlikSlide }}
 
 <!-- ═══ HERO SLIDER ═══ -->
 <section class="hero-slider" id="heroSlider">
