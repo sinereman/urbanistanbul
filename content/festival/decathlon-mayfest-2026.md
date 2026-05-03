@@ -1,6 +1,6 @@
 ---
 title: "Decathlon Mayfest 2026: Spor, Müzik ve Mor ve Ötesi Kadıköy'de Buluşuyor"
-date: 2026-05-03
+date: 2026-05-02
 tur: "Müzik"
 tarih: 2026-05-09
 mekan: "Festival Park Kadıköy, İstanbul"
