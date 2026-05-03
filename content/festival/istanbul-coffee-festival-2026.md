@@ -1,6 +1,6 @@
 ---
 title: "Aromalara Hazır Olun: 12. İstanbul Coffee Festival Eylül'de Tepe Nautilus'ta"
-date: 2026-05-03
+date: 2026-05-01
 tur: "Müzik"
 tarih: 2026-09-10
 tarih_bitis: 2026-09-13
