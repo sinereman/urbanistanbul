@@ -1,6 +1,6 @@
 ---
 title: "Ormanda Caz ve Piknik 5: Anneler Günü'nde Lifepark'ta Sekiz Saat Caz"
-date: 2026-05-04
+date: 2026-05-03
 tarih: 2026-05-10
 mekan: "Lifepark, Bahçeköy, İstanbul"
 image: "/images/uploads/ormanda-caz-piknik-2026.jpg"
