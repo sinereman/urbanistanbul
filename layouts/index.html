@@ -13,7 +13,12 @@
 
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $etkinlikler | union $festival }}
 {{ $tumEtkinliklerSorted := $tumEtkinlikler.ByDate.Reverse }}
-{{ $heroSlides := first 5 $tumEtkinliklerSorted }}
+
+{{ $etkinlikSlide := first 4 $tumEtkinliklerSorted }}
+{{ $teknolojiSlide := first 2 ($teknoloji.ByDate.Reverse) }}
+{{ $perdeSlide := first 2 ($perde.ByDate.Reverse) }}
+{{ $kesfetSlide := first 2 ($kesfet.ByDate.Reverse) }}
+{{ $heroSlides := $etkinlikSlide | union $teknolojiSlide | union $perdeSlide | union $kesfetSlide }}
 
 <!-- ═══ HERO SLIDER ═══ -->
 <section class="hero-slider" id="heroSlider">
@@ -75,7 +80,7 @@
 .hero-arrow--prev { left: 24px; }
 .hero-arrow--next { right: 24px; }
 .hero-dots { position: absolute; bottom: 20px; left: 36px; z-index: 20; display: flex; gap: 8px; align-items: center; }
-.hero-dot { width: 32px; height: 3px; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; position: relative; overflow: hidden; border-radius: 2px; }
+.hero-dot { width: 28px; height: 3px; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; position: relative; overflow: hidden; border-radius: 2px; }
 .hero-dot-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--yellow); }
 .hero-dot.active .hero-dot-progress { width: 100%; }
 @media (max-width: 900px) {
