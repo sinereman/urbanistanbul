@@ -219,15 +219,15 @@
     </div>
     <div class="ed-atolye-cards">
     {{ range first 2 ($atolye.ByDate.Reverse) }}
-    <a href="{{ .Permalink }}" class="ed-atolye-big-card">
+    <a href="{{ .Permalink }}" class="ed-kesfet-news-card">
       {{ if .Params.image }}
-      <div class="ed-atolye-big-img" style="background-image:url('{{ .Params.image }}')"></div>
+      <div class="ed-kesfet-news-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
-      <div class="ed-atolye-big-img ed-atolye-big-img--empty">
-        <span>{{ if .Params.sira }}{{ printf "%02d" .Params.sira }}{{ else }}—{{ end }}</span>
+      <div class="ed-kesfet-news-img ed-kesfet-news-img--empty" style="background:var(--cat-fotograf-bg);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cat-fotograf)" stroke-width="1" opacity="0.5"><circle cx="12" cy="13" r="4"/><path d="M5 7h2l2-3h6l2 3h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>
       </div>
       {{ end }}
-      <div class="ed-atolye-big-body">
+      <div class="ed-kesfet-news-body">
         <span class="ed-pill pill-foto" style="font-size:8px;padding:1px 6px;">{{ .Params.konu | upper }}</span>
         <div class="ed-atolye-big-title">{{ .Title }}</div>
         <div class="ed-atolye-big-desc">{{ .Summary | truncate 80 }}</div>
@@ -237,7 +237,7 @@
     </div>
   </div>
 
-  <!-- KEŞFet — etk-news-card yapısı -->
+  <!-- KEŞFet -->
   <div class="ed-ak-col">
     <div class="ed-col-header">
       <span class="ed-col-title">KEŞFet İSTANBUL</span>
@@ -256,7 +256,7 @@
       <div class="ed-kesfet-news-body">
         <span class="ed-pill pill-kesfet" style="font-size:8px;padding:1px 6px;">KEŞFet</span>
         <div class="ed-atolye-big-title">{{ .Title }}</div>
-        <div class="ed-atolye-big-desc">{{ .Summary | truncate 70 }}</div>
+        <div class="ed-atolye-big-desc">{{ .Summary | truncate 80 }}</div>
       </div>
     </a>
     {{ end }}
