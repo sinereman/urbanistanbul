@@ -210,7 +210,7 @@
   <a href="/perde" class="ed-section-more">tümü →</a>
 </div>
 <div class="ed-perde-grid">
-  {{ range first 3 ($perde.ByDate.Reverse) }}
+  {{ range first 6 ($perde.ByDate.Reverse) }}
   <a href="{{ .Permalink }}" class="ed-perde-card">
     {{ if .Params.image }}
     <div class="ed-perde-img" style="background-image:url('{{ .Params.image }}')"></div>
