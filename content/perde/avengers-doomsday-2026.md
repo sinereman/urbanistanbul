@@ -1,6 +1,6 @@
 ---
 title: "Avengers: Doomsday — Robert Downey Jr. Geri Döndü, Ama Bu Sefer Doctor Doom Olarak"
-date: 2026-05-03
+date: 2026-05-04
 tur: "Sinema"
 tarih: 2026-12-18
 mekan: ""
