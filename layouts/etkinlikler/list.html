@@ -46,27 +46,9 @@
     </div>
   </div>
 
-  <div class="ed-adsense-wrap">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3095578223174651"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <div class="etk-filter-bar">
-    <button class="etk-filter-btn active" data-filter="tumu">TÜMÜ <span class="etk-filter-count">{{ len $tumEtkinlikler }}</span></button>
-    <button class="etk-filter-btn" data-filter="muzik">MÜZİK <span class="etk-filter-count">{{ len $muzik }}</span></button>
-    <button class="etk-filter-btn" data-filter="festival">FESTİVAL <span class="etk-filter-count">{{ len $festival }}</span></button>
-    <button class="etk-filter-btn" data-filter="tiyatro">TİYATRO <span class="etk-filter-count">{{ len $tiyatro }}</span></button>
-    <button class="etk-filter-btn" data-filter="sergi">SERGİ <span class="etk-filter-count">{{ len $sergi }}</span></button>
-  </div>
-
   <div class="etk-main-grid" id="etkGrid">
     {{ range $tumSorted }}
-    <a href="{{ .Permalink }}" class="etk-main-card" data-section="{{ .Section }}">
+    <a href="{{ .Permalink }}" class="etk-main-card">
       {{ if .Params.image }}
       <div class="etk-main-img" style="background-image:url('{{ .Params.image }}')"></div>
       {{ else }}
@@ -130,21 +112,12 @@
 .etk-dot-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--yellow); }
 .etk-dot.active .etk-dot-progress { width: 100%; }
 
-/* ── FİLTRE BAR ── */
-.etk-filter-bar { display: flex; align-items: center; gap: 0; border-bottom: 3px solid var(--cobalt); background: var(--black); overflow-x: auto; }
-.etk-filter-btn { font-size: 10px; letter-spacing: 0.12em; font-weight: 600; color: rgba(255,255,255,0.45); background: none; border: none; padding: 16px 24px; cursor: pointer; transition: color 0.2s, background 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; border-bottom: 3px solid transparent; margin-bottom: -3px; }
-.etk-filter-btn:hover { color: var(--white); background: rgba(255,255,255,0.04); }
-.etk-filter-btn.active { color: var(--yellow); border-bottom-color: var(--yellow); }
-.etk-filter-count { font-size: 9px; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); padding: 1px 6px; border-radius: 10px; font-weight: 500; }
-.etk-filter-btn.active .etk-filter-count { background: rgba(245,200,66,0.15); color: var(--yellow); }
-
 /* ── ANA GRID ── */
 .etk-main-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--border); }
 .etk-main-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); border-bottom: var(--border); transition: background 0.2s; position: relative; }
 .etk-main-card:hover { background: var(--gray-1); }
 .etk-main-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s; }
 .etk-main-card:hover::after { transform: scaleX(1); }
-.etk-main-card.hidden { display: none; }
 .etk-main-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; flex-shrink: 0; }
 .etk-main-img--empty { display: flex; align-items: center; justify-content: center; }
 .etk-main-img--empty svg { opacity: 0.2; }
@@ -166,7 +139,6 @@
 }
 @media (max-width: 600px) {
   .etk-main-grid { grid-template-columns: 1fr; }
-  .etk-filter-btn { padding: 12px 16px; font-size: 9px; }
 }
 </style>
 
@@ -214,26 +186,6 @@
   btnNext.addEventListener('click', function(e){ e.preventDefault(); goTo(current+1,true); });
   dots.forEach(function(d){ d.addEventListener('click', function(e){ e.preventDefault(); goTo(parseInt(d.dataset.index),true); }); });
 
-  /* ── FİLTRE ── */
-  var filterBtns = document.querySelectorAll('.etk-filter-btn');
-  var cards      = document.querySelectorAll('.etk-main-card');
-
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      filterBtns.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var filter = btn.dataset.filter;
-      var visible = 0;
-      cards.forEach(function(card) {
-        if (filter === 'tumu' || card.dataset.section === filter) {
-          card.classList.remove('hidden');
-          visible++;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
 })();
 </script>
 
