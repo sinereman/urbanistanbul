@@ -200,6 +200,39 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .ed-mid-ad-box { display: flex; align-items: center; justify-content: center; }
 .ed-mid-ad-placeholder { font-size: 10px; color: rgba(255,255,255,0.15); border: 1px dashed rgba(255,255,255,0.08); padding: 8px 60px; border-radius: 2px; letter-spacing: 0.04em; }
 
+/* ══ GOOGLE ADSENSE ALANLARI ══ */
+.ed-adsense-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px 24px;
+  background: var(--black);
+  border-bottom: var(--border);
+  position: relative;
+  overflow: hidden;
+  min-height: 140px;
+}
+
+.ed-adsense-wrap::before {
+  content: 'REKLAM';
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.ed-adsense-wrap ins.adsbygoogle {
+  display: block !important;
+  width: 100%;
+  max-width: 970px;
+  margin: 0 auto;
+}
+
 /* ══ TEKNOLOJİ GRID ══ */
 .ed-tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--border); }
 .ed-tech-card { padding: 20px 22px; border-right: var(--border); text-decoration: none; transition: background 0.2s; position: relative; display: flex; flex-direction: column; gap: 8px; }
@@ -248,7 +281,7 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .pill-atolye             { background: var(--cat-fotograf);    color: #052e16; }
 .pill-etkinlikler        { background: var(--cobalt);          color: var(--white); }
 .pill-kesfet             { background: var(--cobalt);          color: var(--white); }
-.pill-yazarlik, .pill-yazarlık { background: #92400e;         color: #fef3c7; }
+.pill-yazarlik, .pill-yazarlık { background: #92400e;          color: #fef3c7; }
 .pill-film               { background: var(--cat-perde);       color: #dbeafe; }
 .pill-müzik-teorisi, .pill-muzik-teorisi { background: var(--cat-muzik); color: var(--black); }
 
@@ -327,7 +360,14 @@ footer { border-top: 3px solid var(--cobalt); }
   .ed-atolye-kesfet-grid { grid-template-columns: 1fr; }
   .ed-ak-col { border-right: none; border-bottom: var(--border); }
   .etk-news-grid { grid-template-columns: 1fr 1fr; }
+
+  /* AdSense Responsive Eklemeleri */
+  .ed-adsense-wrap {
+    padding: 24px 16px;
+    min-height: 120px;
+  }
 }
+
 @media (max-width: 600px) {
   .nav-center { display: none; }
   .nav-city, .nav-date { display: none; }
