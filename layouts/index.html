@@ -168,7 +168,7 @@
   <a href="/etkinlikler" class="ed-section-more">tümü →</a>
 </div>
 <div class="ed-event-grid">
-  {{ range first 12 $tumEtkinliklerSorted }}
+  {{ range first 8 $tumEtkinliklerSorted }}
   <a href="{{ .Permalink }}" class="ed-event-card">
     {{ if .Params.image }}
     <div class="ed-event-img {{ if eq .Params.foto_yon "dikey" }}ed-event-img--portrait{{ end }}" style="background-image:url('{{ .Params.image }}')"></div>
@@ -193,12 +193,15 @@
   {{ end }}
 </div>
 
-<!-- ═══ REKLAM BANDI ═══ -->
-<div class="ed-mid-ad">
-  <span class="ed-mid-ad-label">REKLAM</span>
-  <div class="ed-mid-ad-box">
-    <span class="ed-mid-ad-placeholder">urbanistanbul.com · Reklam alanı · 728 × 90</span>
-  </div>
+<!-- ═══ REKLAM 1 — GÜNDEMDE ALTI ═══ -->
+<div class="ed-adsense-wrap">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-3095578223174651"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- ═══ PERDE ═══ -->
@@ -228,6 +231,17 @@
   {{ end }}
 </div>
 {{ end }}
+
+<!-- ═══ REKLAM 2 — PERDE ALTI ═══ -->
+<div class="ed-adsense-wrap">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-3095578223174651"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <!-- ═══ ATÖLYE + KEŞFet ═══ -->
 <div class="ed-section-header">
@@ -291,12 +305,6 @@
 
 </div>
 
-<!-- ═══ REKLAM ═══ -->
-<div class="ed-ad">
-  <span class="ed-ad-label">REKLAM</span>
-  <div class="ed-ad-box">sponsor içerik alanı — 728 × 90</div>
-</div>
-
 <!-- ═══ TEKNOLOJİ ═══ -->
 {{ if $teknoloji }}
 <div class="ed-section-header">
@@ -323,6 +331,17 @@
   {{ end }}
 </div>
 {{ end }}
+
+<!-- ═══ REKLAM 3 — TEKNOLOJİ ALTI ═══ -->
+<div class="ed-adsense-wrap">
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-3095578223174651"
+    data-ad-slot="auto"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <script>
   const d = new Date();
