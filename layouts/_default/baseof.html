@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ if .IsHome }}URBANİSTANBUL — İstanbul'un Kültür Rehberi{{ else }}{{ .Title }} — URBANİSTANBUL{{ end }}</title>
   <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}" />
+  
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/main.css" />
-  <!-- Google AdSense -->
+  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3095578223174651" crossorigin="anonymous"></script>
-  <!-- Google Analytics -->
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JB65LHS5MH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,34 +26,32 @@
 </head>
 <body>
 
-  <!-- TICKER -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
       {{ range first 5 (where .Site.RegularPages "Section" "tiyatro") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}{{ with .Params.tarih }} · {{ dateFormat "2 Jan" . }}{{ end }}</span>
       {{ end }}
-      {{ range first 5 (where .Site.RegularPages "Section" "muzik") }}
+      {{ range first 4 (where .Site.RegularPages "Section" "festival") }}
+      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
+      {{ end }}
+      {{ range first 4 (where .Site.RegularPages "Section" "muzik") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
       {{ end }}
       {{ range first 3 (where .Site.RegularPages "Section" "sergi") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
       {{ end }}
-      {{ range first 3 (where .Site.RegularPages "Section" "festival") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
-      {{ end }}
       {{ range first 3 (where .Site.RegularPages "Section" "perde") }}
       <span>{{ .Title }}</span>
       {{ end }}
-      {{ range first 5 (where .Site.RegularPages "Section" "tiyatro") }}
+      {{ range first 4 (where .Site.RegularPages "Section" "tiyatro") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
       {{ end }}
-      {{ range first 5 (where .Site.RegularPages "Section" "muzik") }}
+      {{ range first 3 (where .Site.RegularPages "Section" "festival") }}
       <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
       {{ end }}
     </div>
   </div>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-top">
       <a href="/" class="logo">
@@ -77,7 +77,6 @@
 
   {{ block "main" . }}{{ end }}
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-col">
@@ -122,6 +121,7 @@
     const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
     const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
     document.getElementById('navDate').textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); }
