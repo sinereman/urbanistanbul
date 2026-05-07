@@ -5,18 +5,18 @@
 {{ $muzik    := where .Site.RegularPages "Section" "muzik" }}
 {{ $festival := where .Site.RegularPages "Section" "festival" }}
 
-{{ $muzikSorted   := $muzik.ByDate.Reverse }}
-{{ $festivalSorted := $festival.ByDate.Reverse }}
-{{ $digerSorted   := union $tiyatro $sergi }}
-{{ $digerSorted    = $digerSorted.ByDate.Reverse }}
-
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $festival }}
-{{ $tumSorted := $tumEtkinlikler.ByDate.Reverse }}
+{{ $tumSorted := sort $tumEtkinlikler "Params.tarih" "asc" }}
+
 {{ $slider := first 10 $tumSorted }}
+
+{{ $muzikSorted    := sort $muzik "Params.tarih" "asc" }}
+{{ $tiyatroSorted  := sort $tiyatro "Params.tarih" "asc" }}
+{{ $sergiSorted    := sort $sergi "Params.tarih" "asc" }}
+{{ $festivalSorted := sort $festival "Params.tarih" "asc" }}
 
 <div class="list-page">
 
-  <!-- ═══ SLIDER ═══ -->
   <div class="etk-slider">
     <div class="etk-slider-track">
       {{ range $i, $p := $slider }}
@@ -53,73 +53,111 @@
     </div>
   </div>
 
-  <!-- ═══ MÜZİK & KONSER ═══ -->
-  {{ if $muzikSorted }}
+  {{ if or $muzikSorted $tiyatroSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-muzik)"></div>
     <div class="etk-section-divider-body">
-      <span class="etk-section-icon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      </span>
-      <span class="etk-section-title">MÜZİK & KONSER</span>
-      <span class="etk-section-count">{{ len $muzikSorted }} etkinlik</span>
+      <span class="etk-section-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+      <span class="etk-section-title">MÜZİK & TİYATRO</span>
     </div>
   </div>
-  <div class="etk-muzik-grid">
-    {{ range $i, $p := $muzikSorted }}
-    {{ if eq $i 0 }}
-    <a href="{{ $p.Permalink }}" class="etk-muzik-featured">
-      {{ if $p.Params.image }}
-      <div class="etk-muzik-featured-img" style="background-image:url('{{ $p.Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-muzik-featured-img etk-muzik-featured-img--empty"></div>
-      {{ end }}
-      <div class="etk-muzik-featured-overlay"></div>
-      <div class="etk-muzik-featured-body">
-        <span class="ed-pill pill-muzik">MÜZİK</span>
-        <div class="etk-muzik-featured-title">{{ $p.Title }}</div>
-        <div class="etk-muzik-featured-meta">
-          {{ with $p.Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with $p.Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
-        </div>
+  
+  <div class="etk-half-grid">
+    <div class="etk-half-col etk-half-col--border">
+      <div class="etk-half-col-header">
+        <span class="etk-half-col-label">MÜZİK & KONSER</span>
+        <span class="etk-half-col-count">{{ len $muzikSorted }}</span>
       </div>
-    </a>
-    <div class="etk-muzik-stack">
-    {{ else }}
-    <a href="{{ $p.Permalink }}" class="etk-muzik-stack-item">
-      {{ if $p.Params.image }}
-      <div class="etk-muzik-stack-img" style="background-image:url('{{ $p.Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-muzik-stack-img etk-muzik-stack-img--empty thumb-muzik"></div>
-      {{ end }}
-      <div class="etk-muzik-stack-body">
-        <div class="etk-muzik-stack-title">{{ $p.Title }}</div>
-        <div class="etk-muzik-stack-meta">
-          {{ with $p.Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with $p.Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+      {{ range first 6 $muzikSorted }}
+      <a href="{{ .Permalink }}" class="etk-row-card">
+        {{ if .Params.image }}
+        <div class="etk-row-img" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="etk-row-img etk-row-img--empty thumb-muzik"></div>
+        {{ end }}
+        <div class="etk-row-body">
+          <div class="etk-row-title">{{ .Title }}</div>
+          <div class="etk-row-meta">
+            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+          </div>
         </div>
+      </a>
+      {{ end }}
+    </div>
+
+    <div class="etk-half-col">
+      <div class="etk-half-col-header">
+        <span class="etk-half-col-label">TİYATRO</span>
+        <span class="etk-half-col-count">{{ len $tiyatroSorted }}</span>
       </div>
-    </a>
-    {{ end }}
-    {{ end }}
+      {{ if $tiyatroSorted }}
+      {{ range first 6 $tiyatroSorted }}
+      <a href="{{ .Permalink }}" class="etk-row-card">
+        {{ if .Params.image }}
+        <div class="etk-row-img" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="etk-row-img etk-row-img--empty thumb-tiyatro"></div>
+        {{ end }}
+        <div class="etk-row-body">
+          <div class="etk-row-title">{{ .Title }}</div>
+          <div class="etk-row-meta">
+            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+          </div>
+        </div>
+      </a>
+      {{ end }}
+      {{ else }}
+      <div class="etk-empty-col">Yakında tiyatro etkinliği eklenecek</div>
+      {{ end }}
     </div>
   </div>
   {{ end }}
 
-  <!-- ═══ FESTİVAL ═══ -->
+  {{ if $sergiSorted }}
+  <div class="etk-section-divider">
+    <div class="etk-section-divider-accent" style="background:var(--cat-sergi)"></div>
+    <div class="etk-section-divider-body">
+      <span class="etk-section-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg></span>
+      <span class="etk-section-title">SERGİ</span>
+      <span class="etk-section-count">{{ len $sergiSorted }} etkinlik</span>
+    </div>
+  </div>
+  
+  <div class="etk-sergi-grid">
+    {{ range first 8 $sergiSorted }}
+    <a href="{{ .Permalink }}" class="etk-sergi-card">
+      {{ if .Params.image }}
+      <div class="etk-sergi-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="etk-sergi-img etk-sergi-img--empty thumb-sergi"></div>
+      {{ end }}
+      <div class="etk-sergi-body">
+        <span class="ed-pill pill-sergi">SERGİ</span>
+        <div class="etk-sergi-title">{{ .Title }}</div>
+        <div class="etk-sergi-meta">
+          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
   {{ if $festivalSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-festival)"></div>
     <div class="etk-section-divider-body">
-      <span class="etk-section-icon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </span>
+      <span class="etk-section-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
       <span class="etk-section-title">FESTİVAL</span>
       <span class="etk-section-count">{{ len $festivalSorted }} etkinlik</span>
     </div>
   </div>
+  
   <div class="etk-festival-grid">
-    {{ range $festivalSorted }}
+    {{ range first 4 $festivalSorted }}
     <a href="{{ .Permalink }}" class="etk-festival-card">
       {{ if .Params.image }}
       <div class="etk-festival-img" style="background-image:url('{{ .Params.image }}')"></div>
@@ -127,45 +165,11 @@
       <div class="etk-festival-img etk-festival-img--empty thumb-festival"></div>
       {{ end }}
       <div class="etk-festival-body">
-        <div class="etk-festival-tarih">
-          {{ with .Params.tarih }}{{ dateFormat "2 Jan" . }}{{ end }}
-          {{ with .Params.tarih_bitis }} – {{ dateFormat "2 Jan 2006" . }}{{ end }}
-        </div>
+        <span class="ed-pill pill-festival">FESTİVAL</span>
         <div class="etk-festival-title">{{ .Title }}</div>
-        {{ with .Params.mekan }}<div class="etk-festival-mekan">{{ . }}</div>{{ end }}
-      </div>
-      <div class="etk-festival-arrow">→</div>
-    </a>
-    {{ end }}
-  </div>
-  {{ end }}
-
-  <!-- ═══ TİYATRO & SERGİ ═══ -->
-  {{ if $digerSorted }}
-  <div class="etk-section-divider">
-    <div class="etk-section-divider-accent" style="background:var(--cat-tiyatro)"></div>
-    <div class="etk-section-divider-body">
-      <span class="etk-section-icon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
-      </span>
-      <span class="etk-section-title">TİYATRO & SERGİ</span>
-      <span class="etk-section-count">{{ len $digerSorted }} etkinlik</span>
-    </div>
-  </div>
-  <div class="etk-diger-grid">
-    {{ range $digerSorted }}
-    <a href="{{ .Permalink }}" class="etk-diger-card">
-      {{ if .Params.image }}
-      <div class="etk-diger-img" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-diger-img etk-diger-img--empty thumb-{{ .Section }}"></div>
-      {{ end }}
-      <div class="etk-diger-body">
-        <span class="ed-pill pill-{{ .Section }}">{{ .Section | upper }}</span>
-        <div class="etk-diger-title">{{ .Title }}</div>
-        <div class="etk-diger-meta">
+        <div class="etk-festival-meta">
           {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
         </div>
       </div>
     </a>
@@ -173,7 +177,6 @@
   </div>
   {{ end }}
 
-  <!-- ═══ REKLAM ═══ -->
   <div class="ed-adsense-wrap">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3095578223174651" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -213,77 +216,56 @@
 .etk-section-count { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; margin-left: 4px; }
 
 /* ── TARİH BADGE ── */
-.etk-date-badge { display: inline-block; background: var(--orange); color: var(--white); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 2px; }
+.etk-date-badge { display: inline-block; background: var(--orange); color: var(--white); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
 
-/* ── MÜZİK GRID ── */
-.etk-muzik-grid { display: grid; grid-template-columns: 1fr 360px; border-bottom: var(--border); min-height: 320px; }
-.etk-muzik-featured { position: relative; display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none; border-right: var(--border); overflow: hidden; }
-.etk-muzik-featured-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; }
-.etk-muzik-featured:hover .etk-muzik-featured-img { transform: scale(1.04); }
-.etk-muzik-featured-img--empty { background: linear-gradient(135deg, #1a0a30 0%, #0a1040 100%); }
-.etk-muzik-featured-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); z-index: 1; }
-.etk-muzik-featured-body { position: relative; z-index: 2; padding: 28px 32px; display: flex; flex-direction: column; gap: 10px; }
-.etk-muzik-featured-title { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.2; color: var(--white); }
-.etk-muzik-featured-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.etk-muzik-featured-meta span { font-size: 11px; color: rgba(255,255,255,0.5); }
-.etk-muzik-stack { display: flex; flex-direction: column; background: var(--white); }
-.etk-muzik-stack-item { display: grid; grid-template-columns: 80px 1fr; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; }
-.etk-muzik-stack-item:last-child { border-bottom: none; }
-.etk-muzik-stack-item:hover { background: var(--gray-1); }
-.etk-muzik-stack-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--cat-muzik); transform: scaleY(0); transition: transform 0.2s; }
-.etk-muzik-stack-item:hover::before { transform: scaleY(1); }
-.etk-muzik-stack-img { width: 80px; height: 100%; min-height: 72px; background-size: cover; background-position: center; }
-.etk-muzik-stack-img--empty { background: var(--cat-muzik-bg); }
-.etk-muzik-stack-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; justify-content: center; }
-.etk-muzik-stack-title { font-family: var(--serif); font-size: 14px; font-weight: 500; line-height: 1.3; color: var(--black); }
-.etk-muzik-stack-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.etk-muzik-stack-meta span { font-size: 10px; color: var(--gray-3); }
+/* ── YARI YARI GRID (MÜZİK + TİYATRO) ── */
+.etk-half-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--border); }
+.etk-half-col { display: flex; flex-direction: column; }
+.etk-half-col--border { border-right: var(--border); }
+.etk-half-col-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; border-bottom: var(--border); background: var(--gray-1); }
+.etk-half-col-label { font-size: 9px; letter-spacing: 0.14em; font-weight: 700; color: var(--black); }
+.etk-half-col-count { font-size: 9px; color: var(--gray-3); background: var(--gray-2); padding: 1px 6px; border-radius: 10px; }
+.etk-empty-col { padding: 40px 20px; text-align: center; font-size: 13px; color: var(--gray-3); font-family: var(--serif); }
 
-/* ── FESTİVAL GRID ── */
-.etk-festival-grid { display: flex; flex-direction: column; border-bottom: var(--border); }
-.etk-festival-card { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; min-height: 90px; }
-.etk-festival-card:last-child { border-bottom: none; }
-.etk-festival-card:hover { background: var(--gray-1); }
-.etk-festival-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--cat-festival); transform: scaleY(0); transition: transform 0.2s; }
-.etk-festival-card:hover::before { transform: scaleY(1); }
-.etk-festival-img { width: 200px; height: 90px; background-size: cover; background-position: center; }
-.etk-festival-img--empty { background: var(--cat-festival-bg); }
-.etk-festival-body { padding: 16px 24px; display: flex; flex-direction: column; gap: 6px; }
-.etk-festival-tarih { font-size: 10px; color: var(--orange); font-weight: 700; letter-spacing: 0.06em; }
-.etk-festival-title { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.25; color: var(--black); }
-.etk-festival-mekan { font-size: 11px; color: var(--gray-3); }
-.etk-festival-arrow { padding: 0 28px; font-size: 18px; color: var(--gray-3); transition: color 0.2s, transform 0.2s; display: flex; align-items: center; }
-.etk-festival-card:hover .etk-festival-arrow { color: var(--orange); transform: translateX(4px); }
+/* ── SATIR KARTI (Görsel ezilmelerini engelleyen CSS) ── */
+.etk-row-card { display: grid; grid-template-columns: 72px minmax(0, 1fr); padding: 14px 20px; gap: 16px; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; }
+.etk-row-card:last-child { border-bottom: none; }
+.etk-row-card:hover { background: var(--gray-1); }
+.etk-row-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--orange); transform: scaleY(0); transition: transform 0.2s; }
+.etk-row-card:hover::before { transform: scaleY(1); }
+.etk-row-img { width: 72px; height: 72px; border-radius: 2px; background-size: cover; background-position: center; flex-shrink: 0; }
+.etk-row-img--empty { background: var(--gray-1); }
+.etk-row-body { display: flex; flex-direction: column; gap: 6px; justify-content: center; min-width: 0; }
+.etk-row-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.35; color: var(--black); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.etk-row-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.etk-row-meta span { font-size: 10px; color: var(--gray-3); }
 
-/* ── DİĞER GRID ── */
-.etk-diger-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--border); }
-.etk-diger-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; }
-.etk-diger-card:last-child { border-right: none; }
-.etk-diger-card:hover { background: var(--gray-1); }
-.etk-diger-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s; }
-.etk-diger-card:hover::after { transform: scaleX(1); }
-.etk-diger-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; }
-.etk-diger-img--empty { display: flex; align-items: center; justify-content: center; background: var(--gray-1); }
-.etk-diger-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.etk-diger-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--black); }
-.etk-diger-meta { display: flex; flex-direction: column; gap: 3px; margin-top: auto; }
-.etk-diger-meta span { font-size: 10px; color: var(--gray-3); }
+/* ── SERGİ & FESTİVAL GRID 4 kolon ── */
+.etk-sergi-grid, .etk-festival-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--border); }
+.etk-sergi-card, .etk-festival-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; }
+.etk-sergi-card:last-child, .etk-festival-card:last-child { border-right: none; }
+.etk-sergi-card:hover, .etk-festival-card:hover { background: var(--gray-1); }
+.etk-sergi-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--cat-sergi); transform: scaleX(0); transition: transform 0.25s; }
+.etk-festival-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--cat-festival); transform: scaleX(0); transition: transform 0.25s; }
+.etk-sergi-card:hover::after, .etk-festival-card:hover::after { transform: scaleX(1); }
+.etk-sergi-img, .etk-festival-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; }
+.etk-sergi-img--empty { background: var(--cat-sergi-bg); display: flex; align-items: center; justify-content: center; }
+.etk-festival-img--empty { background: var(--cat-festival-bg); display: flex; align-items: center; justify-content: center; }
+.etk-sergi-body, .etk-festival-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.etk-sergi-title, .etk-festival-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--black); }
+.etk-sergi-meta, .etk-festival-meta { display: flex; flex-direction: column; gap: 3px; margin-top: auto; }
+.etk-sergi-meta span, .etk-festival-meta span { font-size: 10px; color: var(--gray-3); }
 
 @media (max-width: 900px) {
   .etk-slider { aspect-ratio: 4/3; }
   .etk-slide-title { font-size: 24px; }
   .etk-slide-content { padding: 20px; }
-  .etk-muzik-grid { grid-template-columns: 1fr; }
-  .etk-muzik-stack { border-top: var(--border); }
-  .etk-festival-card { grid-template-columns: 120px 1fr auto; }
-  .etk-festival-img { width: 120px; }
-  .etk-diger-grid { grid-template-columns: 1fr 1fr; }
+  .etk-half-grid { grid-template-columns: 1fr; }
+  .etk-half-col--border { border-right: none; border-bottom: var(--border); }
+  .etk-sergi-grid, .etk-festival-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
-  .etk-festival-card { grid-template-columns: 1fr; }
-  .etk-festival-img { width: 100%; height: 160px; }
-  .etk-festival-arrow { display: none; }
-  .etk-diger-grid { grid-template-columns: 1fr; }
+  .etk-sergi-grid, .etk-festival-grid { grid-template-columns: 1fr; }
 }
 </style>
 
