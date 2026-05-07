@@ -182,7 +182,7 @@
 
 <style>
 /* ── SLIDER ── */
-.etk-slider { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: var(--black); border-bottom: var(--border); }
+.etk-slider { position: relative; width: 100%; aspect-ratio: 19/5; overflow: hidden; background: var(--black); border-bottom: var(--border); }
 .etk-slider-track { position: relative; width: 100%; height: 100%; }
 .etk-slide { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none; opacity: 0; pointer-events: none; transition: opacity 0.6s ease; }
 .etk-slide.active { opacity: 1; pointer-events: auto; }
@@ -253,7 +253,6 @@
   .etk-grid-3 .etk-card:nth-child(2n) { border-right: none; }
 }
 @media (max-width: 600px) {
-  .etk-slider { aspect-ratio: 1/1; }
   .etk-grid-4 { grid-template-columns: 1fr; }
   .etk-grid-3 { grid-template-columns: 1fr; }
   .etk-grid-4 .etk-card { border-right: none; }
