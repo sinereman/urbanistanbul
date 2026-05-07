@@ -1,15 +1,44 @@
 {{ define "main" }}
 
+{{ $bugun := now }}
+
 {{ $tiyatro  := where .Site.RegularPages "Section" "tiyatro" }}
 {{ $sergi    := where .Site.RegularPages "Section" "sergi" }}
 {{ $muzik    := where .Site.RegularPages "Section" "muzik" }}
 {{ $festival := where .Site.RegularPages "Section" "festival" }}
+
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $festival }}
-{{ $tumSorted := $tumEtkinlikler.ByDate.Reverse }}
-{{ $slider := first 5 $tumSorted }}
+
+{{ $gelecek := slice }}
+{{ $gecmis  := slice }}
+{{ range $tumEtkinlikler }}
+  {{ if .Params.tarih }}
+    {{ if ge .Params.tarih $bugun }}
+      {{ $gelecek = $gelecek | append . }}
+    {{ else }}
+      {{ $gecmis = $gecmis | append . }}
+    {{ end }}
+  {{ else }}
+    {{ $gelecek = $gelecek | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $gelecekSorted := sort $gelecek "Params.tarih" "asc" }}
+{{ $muzikGelecek  := slice }}
+{{ $festivalGelecek := slice }}
+{{ $diger := slice }}
+{{ range $gelecekSorted }}
+  {{ if eq .Section "muzik" }}{{ $muzikGelecek = $muzikGelecek | append . }}
+  {{ else if eq .Section "festival" }}{{ $festivalGelecek = $festivalGelecek | append . }}
+  {{ else }}{{ $diger = $diger | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $slider := first 10 $gelecekSorted }}
 
 <div class="list-page">
 
+  <!-- ═══ SLIDER ═══ -->
   <div class="etk-slider">
     <div class="etk-slider-track">
       {{ range $i, $p := $slider }}
@@ -46,44 +75,131 @@
     </div>
   </div>
 
-  <div class="etk-main-grid" id="etkGrid">
-    {{ range $tumSorted }}
-    <a href="{{ .Permalink }}" class="etk-main-card">
-      {{ if .Params.image }}
-      <div class="etk-main-img" style="background-image:url('{{ .Params.image }}')"></div>
+  <!-- ═══ MÜZİK & KONSER ═══ -->
+  {{ if $muzikGelecek }}
+  <div class="etk-section-divider">
+    <div class="etk-section-divider-accent" style="background:var(--cat-muzik)"></div>
+    <div class="etk-section-divider-body">
+      <span class="etk-section-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </span>
+      <span class="etk-section-title">MÜZİK & KONSER</span>
+      <span class="etk-section-count">{{ len $muzikGelecek }} etkinlik</span>
+    </div>
+  </div>
+  <div class="etk-muzik-grid">
+    {{ range $i, $p := $muzikGelecek }}
+    {{ if eq $i 0 }}
+    <!-- Featured kart -->
+    <a href="{{ $p.Permalink }}" class="etk-muzik-featured">
+      {{ if $p.Params.image }}
+      <div class="etk-muzik-featured-img" style="background-image:url('{{ $p.Params.image }}')"></div>
       {{ else }}
-      <div class="etk-main-img etk-main-img--empty thumb-{{ .Section }}">
-        {{ if eq .Section "muzik" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        {{ else if eq .Section "festival" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        {{ else if eq .Section "tiyatro" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
-        {{ else if eq .Section "sergi" }}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/></svg>
-        {{ end }}
-      </div>
+      <div class="etk-muzik-featured-img etk-muzik-featured-img--empty"></div>
       {{ end }}
-      <div class="etk-main-body">
+      <div class="etk-muzik-featured-overlay"></div>
+      <div class="etk-muzik-featured-body">
+        <span class="ed-pill pill-muzik">MÜZİK</span>
+        <div class="etk-muzik-featured-title">{{ $p.Title }}</div>
+        <div class="etk-muzik-featured-meta">
+          {{ with $p.Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with $p.Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        </div>
+      </div>
+    </a>
+    <!-- Sağ kolon küçük kartlar -->
+    <div class="etk-muzik-stack">
+    {{ else if gt $i 0 }}
+    <a href="{{ $p.Permalink }}" class="etk-muzik-stack-item">
+      {{ if $p.Params.image }}
+      <div class="etk-muzik-stack-img" style="background-image:url('{{ $p.Params.image }}')"></div>
+      {{ else }}
+      <div class="etk-muzik-stack-img etk-muzik-stack-img--empty thumb-muzik"></div>
+      {{ end }}
+      <div class="etk-muzik-stack-body">
+        <div class="etk-muzik-stack-title">{{ $p.Title }}</div>
+        <div class="etk-muzik-stack-meta">
+          {{ with $p.Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with $p.Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+    {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- ═══ FESTİVAL ═══ -->
+  {{ if $festivalGelecek }}
+  <div class="etk-section-divider">
+    <div class="etk-section-divider-accent" style="background:var(--cat-festival)"></div>
+    <div class="etk-section-divider-body">
+      <span class="etk-section-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </span>
+      <span class="etk-section-title">FESTİVAL</span>
+      <span class="etk-section-count">{{ len $festivalGelecek }} etkinlik</span>
+    </div>
+  </div>
+  <div class="etk-festival-grid">
+    {{ range $festivalGelecek }}
+    <a href="{{ .Permalink }}" class="etk-festival-card">
+      {{ if .Params.image }}
+      <div class="etk-festival-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="etk-festival-img etk-festival-img--empty thumb-festival"></div>
+      {{ end }}
+      <div class="etk-festival-body">
+        <div class="etk-festival-tarih">
+          {{ with .Params.tarih }}{{ dateFormat "2 Jan" . }}{{ end }}
+          {{ with .Params.tarih_bitis }} – {{ dateFormat "2 Jan 2006" . }}{{ end }}
+        </div>
+        <div class="etk-festival-title">{{ .Title }}</div>
+        {{ with .Params.mekan }}<div class="etk-festival-mekan">{{ . }}</div>{{ end }}
+      </div>
+      <div class="etk-festival-arrow">→</div>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- ═══ DİĞER (TİYATRO & SERGİ) ═══ -->
+  {{ if $diger }}
+  <div class="etk-section-divider">
+    <div class="etk-section-divider-accent" style="background:var(--cat-tiyatro)"></div>
+    <div class="etk-section-divider-body">
+      <span class="etk-section-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      <span class="etk-section-title">TİYATRO & SERGİ</span>
+      <span class="etk-section-count">{{ len $diger }} etkinlik</span>
+    </div>
+  </div>
+  <div class="etk-diger-grid">
+    {{ range $diger }}
+    <a href="{{ .Permalink }}" class="etk-diger-card">
+      {{ if .Params.image }}
+      <div class="etk-diger-img" style="background-image:url('{{ .Params.image }}')"></div>
+      {{ else }}
+      <div class="etk-diger-img etk-diger-img--empty thumb-{{ .Section }}"></div>
+      {{ end }}
+      <div class="etk-diger-body">
         <span class="ed-pill pill-{{ .Section }}">{{ .Section | upper }}</span>
-        <div class="etk-main-title">{{ .Title }}</div>
-        <div class="etk-main-desc">{{ .Summary | truncate 90 }}</div>
-        <div class="etk-main-meta">
-          {{ with .Params.mekan }}<span class="etk-main-mekan">{{ . }}</span>{{ end }}
-          {{ with .Params.tarih }}<span class="etk-main-tarih">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        <div class="etk-diger-title">{{ .Title }}</div>
+        <div class="etk-diger-meta">
+          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
         </div>
       </div>
     </a>
     {{ end }}
   </div>
+  {{ end }}
 
+  <!-- ═══ REKLAM ═══ -->
   <div class="ed-adsense-wrap">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3095578223174651"
-         data-ad-slot="auto"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3095578223174651" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
@@ -108,43 +224,96 @@
 .etk-arrow--prev { left: 20px; }
 .etk-arrow--next { right: 20px; }
 .etk-dots { position: absolute; bottom: 16px; left: 36px; z-index: 10; display: flex; gap: 6px; align-items: center; }
-.etk-dot { width: 28px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; position: relative; overflow: hidden; }
+.etk-dot { width: 24px; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.25); border: none; cursor: pointer; padding: 0; position: relative; overflow: hidden; }
 .etk-dot-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--yellow); }
 .etk-dot.active .etk-dot-progress { width: 100%; }
 
-/* ── ANA GRID ── */
-.etk-main-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--border); }
-.etk-main-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); border-bottom: var(--border); transition: background 0.2s; position: relative; }
-.etk-main-card:hover { background: var(--gray-1); }
-.etk-main-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s; }
-.etk-main-card:hover::after { transform: scaleX(1); }
-.etk-main-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; flex-shrink: 0; }
-.etk-main-img--empty { display: flex; align-items: center; justify-content: center; }
-.etk-main-img--empty svg { opacity: 0.2; }
-.etk-main-body { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.etk-main-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.3; color: var(--black); }
-.etk-main-desc { font-size: 12px; color: var(--gray-4); line-height: 1.6; }
-.etk-main-meta { display: flex; flex-direction: column; gap: 3px; margin-top: auto; padding-top: 8px; border-top: var(--border); }
-.etk-main-mekan { font-size: 10px; color: var(--gray-3); letter-spacing: 0.03em; }
-.etk-main-tarih { font-size: 10px; color: var(--orange); font-weight: 600; letter-spacing: 0.04em; }
+/* ── BÖLÜM AYRAÇ ── */
+.etk-section-divider { display: flex; align-items: stretch; border-bottom: var(--border); border-top: var(--border); margin-top: 0; background: var(--black); }
+.etk-section-divider-accent { width: 4px; flex-shrink: 0; }
+.etk-section-divider-body { display: flex; align-items: center; gap: 12px; padding: 14px 28px; }
+.etk-section-icon { color: rgba(255,255,255,0.5); display: flex; align-items: center; }
+.etk-section-title { font-size: 10px; letter-spacing: 0.18em; font-weight: 700; color: var(--white); }
+.etk-section-count { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; margin-left: 4px; }
 
-/* ── BOŞ DURUM ── */
-.etk-empty { grid-column: 1/-1; padding: 80px 32px; text-align: center; color: var(--gray-3); font-family: var(--serif); font-size: 20px; }
+/* ── TARİH BADGE ── */
+.etk-date-badge { display: inline-block; background: var(--orange); color: var(--white); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 2px; }
+
+/* ── MÜZİK GRID ── */
+.etk-muzik-grid { display: grid; grid-template-columns: 1fr 360px; border-bottom: var(--border); min-height: 320px; }
+.etk-muzik-featured { position: relative; display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none; border-right: var(--border); overflow: hidden; }
+.etk-muzik-featured-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; }
+.etk-muzik-featured:hover .etk-muzik-featured-img { transform: scale(1.04); }
+.etk-muzik-featured-img--empty { background: linear-gradient(135deg, #1a0a30 0%, #0a1040 100%); }
+.etk-muzik-featured-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); z-index: 1; }
+.etk-muzik-featured-body { position: relative; z-index: 2; padding: 28px 32px; display: flex; flex-direction: column; gap: 10px; }
+.etk-muzik-featured-title { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.2; color: var(--white); }
+.etk-muzik-featured-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.etk-muzik-featured-meta span { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+.etk-muzik-stack { display: flex; flex-direction: column; background: var(--white); }
+.etk-muzik-stack-item { display: grid; grid-template-columns: 80px 1fr; gap: 0; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; }
+.etk-muzik-stack-item:last-child { border-bottom: none; }
+.etk-muzik-stack-item:hover { background: var(--gray-1); }
+.etk-muzik-stack-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--cat-muzik); transform: scaleY(0); transition: transform 0.2s; }
+.etk-muzik-stack-item:hover::before { transform: scaleY(1); }
+.etk-muzik-stack-img { width: 80px; height: 100%; min-height: 72px; background-size: cover; background-position: center; flex-shrink: 0; }
+.etk-muzik-stack-img--empty { background: var(--cat-muzik-bg); }
+.etk-muzik-stack-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+.etk-muzik-stack-title { font-family: var(--serif); font-size: 14px; font-weight: 500; line-height: 1.3; color: var(--black); }
+.etk-muzik-stack-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.etk-muzik-stack-meta span { font-size: 10px; color: var(--gray-3); }
+
+/* ── FESTİVAL GRID ── */
+.etk-festival-grid { display: flex; flex-direction: column; border-bottom: var(--border); }
+.etk-festival-card { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 0; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; min-height: 90px; }
+.etk-festival-card:last-child { border-bottom: none; }
+.etk-festival-card:hover { background: var(--gray-1); }
+.etk-festival-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--cat-festival); transform: scaleY(0); transition: transform 0.2s; }
+.etk-festival-card:hover::before { transform: scaleY(1); }
+.etk-festival-img { width: 200px; height: 90px; background-size: cover; background-position: center; flex-shrink: 0; }
+.etk-festival-img--empty { background: var(--cat-festival-bg); }
+.etk-festival-body { padding: 16px 24px; display: flex; flex-direction: column; gap: 6px; }
+.etk-festival-tarih { font-size: 10px; color: var(--orange); font-weight: 700; letter-spacing: 0.06em; }
+.etk-festival-title { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.25; color: var(--black); }
+.etk-festival-mekan { font-size: 11px; color: var(--gray-3); }
+.etk-festival-arrow { padding: 0 28px; font-size: 18px; color: var(--gray-3); transition: color 0.2s, transform 0.2s; }
+.etk-festival-card:hover .etk-festival-arrow { color: var(--orange); transform: translateX(4px); }
+
+/* ── DİĞER GRID ── */
+.etk-diger-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--border); }
+.etk-diger-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; }
+.etk-diger-card:last-child { border-right: none; }
+.etk-diger-card:hover { background: var(--gray-1); }
+.etk-diger-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s; }
+.etk-diger-card:hover::after { transform: scaleX(1); }
+.etk-diger-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; }
+.etk-diger-img--empty { display: flex; align-items: center; justify-content: center; }
+.etk-diger-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.etk-diger-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--black); }
+.etk-diger-meta { display: flex; flex-direction: column; gap: 3px; margin-top: auto; }
+.etk-diger-meta span { font-size: 10px; color: var(--gray-3); }
 
 @media (max-width: 900px) {
   .etk-slider { aspect-ratio: 4/3; }
   .etk-slide-title { font-size: 24px; }
   .etk-slide-content { padding: 20px; }
-  .etk-main-grid { grid-template-columns: 1fr 1fr; }
+  .etk-muzik-grid { grid-template-columns: 1fr; }
+  .etk-muzik-stack { border-top: var(--border); }
+  .etk-festival-card { grid-template-columns: 120px 1fr auto; }
+  .etk-festival-img { width: 120px; }
+  .etk-diger-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
-  .etk-main-grid { grid-template-columns: 1fr; }
+  .etk-festival-card { grid-template-columns: 1fr; }
+  .etk-festival-img { width: 100%; height: 160px; }
+  .etk-festival-arrow { display: none; }
+  .etk-diger-grid { grid-template-columns: 1fr; }
 }
 </style>
 
 <script>
 (function() {
-  /* ── SLIDER ── */
   var slides   = document.querySelectorAll('.etk-slide');
   var dots     = document.querySelectorAll('.etk-dot');
   var progBars = document.querySelectorAll('.etk-dot-progress');
@@ -185,7 +354,6 @@
   btnPrev.addEventListener('click', function(e){ e.preventDefault(); goTo(current-1,true); });
   btnNext.addEventListener('click', function(e){ e.preventDefault(); goTo(current+1,true); });
   dots.forEach(function(d){ d.addEventListener('click', function(e){ e.preventDefault(); goTo(parseInt(d.dataset.index),true); }); });
-
 })();
 </script>
 
