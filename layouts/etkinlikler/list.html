@@ -64,16 +64,16 @@
       {{ range first 16 $muzikSorted }}
       <a href="{{ .Permalink }}" class="etk-card cat-muzik">
         {{ if .Params.image }}
-        <div class="etk-card-img img-19-4" style="background-image:url('{{ .Params.image }}')"></div>
+        <div class="etk-card-img img-19-5" style="background-image:url('{{ .Params.image }}')"></div>
         {{ else }}
-        <div class="etk-card-img img-19-4 etk-card-img--empty thumb-muzik"></div>
+        <div class="etk-card-img img-19-5 etk-card-img--empty thumb-muzik"></div>
         {{ end }}
         <div class="etk-card-body">
           <span class="ed-pill pill-muzik">MÜZİK</span>
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
           </div>
         </div>
       </a>
@@ -94,16 +94,16 @@
       {{ range first 4 $tiyatroSorted }}
       <a href="{{ .Permalink }}" class="etk-card cat-tiyatro">
         {{ if .Params.image }}
-        <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
+        <div class="etk-card-img img-19-5" style="background-image:url('{{ .Params.image }}')"></div>
         {{ else }}
-        <div class="etk-card-img img-16-9 etk-card-img--empty thumb-tiyatro"></div>
+        <div class="etk-card-img img-19-5 etk-card-img--empty thumb-tiyatro"></div>
         {{ end }}
         <div class="etk-card-body">
           <span class="ed-pill pill-tiyatro">TİYATRO</span>
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
           </div>
         </div>
       </a>
@@ -124,16 +124,16 @@
       {{ range first 9 $sergiSorted }}
       <a href="{{ .Permalink }}" class="etk-card cat-sergi">
         {{ if .Params.image }}
-        <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
+        <div class="etk-card-img img-19-5" style="background-image:url('{{ .Params.image }}')"></div>
         {{ else }}
-        <div class="etk-card-img img-16-9 etk-card-img--empty thumb-sergi"></div>
+        <div class="etk-card-img img-19-5 etk-card-img--empty thumb-sergi"></div>
         {{ end }}
         <div class="etk-card-body">
           <span class="ed-pill pill-sergi">SERGİ</span>
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
           </div>
         </div>
       </a>
@@ -163,7 +163,7 @@
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
           </div>
         </div>
       </a>
@@ -231,7 +231,7 @@
 
 /* Görsel Oranları */
 .etk-card-img { width: 100%; background-size: cover; background-position: center; }
-.img-19-4 { aspect-ratio: 19/4; }
+.img-19-5 { aspect-ratio: 19/5; }
 .img-16-9 { aspect-ratio: 16/9; }
 .etk-card-img--empty { display: flex; align-items: center; justify-content: center; background: var(--gray-1); }
 
@@ -239,6 +239,7 @@
 .etk-card-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--black); }
 .etk-card-meta { display: flex; flex-direction: column; gap: 3px; margin-top: auto; }
 .etk-card-meta span { font-size: 10px; color: var(--gray-3); }
+.etk-card-meta .etk-card-date { font-weight: 700; color: var(--black); }
 
 /* ── MOBİL UYUM ── */
 @media (max-width: 900px) {
