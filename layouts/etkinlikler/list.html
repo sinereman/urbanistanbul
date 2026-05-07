@@ -1,40 +1,18 @@
 {{ define "main" }}
 
-{{ $bugun := now }}
-
 {{ $tiyatro  := where .Site.RegularPages "Section" "tiyatro" }}
 {{ $sergi    := where .Site.RegularPages "Section" "sergi" }}
 {{ $muzik    := where .Site.RegularPages "Section" "muzik" }}
 {{ $festival := where .Site.RegularPages "Section" "festival" }}
 
+{{ $muzikSorted   := $muzik.ByDate.Reverse }}
+{{ $festivalSorted := $festival.ByDate.Reverse }}
+{{ $digerSorted   := union $tiyatro $sergi }}
+{{ $digerSorted    = $digerSorted.ByDate.Reverse }}
+
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $festival }}
-
-{{ $gelecek := slice }}
-{{ $gecmis  := slice }}
-{{ range $tumEtkinlikler }}
-  {{ if .Params.tarih }}
-    {{ if ge .Params.tarih $bugun }}
-      {{ $gelecek = $gelecek | append . }}
-    {{ else }}
-      {{ $gecmis = $gecmis | append . }}
-    {{ end }}
-  {{ else }}
-    {{ $gelecek = $gelecek | append . }}
-  {{ end }}
-{{ end }}
-
-{{ $gelecekSorted := sort $gelecek "Params.tarih" "asc" }}
-{{ $muzikGelecek  := slice }}
-{{ $festivalGelecek := slice }}
-{{ $diger := slice }}
-{{ range $gelecekSorted }}
-  {{ if eq .Section "muzik" }}{{ $muzikGelecek = $muzikGelecek | append . }}
-  {{ else if eq .Section "festival" }}{{ $festivalGelecek = $festivalGelecek | append . }}
-  {{ else }}{{ $diger = $diger | append . }}
-  {{ end }}
-{{ end }}
-
-{{ $slider := first 10 $gelecekSorted }}
+{{ $tumSorted := $tumEtkinlikler.ByDate.Reverse }}
+{{ $slider := first 10 $tumSorted }}
 
 <div class="list-page">
 
@@ -76,7 +54,7 @@
   </div>
 
   <!-- ═══ MÜZİK & KONSER ═══ -->
-  {{ if $muzikGelecek }}
+  {{ if $muzikSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-muzik)"></div>
     <div class="etk-section-divider-body">
@@ -84,13 +62,12 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       </span>
       <span class="etk-section-title">MÜZİK & KONSER</span>
-      <span class="etk-section-count">{{ len $muzikGelecek }} etkinlik</span>
+      <span class="etk-section-count">{{ len $muzikSorted }} etkinlik</span>
     </div>
   </div>
   <div class="etk-muzik-grid">
-    {{ range $i, $p := $muzikGelecek }}
+    {{ range $i, $p := $muzikSorted }}
     {{ if eq $i 0 }}
-    <!-- Featured kart -->
     <a href="{{ $p.Permalink }}" class="etk-muzik-featured">
       {{ if $p.Params.image }}
       <div class="etk-muzik-featured-img" style="background-image:url('{{ $p.Params.image }}')"></div>
@@ -107,9 +84,8 @@
         </div>
       </div>
     </a>
-    <!-- Sağ kolon küçük kartlar -->
     <div class="etk-muzik-stack">
-    {{ else if gt $i 0 }}
+    {{ else }}
     <a href="{{ $p.Permalink }}" class="etk-muzik-stack-item">
       {{ if $p.Params.image }}
       <div class="etk-muzik-stack-img" style="background-image:url('{{ $p.Params.image }}')"></div>
@@ -131,7 +107,7 @@
   {{ end }}
 
   <!-- ═══ FESTİVAL ═══ -->
-  {{ if $festivalGelecek }}
+  {{ if $festivalSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-festival)"></div>
     <div class="etk-section-divider-body">
@@ -139,11 +115,11 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       </span>
       <span class="etk-section-title">FESTİVAL</span>
-      <span class="etk-section-count">{{ len $festivalGelecek }} etkinlik</span>
+      <span class="etk-section-count">{{ len $festivalSorted }} etkinlik</span>
     </div>
   </div>
   <div class="etk-festival-grid">
-    {{ range $festivalGelecek }}
+    {{ range $festivalSorted }}
     <a href="{{ .Permalink }}" class="etk-festival-card">
       {{ if .Params.image }}
       <div class="etk-festival-img" style="background-image:url('{{ .Params.image }}')"></div>
@@ -164,8 +140,8 @@
   </div>
   {{ end }}
 
-  <!-- ═══ DİĞER (TİYATRO & SERGİ) ═══ -->
-  {{ if $diger }}
+  <!-- ═══ TİYATRO & SERGİ ═══ -->
+  {{ if $digerSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-tiyatro)"></div>
     <div class="etk-section-divider-body">
@@ -173,11 +149,11 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h20v12H2z"/><path d="M8 6V4h8v2"/><circle cx="12" cy="12" r="3"/></svg>
       </span>
       <span class="etk-section-title">TİYATRO & SERGİ</span>
-      <span class="etk-section-count">{{ len $diger }} etkinlik</span>
+      <span class="etk-section-count">{{ len $digerSorted }} etkinlik</span>
     </div>
   </div>
   <div class="etk-diger-grid">
-    {{ range $diger }}
+    {{ range $digerSorted }}
     <a href="{{ .Permalink }}" class="etk-diger-card">
       {{ if .Params.image }}
       <div class="etk-diger-img" style="background-image:url('{{ .Params.image }}')"></div>
@@ -229,7 +205,7 @@
 .etk-dot.active .etk-dot-progress { width: 100%; }
 
 /* ── BÖLÜM AYRAÇ ── */
-.etk-section-divider { display: flex; align-items: stretch; border-bottom: var(--border); border-top: var(--border); margin-top: 0; background: var(--black); }
+.etk-section-divider { display: flex; align-items: stretch; border-bottom: var(--border); border-top: var(--border); background: var(--black); }
 .etk-section-divider-accent { width: 4px; flex-shrink: 0; }
 .etk-section-divider-body { display: flex; align-items: center; gap: 12px; padding: 14px 28px; }
 .etk-section-icon { color: rgba(255,255,255,0.5); display: flex; align-items: center; }
@@ -250,14 +226,13 @@
 .etk-muzik-featured-title { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.2; color: var(--white); }
 .etk-muzik-featured-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .etk-muzik-featured-meta span { font-size: 11px; color: rgba(255,255,255,0.5); }
-
 .etk-muzik-stack { display: flex; flex-direction: column; background: var(--white); }
-.etk-muzik-stack-item { display: grid; grid-template-columns: 80px 1fr; gap: 0; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; }
+.etk-muzik-stack-item { display: grid; grid-template-columns: 80px 1fr; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; }
 .etk-muzik-stack-item:last-child { border-bottom: none; }
 .etk-muzik-stack-item:hover { background: var(--gray-1); }
 .etk-muzik-stack-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--cat-muzik); transform: scaleY(0); transition: transform 0.2s; }
 .etk-muzik-stack-item:hover::before { transform: scaleY(1); }
-.etk-muzik-stack-img { width: 80px; height: 100%; min-height: 72px; background-size: cover; background-position: center; flex-shrink: 0; }
+.etk-muzik-stack-img { width: 80px; height: 100%; min-height: 72px; background-size: cover; background-position: center; }
 .etk-muzik-stack-img--empty { background: var(--cat-muzik-bg); }
 .etk-muzik-stack-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; justify-content: center; }
 .etk-muzik-stack-title { font-family: var(--serif); font-size: 14px; font-weight: 500; line-height: 1.3; color: var(--black); }
@@ -266,18 +241,18 @@
 
 /* ── FESTİVAL GRID ── */
 .etk-festival-grid { display: flex; flex-direction: column; border-bottom: var(--border); }
-.etk-festival-card { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; gap: 0; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; min-height: 90px; }
+.etk-festival-card { display: grid; grid-template-columns: 200px 1fr auto; align-items: center; border-bottom: var(--border); text-decoration: none; transition: background 0.2s; position: relative; overflow: hidden; min-height: 90px; }
 .etk-festival-card:last-child { border-bottom: none; }
 .etk-festival-card:hover { background: var(--gray-1); }
 .etk-festival-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--cat-festival); transform: scaleY(0); transition: transform 0.2s; }
 .etk-festival-card:hover::before { transform: scaleY(1); }
-.etk-festival-img { width: 200px; height: 90px; background-size: cover; background-position: center; flex-shrink: 0; }
+.etk-festival-img { width: 200px; height: 90px; background-size: cover; background-position: center; }
 .etk-festival-img--empty { background: var(--cat-festival-bg); }
 .etk-festival-body { padding: 16px 24px; display: flex; flex-direction: column; gap: 6px; }
 .etk-festival-tarih { font-size: 10px; color: var(--orange); font-weight: 700; letter-spacing: 0.06em; }
 .etk-festival-title { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.25; color: var(--black); }
 .etk-festival-mekan { font-size: 11px; color: var(--gray-3); }
-.etk-festival-arrow { padding: 0 28px; font-size: 18px; color: var(--gray-3); transition: color 0.2s, transform 0.2s; }
+.etk-festival-arrow { padding: 0 28px; font-size: 18px; color: var(--gray-3); transition: color 0.2s, transform 0.2s; display: flex; align-items: center; }
 .etk-festival-card:hover .etk-festival-arrow { color: var(--orange); transform: translateX(4px); }
 
 /* ── DİĞER GRID ── */
@@ -288,7 +263,7 @@
 .etk-diger-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.25s; }
 .etk-diger-card:hover::after { transform: scaleX(1); }
 .etk-diger-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; }
-.etk-diger-img--empty { display: flex; align-items: center; justify-content: center; }
+.etk-diger-img--empty { display: flex; align-items: center; justify-content: center; background: var(--gray-1); }
 .etk-diger-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .etk-diger-title { font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--black); }
 .etk-diger-meta { display: flex; flex-direction: column; gap: 3px; margin-top: auto; }
