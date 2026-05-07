@@ -53,7 +53,6 @@
     </div>
   </div>
 
-  {{ if $muzikSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-muzik)"></div>
     <div class="etk-section-divider-body">
@@ -64,27 +63,29 @@
   </div>
   
   <div class="etk-grid-4">
-    {{ range first 4 $muzikSorted }}
-    <a href="{{ .Permalink }}" class="etk-card cat-muzik">
-      {{ if .Params.image }}
-      <div class="etk-card-img img-19-4" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-card-img img-19-4 etk-card-img--empty thumb-muzik"></div>
-      {{ end }}
-      <div class="etk-card-body">
-        <span class="ed-pill pill-muzik">MÜZİK</span>
-        <div class="etk-card-title">{{ .Title }}</div>
-        <div class="etk-card-meta">
-          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+    {{ if $muzikSorted }}
+      {{ range first 16 $muzikSorted }}
+      <a href="{{ .Permalink }}" class="etk-card cat-muzik">
+        {{ if .Params.image }}
+        <div class="etk-card-img img-19-4" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="etk-card-img img-19-4 etk-card-img--empty thumb-muzik"></div>
+        {{ end }}
+        <div class="etk-card-body">
+          <span class="ed-pill pill-muzik">MÜZİK</span>
+          <div class="etk-card-title">{{ .Title }}</div>
+          <div class="etk-card-meta">
+            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+      {{ end }}
+    {{ else }}
+      <div class="etk-empty-state">Yakında müzik etkinlikleri eklenecek.</div>
     {{ end }}
   </div>
-  {{ end }}
 
-  {{ if $tiyatroSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-tiyatro)"></div>
     <div class="etk-section-divider-body">
@@ -95,27 +96,29 @@
   </div>
   
   <div class="etk-grid-4">
-    {{ range first 4 $tiyatroSorted }}
-    <a href="{{ .Permalink }}" class="etk-card cat-tiyatro">
-      {{ if .Params.image }}
-      <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-card-img img-16-9 etk-card-img--empty thumb-tiyatro"></div>
-      {{ end }}
-      <div class="etk-card-body">
-        <span class="ed-pill pill-tiyatro">TİYATRO</span>
-        <div class="etk-card-title">{{ .Title }}</div>
-        <div class="etk-card-meta">
-          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+    {{ if $tiyatroSorted }}
+      {{ range first 4 $tiyatroSorted }}
+      <a href="{{ .Permalink }}" class="etk-card cat-tiyatro">
+        {{ if .Params.image }}
+        <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="etk-card-img img-16-9 etk-card-img--empty thumb-tiyatro"></div>
+        {{ end }}
+        <div class="etk-card-body">
+          <span class="ed-pill pill-tiyatro">TİYATRO</span>
+          <div class="etk-card-title">{{ .Title }}</div>
+          <div class="etk-card-meta">
+            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+      {{ end }}
+    {{ else }}
+      <div class="etk-empty-state">Yakında tiyatro etkinlikleri eklenecek.</div>
     {{ end }}
   </div>
-  {{ end }}
 
-  {{ if $sergiSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-sergi)"></div>
     <div class="etk-section-divider-body">
@@ -126,27 +129,29 @@
   </div>
   
   <div class="etk-grid-3">
-    {{ range first 9 $sergiSorted }}
-    <a href="{{ .Permalink }}" class="etk-card cat-sergi">
-      {{ if .Params.image }}
-      <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-card-img img-16-9 etk-card-img--empty thumb-sergi"></div>
-      {{ end }}
-      <div class="etk-card-body">
-        <span class="ed-pill pill-sergi">SERGİ</span>
-        <div class="etk-card-title">{{ .Title }}</div>
-        <div class="etk-card-meta">
-          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+    {{ if $sergiSorted }}
+      {{ range first 9 $sergiSorted }}
+      <a href="{{ .Permalink }}" class="etk-card cat-sergi">
+        {{ if .Params.image }}
+        <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="etk-card-img img-16-9 etk-card-img--empty thumb-sergi"></div>
+        {{ end }}
+        <div class="etk-card-body">
+          <span class="ed-pill pill-sergi">SERGİ</span>
+          <div class="etk-card-title">{{ .Title }}</div>
+          <div class="etk-card-meta">
+            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+      {{ end }}
+    {{ else }}
+      <div class="etk-empty-state">Yakında sergi etkinlikleri eklenecek.</div>
     {{ end }}
   </div>
-  {{ end }}
 
-  {{ if $festivalSorted }}
   <div class="etk-section-divider">
     <div class="etk-section-divider-accent" style="background:var(--cat-festival)"></div>
     <div class="etk-section-divider-body">
@@ -157,25 +162,28 @@
   </div>
   
   <div class="etk-grid-3">
-    {{ range first 6 $festivalSorted }}
-    <a href="{{ .Permalink }}" class="etk-card cat-festival">
-      {{ if .Params.image }}
-      <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
-      {{ else }}
-      <div class="etk-card-img img-16-9 etk-card-img--empty thumb-festival"></div>
-      {{ end }}
-      <div class="etk-card-body">
-        <span class="ed-pill pill-festival">FESTİVAL</span>
-        <div class="etk-card-title">{{ .Title }}</div>
-        <div class="etk-card-meta">
-          {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-          {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+    {{ if $festivalSorted }}
+      {{ range first 6 $festivalSorted }}
+      <a href="{{ .Permalink }}" class="etk-card cat-festival">
+        {{ if .Params.image }}
+        <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="etk-card-img img-16-9 etk-card-img--empty thumb-festival"></div>
+        {{ end }}
+        <div class="etk-card-body">
+          <span class="ed-pill pill-festival">FESTİVAL</span>
+          <div class="etk-card-title">{{ .Title }}</div>
+          <div class="etk-card-meta">
+            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-date-badge">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+      {{ end }}
+    {{ else }}
+      <div class="etk-empty-state">Yakında festival etkinlikleri eklenecek.</div>
     {{ end }}
   </div>
-  {{ end }}
 
   <div class="ed-adsense-wrap">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3095578223174651" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -215,6 +223,9 @@
 .etk-section-title { font-size: 10px; letter-spacing: 0.18em; font-weight: 700; color: var(--white); }
 .etk-section-count { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; margin-left: 4px; }
 
+/* ── BOŞ ALAN MESAJI ── */
+.etk-empty-state { grid-column: 1 / -1; padding: 50px 20px; text-align: center; color: var(--gray-3); font-size: 14px; font-family: var(--serif); font-style: italic; background: var(--white); }
+
 /* ── TARİH BADGE ── */
 .etk-date-badge { display: inline-block; background: var(--orange); color: var(--white); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 2px; white-space: nowrap; }
 
@@ -222,8 +233,12 @@
 .etk-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: var(--border); }
 .etk-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--border); }
 
-.etk-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; }
-.etk-card:last-child { border-right: none; }
+.etk-card { display: flex; flex-direction: column; text-decoration: none; border-right: var(--border); transition: background 0.2s; position: relative; border-bottom: var(--border); }
+.etk-grid-4 .etk-card:nth-child(4n) { border-right: none; }
+.etk-grid-3 .etk-card:nth-child(3n) { border-right: none; }
+/* Son satırın altındaki çizgiyi kaldırmak istersen: */
+/* .etk-card:nth-last-child(-n+4) { border-bottom: none; } */
+
 .etk-card:hover { background: var(--gray-1); }
 
 /* Kategoriye özel hover çizgileri */
@@ -252,10 +267,16 @@
   .etk-slide-content { padding: 20px; }
   .etk-grid-4 { grid-template-columns: 1fr 1fr; }
   .etk-grid-3 { grid-template-columns: 1fr 1fr; }
+  .etk-grid-4 .etk-card:nth-child(4n) { border-right: var(--border); }
+  .etk-grid-4 .etk-card:nth-child(2n) { border-right: none; }
+  .etk-grid-3 .etk-card:nth-child(3n) { border-right: var(--border); }
+  .etk-grid-3 .etk-card:nth-child(2n) { border-right: none; }
 }
 @media (max-width: 600px) {
   .etk-grid-4 { grid-template-columns: 1fr; }
   .etk-grid-3 { grid-template-columns: 1fr; }
+  .etk-grid-4 .etk-card { border-right: none; }
+  .etk-grid-3 .etk-card { border-right: none; }
 }
 </style>
 
