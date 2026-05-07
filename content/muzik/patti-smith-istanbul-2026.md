@@ -1,6 +1,6 @@
 ---
 title: "Şehrin Şiiri ve İsyanın Sesi: Patti Smith’in İstanbul Ayini"
-date: 2026-05-08
+date: 2026-05-07
 tarih: 2026-05-17
 mekan: "Bonus Parkorman, Maslak, İstanbul"
 image: "/images/uploads/patti-smith-istanbul-2026.jpg"
