@@ -3,7 +3,7 @@ title: "Hangi Kamerayı Almalıyım? Sensör Boyutları ve Kamera Tipleri Rehber
 date: 2026-04-30
 konu: "Fotoğrafçılık"
 sira: 2
-image: "	/images/uploads/hangikamera.jpg"
+image: "/images/uploads/hangikamera.jpg"
 foto_yon: "yatay"
 draft: false
 ---
