@@ -102,13 +102,13 @@ Ben iki ayrı soft focus diyaframı tasarladım ve üreterek bu lenste denedim.
  
 **Çalışma prensibi şu:** Helios 44-2'nin arka iki optik elementinin vidası elle açılabiliyor. Vidayı çevirince arka optik grup dışarı çıkıyor. Hemen diyaframın arkasına, orijinal optik gurubun bulunduğu yere, özel olarak kesilmiş bir diyafram diski yerleştiriyorsunuz. Ardından arka optik grubu geri takıyorsunuz.
  
-Kritik nokta şu: bu süreç boyunca diyafram halkası f/2 konumunda sabit kalıyor. Lensteki orijinal diyafram değiştirilmiyor, yalnızca arkasına ek bir eleman yerleştiriliyor.
+Kritik nokta şu: bu süreç boyunca diyafram halkası f/2 konumunda sabit kalıyor, yani bu filtrelerin elbette helios 58mm optik şema ve tasarımı özelinde mühendislik açısından lensin diyaframını kısmadığını garanti edebiliyorum. Lensteki orijinal diyafram değiştirilmiyor, yalnızca arkasına ek bir eleman yerleştiriliyor. Bu aşamada diyaframınızı ihtiyaç duyduğunuz anlarda kullanmakta özgürsünüz, sadece en açık diyafram değerinizde soft focus etki alacaksınız.
  
 **Birinci diyafram:** Merkezi açık, kenarları kısıtlayan bir halka tasarımı. Bu versiyon, merkezde nispeten net bir çekirdek korurken kenarlara doğru güçlü bir hale ve yayılma efekti üretiyor. Yakın mesafe portreler için ideal — yüz ortasında net, saçlar ve çevre soft.
  
 **İkinci diyafram:** Fuji EBC Fujinon SF'nin kullandığı Imagon tipi yaklaşımdan ilham alan delikli disk tasarımı. Merkezi büyük bir delik, etrafında daha küçük delikler. Bu yapı ışığın hem merkezi hem de çevresel diyaframdan geçmesine izin vererek daha eşit dağılımlı ama yine de belirgin bir soft focus üretiyor.
  
-Her iki diyafram da aynı anda lens içinde kalamaz. Efekt seçimi diyaframı değiştirmekle yapılıyor.
+Her iki diyafram da aynı anda lens içinde kalamaz. Burada uygun modeli ihtiyacınıza göre seçip kullanmak ve ihtiyaç değiştiğinde diğer modele geçmek zorundasınız. Neyse ki bu işlem oldukça basit ve kısa süreli bir işlem.
  
 ---
  
