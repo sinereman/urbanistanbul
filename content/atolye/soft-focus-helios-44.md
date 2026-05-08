@@ -6,7 +6,7 @@ draft: false
 image: "/images/uploads/soft-focus-helios-44.jpg"
 ---
 
-Yazar: B. B. KURŞAT
+Yazar: B. Batıkan KURŞAT
 
  
 Keskinlik her zaman hakikat değildir.
@@ -68,7 +68,7 @@ Gerekçe mantıklı görünüyordu: Photoshop bu efekti verebilir. Neden özel b
  
 Ama bu gerekçe tam değil. Gerçek optik soft focus ile dijital filtre arasındaki fark, analog müzik ile MP3 arasındaki fark gibi: ikisi de "benzer" ama aynı değil. Keskin görüntünün üstüne uygulanan dijital blur, ışığın gerçek davranışını taklit etmiyor. Gerçek soft focus, ışığın lens içinden geçerken yayıldığı, saçıldığı, birbiriyle örtüştüğü bir süreç.
  
-Bunu gören az sayıda fotoğrafçı, kullanılmayan soft focus lensler için ikinci el piyasaya yöneldi. Eski m39 bayonetli lensler beklenenin çok üzerinde keskin sonuçlar veriyorken m42 lenslerin bir kısmı yumuşak soft daha doğru bir ifadeyle retrofocus soft lensler olarak yeniden yaygınlaştılar. Takumar ve Helios 44-2'ye yönelenlerin sayısı diğer lenslere göre elbette daha fazla. Burada sorun şu ki bu lenslerin hiç biri esasen soft focus değil, sadece modern lenslerin mühendislikle arındırıldığı optik kusurlara sahip oldukları için kontrastı düşük sonuçlar veren ve kolay ulaşılan lensler.
+Bunu gören az sayıda fotoğrafçı, kullanılmayan soft focus lensler için ikinci el piyasaya yöneldi. Eski m39 bayonetli lensler beklenenin çok üzerinde keskin sonuçlar veriyorken m42 lenslerin bir kısmı yumuşak (soft) daha doğru bir ifadeyle retrofocus soft lensler olarak yeniden yaygınlaştılar. Takumar ve Helios 44-2'ye yönelenlerin sayısı diğer lenslere göre elbette daha fazla. Burada sorun şu ki bu lenslerin hiç biri esasen soft focus değil, sadece modern lenslerin mühendislikle arındırıldığı optik kusurlara sahip oldukları için kontrastı düşük sonuçlar veren ve kolay ulaşılan ucuz lensler.
  
 ---
  
@@ -128,9 +128,9 @@ Soft focus etkisi herkese göre değil. Ama doğru ellerde güçlü bir araç.
  
 Helios 44-2 için doğru kopya seçimi önemli. **KMZ versiyonu** mekanik kalite ve optik tutarlılık açısından en güvenilir. Logodan tanıyabilirsiniz: yamuk ve ışın demetleri.
  
-Modifikasyon öncesinde lensin iç mekanizmasını temizlemek gerekiyor. Sovyet üretimi lenslerin çoğunda onlarca yıllık toz ve bazen petrol sızıntısı bulunuyor.
+Modifikasyon öncesinde lensin iç mekanizmasını temizlemek gerekiyor. Sovyet üretimi lenslerin çoğunda onlarca yıllık toz ve bazen katı yağ sızıntısı bulunuyor. Isı üreten aynasız kameralar bu katı yağın eriyerek sensöre ve OLPF filtresine bulaşmasını sağlayabilir.
  
-Diyafram diskini yerleştirirken lensin odak sonsuzunu kaybetmemesine dikkat edin. Fazla kalın bir disk odak düzlemini değiştiriyor.
+Diyafram diskini yerleştirirken lensin odak sonsuzunu kaybetmemesine dikkat edin. Fazla kalın bir disk elbette odak düzlemini değiştiriyor. Ben 0,5mm kalınlıkta 304 paslanmaz çelik levhalar kullandım. Siyah bir materyal daha iyi iş görebilirdi ama ben metalin oluşturduğu haleleri özellikle ters ışıkta arka planda batan güneş varsa çok seviyorum. O sebeple spreyle boyama veya eloksal mat kaplamaya gerek duymadım.
  
 f/2 soft focus etkisi en güçlüdür. f/2.8'e geçince efekt belirgin biçimde azalıyor — zaten bu yüzden diyaframı f/2'de sabit tutuyoruz.
  
