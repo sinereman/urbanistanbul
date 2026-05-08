@@ -99,6 +99,8 @@ Swirly bokeh: odak dışı alanın merkezden köşelere doğru giderek daha elip
 Helios 44-2, tasarımı gereği f/2 ile f/2.8 arasında zaten belirli bir yumuşama sunar. Ama bu kontrolsüz ve tutarsız bir yumuşamadır. Gerçek soft focus etkisi için farklı bir yaklaşım gerekir.
  
 Ben iki ayrı soft focus diyaframı tasarladım ve üreterek bu lenste denedim.
+
+![Helios 44 için üretilen iki soft focus diyafram diski](/images/uploads/soft-focus-diyafram.jpg)
  
 **Çalışma prensibi şu:** Helios 44-2'nin arka iki optik elementinin vidası elle açılabiliyor. Vidayı çevirince arka optik grup dışarı çıkıyor. Hemen diyaframın arkasına, orijinal optik gurubun bulunduğu yere, özel olarak kesilmiş bir diyafram diski yerleştiriyorsunuz. Ardından arka optik grubu geri takıyorsunuz.
  
