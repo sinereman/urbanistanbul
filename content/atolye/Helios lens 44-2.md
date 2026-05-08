@@ -2,7 +2,6 @@
 title: "Kusurun İçindeki Büyü: Sinema ve Sokak Fotoğrafçılığında Helios 44-2 Efsanesi"
 date: 2026-05-08
 konu: "Fotoğrafçılık"
-kategori: "Atölye"
 image: "/images/uploads/helios-44-2-vintage-lens.jpg"
 foto_yon: "yatay"
 draft: false
