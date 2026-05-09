@@ -185,7 +185,7 @@ nav { background: #0f31ab; border-bottom: 3px solid var(--orange); position: sti
 .ed-kesfet-news-card { display: flex; flex-direction: column; text-decoration: none; border-bottom: var(--border); transition: opacity 0.2s; }
 .ed-kesfet-news-card:last-child { border-bottom: none; }
 .ed-kesfet-news-card:hover { opacity: 0.8; }
-.ed-kesfet-news-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; border-radius: 2px; margin-bottom: 10px; flex-shrink: 0; }
+.ed-kesfet-news-img { width: 100%; aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: 2px; margin-bottom: 10px; flex-shrink: 0; }
 .ed-kesfet-news-img--empty { background: var(--cobalt); display: flex; align-items: center; justify-content: center; }
 .ed-kesfet-news-body { display: flex; flex-direction: column; gap: 6px; padding-bottom: 14px; }
 
