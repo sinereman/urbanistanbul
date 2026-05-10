@@ -18,7 +18,7 @@ Bazı notalar sadece duyulmaz, kusursuz bir mimari gibi inşa edilir. Şehrin ke
 
 King Crimson'ın efsanevi üyeleri Adrian Belew ve Tony Levin'in yanına, gitarın sınırlarını yeniden çizen virtüöz Steve Vai ve Tool'un kült davulcusu Danny Carey katılıyor. Müzik tarihinin görebileceği en usta işi kadrolardan biri olan BEAT, geride bıraktıkları "Discipline", "Beat" ve "Three of a Perfect Pair" albümlerinin kutlamasını son derece teknik bir formatla yapıyor.
 
-Tıpkı tam kare (full-frame) bir sinema kamerasının, ışığı ve dokuyu RAW formatında hiç kayıpsız yakalaması gibi; bu dört usta isim de notalar arasındaki boşlukları bile bir enstrüman gibi kullanarak müziğin iskeletini en net ve pürüzsüz haliyle sahneye taşıyor.
+Dört usta isim notalar arasındaki boşlukları bile bir enstrüman gibi kullanarak müziğin iskeletini en net ve pürüzsüz haliyle sahneye taşıyor.
 
 ---
 
