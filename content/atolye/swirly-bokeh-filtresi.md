@@ -58,6 +58,7 @@ SmallRig mattebox ile 4x5.65 filtreyi Nikon Z sistemine ve 40mm SE lense taktım
 **Nikon Z + 24-70mm f/2.8 S testi:**
 
 Aynı 4x5.65 filtreyi 24-70mm f/2.8 S II ile kullandığımda tablo farklılaştı. 24mm ile 50mm aralığında belirgin vinyetleme oluşuyor. Efekt tutarsız. 60-70mm'de ise her şey yerine oturuyor: temiz swirly bokeh, vinyetsiz görüntü. Bu lensin büyük ön eleman çapı ve kompleks optik yapısı nedeniyle 4x5.65 filtre yalnızca 70mm'de istenen performansı sergiliyor. Fakat bildiğiniz üzere her üretici için farklı lens eleman dizilimleri mevcut, bu dizilimin farkına göre başka bir lenste 35mm de dahi güzel swirly bokeh alabilmeniz mümkün olabilir. Filtreleri üretirken tasarımları ve fizik ile matematiksel hesapları elimdeki lenslerin optik tasarımlarına göre yaptım. Daha sonra bu filtreleri lazer kesimden sipariş ettim. 3d olarak bu tasarıma erişmeniz ve baskı alarak kullanmanız mümkün elbette. 
+![Swirly Bokeh 4x5.65 Filtresi — SmallRig Mattebox ile](static/images/uploads/swirly-bokeh-4x565II.jpg)
 
 Sinema versiyonu için ince kesit kullanma şansınız var ise bu size daha üstün bir performans almanız konusunda yardımcı olacaktır. Filtre kesidindeki kalınlaşma tünel etkisi denilen bir optik sorunu imajlarınıza taşıyacak. Ben bu sebeple hem ince metal hemde mattebox yuvasına tam oturan pleksi levha halini de çantamda taşıyorum. Tünel etkisi ters ışıkta harika bir hale almanız için sanatsal bir terichte olabilir. Tercih sizin.
 
