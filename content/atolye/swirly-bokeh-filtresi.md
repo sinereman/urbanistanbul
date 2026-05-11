@@ -41,7 +41,7 @@ Kritik fark şu: bu filtre otofokusu devre dışı bırakmıyor. Lensinizdeki t�
 
 ### 4x5.65 Mattebox Versiyonu
 
-![Swirly Bokeh 4x5.65 Filtresi — SmallRig Mattebox ile](/images/uploads/swirly-bokeh-4x565.jpg)
+![Swirly Bokeh 4x5.65 Filtresi — SmallRig Mattebox ile](static/images/uploads/swirly-bokeh-4x565.jpg)
 
 Bu format, bir mattebox sistemine takılmak üzere tasarlandı. 4x5.65 inç — sinema prodüksiyonunda standart filtre boyutu.
 
@@ -63,7 +63,7 @@ Aynı 4x5.65 filtreyi 24-70mm f/2.8 S II ile kullandığımda tablo farklılaşt
 
 ### 82mm Filtre Versiyonu
 
-![Swirly Bokeh 82mm Filtresi](/images/uploads/swirly-bokeh-82mm.jpg)
+![Swirly Bokeh 82mm Filtresi](static/images/uploads/swirly-bokeh-82mm.jpg)
 
 82mm versiyon doğrudan lens vidasına takılıyor. Mattebox gerekmez, ekstra ekipman gerekmez. Step up ring ile daha küçük çaplı lensler de kullanılabilir.
 
