@@ -92,7 +92,7 @@ Neden? 82mm filtrenin ön elemana daha yakın oturması ve farklı ışık kesim
 ## Hangi Lens, Hangi Sonuç
 
 Spirale dayalı bu filtre tasarımı, her lensle aynı sonucu vermiyor. Bu beklenen bir durum. Aynı markanın farklı versiyonlara sahip lensleri dahi farklı dizilimlere sahip elemanları olan optik şaheserler günümüzde.
-![Swirly Bokeh 82mm Filtresi](/images/uploads/swirly-bokeh-4x565IV)
+(/images/uploads/swirly-bokeh-4x565IV)
 
 Lensin optik şeması, ön eleman çapı, iç grup yerleşimi ve odak uzaklığı — hepsi filtrenin ışık dağılımıyla etkileşime giriyor. Kompakt, basit optik yapılı lensler genellikle daha geniş odak uzaklığı aralığında tutarlı swirly bokeh üretiyor. Kompleks, yüksek eleman sayılı ve büyük ön elemanlı lensler ise daha seçici davranıyor. Belirli odak uzaklıklarında çalışıyor, diğerlerinde ya etki kalmıyor ya da vinyetleme başlıyor.
 
