@@ -53,7 +53,10 @@ Bu etkiyi mattebox olmadan elde etmek isteyenler için pratik bir yol mevcut: st
 
 **Nikon Z + 40mm SE testi:**
 
-SmallRig mattebox ile 4x5.65 filtreyi Nikon Z sistemine ve 40mm SE lense taktım. Bu kombinasyon, şimdiye kadar bu filtreyle test ettiğim en tutarlı ve en temiz swirly bokeh'i üretiyor. Vinyetleme yok, efekt arka planın tamamına ve dahası konunun önünde kalan alanında tamamına yayılıyor, otofokus sorunsuz çalışıyor. 40mm SE'nin kompakt optik yapısı bu filtre için neredeyse ideal. Benim için Nikkor 40mm SE F:2 lesim ile bu filtreyi kullanabilmek, özellikle sokakta, her defasında harika ve eğlenceli bir deneyim oluyor.
+SmallRig mattebox ile 4x5.65 filtreyi Nikon Z sistemine ve 40mm SE lense taktım. Bu kombinasyon, şimdiye kadar bu filtreyle test ettiğim en tutarlı ve en temiz swirly bokeh'i üretiyor. Vinyetleme yok, efekt arka planın tamamına ve dahası konunun önünde kalan alanında tamamına yayılıyor, otofokus sorunsuz çalışıyor. 40mm SE'nin kompakt optik yapısı bu filtre için neredeyse ideal.
+![Swirly Bokeh 4x5.65 Filtresi — SmallRig Mattebox ile](/images/uploads/swirly-bokeh-4x565III.jpg)
+
+Benim için Nikkor 40mm SE F:2 lesim ile bu 4X5.65 versiyonlu filtreyi kullanabilmek, özellikle sokakta, her defasında harika ve eğlenceli bir deneyim oluyor. Üstelik daha sonra fotoğraf üzerinde işlem yapmama da neredeyse gerek kalmıyor. Nikon ZR üzerindeki dahili renk profillerini kullanarak o an ki kadrajım için ideal görüntüyü bulmaya odaklanıyorum. Mattebox ile gezmek dikkat çekse de bunu umursamanıza gerek olduğunu söyleyemem. Bazen sokakta olmak, birkaç tatlı ana tanık olmak, o anları dondurarak kaydetmek yalnızca sizin için bir deneyimdir.
 
 **Nikon Z + 24-70mm f/2.8 S testi:**
 
