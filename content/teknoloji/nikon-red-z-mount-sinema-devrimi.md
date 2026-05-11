@@ -1,7 +1,7 @@
 ---
 title: "RED ve Nikon Entegrasyonu: Z-Mount Bir Sinema Standardına Dönüşebilir mi?"
-date: 2026-05-12
-tarih: 2026-05-12
+date: 2026-05-11
+tarih: 2026-05-11
 image: "/images/uploads/nikon-z-red-cinema.jpg"
 foto_yon: "yatay"
 draft: false
