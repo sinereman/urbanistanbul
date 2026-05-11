@@ -51,7 +51,7 @@ Kritik fark şu: bu filtre otofokusu devre dışı bırakmıyor. Lensinizdeki t�
 
 ### 4x5.65 Mattebox Versiyonu
 
-(/images/uploads/swirly-bokeh-4x565.jpg)
+![](/images/uploads/swirly-bokeh-4x565.jpg)
 
 Bu format, bir mattebox sistemine takılmak üzere tasarlandı. (4x5.65 inç) Sinema prodüksiyonunda standart filtre boyutu olarak kabul edilir.
 
