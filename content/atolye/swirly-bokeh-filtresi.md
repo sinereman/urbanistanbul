@@ -8,6 +8,7 @@ image: "/images/uploads/swirly-bokeh-filtre.jpg"
 
 Helios, Petzval veya başka markaların m39 ile m42 bayonetli lensleriyle girdapsı bokehler almak yeniden popüler oldu. Çünkü ucuz ve gerçekten eğlenceli. Fakat bu lensleri modern aynasız makienelere takmanın bir çok riski de beraberinde getirdiği gözardı edilen bir gerçek. Bu yaşlı ve ucuz lenslerde bulunan katılaşmış yağ, bakteri, mantar kalıntıları, fungus, buhuya sebebiyet veren kimyasal kirlenme, zaman içinde odak yolu üzerinde aşınmayla ortaya çıkan metal talaş ve benzeri sorunlar pahalı aynasız kameranınızın sensörüne telafi edilemez zararlar verebilir. Daha pahalı sinema kameraları söz konusu olduğunda risk daha büyük elbette. OLPF filtrelerin göreceği zararlar ise bir başka yazının konusu olacağı için şimdilik kısa bir özet geçmiş olalım. 
 Güzel haber şu ki filtrelerle de çok hoş ve kuvvetli swirly bokeh almak mümkün. Önce kuralı söyleyelim, sonra devam edelim.
+![Swirly Bokeh 4x5.65 Filtresi — SmallRig Mattebox ile](/images/uploads/swirly-bokeh-4x565I.jpg)
 
 Swirly bokeh için lensinizdeki diyaframı en geniş açıklığa getirin. Bu değer (f/1.4, f/1.8, f/2, f/2.8) ne kadar geniş olursa etki o kadar belirgin olacak. Diyaframı kapattığınızda swirl etkisi önce azalır, sonra tamamen kaybolur. Bu bir tercih değil, optik bir zorunluluk. Ardından modelinizin arkasında, uzak bir doku, tekrarlayan örüntü olduğundan emin olun. Bu tekrarlayan yapı yeşil çimenlerle kaplı tepeler, birkaç ağaç olabileceği gibi, tuğla duvarda olabilir ya da koyu mavi bir deniz. Tekrarlı yapı swirly bokehi görünür kılmak açısından oldukça önemli.
 
@@ -24,6 +25,12 @@ Bu etki, 19. yüzyılın Petzval lens tasarımından geliyor. Josef Petzval'in 1
 Günümüzde swirly bokeh için iki yol var: ya gerçek bir Petzval lens kullanmak, Lomography'nin modern Petzval lenslerini ya da orijinal pirinç metalden 19. yüzyıl örneklerini, ya da mevcut modern lensinize bu etkiyi kazandırmak. Helioslar modifiye edilmeksizin aynı güçlü swirly bokeh efektine sahip değiller. 
 
 Ben ikinci yolu seçtim ve iki farklı formatta filtre tasarladım.
+
+![Swirly Bokeh 82mm Filtresi](/images/uploads/swirly-bokeh-4x565V)
+
+Bu filtreyi kulanarak çektiğim kedi fotoğraflarına özel olarak hayranlık duyuyorum, kedilerin bir boyut kapısından çıkıyor gibi gözükmesi beni gülümsetiyor.
+
+![Swirly Bokeh 82mm Filtresi](/images/uploads/swirly-bokeh-4x565VI)
 
 ---
 
@@ -84,6 +91,7 @@ Neden? 82mm filtrenin ön elemana daha yakın oturması ve farklı ışık kesim
 ## Hangi Lens, Hangi Sonuç
 
 Spirale dayalı bu filtre tasarımı, her lensle aynı sonucu vermiyor. Bu beklenen bir durum. Aynı markanın farklı versiyonlara sahip lensleri dahi farklı dizilimlere sahip elemanları olan optik şaheserler günümüzde.
+![Swirly Bokeh 82mm Filtresi](/images/uploads/swirly-bokeh-4x565IV)
 
 Lensin optik şeması, ön eleman çapı, iç grup yerleşimi ve odak uzaklığı — hepsi filtrenin ışık dağılımıyla etkileşime giriyor. Kompakt, basit optik yapılı lensler genellikle daha geniş odak uzaklığı aralığında tutarlı swirly bokeh üretiyor. Kompleks, yüksek eleman sayılı ve büyük ön elemanlı lensler ise daha seçici davranıyor. Belirli odak uzaklıklarında çalışıyor, diğerlerinde ya etki kalmıyor ya da vinyetleme başlıyor.
 
@@ -114,5 +122,6 @@ Bu filtreler farklı bir yaklaşım sunuyor: spiral diyafram geometrisiyle lensi
 Sonuç her zaman aynı değil. Her lens farklı davranıyor, her montaj kombinasyonu farklı bir karakter üretiyor. Ama bu öngörülemezlik, bu keşfedilecek alanın geniş kalması, aslında bu filtrenin en ilgi çekici tarafı.
 
 Deney yapın. Odak uzaklıklarını deneyin. Step up halkaları deneyin. Filtreyi ön elemana yakın tutmakla uzak tutmayı karşılaştırın.
+
 
 Ve diyaframı açık bırakın.
