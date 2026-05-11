@@ -15,6 +15,8 @@ Swirly bokeh için lensinizdeki diyaframı en geniş açıklığa getirin. Bu de
 
 Bu bilgileri sindirdikten sonra şimdi asıl mucizeye doğru yolumuza devam edebiliriz.
 
+![](/images/uploads/swirly-bokeh-filtre.jpg)
+
 ---
 
 ## Swirly Bokeh Nedir ve Neden Bu Kadar İstenir
