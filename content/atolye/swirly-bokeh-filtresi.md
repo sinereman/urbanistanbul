@@ -27,11 +27,11 @@ Günümüzde swirly bokeh için iki yol var: ya gerçek bir Petzval lens kullanm
 
 Ben ikinci yolu seçtim ve iki farklı formatta filtre tasarladım.
 
-(/images/uploads/swirly-bokeh-4x565V)
+![](/images/uploads/swirly-bokeh-4x565V.jpg)
 
 Bu filtreyi kulanarak çektiğim kedi fotoğraflarına özel olarak hayranlık duyuyorum, kedilerin bir boyut kapısından çıkıyor gibi gözükmesi beni gülümsetiyor.
 
-(/images/uploads/swirly-bokeh-4x565VI)
+![](/images/uploads/swirly-bokeh-4x565VI.jpg)
 
 ---
 
@@ -77,7 +77,7 @@ Sinema versiyonu için ince kesit kullanma şansınız var ise bu size daha üst
 
 ### 82mm Filtre Versiyonu
 
-![Swirly Bokeh 82mm Filtresi](/images/uploads/swirly-bokeh-82mm.jpg)
+![](/images/uploads/swirly-bokeh-82mm.jpg)
 
 82mm versiyon doğrudan lens vidasına takılıyor. Mattebox gerekmez, ekstra ekipman gerekmez. Step up ring ile daha küçük çaplı lensler de kullanılabilir. Fakat mesafenin artması hesapları, filtre deseninin görüntüye etkisini etkileyecektir. 
 
