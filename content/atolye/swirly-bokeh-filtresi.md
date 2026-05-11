@@ -9,7 +9,8 @@ Yazar: B. Batıkan KURŞAT
 
 Helios, Petzval veya başka markaların m39 ile m42 bayonetli lensleriyle girdapsı bokehler almak yeniden popüler oldu. Çünkü ucuz ve gerçekten eğlenceli. Fakat bu lensleri modern aynasız makienelere takmanın bir çok riski de beraberinde getirdiği gözardı edilen bir gerçek. Bu yaşlı ve ucuz lenslerde bulunan katılaşmış yağ, bakteri, mantar kalıntıları, fungus, buhuya sebebiyet veren kimyasal kirlenme, zaman içinde odak yolu üzerinde aşınmayla ortaya çıkan metal talaş ve benzeri sorunlar pahalı aynasız kameranınızın sensörüne telafi edilemez zararlar verebilir. Daha pahalı sinema kameraları söz konusu olduğunda risk daha büyük elbette. OLPF filtrelerin göreceği zararlar ise bir başka yazının konusu olacağı için şimdilik kısa bir özet geçmiş olalım. 
 Güzel haber şu ki filtrelerle de çok hoş ve kuvvetli swirly bokeh almak mümkün. Önce kuralı söyleyelim, sonra devam edelim.
-(/images/uploads/swirly-bokeh-4x565I.jpg)
+
+![](/images/uploads/swirly-bokeh-4x565I.jpg)
 
 Swirly bokeh için lensinizdeki diyaframı en geniş açıklığa getirin. Bu değer (f/1.4, f/1.8, f/2, f/2.8) ne kadar geniş olursa etki o kadar belirgin olacak. Diyaframı kapattığınızda swirl etkisi önce azalır, sonra tamamen kaybolur. Bu bir tercih değil, optik bir zorunluluk. Ardından modelinizin arkasında, uzak bir doku, tekrarlayan örüntü olduğundan emin olun. Bu tekrarlayan yapı yeşil çimenlerle kaplı tepeler, birkaç ağaç olabileceği gibi, tuğla duvarda olabilir ya da koyu mavi bir deniz. Tekrarlı yapı swirly bokehi görünür kılmak açısından oldukça önemli.
 
