@@ -101,7 +101,7 @@ Bu nedenle filtreyi yeni bir lensle kullanmadan önce birkaç odak uzaklığınd
 
 **Step up halkalar:** 4x5.65 filtreyi mattebox olmadan kullanmak istiyorsanız en azından iki step up halkayla deneme yapın. Mesafe arttıkça performans artıyor. 10-15mm ekstra mesafe bile fark yaratıyor.
 
-**Otofokus:** Çalışmaya devam ediyor. Kullanın. Bu filtrenin manuel fokus gerektirmemesi, onu sokak fotoğrafçılığı ve hızlı portre çekimleri için de kullanılabilir kılıyor. Robot, Dkl mount gibi çok Çok eski biotar lenslere 4000 dolar civarında vererek ulaşabileceğiniz swirly bokehe autofocusla ulaşmanız mümkün oluyor bu filtreyle. Üstelik çantanızdaki otomatik odak lense bu özelliği katmanın vereceği bir maliyet yükü de omuzlarınızda olmayacak.
+**Otofokus:** Çalışmaya devam ediyor. Kullanın. Bu filtrenin manuel fokus gerektirmemesi, onu sokak fotoğrafçılığı ve hızlı portre çekimleri için de kullanılabilir kılıyor. Robot, Dkl mount gibi çok çok eski biotar lenslere 4000 dolar civarında vererek ulaşabileceğiniz swirly bokehe autofocusla ulaşmanız mümkün oluyor bu filtreyle, o halde bütçenizi yormadan bu filtrelere bir şans verin. Üstelik hali hazırda 3D yazıcınız var ise çantanızdaki otomatik odak lense bu özelliği katmanın vereceği ek bir maliyet yükü de omuzlarınızda olmayacak.
 
 ---
 
