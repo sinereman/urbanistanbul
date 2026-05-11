@@ -5,6 +5,7 @@ konu: "Lens & Filtre"
 draft: false
 image: "/images/uploads/swirly-bokeh-filtre.jpg"
 ---
+Yazar: B. Batıkan KURŞAT
 
 Helios, Petzval veya başka markaların m39 ile m42 bayonetli lensleriyle girdapsı bokehler almak yeniden popüler oldu. Çünkü ucuz ve gerçekten eğlenceli. Fakat bu lensleri modern aynasız makienelere takmanın bir çok riski de beraberinde getirdiği gözardı edilen bir gerçek. Bu yaşlı ve ucuz lenslerde bulunan katılaşmış yağ, bakteri, mantar kalıntıları, fungus, buhuya sebebiyet veren kimyasal kirlenme, zaman içinde odak yolu üzerinde aşınmayla ortaya çıkan metal talaş ve benzeri sorunlar pahalı aynasız kameranınızın sensörüne telafi edilemez zararlar verebilir. Daha pahalı sinema kameraları söz konusu olduğunda risk daha büyük elbette. OLPF filtrelerin göreceği zararlar ise bir başka yazının konusu olacağı için şimdilik kısa bir özet geçmiş olalım. 
 Güzel haber şu ki filtrelerle de çok hoş ve kuvvetli swirly bokeh almak mümkün. Önce kuralı söyleyelim, sonra devam edelim.
