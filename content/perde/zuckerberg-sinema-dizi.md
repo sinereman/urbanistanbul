@@ -92,7 +92,7 @@ Influencer üretimi bu çeşitliliği sunmuyor. Bir akıllı telefon kamerasıyl
 
 Türkiye'de 2024-2025 sezonunda 44 dizi ekranlara gelirken yalnızca 15'i yeni sezon onayı aldı. Sezonluk dizi sayısı düşüşle 44'e geriledi, yayınlanan bölüm sayısı ise son üç sezonda ilk kez bin bölüm barajının altında kaldı. 2025 yılında yayına başlayan 31 diziden 21'i erken final yaparken yalnızca 10 dizi ekran yolculuğunu sürdürebildi.
 
-On yıl önce Türk dizi sektörü dünyanın en güçlü ikinci içerik ihracatçısıydı. 170 ülkeye ihraç edilen Türk dizileri dünya genelinde yaklaşık 1 milyar kişi tarafından izlendi. Yılda sekiz başarılı dizi, yurt dışında saat başı 100 bin dolara yakın satışla büyük bir gelir potansiyeli yaratabiliyordu. Artık reklam gelirleri bir bölümün maliyetinin ancak yarısını karşılayabiliyor.
+On yıl önce Türk dizi sektörü dünyanın en güçlü ikinci içerik ihracatçısıydı. 170 ülkeye ihraç edilen Türk dizileri dünya genelinde yaklaşık 1 milyar kişi tarafından izlendi. Yılda sekiz başarılı dizi, yurt dışında saat başı 125 bin dolara yakın satışla büyük bir gelir potansiyeli yaratabiliyordu. Artık reklam gelirleri bir bölümün maliyetinin ancak yarısını karşılayabiliyor.
 
 ---
 
@@ -114,7 +114,7 @@ Kanallar yapımcılardan yüzde 10-15 bütçe revizyonu istiyor. Bir kanal "böl
 
 Bir sektör devlet desteğine ihtiyaç duyduğunda, o sektörün kendi dinamikleriyle ayakta duramadığını anlıyorsunuz demektir.
 
-Türkiye, dizi sektörünü hayatta tutmak için bölüm başına 100 bin dolara yakın destek mekanizmaları geliştirmeyi gündemine aldı. Yani devlet, bir zamanlar kendi kendine yeten, hatta ihracat geliri yaratan bir sektörü suni teneffüsle tutmaya çalışıyor.
+Türkiye, dizi sektörünü hayatta tutmak için bölüm başına 100 bin dolara yakın destek mekanizmaları geliştirmeyi gündemine aldı. Yani devlet, bir zamanlar kendi kendine yeten, hatta ihracat geliri yaratan bir sektörü suni teneffüsle hayatta tutmaya çalışıyor.
 
 Bu, bir acil müdahale değil. Bu, yapısal bir çöküşün semptomu.
 
