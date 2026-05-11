@@ -162,4 +162,4 @@ Mark Zuckerberg'in elinde bir silah yoktu. Sadece bir platform vardı. Ve o plat
 
 Buna cinayet demek zor. Ama ihmal demek de yetersiz.
 
-Bu bir ekonomik dönüşüm. Kaybedenler ise henüz sayılmaya devam ediyor.
+Bu bir ekonomik dönüşüm. Yaratıcı yazarlık, sektörde deneyim artık kelimenin tam anlamıyla önemsiz. İzleyiciyi başka bir gerçekliğe inandıracak kadar usta olmanızda ödüller, malikaneler, jetler ve dillere destan bir servet ile takdir edilmeyecek. Twerk yaparak büyük kitlelere ulaşabilir, hayatını binlerce yıllık hikaye anlatıcılığında ustalaşmaya adamış bir senarist ve ya bir sinema yönetmeninden çok daha büyük servet yapabilirsiniz. 
