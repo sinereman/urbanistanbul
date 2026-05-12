@@ -9,7 +9,7 @@ draft: false
 
 Sinema dünyasında "Petzval" etkisi olarak bilinen o ekstrem dairesel netlik kaybı, aslında bir optik kusurun sanata dönüşmesidir. Yıllardır bağımsız filmciler, ikonik **Helios 44-2 58mm** lenslerin ön elementini söküp ters çevirerek (front element flip) bu etkiyi manuel olarak elde etmeye çalıştılar. Sonuç: Merkezde keskin, kenarlarda ise dünyayı bir girdaba sokan masalsı bir görüntü.
 
-Ancak bu işlem her zaman riskliydi; toz kaçması, elementin tam merkezlenememesi ve lensin mekanik yapısının bozulması gibi sorunlar profesyonel setlerde bu "modlanmış" lenslerin kullanımını zorlaştırıyordu. 7artisans, **Floral Bloom** serisiyle (35mm ve 50mm/57mm) bu kaosu bir endüstri standardına dönüştürdü.
+Ancak bu işlem her zaman riskliydi; toz kaçması, elementin tam merkezlenememesi ve lensin mekanik yapısının bozulması gibi sorunlar profesyonel setlerde bu "modlanmış" lenslerin kullanımını zorlaştırıyordu. 7artisans, **Floral Bloom** serisiyle 37mm ve 57mm lensleriyle bu kaosu bir endüstri standardına dönüştürdü.
 
 ---
 
