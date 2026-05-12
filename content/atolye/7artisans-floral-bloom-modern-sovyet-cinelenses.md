@@ -1,7 +1,7 @@
 ---
 title: "7artisans Floral Bloom: Modern Gövdede Ters Çevrilmiş Sovyet Ruhu"
 date: 2026-05-11
-tarih: 2026-05-11
+konu: "Fotoğrafçılık"
 image: "/images/uploads/7artisans-floral-bloom.jpg"
 foto_yon: "yatay"
 draft: false
