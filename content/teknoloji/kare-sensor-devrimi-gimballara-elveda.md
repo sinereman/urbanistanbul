@@ -1,7 +1,7 @@
 ---
 title: "Kare Sensör Devrimi: Büyük Camlara ve Fiziksel Gimballara Elveda"
-date: 2026-05-13
-tarih: 2026-05-13
+date: 2026-05-12
+tarih: 2026-05-12
 image: "/images/uploads/square-sensor-tech-deep-dive.jpg"
 foto_yon: "yatay"
 draft: false
