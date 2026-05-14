@@ -6,7 +6,7 @@ draft: false
 image: "/images/uploads/canon-eos-r6v-main.jpg"
 ---
 
-Canon, "V" serisinin en yeni ve en agresif üyesini bugün resmen duyurdu. Nikon’un kısa süre önce tanıttığı kutu (box) formundaki ZR modeline verilen bu yanıt, sadece bir gövde güncellemesi değil; Canon’un hibrit dünyasındaki dengeleri değiştirecek bir hamle.
+Canon, "V" serisinin en yeni ve en agresif üyesini bugün resmen duyurdu. Nikon’un kısa süre önce tanıttığı kompakt formundaki sinema kamera ZR modeline verilen bu yanıt, sadece bir gövde güncellemesi değil; Canon’un hibrit dünyasındaki dengeleri değiştirecek bir hamle.
 
 EOS R6V, fotoğrafçıların alışık olduğu o klasik "aynasız" silüetini koruyor gibi görünse de, kapağın altında safkan bir video canavarı saklıyor. Elektronik vizör (EVF) ve mekanik deklanşör gibi geleneksel parçaları feda eden Canon, bunun yerine içerik üreticilerinin ve bağımsız sinemacıların rüyası olan **7K Open Gate** ve **aktif soğutma** sistemini getirdi.
 
