@@ -33,7 +33,7 @@ Dolu bir salon, sadece bilet geliri demek değildir. O salona giren 300 kişi, g
 
 ### Sonuç: Ya Dönüş ya Terk Et
 
-Sinema salonlarını kapatmak, bir kültürel mirası ve devasa bir altyapıyı çöpe atmaktır. Salonları dönüştürmek ise şehre yeni bir soluk, sanatçıya yeni bir mecra, halka ise kaliteli bir eğlence sunmaktır. 
+Sinema salonlarını kapatmak, bir kültürel mirası ve devasa bir altyapıyı çöpe atmaktır. Salonları dönüştürmek ise şehre yeni bir soluk, sanatçıya yeni bir mecra, halka ise kaliteli bir eğlence sunmaktır. Yakın gelecekte göreceğimiz ise şu olacak, avm yönetimleri ya salonlarını dönüştür yada avm yapımı terk et. Binlerce metrekarelik boş alanlara kimsenin rıza göstermeyeceği açık ve akılcı tek seçim elbette.
 
 Başlık net: **Salonlar kapanacağına dönüşsün.** Sinemanın o devasa sessizliğini, alkışlarla ve kahkahalarla bozmanın vakti geldi.
 
