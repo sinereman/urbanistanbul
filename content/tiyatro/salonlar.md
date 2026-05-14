@@ -5,6 +5,7 @@ category: "Tiyatro"
 draft: false
 image: "/images/uploads/sinemasalon.jpg"
 ---
+Yazar: B. Batıkan KURŞAT
 
 Türkiye’de sinema sektörü, son model bir arabanın içinde benzini bittiği için yolda kalan bir şoför gibi; araç pırıl pırıl, konfor en üst düzeyde ama ilerlemiyor. Salonlar boş, koltuklar soğuk, perdeler ruhsuz. Öte tarafta ise tiyatro salonları kapış kapış gidiyor, stand-up gösterileri için aylar öncesinden bilet kovalanıyor. Sinema öldü demiyorum, ama sinema salonlarının mevcut "geleneksel" işletme mantığı kesinlikle komada.
 
@@ -37,4 +38,4 @@ Sinema salonlarını kapatmak, bir kültürel mirası ve devasa bir altyapıyı 
 Başlık net: **Salonlar kapanacağına dönüşsün.** Sinemanın o devasa sessizliğini, alkışlarla ve kahkahalarla bozmanın vakti geldi.
 
 ---
-*Bu metin, sinemanın ve sahne sanatlarının geleceğine dair rasyonel bir başkaldırıdır.*
+
