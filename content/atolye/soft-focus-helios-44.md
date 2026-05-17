@@ -12,7 +12,9 @@ Yazar: B. Batıkan KURŞAT
 Keskinlik her zaman hakikat değildir.
  
 Fotoğraf tarihinin büyük bir bölümünde en değerli görüntüler, en keskin görüntüler değildi. Julia Margaret Cameron 1860'larda kasıtlı olarak bulanık fotoğraflar çekti ve çağdaşları bunu teknik yetersizlik saydı. Oysa Cameron, derin alan yerine derin his peşindeydi. Yıllar sonra o "bulanık" fotoğraflar müze koleksiyonlarına girdi. Keskinlik peşindekiler çoktan unutulmuştu.
- ![](/images/uploads/softcousshhelios.jpg)
+
+![](/images/uploads/softcousshhelios.jpg)
+
 Bu yazı bir Helios 44 lens modifikasyonu anlatısı. Ama aynı zamanda soft focus'un ne olduğunun, tarihsel kökenlerinin, neden dijital çağda neredeyse kaybolduğunun ve neden hâlâ önemli olduğunun hikayesi. Ve diyaframı f/2 konumunda sabit tutarak yarattığım iki ayrı soft focus diyaframı, bu eski Sovyet merceğine nasıl yeni bir kimlik kazandırdı.
  
 ---
