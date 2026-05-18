@@ -3,15 +3,14 @@ languageCode = "tr-TR"
 title = "URBANİSTANBUL"
 enableRobotsTXT = true
 enableEmoji = true
-
+canonifyURLs = true
+relativeURLs = false
 [params]
   description = "İstanbul'da bu hafta ne var? Tiyatro, sergi, konser, lezzet ve daha fazlası."
   gold = "#C8A96E"
-
 [taxonomies]
   kategori = "kategoriler"
   konu = "konular"
-
 [outputs]
   home = ["HTML"]
   page = ["HTML"]
