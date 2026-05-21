@@ -18,7 +18,7 @@ Bu soruyu yanıtlamak için Figure AI geçen hafta kameralar önüne geçti. Ve 
 
 ---
 
-## 160 Saat, 200.000 Paket, Hiç Dur
+## 160 Saat, 200.000 Paket, Robot Yorulmadı
 
 13 Mayıs 2026'da Figure AI, San Jose'deki deposunda üç adet F.03 insansı robotunu konveyör bandının yanına yerleştirdi ve YouTube'da canlı yayına başladı.
 
