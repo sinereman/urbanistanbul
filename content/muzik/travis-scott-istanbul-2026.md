@@ -10,8 +10,6 @@ draft: false
 
 Milyonlarca kişinin gördüğü dev stadyum konserleri. Astroworld turneleri. Sahne düzenlemeleriyle sektörün standartlarını yeniden tanımlayan bir isim.
 
-Ve şimdi, 2.500 kişi.
-
 Travis Scott, 31 Mayıs 2026'da ilk kez İstanbul'a geliyor. Tersane İstanbul Grand Factory'de, yalnızca 2.500 kişinin katılabileceği "One Night Only in the Club with Travis Scott" konseptiyle. Bu, Scott'ın dünya genelinde nadiren verdiği türden bir performans: stadyumun değil, kulübün enerjisi. Sanatçının büyük sahnelerde milyonlara değil, küçük bir mekânda birkaç bine dokunduğu gecelerden biri.
 
 Türkiye'de ilk kez.
