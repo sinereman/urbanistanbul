@@ -6,7 +6,7 @@ draft: false
 image: "/images/uploads/canon-r8-markii.jpg"
 ---
 
-Canon, 15 Eylül 2026'da EOS R8 Mark II'yi resmen tanıttı.
+Canon, 15 Eylül 2026'da EOS R8 Mark II'yi resmen tanıttı. Gövde tasarımında 1985'e geri dönüş oldu. T80 filmli gövdenin tasarımı 40 yıl sonra yeniden yorumlandı.
 
 İlk bakışta dikkat çeken şey teknik özellikler değil, tasarım. Canon Rumors aylarca "retro tasarım geliyor" diye yazdı. Sonunda gelen şey retro değildi. Ama yine de alışılmışın dışında bir şeydi: köşeli yüzeyler, belirgin EVF tümseci, düz ve seyahate uygun bir gövde formu. Canon bu kamerayla EOS serisinin genel tasarım diline farklı bir bakış açısı getirdi. Canon Rumors'ın kendi yorumuyla "belki Sony ve Fuji'nin tasarım dilinden ilham alınmış" bir kamera.
 
