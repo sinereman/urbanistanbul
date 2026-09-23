@@ -1,0 +1,137 @@
+{{ define "main" }}
+
+<div class="uk-single">
+
+  <!-- ÜSTTE İNCE BAŞLIK BANDI -->
+  <div class="uk-single-header">
+    <div class="uk-single-header-left">
+      <a href="/urbankare" class="uk-back">← URBAN KARE</a>
+    </div>
+    <div class="uk-single-header-right">
+      {{ with .Params.tarih }}<span class="uk-single-date">{{ dateFormat "2 January 2006" . }}</span>{{ end }}
+    </div>
+  </div>
+
+  <!-- GAZETE ALANI -->
+  <div class="uk-newspaper">
+
+    <!-- BÜYÜK BAŞLIK -->
+    <div class="uk-newspaper-title-block">
+      <div class="uk-newspaper-kicker">
+        {{ with .Params.fotograf }}<span class="uk-kicker-name">{{ . }}</span>{{ end }}
+        {{ with .Params.mekan }}<span class="uk-kicker-mekan">{{ . }}</span>{{ end }}
+      </div>
+      <h1 class="uk-newspaper-title">{{ .Title }}</h1>
+      {{ with .Params.not }}
+      <blockquote class="uk-newspaper-quote">"{{ . }}"</blockquote>
+      {{ end }}
+    </div>
+
+    <!-- AYRAÇ -->
+    <div class="uk-newspaper-rule"></div>
+
+    <!-- İÇERİK: FLOAT LAYOUT -->
+    <div class="uk-newspaper-body">
+
+      {{ if .Params.image }}
+      <div class="uk-float-img-wrap">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="uk-float-img" />
+        {{ with .Params.fotograf }}
+        <div class="uk-float-img-caption">{{ . }}</div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="uk-newspaper-content">
+        {{ .Content }}
+      </div>
+
+      <div class="uk-clearfix"></div>
+    </div>
+
+    <!-- YOUTUBE EMBED -->
+    {{ with .Params.youtube }}
+    <div class="uk-video-wrap">
+      <div class="uk-video-label">VİDEO</div>
+      <div class="uk-video-embed">
+        <iframe src="https://www.youtube.com/embed/{{ . }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- ALT BANT -->
+    <div class="uk-newspaper-footer">
+      <a href="/urbankare" class="uk-footer-back">Tüm Yürüyüşler →</a>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+/* ── SAYFA ZEMİN ── */
+.uk-single { background: var(--white); min-height: 100vh; }
+
+/* ── ÜST BANT ── */
+.uk-single-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; border-bottom: 1px solid var(--gray-2); background: var(--white); }
+.uk-back { font-size: 10px; letter-spacing: 0.14em; font-weight: 600; color: var(--gray-3); text-decoration: none; transition: color 0.2s; }
+.uk-back:hover { color: var(--black); }
+.uk-single-date { font-size: 10px; color: var(--gray-3); letter-spacing: 0.06em; }
+
+/* ── GAZETE ── */
+.uk-newspaper { max-width: 860px; margin: 0 auto; padding: 56px 48px 80px; }
+
+/* ── BAŞLIK BLOĞU ── */
+.uk-newspaper-title-block { margin-bottom: 28px; }
+.uk-newspaper-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.uk-kicker-name { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--black); text-transform: uppercase; }
+.uk-kicker-mekan { font-size: 11px; color: var(--gray-3); letter-spacing: 0.06em; }
+.uk-kicker-mekan::before { content: "—"; margin-right: 12px; color: var(--gray-2); }
+.uk-newspaper-title { font-family: var(--serif); font-size: 48px; font-weight: 500; line-height: 1.1; color: var(--black); margin: 0 0 20px; }
+.uk-newspaper-quote { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--gray-4); line-height: 1.6; margin: 0; padding-left: 20px; border-left: 3px solid var(--gray-2); }
+
+/* ── AYRAÇ ── */
+.uk-newspaper-rule { height: 2px; background: var(--black); margin: 28px 0; }
+
+/* ── FLOAT LAYOUT ── */
+.uk-newspaper-body { overflow: hidden; }
+.uk-float-img-wrap { float: left; width: 320px; margin: 4px 36px 24px 0; shape-outside: border-box; }
+.uk-float-img { width: 100%; display: block; filter: grayscale(100%); }
+.uk-float-img-caption { font-size: 10px; color: var(--gray-3); letter-spacing: 0.06em; margin-top: 8px; text-align: center; text-transform: uppercase; }
+.uk-clearfix::after { content: ""; display: table; clear: both; }
+
+/* ── YAZI İÇERİĞİ ── */
+.uk-newspaper-content { font-family: var(--sans); font-size: 16px; line-height: 1.85; color: var(--black); }
+.uk-newspaper-content p { margin-bottom: 20px; }
+.uk-newspaper-content h2 { font-family: var(--serif); font-size: 26px; font-weight: 500; margin: 36px 0 14px; color: var(--black); clear: both; }
+.uk-newspaper-content h2::before { content: ""; display: block; width: 28px; height: 2px; background: var(--orange); margin-bottom: 8px; }
+.uk-newspaper-content hr { border: none; border-top: 1px solid var(--gray-2); margin: 28px 0; clear: both; }
+.uk-newspaper-content strong { font-weight: 600; color: var(--black); }
+.uk-newspaper-content blockquote { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--gray-4); border-left: 3px solid var(--gray-2); padding-left: 20px; margin: 28px 0; }
+
+/* ── VİDEO ── */
+.uk-video-wrap { margin-top: 48px; border-top: 1px solid var(--gray-2); padding-top: 32px; }
+.uk-video-label { font-size: 9px; letter-spacing: 0.18em; font-weight: 700; color: var(--gray-3); margin-bottom: 14px; }
+.uk-video-embed { position: relative; width: 100%; aspect-ratio: 16/9; }
+.uk-video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ── ALT ── */
+.uk-newspaper-footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--gray-2); }
+.uk-footer-back { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--orange); text-decoration: none; }
+.uk-footer-back:hover { color: var(--cobalt); }
+
+/* ── RESPONSİVE ── */
+@media (max-width: 900px) {
+  .uk-newspaper { padding: 36px 28px 60px; }
+  .uk-newspaper-title { font-size: 34px; }
+  .uk-float-img-wrap { width: 240px; margin-right: 24px; }
+  .uk-single-header { padding: 14px 24px; }
+}
+@media (max-width: 600px) {
+  .uk-float-img-wrap { float: none; width: 100%; margin: 0 0 24px; }
+  .uk-newspaper-title { font-size: 26px; }
+  .uk-newspaper { padding: 28px 20px 48px; }
+}
+</style>
+
+{{ end }}
