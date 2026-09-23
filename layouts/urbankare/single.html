@@ -94,11 +94,11 @@
 .uk-newspaper-rule { height: 2px; background: var(--black); margin: 28px 0; }
 
 /* ── FLOAT LAYOUT ── */
-.uk-newspaper-body { overflow: hidden; }
-.uk-float-img-wrap { float: left; width: 320px; margin: 4px 36px 24px 0; shape-outside: border-box; }
+.uk-newspaper-body { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; }
+.uk-float-img-wrap { position: sticky; top: 80px; }
 .uk-float-img { width: 100%; display: block; filter: grayscale(100%); }
 .uk-float-img-caption { font-size: 10px; color: var(--gray-3); letter-spacing: 0.06em; margin-top: 8px; text-align: center; text-transform: uppercase; }
-.uk-clearfix::after { content: ""; display: table; clear: both; }
+.uk-clearfix { display: none; }
 
 /* ── YAZI İÇERİĞİ ── */
 .uk-newspaper-content { font-family: var(--sans); font-size: 16px; line-height: 1.85; color: var(--black); }
@@ -124,11 +124,12 @@
 @media (max-width: 900px) {
   .uk-newspaper { padding: 36px 28px 60px; }
   .uk-newspaper-title { font-size: 34px; }
-  .uk-float-img-wrap { width: 240px; margin-right: 24px; }
+  .uk-newspaper-body { grid-template-columns: 220px 1fr; gap: 28px; }
   .uk-single-header { padding: 14px 24px; }
 }
 @media (max-width: 600px) {
-  .uk-float-img-wrap { float: none; width: 100%; margin: 0 0 24px; }
+  .uk-newspaper-body { grid-template-columns: 1fr; }
+  .uk-float-img-wrap { position: static; }
   .uk-newspaper-title { font-size: 26px; }
   .uk-newspaper { padding: 28px 20px 48px; }
 }
