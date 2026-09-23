@@ -1,0 +1,113 @@
+{{ define "main" }}
+
+{{ $urbankare := where .Site.RegularPages "Section" "urbankare" }}
+{{ $sorted := $urbankare.ByDate.Reverse }}
+
+<div class="uk-page">
+
+  <!-- BAŞLIK -->
+  <div class="uk-hero">
+    <div class="uk-hero-inner">
+      <div class="uk-hero-label">URBAN KARE</div>
+      <h1 class="uk-hero-title">Her Hafta Bir Fotoğrafçı,<br>Bir Semt, Bir Yürüyüş.</h1>
+      <p class="uk-hero-desc">İstanbul'un sokaklarında, aynasız kameralar ve vintage lenslerle. Siyah beyaz kareler ve tanık olunan anlar.</p>
+    </div>
+    <div class="uk-hero-counter">
+      <span class="uk-counter-num">{{ len $urbankare }}</span>
+      <span class="uk-counter-label">yürüyüş</span>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  {{ if $sorted }}
+  <div class="uk-grid">
+    {{ range $sorted }}
+    <a href="{{ .Permalink }}" class="uk-card">
+      <div class="uk-card-img-wrap">
+        {{ if .Params.image }}
+        <div class="uk-card-img" style="background-image:url('{{ .Params.image }}')"></div>
+        {{ else }}
+        <div class="uk-card-img uk-card-img--empty">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"><circle cx="12" cy="13" r="4"/><path d="M5 7h2l2-3h6l2 3h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        {{ end }}
+        <div class="uk-card-episode">
+          #{{ sub (len $urbankare) ($.Paginator.PageNumber) }}
+        </div>
+      </div>
+      <div class="uk-card-body">
+        <div class="uk-card-meta">
+          {{ with .Params.fotograf }}<span class="uk-card-fotograf">{{ . }}</span>{{ end }}
+          {{ with .Params.mekan }}<span class="uk-card-mekan">{{ . }}</span>{{ end }}
+        </div>
+        <div class="uk-card-title">{{ .Title }}</div>
+        {{ with .Params.not }}<div class="uk-card-not">"{{ . }}"</div>{{ end }}
+        <div class="uk-card-tarih">
+          {{ with .Params.tarih }}{{ dateFormat "2 Jan 2006" . }}{{ else }}{{ dateFormat "2 Jan 2006" .Date }}{{ end }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="uk-empty">
+    <p>İlk yürüyüş yakında.</p>
+  </div>
+  {{ end }}
+
+</div>
+
+<style>
+/* ── SAYFA ── */
+.uk-page { background: var(--black); min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── HERO ── */
+.uk-hero { display: flex; align-items: flex-end; justify-content: space-between; padding: 64px 48px 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.uk-hero-label { font-size: 10px; letter-spacing: 0.22em; font-weight: 600; color: var(--yellow); margin-bottom: 18px; }
+.uk-hero-title { font-family: var(--serif); font-size: 52px; font-weight: 400; line-height: 1.1; color: var(--white); margin: 0 0 16px; }
+.uk-hero-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 480px; margin: 0; }
+.uk-hero-counter { text-align: right; flex-shrink: 0; padding-left: 48px; }
+.uk-counter-num { display: block; font-family: var(--serif); font-size: 80px; font-weight: 400; color: rgba(255,255,255,0.08); line-height: 1; }
+.uk-counter-label { font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+
+/* ── GRID ── */
+.uk-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid rgba(255,255,255,0.08); flex: 1; }
+.uk-card { display: flex; flex-direction: column; text-decoration: none; border-right: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); transition: background 0.25s; position: relative; overflow: hidden; }
+.uk-card:hover { background: rgba(255,255,255,0.02); }
+
+/* ── GÖRSEL ── */
+.uk-card-img-wrap { position: relative; width: 100%; aspect-ratio: 2/3; overflow: hidden; filter: grayscale(100%); }
+.uk-card-img { position: absolute; inset: 0; background-size: cover; background-position: center top; transition: transform 0.6s ease; }
+.uk-card-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease; }
+.uk-card:hover .uk-card-img { transform: scale(1.04); }
+.uk-card-img--empty { background: #111; display: flex; align-items: center; justify-content: center; }
+.uk-card-episode { position: absolute; top: 16px; left: 16px; font-size: 9px; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); font-weight: 600; z-index: 2; }
+
+/* ── BODY ── */
+.uk-card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; background: var(--black); }
+.uk-card-meta { display: flex; align-items: center; gap: 8px; }
+.uk-card-fotograf { font-size: 11px; font-weight: 600; color: var(--yellow); letter-spacing: 0.04em; }
+.uk-card-mekan { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; }
+.uk-card-mekan::before { content: "·"; margin-right: 8px; color: rgba(255,255,255,0.15); }
+.uk-card-title { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.3; color: var(--white); }
+.uk-card-not { font-size: 12px; color: rgba(255,255,255,0.35); font-style: italic; line-height: 1.6; border-left: 2px solid rgba(255,255,255,0.1); padding-left: 10px; }
+.uk-card-tarih { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: auto; letter-spacing: 0.04em; }
+
+/* ── BOŞ ── */
+.uk-empty { padding: 120px 48px; text-align: center; color: rgba(255,255,255,0.2); font-family: var(--serif); font-size: 20px; }
+
+/* ── RESPONSİVE ── */
+@media (max-width: 900px) {
+  .uk-hero { flex-direction: column; align-items: flex-start; padding: 40px 24px 32px; gap: 24px; }
+  .uk-hero-title { font-size: 34px; }
+  .uk-hero-counter { padding-left: 0; }
+  .uk-counter-num { font-size: 52px; }
+  .uk-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .uk-grid { grid-template-columns: 1fr; }
+  .uk-hero-title { font-size: 28px; }
+}
+</style>
+
+{{ end }}
