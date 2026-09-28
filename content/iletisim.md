@@ -14,7 +14,7 @@ Yazın.
 
 Her türlü soru, öneri ve iş birliği talebi için:
 
-**[808mediamovie@gmail.com](mailto:808mediamovie@gmail.com)**
+**[info@urbanistanbul.com](mailto:info@urbanistanbul.com)**
 
 Mesajlarınıza en geç 48 saat içinde dönmeye çalışıyoruz.
 
@@ -26,7 +26,7 @@ Mesajlarınıza en geç 48 saat içinde dönmeye çalışıyoruz.
 
 Bize gönderin — editoryal değerlendirmemizden geçen etkinlikleri yayınlıyoruz. Tüm başvurular incelenir, ancak her başvurunun yayınlanacağını garanti edemiyoruz.
 
-**Etkinlik duyuruları için:** [808mediamovie@gmail.com](mailto:808mediamovie@gmail.com)
+**Etkinlik duyuruları için:** [info@urbanistanbul.com](mailto:info@urbanistanbul.com)
 
 Mailinizin konusuna **"Etkinlik Duyurusu"** yazmanızı rica ederiz.
 
@@ -36,7 +36,7 @@ Mailinizin konusuna **"Etkinlik Duyurusu"** yazmanızı rica ederiz.
 
 URBANİSTANBUL'da reklam vermek ya da sponsor içerik yayınlamak istiyorsanız:
 
-**[808mediamovie@gmail.com](mailto:808mediamovie@gmail.com)**
+**[info@urbanistanbul.com](mailto:info@urbanistanbul.com)**
 
 Mailinizin konusuna **"Reklam"** yazın. Medya kitimizi ve fiyat listemizi size ileteceğiz.
 
@@ -46,7 +46,7 @@ Mailinizin konusuna **"Reklam"** yazın. Medya kitimizi ve fiyat listemizi size 
 
 Fotoğrafçılık atölyelerimiz, içerik iş birlikleri ya da Urbankare markasıyla ilgili sorularınız için:
 
-**[808mediamovie@gmail.com](mailto:808mediamovie@gmail.com)** — konu satırına **"Urbankare"** yazın.
+**[info@urbanistanbul.com](mailto:info@urbanistanbul.com)** — konu satırına **"Urbankare"** yazın.
 
 ---
 
