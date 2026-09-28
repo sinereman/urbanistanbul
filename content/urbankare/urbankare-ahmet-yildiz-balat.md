@@ -1,39 +1,25 @@
 ---
-title: "Balat'ta Sabah Işığı ve Eski Kapılar"
-date: 2026-09-22
-fotograf: "Ahmet Yıldız"
-mekan: "Balat, İstanbul"
-tarih: 2026-09-21
-not: "Balat bana her seferinde farklı bir şey söylüyor. Bu sabah kapıların dilini öğrendim."
-image: "/images/uploads/urbankare-ahmet-yildiz-balat.jpg"
+title: "Haliç'ten Süleymaniye'ye: Görünenin Değil, Hissettiğimin Fotoğrafı"
+date: 2026-09-28
+fotograf: "Orçun Karamustafa"
+mekan: "Haliç, Süleymaniye, Yeni Cami, İstanbul"
+tarih: 2026-09-28
+not: "Görünenin değil, hissettiğimin fotoğrafını çekiyorum."
+image: "/images/uploads/urbankare-orcun-karamustafa-halic.jpg"
 youtube: ""
 draft: false
 ---
 
-Sabah yedide Balat'taydık.
+Ara Güler'in pek de sevmediği Haliç Metro Köprüsü'nden başladım yürüyüşe. Tarihî Yarımada'ya geçip Süleymaniye Camii'nden Yeni Cami'ye doğru, yarım daire çizen bir rota izledim. Urban İstanbul'un Urban Kare formatı için iki kamerayla, tek başıma çıktığım bir fotoğraf yürüyüşüydü bu. Bir yandan fotoğraf çekerken bir yandan da o fotoğraflara giden yolu kaydettim; nerede durduğumu, neye baktığımı, neyi beklediğimi.
 
-Ahmet Yıldız elinde Helios 44-2, omzunda küçük bir çanta. "Işık bu saatte farklı" dedi, ilk sokağa girerken. Haklıydı. Balat'ın dar sokakları sabahın erken saatlerinde bambaşka bir karakter kazanıyor; güneş henüz yükselmemiş, gölgeler uzun, taş döşemeler nemli.
+İstanbul'da, bana İstanbul'da olduğumu hissettiren yerleri çekmeyi seviyorum. Şehrin doğup büyüdüğü, İstanbul'u İstanbul yapan semtlere dönüp durmam biraz bundan. O semtlerin yüzündeki tarihsel izlerin peşinde yürürken, bugün orada devam eden hayatla ilgileniyorum. Eski bir duvarın önünden geçen biri, bir yokuşta karşılaşan insanlar, kalabalığın içinde kendi işine dalmış bir esnaf...
 
----
+Bağımsız bir fotoğraf sanatçısı olarak, bütün bunların bende bıraktığı izlenimleri yakalamaya çalışıyorum. Aynı sokaktan defalarca geçsem de her seferinde başka bir şey dikkatimi çekebiliyor. Işık değişiyor, insanlar değişiyor, benim o günkü hâlim değişiyor. Bazen durup bekliyorum, bazen yürürken bir an karşıma çıkıyor. Fotoğraf çekmenin sevdiğim taraflarından biri de bu: Rotayı bilsem bile hangi fotoğrafla döneceğimi bilmiyorum.
 
-Ahmet, sokak fotoğrafçılığına on iki yıl önce başlamış. İstanbul'un semtlerini sistematik biçimde geziyor, her semte en az üç kez dönüyor. "İlk ziyarette semt sana kendini göstermiyor" diyor. "İkincisinde tanışıyorsunuz. Üçüncüsünde konuşmaya başlıyorsunuz."
+İstanbul'la kurduğum bu ilişki, İst-anbul serimin de temelinde duruyor. Şehrin değişen yüzünü izlerken, bütün bu değişimin içinde tanıdık gelen bir hâlin peşindeyim. Bir fotoğrafa sonradan baktığımda, deklanşöre bastığım yerde ne hissettiğimi yeniden hatırlamak istiyorum.
 
-Balat'ı ilk ziyaret ettiğinde fotoğraf çekmemiş. Sadece yürümüş.
-
----
-
-Bu sabah odaklandığı şey kapılardı. Balat'ın ahşap kapıları, her biri ayrı bir hikayenin girişi gibi. Kimi boyanmış, kimi solmuş, kimi yarı açık. Ahmet bir kapının önünde durdu, uzun süre baktı, sonra çömeldi. "Yüksekten çekince kapı küçülüyor" dedi. "Aynı seviyeden baktığında büyüklüğünü anlıyorsun."
-
-Helios'un swirly bokeh'i dar sokakta arkadaki yapıları yumuşatıyordu. Siyah beyaz çekiyordu, her zaman. "Renk dikkat dağıtıyor. Siyah beyazda formla kalıyorsun."
+"Görünenin değil, hissettiğimin fotoğrafını çekiyorum" derken kastettiğim de bu.
 
 ---
 
-Üç saatte on iki sokağı dolaştık. Ahmet toplamda belki kırk fotoğraf çekti. "Çok çekmiyorum" dedi. "Bir sokakta bir ya da iki kare. Fazlası seçimi zorlaştırıyor."
-
-Ayrılırken son bir fotoğraf daha çekti. Bir çocuk bir kapının önünde oturuyordu, bize bakmadan. Kapı sarıydı, çocuğun gölgesi taş zemine düşüyordu. Ahmet deklanşöre bir kez bastı. Kaldırdı. "Bu o kare" dedi.
-
----
-
-**Ahmet Yıldız hakkında**
-
-İstanbul doğumlu sokak fotoğrafçısı. On iki yıldır şehrin semtlerini belgeliyor. Vintage lensler ve film estetiğiyle çalışıyor. Instagram: @ahmetyildizfoto
+Ben Orçun Karamustafa. 1991 doğumluyum ve 2019'dan bu yana bağımsız fotoğraf sanatçısı olarak çalışıyorum. İstanbul'un sokakları, insanların yüzlerinde biriken izler ve müziğin etrafında şekillenen hayat, fotoğraflarımın merkezinde yer alıyor. Şehrin gündelik akışı içinde, çoğu zaman önünden geçip gittiğimiz karşılaşmalara bakıyorum. Bir yüzün, bir yapının ya da sıradan görünen bir anın içinde zamanın nasıl biriktiğiyle ilgileniyorum.
