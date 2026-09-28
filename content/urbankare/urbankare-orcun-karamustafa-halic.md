@@ -1,5 +1,5 @@
 ---
-title: "Haliç'ten Süleymaniye'ye: Görünenin Değil, Hissettiğimin Fotoğrafı"
+title: "Haliç'ten Eminönü’ne: Görünenin Değil, Hissettiğimin Fotoğrafı"
 date: 2026-09-28
 fotograf: "Orçun Karamustafa"
 mekan: "Haliç, Süleymaniye, Yeni Cami, İstanbul"
