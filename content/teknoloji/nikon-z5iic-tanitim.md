@@ -4,7 +4,7 @@ date: 2026-10-02
 konu: "Kamera"
 draft: false
 description: "Nikon, Z5II'nin sensörünü ve işlemcisini koruyup vizörü kaldırdı. Ortaya çıkan Z5IIc, full frame dünyasına ilk kez adım atacaklar için daha hafif ve daha uygun bir kapı."
-image: ""
+image: "/images/uploads/nikon-z5iic.jpg"
 ---
 
 Bir fotoğraf makinesini neyin "ciddi" yaptığına dair uzun süredir değişmeyen bir inancımız var: gözünüzü dayadığınız bir vizör. Oysa bugün kamera alan insanların büyük bir kısmı hayatı boyunca bir telefonun ekranına bakarak fotoğraf çekti. Nikon'un 23 Eylül'de duyurduğu Z5IIc, bu gerçeği kabullenen bir makine. Vizörü yok, ama altındaki her şey bir full frame gövdeden beklendiği gibi.
