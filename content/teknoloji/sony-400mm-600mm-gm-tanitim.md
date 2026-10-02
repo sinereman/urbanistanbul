@@ -4,7 +4,7 @@ date: 2026-10-02
 konu: "Lens"
 draft: false
 description: "Sony'nin yeni 400mm ve 600mm G Master lensleri bir kilonun altında. Kuş ve spor fotoğrafçılığında tripod ile elde çekim arasındaki çizgiyi yeniden çiziyorlar."
-image: ""
+image: "/images/uploads/sony-400mm-600mm-gm.jpg"
 ---
 
 Süper telefoto lens denince akla genellikle tripod ayağına bağlı, taşıma çantasıyla gelen, sahibini omuz ağrısına mahkûm eden dev cam gövdeler gelir. Sony'nin Eylül'de tanıttığı iki yeni G Master lens bu imajı değiştirmeye aday: FE 400mm F4.5 GM OSS ve FE 600mm F6.3 GM OSS. İkisi de yaklaşık 995 gram.

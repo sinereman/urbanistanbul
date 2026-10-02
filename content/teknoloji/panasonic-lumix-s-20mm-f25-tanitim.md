@@ -4,7 +4,7 @@ date: 2026-10-02
 konu: "Lens"
 draft: false
 description: "Panasonic'in yeni 20mm F2.5 lensi yalnızca 142 gram. Lumix S9 ve küçük L-mount gövdeler için şehir, seyahat ve vlog odaklı kompakt bir geniş açı."
-image: ""
+image: "/images/uploads/panasonic-lumix-s-20mm.jpg"
 ---
 
 Geniş açı lensler genellikle büyük olur. Geniş bir görüş alanını bozulmadan kadraja sığdırmak için camın da büyümesi gerekir. Panasonic'in Eylül ortasında duyurduğu Lumix S 20mm F2.5 bu kuralı esnetiyor: 142 gram, neredeyse bir kapak kadar ince bir gövde ve full frame bir sensörü kaplayan 20 milimetrelik bir bakış.
