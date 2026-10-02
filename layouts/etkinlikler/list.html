@@ -6,14 +6,14 @@
 {{ $festival := where .Site.RegularPages "Section" "festival" }}
 
 {{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $festival }}
-{{ $tumSorted := sort $tumEtkinlikler "Params.tarih" "asc" }}
+{{ $tumSorted := $tumEtkinlikler.ByDate.Reverse }}
 
 {{ $slider := first 10 $tumSorted }}
 
-{{ $muzikSorted    := sort $muzik "Params.tarih" "asc" }}
-{{ $tiyatroSorted  := sort $tiyatro "Params.tarih" "asc" }}
-{{ $sergiSorted    := sort $sergi "Params.tarih" "asc" }}
-{{ $festivalSorted := sort $festival "Params.tarih" "asc" }}
+{{ $muzikSorted    := $muzik.ByDate.Reverse }}
+{{ $tiyatroSorted  := $tiyatro.ByDate.Reverse }}
+{{ $sergiSorted    := $sergi.ByDate.Reverse }}
+{{ $festivalSorted := $festival.ByDate.Reverse }}
 
 <div class="list-page">
 
