@@ -16,17 +16,13 @@ URBANİSTANBUL, bu şehre dikkatle bakmak isteyenler için yazılan bağımsız 
 
 ## Bu Siteyi Kim Yapıyor?
 
-Ben Batıkan Kurşat. URBANİSTANBUL'un kurucusu, yazarı, editörü ve fotoğrafçısıyım. Sitedeki yazıları ben yazıyorum, fotoğrafların ve videoların büyük kısmını ben çekiyor, kurguluyorum.
-
-Fotoğrafla ilişkim sokakta başladı ve hep orada kaldı. İstanbul'un semtlerini yürüyerek, aynı köşeye farklı saatlerde dönerek, ışığın bir duvarı nasıl değiştirdiğini izleyerek çekmeyi seviyorum. Eski Sovyet lensleri, tuhaf bokeh filtreleri ve kusurlu optiklerle deneyler yapmak da bu merakın bir parçası. Atölye bölümündeki pek çok yazı bu deneylerden doğdu.
-
-Aynı zamanda bağımsız bir uygulama geliştiricisiyim. App Store'da Urban Studio, Analog Frame ve Swirly Camera gibi fotoğraf ve görüntü uygulamaları yayımlıyorum. Bir fotoğrafın nasıl göründüğü kadar nasıl üretildiğiyle de ilgilenmem, teknoloji yazılarımın da kaynağı.
+Sitedeki yazılar Batıkan Kurşat tarafından yazılıyor.
 
 ---
 
 ## Urban Kare
 
-Urban Kare, URBANİSTANBUL'un video ve fotoğraf yürüyüşü formatı. Her bölümde bir fotoğrafçıyla İstanbul'un bir semtinde yürüyoruz. O fotoğraf çekiyor, ben kamera arkasında o fotoğraflara giden yolu kaydediyorum: nerede durduğunu, neye baktığını, neyi beklediğini. Ardından fotoğrafçı kendi gözünden yürüyüşü yazıyor.
+Urban Kare, URBANİSTANBUL'un video ve fotoğraf yürüyüşü formatı. Her bölümde bir fotoğrafçıyla İstanbul'un bir semtinde yürüyoruz. Fotoğrafçı çekiyor, kamera ise o fotoğraflara giden yolu kaydediyor: nerede durduğunu, neye baktığını, neyi beklediğini. Ardından fotoğrafçı kendi gözünden yürüyüşü yazıyor.
 
 Amacımız, bir fotoğrafın yalnızca sonucunu değil, onu doğuran bakışı da göstermek.
 
