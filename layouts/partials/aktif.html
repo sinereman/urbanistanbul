@@ -1,0 +1,6 @@
+{{- /* Sayfa koleksiyonundan geçmiş olanları çıkarır. */ -}}
+{{- $l := slice -}}
+{{- range . -}}
+  {{- if not (partial "gecmis.html" .) -}}{{- $l = $l | append . -}}{{- end -}}
+{{- end -}}
+{{- return $l -}}

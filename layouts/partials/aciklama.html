@@ -1,0 +1,11 @@
+{{- $d := "" -}}
+{{- if .IsHome -}}
+  {{- $d = .Site.Params.description -}}
+{{- else if .Description -}}
+  {{- $d = .Description -}}
+{{- else if .IsPage -}}
+  {{- $d = .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | replaceRE `["“”]` "" | truncate 155 -}}
+{{- else -}}
+  {{- $d = printf "%s: URBANİSTANBUL'da %s bölümündeki yazılar." .Title (.Title | lower) -}}
+{{- end -}}
+{{- return (trim $d " ") -}}

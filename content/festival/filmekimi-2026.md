@@ -3,6 +3,7 @@ title: "Filmekimi 2026: Cannes ve Venedik'in Ödüllü Filmleri İstanbul'da"
 date: 2026-10-02
 tur: "Sinema"
 tarih: 2026-10-09
+bitis: 2026-10-18
 mekan: "Atlas 1948, City's CineWAM Nişantaşı, Kadıköy Sineması, Paribu Art"
 slug: "filmekimi-2026"
 image: "/images/uploads/filmekimi-2026.jpg"

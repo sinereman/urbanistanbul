@@ -1,7 +1,7 @@
 ---
 title: "SALONLAR KAPANACAĞINA DÖNÜŞSÜN: Sinemanın Cenazesinden Yeni Bir Sahne Doğurmak"
 date: 2026-05-14
-category: "Tiyatro"
+kategori: "Tiyatro"
 draft: false
 image: "/images/uploads/sinemasalon.jpg"
 ---

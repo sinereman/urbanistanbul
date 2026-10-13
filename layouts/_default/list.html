@@ -1,15 +1,17 @@
 {{ define "main" }}
 <div class="list-page">
+  <h1 class="sr-only">{{ .Title }}</h1>
+  {{ $sayfalar := partial "aktif.html" .Pages }}
 
   <div class="ed-section-header" style="margin-bottom:0;">
     <div class="ed-section-rule"></div>
     <div class="ed-section-label">{{ .Title | upper }}</div>
     <div class="ed-section-rule"></div>
-    <span class="ed-section-more">{{ len .Pages }} içerik</span>
+    <span class="ed-section-more">{{ len $sayfalar }} içerik</span>
   </div>
 
   <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
-    {{ range .Pages }}
+    {{ range $sayfalar }}
     <a href="{{ .Permalink }}" class="ed-event-card">
       {{ if .Params.image }}
         {{ if eq .Params.foto_yon "dikey" }}
@@ -40,7 +42,7 @@
       <div class="ed-event-title">{{ .Title }}</div>
       <div class="ed-event-meta">
         {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-        {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+        {{ with .Params.tarih }}<span>{{ time.Format "2 January 2006" . }}</span>{{ end }}
       </div>
     </a>
     {{ end }}

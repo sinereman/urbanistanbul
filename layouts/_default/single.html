@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $gecmis := partial "gecmis.html" . }}
 <article class="single-page">
 
   {{ $isDikey := eq .Params.foto_yon "dikey" }}
@@ -7,18 +8,16 @@
   <div class="single-hero {{ if $isDikey }}single-hero--portrait{{ end }}">
     {{ if .Params.image }}
       {{ if $isDikey }}
-      <!-- Dikey fotoğraf: blur arka plan + ortada net -->
       <div class="single-hero-blur" style="background-image: url('{{ .Params.image }}')"></div>
       <div class="single-hero-portrait-wrap">
-        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="single-hero-portrait-img" />
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="single-hero-portrait-img" fetchpriority="high" />
       </div>
       {{ else }}
-      <!-- Yatay fotoğraf: tam genişlik -->
-      <div class="single-hero-landscape" style="background-image: url('{{ .Params.image }}')"></div>
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" class="single-hero-landscape single-hero-img" fetchpriority="high" />
       {{ end }}
     {{ else }}
     <div class="single-hero-placeholder">
-      <svg width="320" height="200" viewBox="0 0 320 200" fill="none">
+      <svg width="320" height="200" viewBox="0 0 320 200" fill="none" aria-hidden="true">
         <path d="M40 160 Q80 80 120 120 Q160 160 200 80 Q240 0 280 60" stroke="white" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
@@ -29,7 +28,7 @@
       {{ with .Params.konu }}<div class="hero-cat pill-foto">{{ . | upper }}</div>{{ end }}
       <h1 class="single-title">{{ .Title }}</h1>
       <div class="single-meta">
-        {{ with .Params.tarih }}{{ dateFormat "2 January 2006" . }}<span>·</span>{{ end }}
+        {{ with .Params.tarih }}{{ time.Format "2 January 2006" . }}{{ with ($.Params.bitis | default $.Params.tarih_bitis) }} ile {{ time.Format "2 January 2006" . }} arası{{ end }}{{ if $.Params.mekan }}<span>·</span>{{ end }}{{ end }}
         {{ with .Params.mekan }}{{ . }}{{ end }}
       </div>
     </div>
@@ -37,13 +36,36 @@
 
   <!-- İÇERİK -->
   <div class="single-body">
+
+    {{ if .Section }}
+    <div class="byline">
+      <span class="byline-yazar">Yazan: <a href="{{ .Site.Params.authorPage }}">{{ .Site.Params.author }}</a></span>
+      <span class="byline-tarih">Yayın: {{ time.Format "2 January 2006" .Date }}</span>
+      {{ if gt (.Lastmod.Sub .Date).Hours 24.0 }}<span class="byline-tarih">Güncelleme: {{ time.Format "2 January 2006" .Lastmod }}</span>{{ end }}
+      <span class="byline-sure">{{ .ReadingTime }} dk okuma</span>
+    </div>
+    {{ end }}
+
+    {{ if $gecmis }}
+    <div class="arsiv-notu">
+      Bu yazı arşivdedir. Sözü edilen etkinlik ya da vizyon dönemi sona ermiştir; bilgiler yayın tarihindeki durumu yansıtır.
+    </div>
+    {{ end }}
+
     <div class="single-content">
       {{ .Content }}
     </div>
+
+    {{ if .Section }}
+    <aside class="yazar-kutusu">
+      <div class="yazar-kutusu-baslik">{{ .Site.Params.author }}</div>
+      <p>URBANİSTANBUL'un kurucusu, yazarı ve fotoğrafçısı. İstanbul sokaklarında fotoğraf çekiyor, Urban Kare yürüyüşlerini kaydediyor ve fotoğraf uygulamaları geliştiriyor. <a href="{{ .Site.Params.authorPage }}">Daha fazlası</a></p>
+    </aside>
+    {{ end }}
   </div>
 
   <!-- BENZER İÇERİKLER -->
-  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ $related := slice }}{{ if .Section }}{{ $related = first 3 (partial "aktif.html" (.Site.RegularPages.Related .)) }}{{ end }}
   {{ if $related }}
   <div class="sec-header">
     <div class="sec-label">BENZER İÇERİKLER</div>
@@ -52,9 +74,9 @@
     {{ range $related }}
     <a href="{{ .Permalink }}" class="event-card">
       {{ if .Params.image }}
-      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')"></div>
+      <div class="event-thumb event-thumb--landscape" style="background-image: url('{{ .Params.image }}')" role="img" aria-label="{{ .Title }}"></div>
       {{ else }}
-      <div class="event-thumb thumb-{{ .Params.kategori | lower | default "default" }}">📅</div>
+      <div class="event-thumb thumb-{{ .Params.kategori | lower | default "default" }}" aria-hidden="true"></div>
       {{ end }}
       {{ with .Params.kategori }}<div class="event-cat pill-{{ . | lower }}">{{ . | upper }}</div>{{ end }}
       <div class="event-title">{{ .Title }}</div>

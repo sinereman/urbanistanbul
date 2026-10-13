@@ -1,4 +1,6 @@
 ---
-title: "Sergi & Sanat"
-draft: false
+title: "Sergi"
+_build:
+  render: never
+  list: never
 ---

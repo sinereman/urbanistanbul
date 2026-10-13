@@ -1,7 +1,7 @@
 ---
 title: "Canon'dan Nikon ZR'ye Sert Cevap: 7K Open Gate ve Aktif Soğutmalı EOS R6V Sahneye Çıktı!"
 date: 2026-05-14
-category: "Kamera"
+konu: "Kamera"
 draft: false
 image: "/images/uploads/canon-eos-r6v-main.jpg"
 ---

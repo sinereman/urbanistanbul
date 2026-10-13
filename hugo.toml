@@ -1,17 +1,25 @@
 baseURL = "https://urbanistanbul.com/"
 languageCode = "tr-TR"
+defaultContentLanguage = "tr"
 title = "URBANİSTANBUL"
 enableRobotsTXT = true
 enableEmoji = true
 canonifyURLs = true
 relativeURLs = false
+# Etiket ve kategori arşiv sayfaları içeriği zayıf kopya listeler ürettiği için kapalı.
+disableKinds = ["taxonomy", "term"]
+
 [params]
-  description = "İstanbul'da bu hafta ne var? Tiyatro, sergi, konser, lezzet ve daha fazlası."
+  description = "İstanbul'un kültür, fotoğraf ve teknoloji rehberi. Fotoğraf atölyeleri, şehir rotaları, Urban Kare yürüyüşleri, etkinlikler ve sinema."
   gold = "#C8A96E"
-[taxonomies]
-  kategori = "kategoriler"
-  konu = "konular"
+  author = "Batıkan Kurşat"
+  authorPage = "/hakkinda/"
+  ogImage = "/images/logo.png"
+
 [outputs]
   home = ["HTML"]
   page = ["HTML"]
   section = ["HTML"]
+
+[sitemap]
+  changeFreq = "weekly"

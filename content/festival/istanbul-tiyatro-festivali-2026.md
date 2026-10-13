@@ -3,6 +3,7 @@ title: "30. İstanbul Tiyatro Festivali: Bir Gelinliğin Peşinden Dünyayı Dol
 date: 2026-10-02
 tur: "Tiyatro"
 tarih: 2026-10-22
+bitis: 2026-12-03
 mekan: "Zorlu PSM, AKM, Alan Kadıköy, Harbiye Muhsin Ertuğrul Sahnesi ve diğer sahneler"
 slug: "istanbul-tiyatro-festivali-2026"
 image: "/images/uploads/istanbul-tiyatro-festivali-2026.jpg"

@@ -3,6 +3,7 @@ title: "43. İstanbul Kitap Fuarı: Aralık'ta TÜYAP'ta Buluşuyoruz"
 date: 2026-10-02
 tur: "Edebiyat"
 tarih: 2026-12-12
+bitis: 2026-12-20
 mekan: "TÜYAP Fuar ve Kongre Merkezi, Büyükçekmece"
 slug: "istanbul-kitap-fuari-2026"
 image: "/images/uploads/istanbul-kitap-fuari-2026.jpg"

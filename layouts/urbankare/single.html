@@ -8,7 +8,7 @@
       <a href="/urbankare" class="uk-back">← URBAN KARE</a>
     </div>
     <div class="uk-single-header-right">
-      {{ with .Params.tarih }}<span class="uk-single-date">{{ dateFormat "2 January 2006" . }}</span>{{ end }}
+      {{ with .Params.tarih }}<span class="uk-single-date">{{ time.Format "2 January 2006" . }}</span>{{ end }}
     </div>
   </div>
 

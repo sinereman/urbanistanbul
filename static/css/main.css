@@ -378,3 +378,14 @@ footer { border-top: 3px solid var(--cobalt); }
   .ed-atolye-big-img { width: 72px; height: 72px; }
   .etk-news-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Erişilebilirlik ve SEO eklemeleri (Ekim 2026) ── */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.single-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.byline { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12px; letter-spacing: 0.02em; color: var(--gray-3, #777); padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px solid var(--gray-2, #e5e5e5); }
+.byline a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.byline-yazar { font-weight: 600; color: var(--black, #111); }
+.arsiv-notu { font-size: 14px; line-height: 1.6; padding: 14px 18px; margin-bottom: 28px; background: #fff7d6; border-left: 3px solid var(--yellow, #ffde59); color: #333; }
+.yazar-kutusu { margin-top: 48px; padding: 22px 24px; border: 1px solid var(--gray-2, #e5e5e5); font-size: 14px; line-height: 1.7; color: #444; }
+.yazar-kutusu-baslik { font-family: var(--serif, Georgia, serif); font-size: 20px; color: var(--black, #111); margin-bottom: 6px; }
+.yazar-kutusu a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

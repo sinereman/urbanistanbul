@@ -3,19 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ if .IsHome }}URBANİSTANBUL — İstanbul'un Kültür Rehberi{{ else }}{{ .Title }} — URBANİSTANBUL{{ end }}</title>
-  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}" />
-  
+  {{- $aciklama := partial "aciklama.html" . }}
+  {{- $gecmis := partial "gecmis.html" . }}
+  {{- $baslik := cond .IsHome "URBANİSTANBUL | İstanbul'un Kültür, Fotoğraf ve Teknoloji Rehberi" (printf "%s | URBANİSTANBUL" .Title) }}
+  {{- $gorsel := (.Params.image | default .Site.Params.ogImage) | absURL }}
+  <title>{{ $baslik }}</title>
+  <meta name="description" content="{{ $aciklama }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+  {{- if $gecmis }}
+  <meta name="robots" content="noindex, follow" />
+  {{- end }}
+  <meta name="author" content="{{ .Site.Params.author }}" />
+
+  <!-- Paylaşım kartları -->
+  <meta property="og:site_name" content="URBANİSTANBUL" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:title" content="{{ if .IsHome }}URBANİSTANBUL{{ else }}{{ .Title }}{{ end }}" />
+  <meta property="og:description" content="{{ $aciklama }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:image" content="{{ $gorsel }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ if .IsHome }}URBANİSTANBUL{{ else }}{{ .Title }}{{ end }}" />
+  <meta name="twitter:description" content="{{ $aciklama }}" />
+  <meta name="twitter:image" content="{{ $gorsel }}" />
+  {{- if .IsPage }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:author" content="{{ .Site.Params.author }}" />
+  {{- end }}
+
+  <!-- Yapılandırılmış veri -->
+  {{- if .IsHome }}
+  <script type="application/ld+json">
+  {{ dict "@context" "https://schema.org" "@type" "WebSite" "name" "URBANİSTANBUL" "url" .Site.BaseURL "inLanguage" "tr-TR" "description" .Site.Params.description | jsonify | safeJS }}
+  </script>
+  {{- else if .IsPage }}
+  <script type="application/ld+json">
+  {{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $aciklama "image" (slice $gorsel) "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "inLanguage" "tr-TR" "mainEntityOfPage" .Permalink "author" (dict "@type" "Person" "name" .Site.Params.author "url" (.Site.Params.authorPage | absURL)) "publisher" (dict "@type" "Organization" "name" "URBANİSTANBUL" "logo" (dict "@type" "ImageObject" "url" ("/images/logo.png" | absURL))) | jsonify | safeJS }}
+  </script>
+  {{- end }}
+
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/main.css" />
-  
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3095578223174651" crossorigin="anonymous"></script>
-  
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JB65LHS5MH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -26,31 +64,18 @@
 </head>
 <body>
 
+  {{- /* Kayan bant: yalnızca süresi dolmamış etkinlikler, tekrar etmeden */}}
+  {{- $etk := where .Site.RegularPages "Section" "in" (slice "muzik" "festival" "tiyatro" "sergi" "etkinlikler") }}
+  {{- $bant := partial "aktif.html" $etk }}
+  {{- if $bant }}
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
-      {{ range first 5 (where .Site.RegularPages "Section" "tiyatro") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}{{ with .Params.tarih }} · {{ dateFormat "2 Jan" . }}{{ end }}</span>
-      {{ end }}
-      {{ range first 4 (where .Site.RegularPages "Section" "festival") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
-      {{ end }}
-      {{ range first 4 (where .Site.RegularPages "Section" "muzik") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
-      {{ end }}
-      {{ range first 3 (where .Site.RegularPages "Section" "sergi") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
-      {{ end }}
-      {{ range first 3 (where .Site.RegularPages "Section" "perde") }}
-      <span>{{ .Title }}</span>
-      {{ end }}
-      {{ range first 4 (where .Site.RegularPages "Section" "tiyatro") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
-      {{ end }}
-      {{ range first 3 (where .Site.RegularPages "Section" "festival") }}
-      <span>{{ .Title }}{{ with .Params.mekan }} — {{ . }}{{ end }}</span>
-      {{ end }}
+      {{- range first 12 $bant }}
+      <span>{{ .Title }}{{ with .Params.mekan }} · {{ . }}{{ end }}{{ with .Params.tarih }} · {{ time.Format "2 January" . }}{{ end }}</span>
+      {{- end }}
     </div>
   </div>
+  {{- end }}
 
   <nav>
     <div class="nav-top">
@@ -68,9 +93,6 @@
       <div class="nav-right">
         <div class="nav-city">İSTANBUL</div>
         <div class="nav-date" id="navDate"></div>
-        <div class="lang-switch">
-          <span class="active">TR</span> · <span>EN</span>
-        </div>
       </div>
     </div>
   </nav>
@@ -81,15 +103,14 @@
     <div class="footer-top">
       <div class="footer-col">
         <div class="footer-col-title">ETKİNLİKLER</div>
-        <a href="/tiyatro">Tiyatro</a>
-        <a href="/sergi">Sergiler</a>
-        <a href="/muzik">Müzik & Konser</a>
-        <a href="/lezzet">Lezzet & Mekan</a>
+        <a href="/muzik">Müzik ve Konser</a>
         <a href="/festival">Festival</a>
+        <a href="/tiyatro">Tiyatro</a>
+        <a href="/lezzet">Lezzet</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">PERDE & ATÖLYE</div>
-        <a href="/perde">Perde — Sinema</a>
+        <div class="footer-col-title">PERDE VE ATÖLYE</div>
+        <a href="/perde">Perde: Sinema</a>
         <a href="/atolye">Atölye</a>
         <a href="/urbankare">Urban Kare</a>
         <a href="/kesfet">İstanbul Rotaları</a>
@@ -97,29 +118,33 @@
       <div class="footer-col">
         <div class="footer-col-title">KEŞFet İSTANBUL</div>
         <a href="/kesfet">Semt Rehberleri</a>
-        <a href="/kesfet">Antika Pazarları</a>
+        <a href="/mekan">Mekân ve Mimari</a>
         <a href="/teknoloji">Teknoloji</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">HAKKINDA</div>
-        <a href="/hakkinda">Biz Kimiz</a>
-        <a href="/reklam">Reklam Ver</a>
+        <a href="/hakkinda">Hakkında</a>
+        <a href="/yayin-ilkeleri">Yayın İlkeleri</a>
+        <a href="/reklam">Reklam ve İş Birliği</a>
         <a href="/iletisim">İletişim</a>
-        <a href="/gizlilik">Gizlilik Politikası</a>
+        <a href="/gizlilik">Gizlilik ve Çerez Politikası</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-logo">URBAN<em>İSTANBUL</em></div>
-      <div class="footer-copy">© {{ now.Year }} URBANİSTANBUL · İstanbul'un kültür rehberi</div>
+      <div class="footer-copy">© {{ now.Year }} URBANİSTANBUL · Yazı ve fotoğraflar: {{ .Site.Params.author }}</div>
     </div>
   </footer>
 
   <script>
-    const d = new Date();
-    const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
-    const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
-    document.getElementById('navDate').textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-
+    (function () {
+      var el = document.getElementById('navDate');
+      if (!el) return;
+      var d = new Date();
+      var days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+      var months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+      el.textContent = days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+    })();
   </script>
 </body>
 </html>

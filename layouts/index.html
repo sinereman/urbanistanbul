@@ -3,43 +3,28 @@
 {{ $tiyatro := where .Site.RegularPages "Section" "tiyatro" }}
 {{ $sergi := where .Site.RegularPages "Section" "sergi" }}
 {{ $lezzet := where .Site.RegularPages "Section" "lezzet" }}
-{{ $muzik := where .Site.RegularPages "Section" "muzik" }}
+{{ $muzik := partial "aktif.html" (where .Site.RegularPages "Section" "muzik").ByDate.Reverse }}
 {{ $etkinlikler := where .Site.RegularPages "Section" "etkinlikler" }}
 {{ $atolye := where .Site.RegularPages "Section" "atolye" }}
 {{ $teknoloji := where .Site.RegularPages "Section" "teknoloji" }}
 {{ $kesfet := where .Site.RegularPages "Section" "kesfet" }}
-{{ $festival := where .Site.RegularPages "Section" "festival" }}
-{{ $perde := where .Site.RegularPages "Section" "perde" }}
+{{ $festival := partial "aktif.html" (where .Site.RegularPages "Section" "festival").ByDate.Reverse }}
+{{ $perde := partial "aktif.html" (where .Site.RegularPages "Section" "perde").ByDate.Reverse }}
+{{ $urbankare := where .Site.RegularPages "Section" "urbankare" }}
 
-{{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $etkinlikler | union $festival }}
-{{ $tumEtkinliklerSorted := $tumEtkinlikler.ByDate.Reverse }}
+{{ $tumEtkinliklerSorted := partial "aktif.html" (where .Site.RegularPages "Section" "in" (slice "tiyatro" "sergi" "muzik" "etkinlikler" "festival")).ByDate.Reverse }}
 
-{{ $f1 := index ($festival.ByDate.Reverse) 0 }}
-{{ $f2 := index ($festival.ByDate.Reverse) 1 }}
-{{ $f3 := index ($festival.ByDate.Reverse) 2 }}
+{{/* Vitrin: kalıcı içerik ile güncel etkinliklerin dengeli karışımı */}}
+{{ $heroSlides := slice }}
+{{ range first 1 $urbankare.ByDate.Reverse }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
+{{ range first 2 $festival }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
+{{ range first 2 $atolye.ByLastmod.Reverse }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
+{{ range first 2 $muzik }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
+{{ range first 1 $kesfet.ByDate.Reverse }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
+{{ range first 2 $teknoloji.ByDate.Reverse }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
+{{ range first 1 $perde }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
 
-{{ $muzikSorted := $muzik.ByDate.Reverse }}
-{{ $m1 := index $muzikSorted 0 }}
-{{ $m2 := index $muzikSorted 1 }}
-{{ $m3 := index $muzikSorted 2 }}
-{{ $m4 := index $muzikSorted 3 }}
-
-{{ $t1 := index ($teknoloji.ByDate.Reverse) 0 }}
-{{ $t2 := index ($teknoloji.ByDate.Reverse) 1 }}
-
-{{ $p1 := index ($perde.ByDate.Reverse) 0 }}
-{{ $p2 := index ($perde.ByDate.Reverse) 1 }}
-
-{{ $heroSlides := slice $f1 $f2 }}
-{{ if $f3 }}{{ $heroSlides = $heroSlides | append $f3 }}{{ end }}
-{{ if $m1 }}{{ $heroSlides = $heroSlides | append $m1 }}{{ end }}
-{{ if $m2 }}{{ $heroSlides = $heroSlides | append $m2 }}{{ end }}
-{{ if $m3 }}{{ $heroSlides = $heroSlides | append $m3 }}{{ end }}
-{{ if $m4 }}{{ $heroSlides = $heroSlides | append $m4 }}{{ end }}
-{{ if $t1 }}{{ $heroSlides = $heroSlides | append $t1 }}{{ end }}
-{{ if $t2 }}{{ $heroSlides = $heroSlides | append $t2 }}{{ end }}
-{{ if $p1 }}{{ $heroSlides = $heroSlides | append $p1 }}{{ end }}
-{{ if $p2 }}{{ $heroSlides = $heroSlides | append $p2 }}{{ end }}
+<h1 class="sr-only">URBANİSTANBUL: İstanbul'un kültür, fotoğraf ve teknoloji rehberi</h1>
 
 <!-- ═══ HERO SLIDER ═══ -->
 <section class="hero-slider" id="heroSlider">
@@ -56,9 +41,9 @@
         <div class="hero-slide-content">
           <div class="hero-slide-top">
             <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
-            {{ with $p.Params.tarih }}<span class="hero-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+            {{ with $p.Params.tarih }}<span class="hero-slide-date">{{ time.Format "2 January 2006" . }}</span>{{ end }}
           </div>
-          <h1 class="hero-slide-title">{{ $p.Title }}</h1>
+          <h2 class="hero-slide-title">{{ $p.Title }}</h2>
           {{ with $p.Params.mekan }}<p class="hero-slide-mekan">{{ . }}</p>{{ end }}
         </div>
       </a>
@@ -187,21 +172,10 @@
     <div class="ed-event-title">{{ .Title }}</div>
     <div class="ed-event-meta">
       {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-      {{ with .Params.tarih }}<span>{{ dateFormat "2 Jan" . }}</span>{{ end }}
+      {{ with .Params.tarih }}<span>{{ time.Format "2 January" . }}</span>{{ end }}
     </div>
   </a>
   {{ end }}
-</div>
-
-<!-- ═══ REKLAM 1 — GÜNDEMDE ALTI ═══ -->
-<div class="ed-adsense-wrap">
-  <ins class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-3095578223174651"
-    data-ad-slot="auto"
-    data-ad-format="auto"
-    data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- ═══ PERDE ═══ -->
@@ -213,7 +187,7 @@
   <a href="/perde" class="ed-section-more">tümü →</a>
 </div>
 <div class="ed-perde-grid">
-  {{ range first 6 ($perde.ByDate.Reverse) }}
+  {{ range first 6 $perde }}
   <a href="{{ .Permalink }}" class="ed-perde-card">
     {{ if .Params.image }}
     <div class="ed-perde-img" style="background-image:url('{{ .Params.image }}')"></div>
@@ -231,17 +205,6 @@
   {{ end }}
 </div>
 {{ end }}
-
-<!-- ═══ REKLAM 2 — PERDE ALTI ═══ -->
-<div class="ed-adsense-wrap">
-  <ins class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-3095578223174651"
-    data-ad-slot="auto"
-    data-ad-format="auto"
-    data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 
 <!-- ═══ ATÖLYE + KEŞFet ═══ -->
 <div class="ed-section-header">
@@ -326,29 +289,12 @@
     {{ end }}
     <span class="ed-pill" style="background:var(--cat-teknoloji-bg);color:var(--cat-teknoloji);font-size:8px;padding:1px 6px;letter-spacing:0.08em;display:inline-block;align-self:flex-start;">TEKNOLOJİ</span>
     <div class="ed-tech-title">{{ .Title }}</div>
-    {{ with .Params.tarih }}<div class="ed-tech-date">{{ dateFormat "2 Jan 2006" . }}</div>{{ end }}
+    {{ with .Params.tarih }}<div class="ed-tech-date">{{ time.Format "2 January 2006" . }}</div>{{ end }}
   </a>
   {{ end }}
 </div>
 {{ end }}
 
-<!-- ═══ REKLAM 3 — TEKNOLOJİ ALTI ═══ -->
-<div class="ed-adsense-wrap">
-  <ins class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-3095578223174651"
-    data-ad-slot="auto"
-    data-ad-format="auto"
-    data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 
-<script>
-  const d = new Date();
-  const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
-  const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
-  const el = document.getElementById('mastheadDate');
-  if(el) el.textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-</script>
 
 {{ end }}

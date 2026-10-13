@@ -3,6 +3,7 @@ title: "212 Photography Istanbul: Fotoğrafın 200. Yılı Şehre Yayılıyor"
 date: 2026-10-02
 tur: "Fotoğraf"
 tarih: 2026-09-26
+bitis: 2026-10-11
 mekan: "Tophane-i Amire, Galata Rum Okulu, St. Benoît Kilisesi, Yapı Kredi bomontiada ve 25'ten fazla mekân"
 slug: "212-photography-istanbul-2026"
 image: "/images/uploads/212-photography-istanbul-2026.jpg"

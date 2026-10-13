@@ -5,17 +5,22 @@
 {{ $muzik    := where .Site.RegularPages "Section" "muzik" }}
 {{ $festival := where .Site.RegularPages "Section" "festival" }}
 
-{{ $tumEtkinlikler := union $tiyatro $sergi | union $muzik | union $festival }}
-{{ $tumSorted := $tumEtkinlikler.ByDate.Reverse }}
+{{ $tiyatro  = partial "aktif.html" $tiyatro.ByDate.Reverse }}
+{{ $sergi    = partial "aktif.html" $sergi.ByDate.Reverse }}
+{{ $muzik    = partial "aktif.html" $muzik.ByDate.Reverse }}
+{{ $festival = partial "aktif.html" $festival.ByDate.Reverse }}
+{{ $tumEtkinlikler := partial "aktif.html" (where .Site.RegularPages "Section" "in" (slice "tiyatro" "sergi" "muzik" "festival")).ByDate.Reverse }}
+{{ $tumSorted := $tumEtkinlikler }}
 
 {{ $slider := first 10 $tumSorted }}
 
-{{ $muzikSorted    := $muzik.ByDate.Reverse }}
-{{ $tiyatroSorted  := $tiyatro.ByDate.Reverse }}
-{{ $sergiSorted    := $sergi.ByDate.Reverse }}
-{{ $festivalSorted := $festival.ByDate.Reverse }}
+{{ $muzikSorted := $muzik }}
+{{ $tiyatroSorted := $tiyatro }}
+{{ $sergiSorted := $sergi }}
+{{ $festivalSorted := $festival }}
 
 <div class="list-page">
+  <h1 class="sr-only">İstanbul Etkinlikleri</h1>
 
   <div class="etk-slider">
     <div class="etk-slider-track">
@@ -30,7 +35,7 @@
         <div class="etk-slide-content">
           <div style="display:flex;align-items:center;gap:10px;">
             <span class="ed-pill pill-{{ $p.Section }}">{{ $p.Section | upper }}</span>
-            {{ with $p.Params.tarih }}<span class="etk-slide-date">{{ dateFormat "2 Jan 2006" . }}</span>{{ end }}
+            {{ with $p.Params.tarih }}<span class="etk-slide-date">{{ time.Format "2 January 2006" . }}</span>{{ end }}
           </div>
           <h2 class="etk-slide-title">{{ $p.Title }}</h2>
           {{ with $p.Params.mekan }}<p class="etk-slide-mekan">{{ . }}</p>{{ end }}
@@ -73,7 +78,7 @@
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ time.Format "2 January" . }}</span>{{ end }}
           </div>
         </div>
       </a>
@@ -103,43 +108,13 @@
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ time.Format "2 January" . }}</span>{{ end }}
           </div>
         </div>
       </a>
       {{ end }}
     {{ else }}
       <div class="etk-empty-state">Yakında tiyatro etkinlikleri eklenecek.</div>
-    {{ end }}
-  </div>
-
-  <div class="etk-section-divider">
-    <div class="etk-section-divider-body">
-      <span class="etk-section-title">SERGİ</span>
-    </div>
-  </div>
-  
-  <div class="etk-grid-3">
-    {{ if $sergiSorted }}
-      {{ range first 9 $sergiSorted }}
-      <a href="{{ .Permalink }}" class="etk-card cat-sergi">
-        {{ if .Params.image }}
-        <div class="etk-card-img img-16-9" style="background-image:url('{{ .Params.image }}')"></div>
-        {{ else }}
-        <div class="etk-card-img img-16-9 etk-card-img--empty thumb-sergi"></div>
-        {{ end }}
-        <div class="etk-card-body">
-          <span class="ed-pill pill-sergi">SERGİ</span>
-          <div class="etk-card-title">{{ .Title }}</div>
-          <div class="etk-card-meta">
-            {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
-          </div>
-        </div>
-      </a>
-      {{ end }}
-    {{ else }}
-      <div class="etk-empty-state">Yakında sergi etkinlikleri eklenecek.</div>
     {{ end }}
   </div>
 
@@ -163,7 +138,7 @@
           <div class="etk-card-title">{{ .Title }}</div>
           <div class="etk-card-meta">
             {{ with .Params.mekan }}<span>{{ . }}</span>{{ end }}
-            {{ with .Params.tarih }}<span class="etk-card-date">{{ dateFormat "2 Jan" . }}</span>{{ end }}
+            {{ with .Params.tarih }}<span class="etk-card-date">{{ time.Format "2 January" . }}</span>{{ end }}
           </div>
         </div>
       </a>
@@ -173,12 +148,7 @@
     {{ end }}
   </div>
 
-  <div class="ed-adsense-wrap">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3095578223174651" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
-
-</div>
 
 <style>
 /* ── SLIDER ── */

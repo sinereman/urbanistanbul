@@ -1,0 +1,20 @@
+{{- /* Bir sayfanın "geçmiş" (süresi dolmuş) olup olmadığını döndürür.
+     Etkinlik bölümleri: bitiş (yoksa tarih) + 1 gün geçtiyse geçmiş.
+     Perde: tarih + 45 gün geçtiyse geçmiş.
+     noindex: true olan her sayfa da geçmiş sayılır. kalici: true olanlar hiçbir zaman. */ -}}
+{{- $gecmis := false -}}
+{{- if .Params.noindex -}}
+  {{- $gecmis = true -}}
+{{- else if not .Params.kalici -}}
+  {{- $etkinlik := slice "muzik" "festival" "tiyatro" "sergi" "etkinlikler" -}}
+  {{- $son := .Params.bitis | default .Params.tarih_bitis | default .Params.tarih -}}
+  {{- with $son -}}
+    {{- $t := time . -}}
+    {{- if in $etkinlik $.Section -}}
+      {{- if lt ($t.AddDate 0 0 1).Unix now.Unix -}}{{- $gecmis = true -}}{{- end -}}
+    {{- else if eq $.Section "perde" -}}
+      {{- if lt ($t.AddDate 0 0 45).Unix now.Unix -}}{{- $gecmis = true -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $gecmis -}}

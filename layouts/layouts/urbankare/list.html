@@ -43,7 +43,7 @@
         <div class="uk-card-title">{{ .Title }}</div>
         {{ with .Params.not }}<div class="uk-card-not">"{{ . }}"</div>{{ end }}
         <div class="uk-card-tarih">
-          {{ with .Params.tarih }}{{ dateFormat "2 Jan 2006" . }}{{ else }}{{ dateFormat "2 Jan 2006" .Date }}{{ end }}
+          {{ with .Params.tarih }}{{ time.Format "2 January 2006" . }}{{ else }}{{ time.Format "2 January 2006" .Date }}{{ end }}
         </div>
       </div>
     </a>

@@ -1,59 +1,35 @@
 ---
-title: "Reklam Ver"
+title: "Reklam ve İş Birliği"
 date: 2026-04-30
+lastmod: 2026-10-13
 draft: false
+description: "URBANİSTANBUL ile reklam, sponsorlu içerik, etkinlik tanıtımı ve fotoğraf ekipmanı iş birlikleri."
 ---
 
-URBANİSTANBUL, İstanbul'da kültür, sanat ve entelektüel yaşama ilgi duyan, satın alma gücü yüksek, meraklı bir kitleye ulaşıyor.
+URBANİSTANBUL; İstanbul'un kültür hayatıyla, fotoğrafla ve görüntü teknolojileriyle ilgilenen okurlara ulaşan bağımsız bir yayın. Okurlarımız konserlere ve festivallere gidiyor, şehri fotoğraflıyor, ekipman araştırıyor ve öğrenmeye açık.
 
-Okuyucularımız şehri aktif olarak yaşayan insanlar. Tiyatroya gidiyor, sergi açılışlarını takip ediyor, kaliteli ekipman arıyor, öğrenmeye açık. Bu kitle için doğru içerik, doğru zamanda, doğru yerde.
-
----
-
-## Neden URBANİSTANBUL?
-
-**Nitelikli kitle.** Tıklama arayan değil, okumak için gelen ziyaretçiler. Ortalama sayfa süresi sektör ortalamasının üzerinde.
-
-**Niş ve değerli.** Fotoğrafçılık, kültür, İstanbul — bu üç kesişimde başka bir Türkçe yayın yok.
-
-**Organik büyüme.** Reklam satın almadan büyüyen bir site. Okuyucular bizi bularak geliyor.
-
-**Editoryal güven.** Reklam içeriklerimiz her zaman açıkça belirtilir. Okuyucularımızın güvenini reklam gelirine tercih ederiz.
+Bu okurlarla, onların güvenini sarsmadan buluşmak isteyen markalar ve kurumlarla çalışmaktan memnuniyet duyarız.
 
 ---
 
-## Reklam Seçenekleri
+## İş Birliği Seçenekleri
 
-### Banner Reklamı
-Ana sayfada ve içerik sayfalarında 728×90 ve 300×250 banner alanları. Google AdSense üzerinden programatik ya da doğrudan satın alım.
+**Sponsorlu içerik.** Markanızı, ürününüzü ya da etkinliğinizi anlatan, editoryal sesimizle yazılmış özel bir yazı. Her sponsorlu yazı "Sponsorlu" ibaresiyle açıkça işaretlenir.
 
-### Sponsorlu İçerik
-Editoryal sesimizle yazılmış, markanızı ya da etkinliğinizi anlatan özel içerik. "Sponsorlu" etiketi ile açıkça işaretlenir. Okuyucu kaçırmaz, marka değeri taşır.
+**Etkinlik tanıtımı.** İstanbul'da bir konser, festival, sergi ya da gösteri düzenliyorsanız etkinliğinizi ilgili bölümlerde tanıtabiliriz. Editoryal olarak değerlendirdiğimiz etkinlik duyuruları için bir ücret talep etmeyiz.
 
-### Öne Çıkarılmış Etkinlik
-Etkinliğinizi ana sayfada ve ilgili kategori sayfasında öne çıkarıyoruz. Tiyatro, sergi, konser, festival — İstanbul'da bir şey organize ediyorsanız doğru adrestesiniz.
+**Ekipman incelemesi.** Fotoğraf, video ya da yazılım ürünlerini sahada, gerçek çekimlerde deneyerek değerlendiririz. İnceleme için ürün göndermeniz, yazının olumlu olacağı anlamına gelmez; ürünün bize nasıl ulaştığını yazıda belirtiriz.
 
-### Urbankare İş Birliği
-Fotoğraf ekipmanı, yazılım ya da eğitim platformuysanız Urbankare okuyucuları tam hedef kitleniz. Ürün incelemesi, eğitim sponsorluğu ve affiliate iş birlikleri için konuşabiliriz.
+**Urban Kare iş birliği.** Fotoğraf yürüyüşü formatımız için ekipman, mekân ya da yayın iş birlikleri.
 
 ---
 
-## Fiyatlar
+## İlkelerimiz
 
-Medya kitimiz ve güncel fiyat listemiz için bizimle iletişime geçin. Bütçenize ve hedefinize göre özel paket oluşturuyoruz.
-
-**[808mediamovie@gmail.com](mailto:808mediamovie@gmail.com)**
-
-Mailinizin konusuna **"Reklam"** yazın.
+Reklam veren ya da iş birliği yaptığımız markaları editoryal içeriğimizde kayırmayız. Sponsorlu her içerik açıkça işaretlenir. Ayrıntılar için [Yayın İlkeleri](/yayin-ilkeleri/) sayfamıza göz atabilirsiniz.
 
 ---
 
-## Etik Kurallarımız
+## İletişim
 
-Reklam aldığımız markaları editoryal içeriğimizde kayırmayız. Sponsorlu her içerik açıkça etiketlenir. Okuyucularımızın güvenini hiçbir reklam gelirine takas etmeyiz.
-
-Bu ilkelerden ödün vermeden büyümeyi tercih ediyoruz.
-
----
-
-*URBANİSTANBUL · İstanbul'un kültür rehberi*
+İş birliği önerileriniz için **[info@urbanistanbul.com](mailto:info@urbanistanbul.com)** adresine yazın ve konu satırına **"İş Birliği"** ekleyin. Size kısa sürede dönüş yaparız.

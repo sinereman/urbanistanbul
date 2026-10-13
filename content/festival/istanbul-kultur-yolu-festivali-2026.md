@@ -3,6 +3,7 @@ title: "İstanbul Kültür Yolu Festivali: AKM'de Carmen ile Son Perde"
 date: 2026-10-02
 tur: "Müzik"
 tarih: 2026-09-26
+bitis: 2026-10-04
 mekan: "Atatürk Kültür Merkezi, Mecidiyeköy Büyük Sahne"
 slug: "istanbul-kultur-yolu-festivali-2026"
 image: "/images/uploads/istanbul-kultur-yolu-festivali-2026.jpg"
