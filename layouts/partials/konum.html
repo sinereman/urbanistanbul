@@ -1,0 +1,15 @@
+{{- /* Sayfanın konum (breadcrumb) zincirini döndürür: [{ad, url}, ...]
+     Ana Sayfa > Bölüm > Sayfa. Ana sayfa için boş liste. */ -}}
+{{- $zincir := slice -}}
+{{- if not .IsHome -}}
+  {{- $zincir = $zincir | append (dict "ad" "Ana Sayfa" "url" site.Home.Permalink) -}}
+  {{- if and .IsPage .Section -}}
+    {{- with .CurrentSection -}}
+      {{- if not .IsHome -}}
+        {{- $zincir = $zincir | append (dict "ad" .Title "url" .Permalink) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $zincir = $zincir | append (dict "ad" .Title "url" .Permalink) -}}
+{{- end -}}
+{{- return $zincir -}}

@@ -37,6 +37,13 @@
   <!-- İÇERİK -->
   <div class="single-body">
 
+    {{ $konum := partial "konum.html" . }}
+    {{ if gt (len $konum) 1 }}
+    <nav class="konum" aria-label="Konum">
+      {{ range $i, $k := $konum }}{{ if $i }}<span class="konum-ayrac" aria-hidden="true">›</span>{{ end }}{{ if lt (add $i 1) (len $konum) }}<a href="{{ $k.url }}">{{ $k.ad }}</a>{{ else }}<span aria-current="page">{{ $k.ad }}</span>{{ end }}{{ end }}
+    </nav>
+    {{ end }}
+
     {{ if .Section }}
     <div class="byline">
       <span class="byline-yazar">Yazan: <a href="{{ .Site.Params.authorPage }}">{{ .Site.Params.author }}</a></span>
@@ -55,6 +62,36 @@
     <div class="single-content">
       {{ .Content }}
     </div>
+
+    {{ if eq .Section "atolye" }}
+    {{ $hub := site.GetPage "/atolye/fotografa-baslangic" }}
+    {{ if and $hub (ne $hub.Permalink .Permalink) }}
+      {{ $liste := slice }}
+      {{ range $hub.Params.seri }}{{ with site.GetPage . }}{{ $liste = $liste | append . }}{{ end }}{{ end }}
+      {{ $onceki := false }}{{ $sonraki := false }}{{ $sira := 0 }}
+      {{ range $i, $p := $liste }}
+        {{ if eq $p.Permalink $.Permalink }}
+          {{ $sira = add $i 1 }}
+          {{ if gt $i 0 }}{{ $onceki = index $liste (sub $i 1) }}{{ end }}
+          {{ if lt (add $i 1) (len $liste) }}{{ $sonraki = index $liste (add $i 1) }}{{ end }}
+        {{ end }}
+      {{ end }}
+      <nav class="seri-kutusu" aria-label="Fotoğrafa Başlangıç serisi">
+        <div class="seri-baslik">
+          <a href="{{ $hub.Permalink }}">Fotoğrafa Başlangıç</a>
+          {{ if $sira }}<span class="seri-sira">Serinin {{ $sira }}. yazısı, toplam {{ len $liste }}</span>{{ end }}
+        </div>
+        {{ if $sira }}
+        <div class="seri-gecis">
+          {{ with $onceki }}<a class="seri-onceki" href="{{ .Permalink }}"><span>Önceki</span>{{ .LinkTitle }}</a>{{ end }}
+          {{ with $sonraki }}<a class="seri-sonraki" href="{{ .Permalink }}"><span>Sonraki</span>{{ .LinkTitle }}</a>{{ end }}
+        </div>
+        {{ else }}
+        <p>Bu yazı, atölyedeki tüm rehberleri bir öğrenme yoluna dizen <a href="{{ $hub.Permalink }}">Fotoğrafa Başlangıç</a> sayfasından da ulaşılabilir.</p>
+        {{ end }}
+      </nav>
+    {{ end }}
+    {{ end }}
 
     {{ if .Section }}
     <aside class="yazar-kutusu">

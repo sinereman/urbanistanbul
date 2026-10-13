@@ -10,6 +10,14 @@
     <span class="ed-section-more">{{ len $sayfalar }} içerik</span>
   </div>
 
+  {{ if eq .Section "atolye" }}{{ with site.GetPage "/atolye/fotografa-baslangic" }}
+  {{ $sayfalar = where $sayfalar "Permalink" "!=" .Permalink }}
+  <a class="baslangic-bandi" href="{{ .Permalink }}">
+    <div><strong>Fotoğrafa nereden başlamalı?</strong><span>Atölyedeki rehberleri, kamera seçiminden ışığa ve sokağa uzanan bir öğrenme yoluna dizdik.</span></div>
+    <em>YOLA ÇIK</em>
+  </a>
+  {{ end }}{{ end }}
+
   <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
     {{ range $sayfalar }}
     <a href="{{ .Permalink }}" class="ed-event-card">

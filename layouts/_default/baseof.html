@@ -42,6 +42,23 @@
   <script type="application/ld+json">
   {{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $aciklama "image" (slice $gorsel) "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "inLanguage" "tr-TR" "mainEntityOfPage" .Permalink "author" (dict "@type" "Person" "name" .Site.Params.author "url" (.Site.Params.authorPage | absURL)) "publisher" (dict "@type" "Organization" "name" "URBANİSTANBUL" "logo" (dict "@type" "ImageObject" "url" ("/images/logo.png" | absURL))) | jsonify | safeJS }}
   </script>
+  {{- $etkinlikBolumleri := slice "muzik" "festival" "etkinlikler" "tiyatro" }}
+  {{- if and (in $etkinlikBolumleri .Section) .Params.tarih .Params.mekan (not $gecmis) }}
+  {{- $ad := .Params.etkinlik_adi | default (trim (index (split .Title ":") 0) " ") }}
+  {{- $etkinlik := dict "@context" "https://schema.org" "@type" "Event" "name" $ad "description" $aciklama "image" (slice $gorsel) "url" .Permalink "startDate" ((time .Params.tarih).Format "2006-01-02") "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "location" (dict "@type" "Place" "name" .Params.mekan "address" (dict "@type" "PostalAddress" "addressLocality" "İstanbul" "addressCountry" "TR")) }}
+  {{- with (.Params.bitis | default .Params.tarih_bitis) }}{{ $etkinlik = merge $etkinlik (dict "endDate" ((time .).Format "2006-01-02")) }}{{ end }}
+  <script type="application/ld+json">
+  {{ $etkinlik | jsonify | safeJS }}
+  </script>
+  {{- end }}
+  {{- end }}
+  {{- $konum := partial "konum.html" . }}
+  {{- if gt (len $konum) 1 }}
+  {{- $ogeler := slice }}
+  {{- range $i, $k := $konum }}{{ $ogeler = $ogeler | append (dict "@type" "ListItem" "position" (add $i 1) "name" $k.ad "item" $k.url) }}{{ end }}
+  <script type="application/ld+json">
+  {{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $ogeler | jsonify | safeJS }}
+  </script>
   {{- end }}
 
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -112,6 +129,7 @@
         <div class="footer-col-title">PERDE VE ATÖLYE</div>
         <a href="/perde">Perde: Sinema</a>
         <a href="/atolye">Atölye</a>
+        <a href="/atolye/fotografa-baslangic/">Fotoğrafa Başlangıç</a>
         <a href="/urbankare">Urban Kare</a>
         <a href="/kesfet">İstanbul Rotaları</a>
       </div>
