@@ -1,91 +1,129 @@
 ---
-title: "Kameranı Aldın, Dışarı Çıktın: İlk Günün Hayatta Kalma Rehberi"
+title: "Kameranı Aldın, Dışarı Çıktın: İlk Otuz Günün Rehberi"
 date: 2026-04-30
+lastmod: 2026-10-13
 konu: "Fotoğrafçılık"
 sira: 8
 image: "/images/uploads/first-day-photography-guide.jpg"
 foto_yon: "yatay"
 draft: false
-description: "Yeni bir kamera heyecanıyla hemen Balat'a koşmayın. Kameranızı tanımadan sokağa çıkmak, o büyülü anları harcamak demektir. İşte ilk 30 günün yol haritası."
+description: "Yeni bir kamerayla ilk gün neler ayarlanmalı, hangi mod ne işe yarar, netleme nasıl çalışır? Kutudan çıkıştan ilk ciddi sokak yürüyüşüne, otuz günlük bir yol haritası."
 ---
 
-Dur. 
+Kutuyu açtınız. Kamera elinizde, pil şarjda, sokak sizi çağırıyor. İlk aklınıza gelen yer muhtemelen Balat: renkli duvarlar, ipe asılı çamaşırlar, yokuştan inen eski evler.
 
-**Balat'a gitme. Henüz değil.**
-
-Balat sabırla bekliyor. O sarı duvarlar, rengarenk çamaşırlar ve tarihi çıkmaz sokaklar hep orada olacak. Ancak kameranızı tam anlamıyla tanımadan Balat'a gittiğinizde, menüde kaybolur, ayar yaparken o "an"ı kaçırırsınız. Sonuç? Pişmanlık ve harcanmış bir keşif hissi.
-
-Önce kameranızı elinizin bir uzantısı haline getirin. Geri kalanı keşfetmek için zaman çok.
+Biraz bekleyin. Balat yerinde duruyor ve duracak. Ama kameranızı tanımadan oraya giderseniz, en güzel anı menülerde bir ayar ararken kaçıracaksınız. Bu rehber, kamerayı elinizin bir uzantısı hâline getirmek için ilk otuz günü planlamanıza yardım etmek için yazıldı.
 
 ---
 
-## İlk Gün: Güvenli Bölge (Evin İçi)
+## İlk Gün: Evde, Acele Etmeden
 
-Yeni kamera kutusundan çıkmış, parmaklar titriyor ve sokak sizi çağırıyor olabilir. Ancak en iyi eğitim, acele edilmeyen bir ortamda başlar. İlk gün dışarı çıkmayın; kameranızla evde "tanışın".
+İlk gün dışarı çıkmayın. Kameranızla evde tanışın. Bu, sıkıcı ama fark yaratan bir gündür.
 
-### Yapacaklarınız:
-1.  **Menü Haritası:** Menüde rastgele kaybolun. Hangi ayarın nerede olduğunu ezberlemeye çalışmayın, sadece "burada böyle bir şey varmış" deyin.
-2.  **Dört Temel Ayar:** ISO, Diyafram, Enstantane ve Çekim Modu (P, A, S, M) düğmelerinin yerini bulun. Gözünüzü vizörden ayırmadan bu değerleri değiştirebiliyor musunuz? Hedefiniz bu.
-3.  **Deklanşörün Sesi:** Mekanik ve sessiz deklanşör arasındaki farkı duyun. Sokakta ne kadar "gürültü" yapacağınızı bilin.
+Pili tamamen şarj edin. Hafıza kartını bilgisayarda değil, kameranın kendi menüsünden biçimlendirin; bu, kartın o kamerayla en uyumlu biçimde çalışmasını sağlar. Üreticinin sitesinden kameranızın ve varsa lensinizin güncel yazılımını kontrol edin. Yeni kameralar, satıldıktan sonraki aylarda önemli netleme ve kararlılık iyileştirmeleri alır.
 
----
+Tarih ve saati doğru ayarlayın. Ardından menüde "telif hakkı" ya da "sanatçı adı" bölümünü bulun ve adınızı yazın. Bu bilgi çektiğiniz her fotoğrafın içine gömülür ve ileride fotoğraflarınızın size ait olduğunu göstermenin en basit yoludur.
 
-## Otomatik Modlar: A, P, S, M Ne Demek?
+Görüntü kalitesini RAW ve JPEG birlikte olacak şekilde ayarlayın. JPEG anında paylaşılabilir bir sonuç verir. RAW ise hata yaptığınızda sizi kurtarır; özellikle ilk haftalarda, pozlamada yanılmanız kaçınılmaz olduğunda, bunun değerini anlayacaksınız.
 
-*   **P (Program):** Kamera her şeyi ayarlar, siz sadece çerçeveye ve ISO'ya odaklanırsınız. İlk 100 kareniz için en iyi arkadaştır.
-*   **A (Diyafram Öncelikli):** En çok kullanacağınız moddur. Siz arka planın ne kadar bulanık olacağına (f/1.8 vs f/8) karar verirsiniz, kamera geri kalanını halleder.
-*   **S (Enstantane Öncelikli):** Hareketli sahnelerin (koşan bir çocuk veya akan Boğaz suyu) ilacıdır.
-*   **M (Manuel):** Her şey elinizde. Acele etmeyin; manuel mod esneklik verir ama hız çalar. Sokakta ise hız her şeydir.
+Son olarak ekranda üç şeyi açın: ızgara çizgileri, elektronik su terazisi ve histogram. Izgara kompozisyonu, su terazisi eğri ufku, histogram ise pozlama hatalarını ekran sizi yanıltmadan önce gösterir. Varsa "parlak alan uyarısı" özelliğini de açın; patlamış bölgeleri yanıp sönerek gösterir.
 
 ---
 
-## Markalara Göre İlk Ayarlar
+## Düğmelerin Yeri
 
-### Fujifilm Kullanıyorsanız:
-Fiziksel kadranların tadını çıkarın. 
-- **Diyafram:** A (Otomatik)
-- **Enstantane:** A (Otomatik)
-- **ISO:** Auto (Üst sınırı 3200 yapabilirsiniz)
-- **Film Simülasyonu:** Classic Chrome (Sokağın ruhuna en yakın olanıdır)
+Asıl ilk gün egzersizi şudur: gözünüzü vizörden ayırmadan diyaframı, enstantaneyi, ISO'yu ve pozlama telafisini değiştirebiliyor musunuz?
 
-### Nikon Kullanıyorsanız:
-Nikon'un ergonomisi ve "U" (User) modları hayat kurtarır.
-- **Fn Butonları:** Sık kullandığınız ISO veya Netleme modlarını mutlaka Fn tuşlarına atayın.
-- **Picture Control:** "Standard" veya "Flat" ile başlayın.
-- **Nikon ZR / Cinema Serisi:** Eğer video odaklı bir gövdeniz varsa, shutter speed yerine "shutter angle" (180 derece kuralı) ayarını öğrenerek başlayın.
+Bunu yapabilene kadar, evin içinde kamerayı yüzünüze kaldırıp bu dört değeri değiştirmeye çalışın. Sonra gözünüzü kapatın ve tekrarlayın. Kulağa tuhaf geliyor, ama sokakta karşılaşacağınız her an bu kas hafızasına dayanacak.
 
-### Sony Kullanıyorsanız:
-- **My Menu:** Sony’nin karmaşık menüsünden kurtulmak için en sık kullandığınız 5 ayarı "My Menu" sekmesine toplayın.
-- **Eye-AF:** Netleme modunu "Human/Animal" olarak ayarlayın ve kameranın göz takibi mucizesine güvenin.
+Mekanik ve elektronik deklanşör arasındaki farkı da dinleyin. Elektronik deklanşör tamamen sessizdir, ama hızlı hareket eden konularda ya da bazı yapay ışıklar altında görüntüde bozulmalara yol açabilir. Mekanik deklanşör ses yapar, ama her koşulda güvenilirdir. Sokakta hangisinin ne kadar dikkat çekeceğini bilmek önemlidir.
+
+Bir de kameranın bip sesini ve netleme yardımcı lambasını kapatın. Sessiz bir sokakta çalan bir bip, ya da birinin yüzüne yanan turuncu bir ışık, fark edilmenin en kısa yoludur.
 
 ---
 
-## 30 Günlük Yol Haritası
+## Modlar: P, A, S, M
 
-| Zaman Dilimi | Görev | Mekan Önerisi |
-| :--- | :--- | :--- |
-| **1. Gün** | Menü ve buton yerleşimi | Kendi odanız |
-| **2-3. Gün** | Işık takibi (Sabah/Akşam) | Mahalle parkı |
-| **1. Hafta** | A (Diyafram) modunda derinlik denemeleri | Pazar yerleri |
-| **2. Hafta** | Kompozisyon ve ufuk çizgisi | Boğaz hattı (Açık hava) |
-| **1. Ay Sonu** | Gerçek "Urban" sınavı | **Balat, Eminönü, Kapalıçarşı** |
+Kameranın mod kadranındaki harfler, kontrolü kameranızla nasıl paylaştığınızı belirler.
 
----
+**P, Program.** Kamera diyaframı ve enstantaneyi birlikte seçer. Siz yine pozlama telafisini ve ISO'yu kontrol edebilirsiniz. İlk günlerde kompozisyona odaklanmak için rahat bir başlangıçtır.
 
-## Nereye Gitmeyin — Henüz
+**A ya da Av, Diyafram Öncelikli.** Siz diyaframı seçersiniz, kamera enstantaneyi ayarlar. Yani neyin net neyin bulanık olacağına siz karar verirsiniz. Sokak ve gündelik fotoğrafta en çok kullanılan moddur.
 
-Bazı yerler kameranıza %100 güvendiğinizde değerlidir:
-*   **Eminönü Gün Batımı:** Altın saat sadece 15-20 dakika sürer. Menüde ayar ararken güneş batar.
-*   **Kapalıçarşı:** Işığın az, kalabalığın çok olduğu, teknik olarak en zorlayıcı yerlerden biridir. ISO ve AF-C (Sürekli netleme) hakimiyeti ister.
+**S ya da Tv, Enstantane Öncelikli.** Siz enstantaneyi seçersiniz, kamera diyaframı ayarlar. Hareketin donması ya da erimesi ilk önceliğinizse bu modu kullanın.
+
+**M, Manuel.** Her şey sizdedir. Otomatik ISO ile birlikte kullanıldığında sokakta çok güçlü bir moddur: diyaframı ve enstantaneyi sabitlersiniz, kamera ISO'yu ışığa göre ayarlar.
+
+Bu değerlerin birbirini nasıl etkilediğini [Pozlama Üçgeni](/atolye/pozlama-ucgeni/) yazımızda ayrıntılı anlattık. İlk hafta için önerimiz şu: A modunda kalın, Otomatik ISO'yu açın ve üst sınırını 6400 yapın, minimum enstantaneyi de 1/125 ya da otomatik olarak ayarlayın.
 
 ---
 
-## Urbankare Notu: Çok Çekin, Az Saklayın
+## Netleme: Kameranın Bakışını Yönetmek
 
-Fotoğrafçılık bir kas hafızası işidir. İlk haftanızda 1000 kare çekin ve 990 tanesini acımadan silin. Kalan 10 kareye bakın ve kendinize sorun: **"Bu fotoğraf neden işe yaradı?"**
+Modern kameraların netleme sistemleri şaşırtıcı derecede akıllıdır, ama ne yapacaklarını onlara siz söylemelisiniz.
 
-Bu sorunun cevabı, sizi teknik rehberlerden daha hızlı geliştirecektir.
+Tek seferlik netleme (AF-S), deklanşöre yarım bastığınızda netlemeyi bir kez yapar ve kilitler. Durağan konular için idealdir. Sürekli netleme (AF-C) ise deklanşöre basılı tuttuğunuz sürece konuyu takip eder. Yürüyen insanlar, geçen bisikletliler, oynayan çocuklar için kullanın. Sokakta pek çok fotoğrafçı sürekli netlemede kalmayı tercih eder.
+
+Netleme alanı da önemlidir. Kameranın tüm kareyi tarayıp konuyu kendisinin seçtiği geniş alan modu, insan ya da hayvan algılama açıkken çoğu durumda iyi çalışır. Ama kalabalık bir sahnede kamera sizin istemediğiniz birine netleyebilir. Böyle durumlarda küçük bir netleme noktasına geçip onu konunuzun üzerine taşımak daha güvenlidir.
+
+İleri bir öneri: netlemeyi deklanşörden ayırıp kameranın arkasındaki bir düğmeye atayın. Buna "arka düğmeden netleme" denir. İlk başta tuhaf gelir, ama bir kez alıştığınızda netlemeyi bir kez yapıp kadrajı değiştirmek ve doğru anı beklemek çok kolaylaşır.
 
 ---
 
-*Urbankare serisinin devamında: "Balat Fotoğraf Rotası: Işık, Renk ve Doğru Saatler" ve "Pozlama Üçgeni: Diyafram, Enstantane, ISO Sıfırdan"*
+## Markaya Göre Başlangıç
+
+Her markanın kendi mantığı vardır. Birkaç başlangıç önerisi:
+
+Fujifilm kullanıyorsanız fiziksel kadranlardan yararlanın. Diyafram halkasını ve enstantane kadranını "A" konumuna aldığınızda kamera program modunda çalışır; birini elle ayarladığınızda o değer öncelikli hâle gelir. Q düğmesiyle açılan hızlı menüyü kendi sık kullandığınız ayarlarla düzenleyin. Film simülasyonu olarak Classic Chrome ya da Reala Ace ile başlayabilirsiniz. Ayrıntılar [Film Simülasyonları Rehberi](/atolye/film-simulasyonlari-rehberi/)'nde.
+
+Nikon kullanıyorsanız "i" menüsünü özelleştirin ve sık kullandığınız ayarları Fn düğmelerine atayın. Gövdenizde U1, U2, U3 kullanıcı modları varsa, örneğin biri sokak, biri gece, biri video için olmak üzere üç farklı ayar setini bunlara kaydedin. Picture Control'de Standart ile başlamak güvenlidir.
+
+Sony kullanıyorsanız menüler kalabalık gelebilir. En sık kullandığınız ayarları "My Menu" sekmesinde toplayın ve Fn menüsünü düzenleyin. Netleme alanında gerçek zamanlı takibi ve konu algılamayı açın.
+
+Video da çekecekseniz bir kuralı baştan öğrenin: enstantaneyi kare hızının iki katının tersi olarak ayarlayın. Saniyede 25 karede 1/50 gibi. Bu, hareketin doğal görünmesini sağlar. Güneşli havada bunu korumak için neden ND filtreye ihtiyaç duyulduğunu [ND Filtre Rehberi](/atolye/nd-filtre-rehberi/)'nde anlattık.
+
+---
+
+## Otuz Günlük Yol Haritası
+
+İlk gün evde, düğmelerle ve menülerle geçsin.
+
+İkinci ve üçüncü gün, evinizin bir penceresinin önünde ya da balkonda aynı sahneyi sabahtan akşama farklı saatlerde çekin. Işığın yönünün, renginin ve sertliğinin gün boyunca nasıl değiştiğini görmek, okuyacağınız herhangi bir teori kadar öğreticidir.
+
+İlk haftanın geri kalanında A modunda kalın ve alan derinliğiyle oynayın. Aynı sahneyi f/2, f/5.6 ve f/11 ile çekin, sonra karşılaştırın. Mahallenizin pazarı bunun için iyi bir yerdir: tezgâhlar, insanlar, ayrıntılar.
+
+İkinci hafta kompozisyona odaklanın. Tek bir sokakta yüz kare çekin ve kendinize bir kural koyun: hiçbir kareyi aynı yerden, aynı yükseklikten çekmeyeceksiniz. Çömelin, yükselin, geri çekilin, yaklaşın. Boğaz kıyısı ufuk çizgisini düz tutmayı öğrenmek için mükemmel bir alandır.
+
+Üçüncü hafta hareketle çalışın. Enstantane öncelikli modda geçen vapurları, yürüyen insanları, kuşları önce 1/1000, sonra 1/30 ile çekin. Dondurmak ile eritmek arasındaki farkı gözünüzle görün.
+
+Dördüncü hafta ise asıl sınav. Balat, Eminönü, Karaköy. Artık kameranızı düşünmeden kullanabildiğiniz için sahneye bakabileceksiniz. Rotalar ve doğru saatler için [Balat Fotoğraf Rotası](/atolye/istanbul-rota-1-balat/) ile başlayabilirsiniz.
+
+---
+
+## Henüz Gitmeyin
+
+Bazı yerler ve anlar, kameranıza tamamen güvendiğinizde değerlidir.
+
+Eminönü'nde gün batımı bunlardan biri. Altın saat kısa sürer ve ışık dakikalar içinde değişir. Bir ayar ararken güneş batar. Kapalıçarşı da öyle: ışık az, kalabalık çok, ışık kaynakları karışık. Hem ISO'ya hem sürekli netlemeye hâkim olmanızı ister. Bu yerleri ilk ayın sonuna saklayın.
+
+---
+
+## Kameranıza İyi Bakın
+
+İstanbul nemli ve yağmurlu bir şehirdir. Hava koşullarına dayanıklı olduğu söylenen gövdeler bile ancak dayanıklı bir lensle birlikte bu korumayı sağlar. Yağmurda kamerayı ceketinizin altına alın, eve döndüğünüzde de kuru bir bezle silip çantasının dışında kurumaya bırakın.
+
+Lensin ön camını tişörtünüzle silmeyin. Önce bir üfleyiciyle tozu alın, sonra mikrofiber bir bezle hafifçe silin. Sensör temizliği için ise ilk aylarda kendiniz uğraşmak yerine yetkili bir servise başvurun.
+
+Fotoğraflarınızı tek bir yerde saklamayın. Basit bir kural: en az iki farklı yerde kopya, biri evinizin dışında. Bir harici disk ve bir bulut hesabı, ilk yıl için yeterlidir.
+
+---
+
+## Çok Çekin, Az Saklayın
+
+Fotoğraf bir kas hafızası işidir. İlk ayınızda binlerce kare çekin ve çoğunu acımadan silin. Her yürüyüşten sonra en iyi on kareyi seçin ve her birine bakıp kendinize şunu sorun: bu fotoğraf neden işe yaradı? Işık mı, an mı, kadraj mı?
+
+Bu soruya verdiğiniz cevaplar sizi herhangi bir teknik rehberden daha hızlı geliştirecek. Bu rehber dahil.
+
+---
+
+*Atölye'de devam: [Pozlama Üçgeni](/atolye/pozlama-ucgeni/) · [Sokak Fotoğrafçılığının Görünmez Kuralları](/atolye/sokak-fotografciligi-rehberi/) · [Balat Fotoğraf Rotası](/atolye/istanbul-rota-1-balat/)*

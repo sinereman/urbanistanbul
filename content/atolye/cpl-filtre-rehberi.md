@@ -1,151 +1,125 @@
 ---
-title: "CPL Filtre: Camım Ardından Bakan O kız İçin"
+title: "CPL Filtre Rehberi: Camın Ardını Görmek, Gökyüzünü Derinleştirmek"
 date: 2026-04-30
+lastmod: 2026-10-13
 konu: "Fotoğrafçılık"
 sira: 6
 image: "/images/uploads/cpl-filter-guide-istanbul.jpg"
 foto_yon: "yatay"
 draft: false
-description: "Camların arkasındaki dünyayı görmek veya ıslak asfaltın dokusunu ortaya çıkarmak... Şehir fotoğrafçısının en büyük süper gücü CPL filtreyi inceliyoruz."
+description: "Polarize filtre nedir, nasıl çalışır, ne zaman işe yarar ve ne zaman yaramaz? Işığın fiziğinden İstanbul sokaklarındaki pratiğe, CPL filtrenin eksiksiz rehberi."
 ---
 
-Bir sahneyi düşünün.
+Karaköy'de trafik durmuş. Yanınızdaki takside şoför başını koltuğa yaslamış, gözleri yarı kapalı. Öğle güneşi ön camda beyaz bir leke açmış, o leke yüzünün yarısını yutuyor. Deklanşöre basıyorsunuz. Ekrana baktığınızda şoförü değil, camın üzerinde kayan binaları ve kendi siluetinizi görüyorsunuz.
 
-Karaköy'de trafik durmuş. Yanınızdaki takside şoför koltuğuna yaslanmış, başını geriye atmış, sigarasının dumanını tavana üflüyor. Pencereden içeri yağan öğle güneşi camda yansıyor, o yansıma yüzünün yarısını beyaza kesiyor. Deklanşöre basıyorsunuz — ama ekrana baktığınızda şoförü değil kendi yansımanızı, arka fondaki binaları, camın üzerinde dans eden ışığı görüyorsunuz.
-
-Ya da başka bir sahne: Boğaz hattı vapurunda, alt güvertede oturmuş dört beş yolcu size bakıyor. Meraklı, hafif tuhaf, *"bu adam neden fotoğraf çekiyor"* bakışı. Ama güneşin açısı camı bir ayna yapmış — onları değil, kendi siluetinizi çekiyorsunuz.
-
-İşte bu iki sahne için ihtiyacınız olan filtre, CPL'dir.
+Bu sorunun bir çözümü var ve bu çözüm yüz yıldır aynı fiziğe dayanıyor. Dairesel polarize filtre, yani CPL, şehir fotoğrafçısının çantasındaki en küçük ama en çok şey değiştiren cam parçası. Bu rehberde CPL'nin ne yaptığını, neden yaptığını ve en az bunlar kadar önemlisi, ne zaman hiçbir işe yaramadığını anlatacağız.
 
 ---
 
-## CPL Nedir? Polarize Işığı Anlamak
+## Işık Neden Polarize Olur?
 
-CPL, *Circular Polarizing Filter*'ın kısaltmasıdır. Türkçesi: Dairesel polarize filtre.
+Işığı bir ip üzerinde ilerleyen dalgalar gibi düşünebilirsiniz. Güneşten gelen ışık her yöne doğru titreşir; dalgalar yukarı aşağı, sağa sola, çapraz, aklınıza gelen her düzlemde salınarak ilerler. Buna polarize olmamış ışık denir.
 
-Işık doğrusal olarak yayılmaz. Her yöne titreşerek ilerler. Bir yüzeye çarptığında — cam, su, ıslak asfalt, yaprak, metal — yalnızca belirli açılarda titreşen ışık geri yansır. Bu yansıyan ışık polarizedir.
+Bu ışık cam, su ya da ıslak asfalt gibi metal olmayan parlak bir yüzeye çarpıp yansıdığında bir şey olur: yansıyan ışığın büyük kısmı tek bir düzlemde, yüzeye paralel titreşmeye başlar. Işık polarize olmuştur. Etki her açıda aynı değildir. Fizikçi David Brewster'ın adıyla anılan belirli bir açıda yansıma neredeyse tamamen polarize olur. Su için bu açı yüzeyle yaklaşık 37 derece, cam için yaklaşık 33 derecedir. Yani suya ya da bir vitrine dik değil, belli bir eğimle baktığınızda polarizörün gücü en yüksek noktasına çıkar.
 
-CPL filtre, lens önüne yerleştirilen ve döndürülebilen bir cam halkasıdır. Döndürdükçe belirli açılardaki polarize ışığı geçirmez. Sonuç: Yansımalar azalır ya da tamamen kaybolur, renkler derinleşir, kontrastlar güçlenir.
+Gökyüzünde de benzer bir şey yaşanır. Güneş ışığı atmosferdeki moleküllere çarparak saçılır ve bu saçılan ışık, güneşe 90 derece açıyla bakılan bölgede en güçlü biçimde polarize olur.
 
-Basitçe söylemek gerekirse: **CPL filtre camın arkasını görmenizi sağlar.**
-
-Ve bu, şehir fotoğrafçısı için bir süper güç gibidir.
+Polarize filtre ise çok ince çizgilerden oluşan bir ızgara gibi çalışır. Izgaranın yönüyle aynı düzlemde titreşen ışığı geçirir, diğerini keser. Filtreyi döndürdükçe hangi ışığın kesileceğine siz karar verirsiniz.
 
 ---
 
-## Taksinin Camından İçerisi
+## Neden "Dairesel"?
 
-Geri dönelim o sahneye.
+Piyasada iki tür polarizör vardır: doğrusal (linear) ve dairesel (circular). Doğrusal polarizör aslında işini daha saf yapar, ama bir sorunu vardır. DSLR kameraların otomatik netleme ve ışık ölçüm sistemleri, aynanın arkasındaki yarı geçirgen yüzeylerden geçen ışığı kullanır ve bu yüzeyler polarize ışıkla şaşırır. Netleme kaçar, pozlama yanılır.
 
-Şoför koltuğuna yaslanmış, sigarasını tüttürüyor. CPL filtre takılı, döndürüyorsunuz — cam yansıması kayboluyor. Şoförün yüzü, masası, direksiyonu, tavanında sallanan nazarlık, koltuğun üzerindeki deri kılıf netleşiyor. Siz kaldırımda duruyorsunuz, o içeride kendi dünyasında. Aramızdaki cam artık görünmez.
+Dairesel polarizör bu sorunu ikinci bir katmanla çözer. Önce ışığı doğrusal olarak polarize eder, ardından arkadaki "çeyrek dalga plakası" denen katman bu ışığı yeniden karışık hâle getirir. Kamera fark etmez, ama yansımalar yine de kesilmiş olur.
 
-Bu kare CPL olmadan çekilemez. Mümkün değildir.
-
-Şehirde camın arkası inanılmaz bir içerik kaynağıdır. Dükkan vitrinleri, restoran pencereleri, metro vagonları, otobüs camları — bunların hepsi CPL ile şeffaflaşır.
-
-Otobüsün içindeki o meraklı gözler. Pencereye yaslanmış uyuyan yolcu. Vitrininde çalışan terzi. Kahvesini içerken dışarıya bakan yaşlı adam. Bunların tamamı CPL olmadan ya yansımayla ya da soluk, kontrastsız bir görüntüyle gelir.
-
-CPL ile cam ortadan kalkar. Fotoğrafçı ile sahne arasındaki bariyer silinir.
+Aynasız kameralarda bu sorun büyük ölçüde ortadan kalksa da piyasadaki vidalı filtrelerin neredeyse tamamı dairesel olduğu için pratikte hep CPL kullanırız. Filtre takarken dikkat edilecek tek şey yönüdür: CPL ters takılırsa hiçbir işe yaramaz.
 
 ---
 
-## Gökyüzü ve Şehir Silüeti
+## Camın Arkası: Şehirde En Büyük Güç
 
-CPL filtrenin ikinci büyük gücü gökyüzündedir.
+Şehir camdan yapılmıştır. Vitrinler, taksi camları, vapur pencereleri, kafe cepheleri, metro vagonları. Her biri bir hikâyenin önüne gerilmiş bir perdedir.
 
-Polarize olmayan ışıkla çekilmiş bir İstanbul gökyüzü soluktur. Mavi, evet — ama soluk bir mavi. Bulutlar kaybolur beyaz zemine. Kontrastsız, düz, sıkıcı.
+Takside oturan şoföre geri dönelim. CPL'yi yavaşça çevirdiğinizde camdaki yansıma solmaya başlar, belirli bir noktada neredeyse kaybolur. Direksiyon, dikiz aynasında sallanan nazarlık, şoförün yorgun yüzü ortaya çıkar. Aranızdaki cam artık oradadır ama görünmez.
 
-CPL filtre döndürüldüğünde gökyüzü derinleşir. Mavi koyulaşır. Bulutlar öne çıkar. Galata Kulesi'nin arkasındaki gökyüzü, Boğaz köprüsünün üzerindeki bulut dramı, Süleymaniye'nin kubbeleri ile mavi göğün kesişimi — bunlar CPL ile başka bir boyut kazanır.
+Burada bilinmesi gereken önemli bir ayrıntı var: etki, cama baktığınız açıya bağlıdır. Cama tam karşıdan, dik açıyla bakıyorsanız yansıyan ışık zaten pek polarize olmamıştır ve CPL'nin yapabileceği az şey vardır. Bir iki adım yana kayıp cama 30 ila 40 derecelik bir açıyla baktığınızda filtre neredeyse mucize gibi çalışır. Vitrin çekerken bu küçük adım farkı çoğu zaman her şeyi belirler.
 
-Dikkat edilmesi gereken bir nokta var: CPL'nin gökyüzü üzerindeki etkisi güneşin açısına bağlıdır. Güneş ile lens ekseni arasındaki açı 90 derece olduğunda etki maksimuma ulaşır. Güneşe doğru ya da güneşten geliyorken çektiğinizde etki minimumdur.
-
-**Pratik kural:** Güneş omzunuzun üzerindeyse CPL gökyüzünde en güçlüdür.
+Bir de CPL'nin silemediği yansımalar vardır. Metal yüzeylerden gelen yansımalar polarize olmaz. Krom bir tampon, parlak bir kapı kolu ya da çelik bir tabela yansıması CPL ile değişmez. Bunu bilmek, sahada filtreyi boşuna çevirmekten kurtarır.
 
 ---
 
-## Islak Asfalt, Yağmurlu İstanbul
+## Gökyüzü: Mavinin Derinleşmesi
 
-İstanbul'da yağmur bir lanet değil, bir armağandır — fotoğrafçı için.
+CPL'nin ikinci büyük etkisi gökyüzündedir. Filtreyi çevirdiğinizde mavi koyulaşır, bulutlar beyaz bir zeminde kaybolmak yerine öne çıkar. Galata Kulesi'nin arkasındaki gökyüzü, Süleymaniye'nin kubbeleriyle göğün buluştuğu çizgi, bir anda hacim kazanır.
 
-Yağmur sonrası ıslak kaldırım taşları, su birikintileri, parlayan asfalt. Bunların hepsi polarize ışık yansıtır. Ve CPL bu yansımaları kontrol etmenizi sağlar.
+Bu etki güneşin konumuna sıkı sıkıya bağlıdır. Güneşi işaret parmağınızla gösterin, başparmağınızı ona dik açıyla açın. Başparmağınızın gösterdiği yay boyunca uzanan gökyüzü, CPL'nin en güçlü olduğu bölgedir. Güneşe doğru ya da güneşi tam arkanıza alarak çektiğinizde etki neredeyse yoktur. Pratik bir kural olarak, güneş omzunuzun hizasındayken CPL gökyüzünde en çok işe yarar.
 
-İki seçeneğiniz var:
+Geniş açı lenslerde dikkat edilmesi gereken bir tuzak var. Yaklaşık 24 milimetrenin altındaki odak uzaklıklarında kadraj o kadar geniş bir gökyüzü kapsar ki, bir kısmı güneşe 90 derece açıdayken diğer kısmı değildir. Sonuç, karenin bir tarafında koyu, diğer tarafında açık mavi olan dengesiz bir gökyüzü olur. Bu bant, sonradan düzeltilmesi en zor sorunlardan biridir. Geniş açıyla çekerken ya filtreyi en güçlü konumdan biraz geri çevirin ya da gökyüzü için filtreyi hiç kullanmayın.
 
-1.  **Yansımayı kaldırmak:** CPL döndürün, asfalt yansımaları kaybolur. Altındaki taş dokusu, renk, detay ortaya çıkar. Osmanlı kaldırım taşlarının dokusu, ıslak mermer zemin, çamur birikintisi — bunlar görünür hale gelir.
-2.  **Yansımayı kullanmak:** CPL'yi tam tersi açıya döndürün ya da hiç kullanmayın. Yansıma güçlenir. Su birikintisindeki Galata Kulesi yansıması, ıslak asfalttaki ışık çizgisi, camda kırılan şehir silueti — bunlar kendi başlarına kare olabilir.
-
-CPL size seçim hakkı verir. Yansıma mı istiyorsunuz, gerçeklik mi? Her ikisi de sanatsal karardır. Filtre bu kararı bilinçli kılar.
+Yüksek irtifada ya da çok berrak havalarda gökyüzü siyaha yakın, doğal olmayan bir laciverde dönebilir. Etkiyi her zaman sonuna kadar zorlamak zorunda değilsiniz. Filtrenin yarı konumda olması, çoğu zaman en inandırıcı sonucu verir.
 
 ---
 
-## Suya Bakan Fotoğrafçı: Boğaz, Haliç, Kanal
+## Su ve Islak Şehir
 
-Su, polarize ışığın en güçlü yüzeyidir.
+Su, polarize ışığın en güçlü kaynağıdır. Boğaz'a baktığınızda gördüğünüz mavinin büyük kısmı aslında suyun yüzeyine yansıyan gökyüzüdür. CPL ile bu yansıma azaldığında suyun kendi rengi ortaya çıkar; daha koyu, daha yeşil, bazen beklemediğiniz kadar derin. Sığ bir kıyıda, Kuzguncuk'un dalgakıranında ya da Moda'nın kayalıklarında suyun altındaki taşlar görünür hâle gelebilir.
 
-Boğaz'a baktığınızda gördüğünüz mavi, büyük ölçüde su yüzeyinin gökyüzünü yansıtmasıdır. Altındaki gerçek su rengi, daha koyu, daha derin, bazen yeşile çalan bir renktir.
+Yağmurdan sonra İstanbul bir yansıma şehrine dönüşür. Islak parke taşları, su birikintileri, parlayan asfalt. Burada CPL size bir seçim hakkı verir. Filtreyi bir yöne çevirdiğinizde yansımalar söner, taşın dokusu, rengi, kaldırımın gerçek yüzü ortaya çıkar. Diğer yöne çevirdiğinizde yansımalar olduğu gibi kalır; su birikintisindeki Galata Kulesi, ıslak asfaltta uzayan bir tabela ışığı. İkisi de meşru tercihlerdir. CPL'nin asıl değeri, bu tercihi bilinçli yapmanızı sağlamasıdır.
 
-CPL ile Boğaz'a çektiğinizde yüzey yansıması kısmen kalkar. Su derinleşir. Renk değişir. Ve eğer sığ bir kıyı ya da dalgakıran yakınındaysanız su altı taşlar görünür hale gelebilir.
-
-Haliç'in kirli suları bile CPL ile farklı bir doku kazanır. Yüzey yansıması gidince altındaki karanlık renk öne çıkar — ve o karanlık renk bazen daha güçlü bir görsel anlatım sağlar.
-
-Karaköy iskelesinde, Eminönü rıhtımında, Kadıköy'de vapuru beklerken — CPL takılı çekim yapın. Suyun rengi değişir. Kare derinleşir.
+Yeşillik için de benzer bir durum geçerli. Yaprakların üzerindeki parlak, beyazımsı yansıma polarizedir. CPL bu parlamayı kestiğinde yeşil doygunlaşır. Yağmur sonrası bir parkta ya da Belgrad Ormanı'nda bu fark çok belirgindir.
 
 ---
 
-## CPL Filtre Nasıl Kullanılır?
+## Bedeli: Işık Kaybı ve Diğer Yan Etkiler
 
-Teknik olarak basittir.
+CPL bedava değildir. Filtre, konumundan bağımsız olarak yaklaşık 1,3 ila 2 stop ışık keser. Bu, aynı pozlamayı korumak için enstantanenin yaklaşık üç ila dört kat uzaması ya da ISO'nun aynı oranda artması demektir. Gündüz bu önemsizdir. Akşam, iç mekânda ya da hareketli bir sahnede ise ciddi bir kayıptır. Güneş battıktan sonra CPL'nin gökyüzüne etkisi zaten azaldığı için filtreyi çıkarmak çoğu zaman en doğru karardır.
 
-CPL filtre lensin önüne vidalanır. İki katmanlı bir yapısı vardır: Arka kısım sabit, ön kısım döner. Ön kısmı döndürdükçe polarizasyon açısı değişir.
+İkinci yan etki, beklenmedik yerlerde ortaya çıkar. Telefonlar, otomobil göstergeleri ve bazı reklam ekranları polarize ışık yayar. CPL takılıyken bu ekranlar belirli açılarda tamamen kararabilir. Bir sokak kafesinde telefonuna bakan birini çekiyorsanız, ekranın simsiyah çıkması bundan kaynaklanır.
 
-Vizörden ya da ekrandan bakarak yavaşça döndürün. Belirli bir noktada yansımaların azaldığını ya da gökyüzünün koyulaştığını göreceksiniz. O nokta maksimum etkidir.
-
-**Dikkat edilmesi gerekenler:**
-
-*   **Işık Kaybı:** CPL filtre ışığı keser. Genellikle 1.5 ila 2 stop ışık kaybı yaşarsınız. Yani aynı pozlamayı korumak için ya diyaframı açmanız ya enstantaneyi uzatmanız ya da ISO'yu yükseltmeniz gerekir. Düşük ışık koşullarında bu kayıp önemlidir. Karanlık bir iç mekânda ya da gece CPL kullanmak zorunda değilsinizdir — etkisi minimumdur, ışık kaybı ise hâlâ gerçektir.
-*   **Geniş Açıda Bozulma:** Geniş açı lenslerde dikkatli olun. 16-17mm ve daha geniş açılarda CPL, gökyüzünde eşit olmayan bir koyulaşma yaratabilir. Karenin bir yarısı koyu diğer yarısı açık görünür — bu doğal değildir ve düzeltilmesi zordur.
+Üçüncüsü, gökkuşağıdır. Gökkuşağı da polarize ışıktır. CPL'yi yanlış konumda bırakırsanız gökkuşağını tamamen yok edebilirsiniz. Doğru konumda ise belirginleştirebilirsiniz.
 
 ---
 
-## Hangi CPL Filtre?
+## Videoda CPL
 
-Kalite burada gerçekten fark eder.
+Video çekenler için CPL, fotoğraftakinden daha da değerlidir, çünkü videoda yansımayı sonradan düzeltmek neredeyse imkânsızdır. Bir vitrinin önünden geçen kamera hareketi ya da bir otomobilin içinden çekilen sahne, CPL ile bambaşka bir netlik kazanır.
 
-Ucuz CPL filtreleri görüntüde renk kayması yaratır, keskinliği düşürür, kontrastı bozar. Onlarca dolar verdiğiniz lensin önüne birkaç dolarlık bir filtre takmak, kaliteli bir müzisyenin ucuz bir akort aleti kullanması gibidir.
+Ama videoda dikkat edilmesi gereken bir şey var: kamera hareket ettikçe yansıma açısı değişir. Pan yaparken ya da bir gimbal ile yürürken, başta mükemmel görünen polarizasyon birkaç saniye içinde değişebilir ve gökyüzü çekim boyunca koyulaşıp açılabilir. Bu yüzden hareketli çekimlerde filtreyi en güçlü konuma değil, biraz daha nötr bir konuma ayarlamak daha tutarlı sonuç verir.
 
-Güvenilir markalar: **B+W, Hoya HD, Kenko Zeta, Marumi EXUS.** Bu markalar cam kalitesi, çerçeve hassasiyeti ve renk nötrlüğü açısından test edilmiştir.
-
-Lens çapınıza göre filtre alırsınız — 49mm, 52mm, 58mm, 67mm, 77mm. Farklı çaplı lensleriniz varsa en büyük çap için filtre alıp "step-up" (büyütücü) halka kullanmak ekonomiktir.
+CPL'nin 1,5 stop civarındaki ışık kaybı, videoda hafif bir ND filtre gibi de çalışır. Bu bazen işinize yarar, ama güçlü güneşte 180 derece kuralını korumak için tek başına yetmez. O konuyu [ND Filtre Rehberi](/atolye/nd-filtre-rehberi/)'nde ayrıntılı anlattık.
 
 ---
 
-## Sokakta CPL: Pratik Notlar
+## Kullanım: Sahada Adım Adım
 
-Sokakta CPL kullanmak biraz farklı bir ritim gerektirir.
+Filtreyi lensin önüne vidalayın. CPL iki halkadan oluşur: arkadaki halka lense sabitlenir, öndeki döner. Ön halkayı çevirirken vizörden ya da ekrandan bakın. Yansımanın azaldığı ya da gökyüzünün koyulaştığı noktayı bulun.
 
-Normalde sokak fotoğrafçılığı hız ister. Refleks, içgüdü, anında karar. CPL ise döndürmeyi, ayarlamayı, kontrol etmeyi gerektirir.
+Bulduğunuz konum yalnızca o kadraj için geçerlidir. Kamerayı dikey konuma çevirdiğinizde filtre de 90 derece dönmüş olur ve etki kaybolur, hatta tersine döner. Her kompozisyon değişikliğinde filtreyi yeniden kontrol etmek, CPL kullanmanın temel alışkanlığıdır.
 
-Bu çelişkiyi çözmenin iki yolu var:
+Sokak fotoğrafçılığında bu yavaşlık bir sorun olabilir. Bunu çözmenin iki yolu var. Birincisi, CPL'yi yalnızca belirli sahneler için kullanmak: vitrinler, su kenarları, gökyüzünün kadrajın önemli bir parçası olduğu manzaralar. İkincisi, yürüyüşe çıkmadan önce güneşin konumuna bakıp filtreyi orta bir değerde sabitlemek ve yürüyüş boyunca dokunmamak. Yansımaları tam kesmez, ama genel kontrastı ve rengi düzenli biçimde iyileştirir.
 
-1.  **Sınırlı Kullanım:** CPL'yi belirli sahneler için kullanın. Dükkan vitrinleri, araç camları, su kenarları — bu sahnelerde tempo yavaşlar, CPL'yi ayarlamak için zamanınız olur.
-2.  **Ön Ayar Yapmak:** CPL'yi önceden döndürüp en çok kullanacağınız açıda sabitleyin. Yansıma kontrolü olarak değil, gökyüzü rengi ve genel kontrast artışı için kullanın. Bu şekilde her karede döndürmek zorunda kalmazsınız.
+---
 
-Ve bazen — çoğu zaman — CPL'yi çıkarın. Yansımalar bazen hikâyenin parçasıdır. Otobüs camında kendi yansımanız ve arkasındaki şehir silueti belki de asıl karedir. Filtre her zaman doğru seçenek değildir.
+## Hangi CPL?
+
+Lensin önündeki her cam parçası, görüntüye bir şeyler ekler ya da ondan bir şeyler eksiltir. Ucuz polarizörlerde renk kayması, özellikle soğuk bir mavi ya da sıcak bir sarı ton, keskinlik kaybı ve kontrast düşüşü sık görülür. Kaliteli bir lensin önüne düşük kaliteli bir filtre takmak, o lense ödediğiniz paranın bir kısmını çöpe atmak demektir.
+
+B+W, Hoya HD serisi, Kenko Zeta, Marumi EXUS, NiSi ve Breakthrough Photography gibi markalar, cam kalitesi, kaplama ve renk nötrlüğü konusunda güvenilir bir yere sahip. Kaplama burada önemlidir: iyi bir çok katmanlı kaplama hem parlamayı azaltır hem de filtreyi temizlemeyi kolaylaştırır.
+
+Filtre lensinizin filtre çapına göre alınır. Bu değer genellikle lensin ön kapağının içinde ya da lens gövdesinde, Ø işaretinin yanında yazar. Farklı çaplarda birden fazla lensiniz varsa en büyük çapta tek bir filtre alıp diğer lensler için büyütücü adaptör halkası (step-up ring) kullanmak hem ekonomik hem pratiktir. Tek eksi yanı, büyük filtrenin küçük lensin üzerinde lens kapağını takmanızı engellemesidir.
+
+Geniş açılı lenslerde filtrenin kenarı kadrajın köşesine girip kararmaya yol açabilir. 24 milimetrenin altında çalışıyorsanız ince çerçeveli (slim) modelleri tercih edin.
 
 ---
 
 ## Son Söz: Cam Bir Engel Değil, Bir Katman
 
-Şehir fotoğrafçılığında cam her yerdedir.
+CPL, camı bir engel olmaktan çıkarır. Ama her zaman doğru tercih bu değildir. Bazen camın yüzeyindeki yansıma, fotoğrafın asıl konusudur. Otobüs camında içerideki yolcunun yüzü ile dışarıdaki şehrin silueti üst üste bindiğinde, iki dünya aynı karede konuşur. İçerisi ve dışarısı, siz ve şehir.
 
-Vitrinler, araç camları, metro pencereleri, kafe cepheleri, ofis kuleleri — modern şehir camdan yapılmıştır. Ve cam hem engel hem de katmandır.
-
-CPL, camı bir engel olmaktan çıkarır. Ama bu her zaman doğru tercih değildir. Bazen cam ve içindeki yansıma, gerçekliğin çift katmanlı yapısını anlatır. Hem dışarısı hem içerisi. Hem şehir hem siz. Hem gelen hem giden.
-
-O taksinin camında şoförü mü görmek istiyorsunuz, yoksa camın yüzeyinde dans eden şehri mi?
-
-CPL size her iki seçeneği de verir. Karar sizin.
+CPL'nin size verdiği şey bir efekt değil, bir karardır. O taksinin camında şoförü mü görmek istiyorsunuz, yoksa camın üzerinde akan şehri mi? Filtreyi çevirdiğiniz her an bu soruyu yeniden sorarsınız.
 
 ---
 
-*Urbankare serisinin devamında: "ND Filtre Rehberi — Boğaz'da Uzun Pozlama ve Zamanı Dondurmanın Sanatı" ve "Pozlama Üçgeni — Diyafram, Enstantane, ISO Sıfırdan"*
+*Atölye'de devam: [ND Filtre Rehberi](/atolye/nd-filtre-rehberi/) · [Pozlama Üçgeni](/atolye/pozlama-ucgeni/) · [Prime mi Zoom mu?](/atolye/prime-mi-zoom-mu/)*

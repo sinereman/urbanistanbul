@@ -1,205 +1,138 @@
 ---
 title: "Hangi Kamerayı Almalıyım? Sensör Boyutları ve Kamera Tipleri Rehberi"
 date: 2026-04-30
+lastmod: 2026-10-13
 konu: "Fotoğrafçılık"
 sira: 2
 image: "/images/uploads/hangikamera.jpg"
 foto_yon: "yatay"
 draft: false
+description: "Telefondan orta formata, kamera tiplerinin güçlü ve zayıf yanları, sensör boyutunun gerçek etkisi, lens sistemleri ve Türkiye'de kamera alırken dikkat edilmesi gerekenler."
 ---
 
-Fotoğrafçılığa yeni başlayanların ya da bir üst seviyeye geçmek isteyenlerin sorduğu ilk soru hep aynıdır: "Hangi kamerayı almalıyım?"
+Fotoğrafa yeni başlayanların ya da bir üst seviyeye geçmek isteyenlerin sorduğu ilk soru hep aynıdır: hangi kamerayı almalıyım?
 
-Yanlış soru bu.
+Bu sorunun cevabı bir model adı değildir. Doğru soru şudur: ne çekmek istiyorum, nerede çekmek istiyorum ve kamerayı ne kadar sık yanımda taşıyacağım? Bu soruların cevabı kamera tipini belirler. Sensör boyutu, gövde biçimi, ağırlık ve fiyat da o cevaptan türer.
 
-Doğru soru şu: "Ne çekmek istiyorum, nerede çekmek istiyorum ve bu kamerayla ne kadar yakın olmak istiyorum?"
-
-Bu soruların cevabı kamera tipini belirler. Sensör boyutu, form faktörü, ağırlık, hız — bunların hepsi o cevaptan çıkar. Bu rehberde kamera dünyasının temel kategorilerini, her birinin güçlü ve zayıf yanlarını ve hangi fotoğrafçı tipine hangisinin uyduğunu anlatacağız.
-
----
-
-## Sensör Boyutu Neden Önemli?
-
-Sensör, kameranın ışığı yakaladığı yüzeydir. Büyük sensör daha fazla ışık yakalar — bu da düşük ışık performansı, dinamik aralık ve arka plan bulanıklığı (bokeh) anlamına gelir.
-
-Ama büyük sensör demek büyük lens demektir. Büyük lens demek ağır çanta demektir. Ağır çanta demek eve bırakılan kamera demektir. Eve bırakılan kamera ise hiç çekilmemiş fotoğraf demektir.
-
-İşte bu yüzden "en iyi sensör" diye bir şey yoktur. En iyi sensör, yanınızda taşıdığınız sensördür.
+Bu rehberde telefondan orta formata kadar kamera dünyasının ana kategorilerini, her birinin gerçek güçlü ve zayıf yanlarını anlatacağız. Sonunda da Türkiye'de kamera alırken çoğu kişinin ancak iş işten geçtikten sonra öğrendiği birkaç pratik konuya değineceğiz.
 
 ---
 
-## 1. Kompakt Kameralar — Cebinizde Hazır
+## Sensör Boyutu Neyi Değiştirir?
 
-Kompakt kameralar tek parçadır: lens değişmez, gövde küçüktür, her yere gider.
+Sensör, kameranın ışığı yakaladığı yüzeydir. Büyük bir sensör aynı anda daha fazla ışık toplar. Bu üç şey anlamına gelir: düşük ışıkta daha az gürültü, biraz daha geniş bir dinamik aralık ve daha kolay elde edilen sığ alan derinliği.
 
-**Kimler için:**
-Fotoğrafı bir araç olarak kullananlar için. Seyahat eden, not alan, anı dondurmak isteyen ama ekipman yükü taşımak istemeyen herkes için.
+Ama büyük sensör, onu dolduracak büyük bir lens ister. Büyük lens ağır çanta, ağır çanta da çoğu zaman evde kalan kamera demektir. Bu yüzden "en iyi sensör" diye bir şey yoktur. Farkların gerçekte kaç stop olduğunu ve hangi durumlarda önemli hâle geldiğini [APS-C mi Full Frame mi?](/atolye/apsc-mi-full-frame-mi/) yazımızda sayılarla anlattık.
 
-**Güçlü yanları:**
-- Taşınabilirlik rakipsiz
-- Dikkat çekmez, sokakta görünmezsiniz
-- Hızlı çekim için idealdir
-- Fiyat/performans oranı yüksektir
-
-**Zayıf yanları:**
-- Lens değişmez, tek bakış açısıyla sınırlısınızdır
-- Düşük ışıkta büyük sensörlü rakiplerine yetişemez
-- Kontrol sınırlıdır
-
-**Öne çıkan modeller:**
-Ricoh GR IIIx — sokak fotoğrafçısının kutsal kitabı. 40mm eşdeğeri lens, APS-C sensör, cep boyutu. Bu kategoriyi yeniden tanımlamış bir kameradır. Sony ZV-1 II ve Canon PowerShot G7X Mark III ise vlog ve günlük kullanım için güçlü alternatiflerdir.
+Bir başka önemli gerçek de şu: bir kamera alırken aslında bir sistem seçersiniz. Gövdeler birkaç yılda bir değişir, lensler ise on yıl ve daha uzun süre sizinle kalır. Bütçenin önemli bir kısmını gövdeye değil lense ayırmak, neredeyse her zaman daha iyi bir yatırımdır.
 
 ---
 
-## 2. APS-C Aynasız — Dengenin Adresi
+## Telefon: Zaten Cebinizde
 
-APS-C (Advanced Photo System type-C) sensörü, full frame'in yaklaşık 1,5 katı küçüklüğünde bir sensördür. Fotoğrafçılık dünyasının en kalabalık kategorisidir — ve iyi bir nedeni vardır: neredeyse her şeyi iyi yapar.
+Bu listeye telefonla başlamak tuhaf görünebilir, ama dürüst bir rehber buradan başlamalı. Günümüzün üst segment telefonları, küçük sensörlerinin sınırlarını yazılımla şaşırtıcı ölçüde aşar. Birden fazla kareyi birleştirerek gürültüyü azaltır, karanlıkta parlak görüntüler çıkarır, yüksek kontrastlı sahneleri dengeler.
 
-**Sensör boyutu:** 23,5 × 15,6 mm (tam frame'in yaklaşık %60'ı)
+Telefonun gerçek sınırları başka yerlerdedir. Hareketli konularda, özellikle loş ışıkta, netlik ve hız yetersiz kalır. Optik zoom aralığı sınırlıdır. Doğal ve gerçek bir arka plan bulanıklığı yerine yazılımın tahmin ettiği bir bulanıklık elde edersiniz. Ve belki de en önemlisi, telefon fotoğrafı sizin yerinize "düzeltir", hangi tonun ve hangi rengin çıkacağına çoğu zaman o karar verir.
 
-**Kimler için:**
-Fotoğrafçılığa ciddi yaklaşmak isteyenler için. Lens değiştirmek, manuel kontrol kullanmak, ama aynı zamanda her gün yanında taşıyabileceği bir kamera arayanlar için.
-
-**Güçlü yanları:**
-- Full frame'e kıyasla çok daha hafif ve kompakt
-- Lens ekosistemi geniş
-- Fiyat açısından erişilebilir
-- Sokak, portre, manzara — her türde yeterlidir
-- Fujifilm'in film simülasyonları bu kategoride eşsizdir
-
-**Zayıf yanları:**
-- Full frame'in düşük ışık performansına ulaşamaz
-- "Crop faktörü" nedeniyle lensler orijinal değerinden 1,5 kat uzun davranır
-
-**Öne çıkan modeller:**
-Fujifilm X-T5, Fujifilm X100VI, Sony A6700, Nikon Z50 II. Bu kategorinin tartışmasız lideri Fujifilm'dir — özellikle estetik ve film simülasyonları açısından.
-
-**Sokak fotoğrafçısına not:** APS-C bu iş için biçilmiş kaftandır. Kompaktlık, lens çeşitliliği ve görüntü kalitesi üçgeninde mükemmel denge kurar.
+Telefonla çekmek sizi sınırlamıyor ve ayrı bir kamera taşımak gözünüzde büyüyorsa, ilk adım yeni bir kamera değil, telefonunuzun manuel modunu ve RAW çekimini öğrenmek olabilir. Ayrı bir kamera, telefonun sınırına dayandığınızda anlam kazanır.
 
 ---
 
-## 3. Full Frame — Işığın Hâkimi
+## Kompakt Kameralar: Cebinizdeki Ciddi Kamera
 
-Full frame sensör, 35mm film karesiyle aynı boyuttadır: 36 × 24 mm. Dijital fotoğrafçılığın "altın standart" olarak kabul ettiği boyuttur.
+Kompakt kameralarda lens gövdeye sabittir. Gövde küçüktür, her yere girer. İki ayrı dünya vardır: küçük sensörlü zoomlu kompaktlar ve büyük sensörlü, sabit odaklı kompaktlar.
 
-**Kimler için:**
-Profesyonel ya da yarı profesyonel fotoğrafçılar için. Düşük ışıkta çalışanlar, ince bokeh isteyen portre fotoğrafçıları, dinamik aralığı zorlayan manzara ustalar için.
+İkinci grup, sokak fotoğrafçılığında kendine özel bir yer edindi. Ricoh GR IV 28 mm eşdeğeri, GR IIIx ise 40 mm eşdeğeri bir lensle APS-C sensörü bir sigara paketinin boyutuna sığdırır. Fujifilm X100VI, 40 megapiksellik APS-C sensörü, hibrit vizörü ve klasik görünüşüyle bu kategorinin belki de en çok arzulanan kamerasıdır. Sony RX100 serisi ve Canon PowerShot G7 X Mark III ise daha küçük, bir inçlik sensörleri ve zoom lensleriyle seyahat ve günlük kullanım için hâlâ güçlü seçeneklerdir.
 
-**Güçlü yanları:**
-- Düşük ışık performansı sınıfının en iyisidir
-- Dinamik aralık üstündür — hem gölge hem yüksek ışık detayını yakalar
-- Bokeh derinliği ve kalitesi farklı bir ligdedir
-- Büyük, yüksek çözünürlüklü baskı için idealdir
-
-**Zayıf yanları:**
-- Ağır ve büyüktür — her gün taşımak yorar
-- Lensler pahalıdır
-- Sokakta dikkat çeker
-- Başlangıç maliyeti yüksektir
-
-**Öne çıkan modeller:**
-Sony A7C II, Nikon Z6 III, Canon EOS R6 Mark II. Daha üst segment için Sony A7R V ve Nikon Z8.
-
-**Dürüst değerlendirme:** Full frame her fotoğrafçıya gerekmez. Eğer günlük hayatı, sokağı veya seyahati çekiyorsanız iyi bir APS-C kamera size yeter — ve cüzdanınızı korur.
+Kompaktın güçlü yanı taşınabilirliktir ve bu küçük bir avantaj değildir. Cebinizde her gün yanınızda olan bir kamera, evde kalan bir full frame'den çok daha fazla fotoğraf çeker. Zayıf yanı ise esnekliktir. Sabit lensli bir kamerada tek bir bakış açısına bağlısınız. Bazıları bunu bir kısıtlama, bazıları en büyük öğretmen olarak görür.
 
 ---
 
-## 4. Micro Four Thirds — Hafifliğin Felsefesi
+## APS-C Aynasız: Dengenin Adresi
 
-Micro Four Thirds (MFT), Olympus ve Panasonic'in geliştirdiği ortak bir sensör ve lens standardıdır. Sensör boyutu full frame'in dörtte biridir: 17,3 × 13 mm.
+APS-C sensör yaklaşık 23,5 x 15,6 milimetredir. Alan olarak full frame'in kabaca beşte ikisi kadardır, kenar uzunlukları oranı ise yaklaşık 1,5'tir. Bu yüzden bir APS-C kamerada 23 mm'lik lens, full frame'deki yaklaşık 35 mm gibi bir kadraj verir.
 
-**Kimler için:**
-Taşınabilirliği her şeyin önünde tutanlar için. Seyahat fotoğrafçıları, belgesel çekenler, video içerik üreticileri için.
+Fotoğraf dünyasının en kalabalık kategorisidir ve bunun iyi bir nedeni var: neredeyse her şeyi iyi yapar. Gövdeler ve lensler görece küçük ve uygun fiyatlıdır. Sokak, portre, seyahat ve video için yeterlidir. Günümüzde 40 megapiksele ulaşan APS-C sensörler, çözünürlükte pek çok full frame gövdeyi geride bırakıyor.
 
-**Güçlü yanları:**
-- Sistem olarak en hafif ve en kompakt seçenektir
-- Lens ekosistemi son derece zengindir
-- OM System (eski Olympus) gövdelerinin görüntü sabitleme teknolojisi rakipsizdir
-- Fiyat/performans oranı yüksektir
-
-**Zayıf yanları:**
-- Düşük ışık performansı APS-C ve full frame'in gerisindedir
-- Bokeh derinliği sınırlıdır
-- "Gerçek" fotoğrafçılar tarafından haksız yere küçümsenir
-
-**Öne çıkan modeller:**
-OM System OM-5, Panasonic G9 II, OM System OM-1 Mark II.
+Bu kategoride Fujifilm ayrı bir yerde durur. Fujifilm, APS-C'yi baştan sona tam bir lens sistemi olarak kurmuş tek büyük üreticidir; X-T5, X-S20, X-E5 ve daha uygun fiyatlı X-T30 III gibi gövdeler, küçük ve kaliteli lenslerle birlikte gerçek bir hafiflik sunar. Ayrıca [film simülasyonları](/atolye/film-simulasyonlari-rehberi/) bu sisteme kendine özgü bir karakter katar. Sony A6700, Nikon Z50 II ve Canon EOS R10 da güçlü gövdelerdir. Ancak bu üç markada APS-C'ye özel lens seçenekleri sınırlıdır ve kullanıcılar çoğu zaman daha büyük full frame lenslere yönelmek zorunda kalır. Bunu hesaba katmadan yapılan bir seçim, küçük bir gövdenin önüne büyük bir lens takmakla sonuçlanabilir.
 
 ---
 
-## 5. Rangefinder — Farklı Bir Bakış Açısı
+## Full Frame: Işıkta Bir Adım Önde
 
-Rangefinder kameralar, vizörün lensin üzerinde değil yanında konumlandığı klasik bir tasarıma sahiptir. Bu fark teknik değil, felsefidir.
+Full frame sensör, 35 mm film karesiyle aynı boyuttadır: 36 x 24 milimetre. Aynı koşullarda APS-C'den yaklaşık 1,2 stop daha fazla ışık toplar.
 
-Rangefinder ile çekerken çerçevenin dışını da görürsünüz. Sahneye katılmadan önce sahneyi görürsünüz. Bu, sokak fotoğrafçılığında çok şey değiştirir.
+Bu fark, gece sokaklarında, konserlerde, düğünlerde ve loş iç mekânlarda kendini hissettirir. Sığ alan derinliği elde etmek daha kolaydır, bu da portre fotoğrafçıları için önemlidir. Video çekenler için de geniş bir lens ve aksesuar ekosistemi sunar.
 
-**Kimler için:**
-Yavaş, kasıtlı, düşünceli çekim yapanlar için. Fotoğrafçılığı bir pratik olarak değil bir meditasyon olarak görenler için.
+Full frame gövdeler artık eskisi kadar büyük değil. Sony A7C II ve Canon EOS R8 Mark II gibi gövdeler, ağırlık olarak pek çok APS-C gövdeye yakındır. Nikon Z5II ve klasik tasarımlı Nikon Zf biraz daha ağırdır ama hâlâ gündelik taşınabilir sınırlar içinde kalır. Nikon Z6III ve Canon EOS R6 Mark III daha çok yönlü ve hızlı orta sınıf seçeneklerdir. Asıl fark yine lenslerde ortaya çıkar: full frame'de hızlı ve kaliteli lensler büyük, ağır ve pahalıdır.
 
-**Güçlü yanları:**
-- Sessiz deklanşör — insanlar duymuyor
-- Küçük ve hafif gövde
-- Farklı görme biçimi geliştirir
-- Leica M serisi tartışmasız en ikonik fotoğraf kameralarıdır
-
-**Zayıf yanları:**
-- Odaklama sistemi alışkın olmayanlar için zordur
-- Telefoto lens kullanılamaz
-- Leica fiyatları gerçekdışıdır
-- Hızlı aksiyon için uygun değildir
-
-**Öne çıkan modeller:**
-Leica M11 (bütçe sınırı yoksa), Leica M-A (film sevenler için), Voigtländer Bessa (uygun fiyatlı alternatif). Dijital rangefinder deneyimi için Fujifilm X-Pro3 de bu kategoriye yakın bir his sunar.
+Dürüst değerlendirmemiz şu: full frame her fotoğrafçıya gerekmez. Ağırlıklı olarak gündüz şehirde, seyahatte ve sokakta çekiyorsanız, iyi bir APS-C sistem size yeter ve cüzdanınızı korur. Işığın sınırlı olduğu işler yapıyorsanız ya da sığ alan derinliği anlatımınızın merkezindeyse, full frame'in sağladığı fark gerçek ve kalıcıdır.
 
 ---
 
-## 6. Orta Format — Sınırların Ötesi
+## Micro Four Thirds: Hafifliğin Felsefesi
 
-Orta format sensörler full frame'den büyüktür. Fujifilm GFX serisinde 43,8 × 32,9 mm, Hasselblad X2D'de benzer boyutlarda.
+Micro Four Thirds, Olympus ile Panasonic'in geliştirdiği ortak bir standarttır. Sensör yaklaşık 17,3 x 13 milimetredir ve full frame'in yaklaşık dörtte biri büyüklüğündedir. Kırpma faktörü 2'dir; 25 mm'lik bir lens full frame'deki 50 mm gibi davranır.
 
-**Kimler için:**
-Ticari stüdyo fotoğrafçıları, reklam çekimi yapanlar, büyük baskı için çalışanlar için. Veya fotoğrafçılığa derin tutkusu olanlar ve bütçesi el verenler için.
+Bu sistemin en büyük gücü lenslerin küçüklüğüdür, özellikle telefoto tarafında. Full frame'de kilolarca gelen bir 600 mm eşdeğeri, burada bir çantaya rahatça sığar. Kuş ve doğa fotoğrafçılarının bu sistemi sevmesi bundandır. OM System gövdelerinin görüntü sabitlemesi, elde uzun pozlamada hâlâ sektörün en iyilerinden biridir. Panasonic'in Lumix GH serisi ise video dünyasında uzun süredir bir referanstır.
 
-**Güçlü yanları:**
-- Görüntü kalitesi tartışmasız en üstündür
-- Dinamik aralık inanılmazdır
-- Büyük baskılarda detay rakipsizdir
-- Fujifilm GFX 50S II ile bu kategori artık erişilebilir fiyata ulaşmıştır
-
-**Zayıf yanları:**
-- Ağır ve büyüktür
-- Lensler pahalıdır
-- Hız gerektiren çekimler için uygun değildir
-- Başlangıç için kesinlikle tavsiye edilmez
-
-**Öne çıkan modeller:**
-Fujifilm GFX 50S II, Fujifilm GFX100S II, Hasselblad X2D 100C.
+Bedeli, düşük ışıkta APS-C'nin de gerisinde kalan gürültü performansı ve sığ alan derinliğine ulaşmanın zorluğudur. OM System OM-1 Mark II, OM-5 ve Panasonic Lumix G9 II bu kategorinin öne çıkan gövdeleridir.
 
 ---
 
-## Hangi Kamera Bana Göre? — Özet Rehber
+## Rangefinder: Başka Bir Görme Biçimi
 
-| Profil | Öneri |
-|---|---|
-| Sokak fotoğrafçısı | Ricoh GR IIIx veya Fujifilm X100VI |
-| Başlangıç seviyesi | Fujifilm X-S20 veya Sony A6700 |
-| Seyahat fotoğrafçısı | OM System OM-5 veya Fujifilm X-T30 II |
-| Portre ve düşük ışık | Sony A7C II veya Nikon Z6 III |
-| Yavaş ve kasıtlı çekim | Fujifilm X-Pro3 veya Leica M |
-| Stüdyo ve ticari | Fujifilm GFX50S II |
+Rangefinder kameralarda vizör lensin içinden değil, gövdenin köşesindeki ayrı bir pencereden bakar. Bu fark teknik olduğu kadar felsefidir. Vizörden çerçevenin dışını da görürsünüz; bir figürün kadraja girmek üzere olduğunu fark eder, anı beklersiniz.
+
+Netleme, vizördeki iki görüntünün çakıştırılmasıyla elle yapılır. Bu, alışana kadar yavaş gelir ama alıştıktan sonra şaşırtıcı derecede hızlıdır. Rangefinder kameralar sessiz, küçük ve dikkat çekmeyen gövdelerdir. Geniş açı ve normal lenslerle mükemmel çalışırlar, ama 135 mm'nin ötesindeki telefoto lenslerle pratik değildir ve hızlı aksiyon için uygun değildir.
+
+Bu kategorinin bugünkü temsilcisi neredeyse yalnızca Leica M serisidir: dijitalde M11 ailesi, filmde M-A ve MP. Fiyatları gerçekçi bir bütçenin çok ötesindedir. Rangefinder estetiğini ve deneyimini daha erişilebilir biçimde arayanlar için Fujifilm X100VI ve X-E5, gövdenin köşesindeki vizörleriyle bu hissin bir kısmını sunar.
+
+---
+
+## Orta Format: Sınırların Ötesi
+
+Orta format dijital sensörler full frame'den büyüktür. Fujifilm GFX serisinde ve Hasselblad X sisteminde kullanılan sensörler yaklaşık 44 x 33 milimetredir, yani full frame'in yaklaşık 1,7 katı.
+
+Bu sensörler çok yüksek çözünürlük, geniş bir dinamik aralık ve büyük baskılarda olağanüstü bir detay sunar. Ticari ürün ve moda fotoğrafçıları, mimari ve manzara fotoğrafçıları için bir araçtır. Bedeli ağırlık, yavaşlık ve fiyattır. Fujifilm GFX100S II, Hasselblad X2D II 100C bu kategorinin öne çıkan gövdeleri. Fujifilm'in sabit lensli GFX100RF modeli ise orta formatı bir sokak kamerası boyutuna yaklaştırma denemesidir.
+
+Başlangıç için kesinlikle önermiyoruz. Ama fotoğrafla derin bir ilişkiniz varsa ve sabırlı, kasıtlı bir çekim biçimini seviyorsanız, ikinci el piyasasında daha eski orta format gövdeler şaşırtıcı derecede erişilebilir hâle geldi.
+
+---
+
+## Hangi Kamera Bana Göre?
+
+| Profil | Kategori | Örnek |
+|---|---|---|
+| Sokak, günlük taşıma | Büyük sensörlü kompakt | Ricoh GR IV, GR IIIx, Fujifilm X100VI |
+| İlk ciddi kamera | APS-C aynasız | Fujifilm X-T30 III, X-S20, Sony A6700, Nikon Z50 II |
+| Seyahat ve doğa | Micro Four Thirds ya da APS-C | OM System OM-5, Fujifilm X-E5 |
+| Gece, portre, düğün | Full frame | Sony A7C II, Nikon Z6III, Canon EOS R6 Mark III |
+| Fotoğraf ve video birlikte | Full frame ya da APS-C hibrit | Nikon Zf, Sony A7C II, Fujifilm X-S20 |
+| Yavaş ve kasıtlı çekim | Rangefinder ya da orta format | Leica M, Fujifilm GFX100RF |
+
+---
+
+## Türkiye'de Kamera Alırken
+
+Teknik özelliklerin ötesinde, Türkiye'de kamera alırken birkaç pratik konu var.
+
+Birincisi garanti. Aynı model kamera piyasada farklı garanti türleriyle satılır. Distribütör ya da marka garantili ürünler, markanın Türkiye'deki yetkili servisinde işlem görür. İthalatçı garantili ürünler ise genellikle daha ucuzdur, ama garanti hizmeti satıcı firmanın kendi anlaşmalı servisine bağlıdır. Fiyat farkı caziptir, ama arıza durumunda süreç çok farklı işleyebilir. Satın almadan önce faturada ve garanti belgesinde hangi garantinin yazdığını mutlaka kontrol edin.
+
+İkincisi ikinci el piyasası. Lensler, kameralara göre çok daha yavaş değer kaybeder ve doğru bakılmış bir ikinci el lens çoğu zaman sıfırından ayırt edilemez. Gövde alırken deklanşör sayısını sorun, lens alırken içinde mantar ya da toz olup olmadığını bir ışık kaynağına tutarak kontrol edin. Mümkünse elde deneyip birkaç test karesi çekin.
+
+Üçüncüsü bütçenin dağılımı. Kamerayı aldıktan sonra yedek pil, hızlı ve güvenilir bir hafıza kartı, bir temizlik kiti ve iyi bir çanta gerekecek. Bu küçük kalemlerin toplamı, şaşırtıcı biçimde bir lens fiyatına ulaşabilir.
 
 ---
 
 ## Son Söz
 
-En iyi kamera, elinizde olan kameradır — bu klişe doğrudur. Ama şunu ekleyelim: en iyi kamera, sizi fotoğraf çekmeye heveslendiren kameradır.
+En iyi kamera elinizdeki kameradır. Bu klişe doğrudur, ama eksiktir. En iyi kamera, sizi fotoğraf çekmeye heveslendiren kameradır.
 
-Eğer bir kamera çantanızda ağır geliyorsa, eve bırakırsınız. Eve bıraktığınız kamera hiç çekim yapmaz. Hiç çekim yapmayan kamera sizi fotoğrafçı yapmaz.
+Bir kamera çantanızda ağır geliyorsa onu evde bırakırsınız. Evde bırakılan kamera fotoğraf çekmez. Fotoğraf çekmeyen kamera ise hiç kimseyi fotoğrafçı yapmaz.
 
-Taşıyabileceğiniz en iyi kamerayı alın. Sonra çekin. Sonra tekrar çekin.
-
-Geri kalan her şey zamanla gelir.
+Taşıyabileceğiniz en iyi kamerayı alın. Sonra çekin. Sonra yeniden çekin. Geri kalan her şey zamanla gelir.
 
 ---
 
-*Urbankare — İstanbul sokaklarından fotoğrafçılık dersleri. Serinin devamında: "APS-C mi Full Frame mi? Gerçekten Fark Var mı?" ve "Fujifilm Film Simülasyonları Rehberi"*
+*Atölye'de devam: [APS-C mi Full Frame mi?](/atolye/apsc-mi-full-frame-mi/) · [Prime mi Zoom mu?](/atolye/prime-mi-zoom-mu/) · [Kameranı Aldın, Dışarı Çıktın](/atolye/ilk-gun-rehberi/)*

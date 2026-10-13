@@ -1,162 +1,145 @@
 ---
-title: "Pozlama Üçgeni — Işığı Okumak, Şehri Yazmak"
+title: "Pozlama Üçgeni: Işığı Okumak, Şehri Yazmak"
 date: 2026-04-30
+lastmod: 2026-10-13
 konu: "Fotoğrafçılık"
 sira: 9
 image: "/images/uploads/exposure-triangle-istanbul-guide.jpg"
 foto_yon: "yatay"
 draft: false
-description: "Diyafram, enstantane ve ISO. Teknik terimlerin ötesine geçiyoruz: Karaköy'de, Eminönü'nde veya gece Boğaz'ında doğru ışık denklemi nasıl kurulur?"
+description: "Diyafram, enstantane ve ISO nasıl birlikte çalışır? Stop kavramından ışık ölçümüne, histogramdan Otomatik ISO'ya, İstanbul sahneleriyle pozlamanın eksiksiz rehberi."
 ---
 
-Fotoğraf, ışığın yazısıdır.
+"Fotoğraf" kelimesi Yunancadan gelir. Phos ışık, graphein yazmak demektir. Fotoğraf, kelimenin tam anlamıyla ışıkla yazmaktır.
 
-*"Photography"* kelimesi Yunanca'dan gelir: *Phos*, ışık. *Graphein*, yazmak. Işıkla yazmak.
+Ama ışıkla yazabilmek için önce onu okumayı bilmek gerekir. Kameranın içine ne kadar ışık gireceğini üç değişken belirler: diyafram, enstantane ve ISO. Bu üçlüye pozlama üçgeni denir. Birini değiştirdiğinizde, aynı parlaklığı korumak için diğerlerinden birini dengelemeniz gerekir. Ve her değişken, parlaklığın yanında görüntüye kendine özgü bir iz bırakır.
 
-Ama ışığı yazmak için önce onu okumak gerekir. Ve ışığı okumak, üç temel değişkeni aynı anda yönetmek demektir: Diyafram, Enstantane, ISO. Bu üçlüye "pozlama üçgeni" denir.
-
-Üçgen kelimesi rastlantı değildir. Üçgenin her köşesi diğeriyle kopmaz bir bağa sahiptir. Birini değiştirdiğinizde, dengeyi korumak için diğerlerinden taviz vermeniz gerekir. Ve bu üçgenin içindeki alan — yani doğru pozlama — sabit bir formül değildir. Sahneye, ışığın yönüne ve sizin niyetinize göre şekil değiştirir.
-
-Şehir, bu üçgeni test etmek için dünyanın en acımasız ve en muazzam sınavıdır. Çünkü şehirde ışık asla sabit durmaz. Sabahın o sisli yumuşaklığı, öğle güneşinin sert ve acımasız dikey vuruşu, akşamın her şeyi kızıla boyayan altın saati ve gecenin kaotik yapay ışıkları... İstanbul'da her köşe, her saat, her hava koşulu farklı bir denklem sunar.
-
-Bu denklemi çözmeyi refleks haline getirdiğinizde, kamera elinizde size ne yapacağınızı söyleyen bir makine olmaktan çıkar. Uygulayan bir araca dönüşür. Düşünen ve anlatan siz olursunuz.
+Bu rehberde üçgeni yalnızca tanımlamakla kalmayacağız. Onu ortak bir dille, stop diliyle anlatacak, kameranın ışığı nasıl ölçtüğünü ve neden bazen yanıldığını göreceğiz. Sonra da İstanbul'un farklı saatlerine ve ışıklarına gidip gerçek sahnelerde nasıl kararlar verildiğine bakacağız.
 
 ---
 
-## Diyafram — Işığın Kapısı
+## Ortak Dil: Stop
 
-Diyafram, lensin içindeki göz bebeğidir. Tıpkı karanlık bir odaya girdiğinizde göz bebeklerinizin büyümesi gibi, daralır ve genişler. 
+Üçgenin üç köşesi farklı birimlerle ölçülür: diyafram f sayılarıyla, enstantane saniyelerle, ISO ise kendi ölçeğiyle. Bunları birbirine bağlayan tek bir kavram var: stop.
 
-**"f"** sayısı ile ifade edilir. Ve fotoğrafçılığın ilk aşamasında herkesin kafasını karıştıran o meşhur ters orantı vardır: 
-**Küçük f sayısı = Geniş açıklık = Çok ışık.** (Örn: f/1.4 veya f/2)
-**Büyük f sayısı = Dar açıklık = Az ışık.** (Örn: f/8 veya f/16)
+Bir stop, ışık miktarının iki katına çıkması ya da yarıya inmesidir. Enstantanede bu çok sezgiseldir: 1/125 saniyeden 1/250'ye geçtiğinizde ışık süresi yarıya iner, yani bir stop kaybedersiniz. ISO'da da öyle: 200'den 400'e çıkmak bir stoptur.
 
-Ama diyafram yalnızca içeri girecek ışık miktarını belirlemez. Çok daha sanatsal bir misyonu vardır; **Alan Derinliğini (Bokeh)** ve optik karakteri kontrol eder. 
+Diyaframda ise sayılar ilk bakışta tuhaftır: f/1.4, f/2, f/2.8, f/4, f/5.6, f/8, f/11, f/16. Bu dizide her adım tam bir stoptur. Sayıların bu kadar düzensiz görünmesinin nedeni, f sayısının diyafram açıklığının çapını, ışık miktarının ise alanını belirlemesidir. Alanı iki katına çıkarmak için çapı yaklaşık 1,4 kat artırmanız gerekir. Bu yüzden dizideki her sayı bir öncekinin yaklaşık 1,4 katıdır. Ve bu yüzden küçük f sayısı geniş açıklık, büyük f sayısı dar açıklık demektir.
 
-f/1.4 gibi bir değerde arka plan kremsi bir şekilde erir (özellikle vintage veya sinema lenslerinde bu his tarifsizdir). f/11'de ise önünüzdeki taştan tutun, ufuktaki vapura kadar her şey jilet gibi keskindir.
-
-**Şehirde Diyafram Kararları:**
-*   Karaköy'de dar bir sokakta yürüyen bir portre çekiyorsunuz. Arka planda dikkat dağıtıcı neon tabelalar ve çöp kutuları var. f/2 ile çekin. Özne keskin kalır, arka plan erir, o çirkin kalabalık silinir. Hikâye sadece öznenizde netleşir.
-*   Eminönü'nde Yeni Cami ile önündeki güvercin sürüsünü o muazzam meydan genişliğiyle istiyorsunuz. f/8 ile çekin. Hem caminin kubbesindeki dokular hem havaya kalkan güvercinler keskin, meydan boydan boya okunabilir kalır.
-*   Gece Boğaz köprüsünü ve suyu tripodla çekiyorsunuz. f/11 ile çekin. Işıklar yıldız şeklini alır (starburst etkisi), uzak detaylar netleşir, optik kalite zirveye çıkar.
+Stop dilini öğrendiğinizde üçgen basit bir hesaba dönüşür. Diyaframı bir stop kıstınız mı? Enstantaneyi bir stop uzatın ya da ISO'yu bir stop artırın. Parlaklık aynı kalır. f/8'de 1/250, f/5.6'da 1/500 ve f/11'de 1/125 aynı miktarda ışık demektir. Fark, bu üç fotoğrafın görünüşündedir.
 
 ---
 
-## Enstantane — Zamanın Kalemi
+## Diyafram: Işığın Kapısı, Derinliğin Kontrolü
 
-Enstantane (Shutter Speed), deklanşörün sensöre ne kadar süre ışık göndereceğidir. Saniyenin kesirleriyle (1/1000, 1/30) veya tam saniyelerle (2", 30") ölçülür.
+Diyafram, lensin içindeki ayarlanabilir açıklıktır. İnsan gözünün göz bebeği gibi daralır ve genişler. İçeri giren ışığı belirlemesinin yanında, fotoğrafta neyin net neyin bulanık olacağını da kontrol eder. Buna alan derinliği denir.
 
-Enstantane iki şeyi belirler: Ne kadar ışık girer ve **hareket nasıl görünür?**
+Geniş bir diyafram, örneğin f/1.8 ya da f/2, sığ bir alan derinliği yaratır. Konunuz keskin kalır, arkasındaki her şey yumuşak bir bulanıklığa dönüşür. Karaköy'ün dar bir sokağında yürüyen birini çekiyorsunuz ve arkada dikkat dağıtan tabelalar, çöp kutuları, park etmiş motosikletler var. f/2 ile çektiğinizde bunların hepsi renkli lekelere dönüşür, hikâye yalnızca konunuzda kalır.
 
-*   **Yüksek Enstantane Hareketi Dondurur:** 1/1000 saniyede koşan çocuk havada asılıdır. Bir vapurun burnunda patlayan dalga, binlerce küçük cam kırığı gibi havada donmuştur. Gözün göremediğini dondurmak da büyük bir güçtür.
-*   **Düşük Enstantane Hareketi Eritir:** 1/15 saniyede yürüyen insan bir siluete döner. 1/4 saniyede akan bir çeşme suyu ipek gibi pürüzsüzleşir. 5 saniyede ise trafik ışıkları kırmızı-beyaz çizgilere (light trails) dönüşür.
+Dar bir diyafram, örneğin f/8 ya da f/11, derin bir alan derinliği verir. Eminönü meydanında Yeni Cami'yi ve önünde havalanan güvercinleri birlikte istiyorsanız f/8 doğru başlangıçtır.
 
-**Elle Tutma Sınırı (Kritik Kural):** Titreme (motion blur) olmadan elde çekebileceğiniz minimum enstantane, genel kural olarak kullandığınız lensin odak uzaklığının tersidir. 50mm lens kullanıyorsanız sınırınız 1/50 saniyedir. 35mm için 1/35 saniye. Kameranızdaki veya lensinizdeki görüntü sabitleme (IBIS/OIS) bu sınırı genişletse de, fiziğin kurallarına bir yere kadar kafa tutabilirsiniz.
+Alan derinliğini yalnızca diyafram belirlemez. Konuya olan mesafe arttıkça, odak uzaklığı kısaldıkça ve sensör küçüldükçe alan derinliği genişler. f/2'de iki metreden çekilen bir portre ile aynı diyaframda on metreden çekilen bir sokak sahnesi bambaşka sonuçlar verir.
 
-**Şehirde Enstantane Kararları:**
-*   Kadıköy pazarında el arabası iten telaşlı bir pazarcıyı çekiyorsunuz. Yüzündeki ter damlasını ve hareketi dondurmak istiyorsanız: 1/500 saniye. O koşturmacayı ve telaşı hissettirmek istiyorsanız: 1/30 saniye. İkisi de doğrudur, karar sizindir.
-*   Gece Taksim Meydanı'nda tripodla duruyorsunuz. Önünüzden geçen o dev kalabalık silinsin istiyorsunuz: 2 ila 4 saniye pozlayın. İnsanlar hayalete döner, sadece anıt ve binalar kalır.
+Diyaframı sonuna kadar kısmak her zaman daha keskin bir fotoğraf anlamına gelmez. f/11'in ötesinde, özellikle yüksek çözünürlüklü sensörlerde, kırınım denen bir optik olay görüntüyü yeniden yumuşatmaya başlar. Çoğu lens en keskin sonucunu f/5.6 ile f/8 arasında verir. Gece şehir ışıklarında yıldız şeklinde parıltılar istiyorsanız f/11 ile f/16 arası bu etkiyi güçlendirir, ama bunun bir keskinlik bedeli olduğunu bilin.
 
 ---
 
-## ISO — Sensörün Sesi
+## Enstantane: Zamanın Kalemi
 
-ISO, sensörünüzün (ya da eskiden filminizin) ışığa olan duyarlılığıdır. 
-Düşük ISO (100) az duyarlıdır ama tertemiz, cam gibi bir görüntü verir. Yüksek ISO (6400) karanlıkta görmenizi sağlar ama karşılığında size "gürültü" (noise/kumlanma) verir.
+Enstantane, sensörün ışığa ne kadar süre açık kalacağıdır. Saniyenin kesirleriyle ya da tam saniyelerle ifade edilir. Işık miktarının yanında hareketin nasıl görüneceğini de belirler.
 
-*   **ISO 100-400:** Gün ışığında idealdir. Detaylar keskin, gölgeler temiz.
-*   **ISO 800-1600:** Bulutlu hava, kapalı çarşılar, akşamüzeri sokakları.
-*   **ISO 3200-6400:** Gece, loş ortamlar, sokak lambası altı çekimler. Gürültü belirginleşir ama fotoğrafı kurtarır.
+Kısa enstantane hareketi dondurur. Yürüyen bir insan için 1/250, koşan bir çocuk ya da bisikletli için 1/500 ile 1/1000, uçan bir martı için 1/2000 iyi başlangıç noktalarıdır. Uzun enstantane ise hareketi eritir. 1/15 saniyede yürüyen bir insan yumuşak bir iz bırakır, yarım saniyede bir çeşmenin suyu ipeksileşir, birkaç saniyede otomobil farları ışık çizgilerine dönüşür.
 
-*Kısa Bir Not:* Full frame sensörler yüksek ISO'da APS-C'ye göre fiziksel olarak daha temiz görüntü üretir (pikselleri daha büyük olduğu için daha fazla ışık toplar). Ancak örneğin Fujifilm'in X-Trans sensörü, yüksek ISO'daki o gürültüyü çirkin dijital lekelere değil, eski analog filmlerin organik "gren" (tane) yapısına benzer bir şekilde sunar. Bazen bu estetik, fotoğrafın ruhuna çok daha fazla yakışır.
+Elde çekimde bir sınır daha var: kendi titremeniz. Eski ama hâlâ işe yarayan kural, enstantanenin en az odak uzaklığının tersi kadar kısa olması gerektiğini söyler. Burada sık atlanan bir ayrıntı var: hesapta eşdeğer odak uzaklığını kullanmalısınız. APS-C bir kamerada 50 mm'lik bir lens yaklaşık 75 mm gibi davrandığı için güvenli sınır 1/50 değil 1/80 civarındadır. 40 megapiksel ve üzerindeki sensörlerde bu kuralı bir stop daha sıkı tutmak iyi bir alışkanlıktır.
 
----
-
-## Üçgen Nasıl Çalışır: Sahne Senaryoları
-
-Teoriyi bir kenara bırakın. Fotoğraf makinesini alıp İstanbul'un içine girelim.
-
-### Sahne 1: Karaköy, Sabah 08:00, Güneşli
-Balıkçılar motoru iskeleye yanaştırıyor. Işık yumuşak ama bol. Havaya atılan bir palamut var. Her şey net olsun, o hareket havada donsun istiyorsunuz.
-*   **ISO:** 200 (Işık bol, sensörü zorlamaya gerek yok)
-*   **Diyafram:** f/5.6 (Hem balıkçı, hem tekne, hem arka plandaki iskele keskin)
-*   **Enstantane:** 1/500 (O atılan balık havada donuyor)
-*Denge sağlandı. Kusursuz bir belgesel karesi.*
-
-### Sahne 2: Kapalıçarşı, Öğle, İç Mekan
-Karanlık koridorlar, yüksek kubbelerden süzülen hüzmeler. Antikacı tezgâhının başında bekliyor. Ortam mistik ama ışık çok yetersiz. Tripod kuracak alanınız yok.
-*   **ISO:** 3200 (İç mekan, ışık için sensörü zorlamak zorundayız)
-*   **Diyafram:** f/2 (Lensi sonuna kadar açıp içeri ne kadar ışık varsa alıyoruz)
-*   **Enstantane:** 1/125 (Elde çekiyorsunuz, titreme riskini ortadan kaldırıyoruz)
-*Gürültü (noise) olacak. Ama Kapalıçarşı'nın o asırlık karanlık atmosferinde bu gürültü kusur değil, karakterdir.*
-
-### Sahne 3: Eminönü, Akşam 18:30, Altın Saat
-Güneş batıya iniyor, her şey altın sarısına boyanmış. Vapur iskelesi, martılar, eve dönen kalabalık. Hem detay hem o masalsı atmosferi istiyorsunuz.
-*   **ISO:** 400 (Işık azalmaya başladı, biraz telafi ediyoruz)
-*   **Diyafram:** f/8 (Hem ön plandaki iskele hem arkada Galata Kulesi keskin kalsın)
-*   **Enstantane:** 1/250 (Hafif bir hareket var, martıları çok bozmadan donduruyoruz)
-*Altın saat fotoğrafçıya o kadar cömerttir ki, ufak tefek hataları bile yutar.*
-
-### Sahne 4: Boğaz Köprüsü, Gece, Tripod
-Trafik akıyor, kıpkırmızı stop lambaları, köprünün ışıkları ve simsiyah Boğaz. Uzun pozlama istiyorsunuz.
-*   **ISO:** 100 (Tripodunuz var, en temiz ve en pürüzsüz görüntüyü istiyoruz)
-*   **Diyafram:** f/11 (Derinlik sonsuz, ışıklar yıldız şeklinde parlıyor)
-*   **Enstantane:** 20 saniye (Araçlar kayboluyor, farları uzun ışık nehirlerine dönüşüyor)
-*Bu kareyi elde çekmeniz fiziğe aykırıdır. Zamanı erittik.*
-
-### Sahne 5: Balat, Sabah 07:00, Sis
-Sokak lambaları o sarımtırak ışığıyla hâlâ yanıyor. İnce bir sis var, çok yumuşak bir difüz (dağılan) ışık inmiş sokağa. Kimse yok. Tam bir melankoli.
-*   **ISO:** 800 (Sis ışığı emdiği için ortalık loş)
-*   **Diyafram:** f/2.8 (Arka plan hafifçe erimeli, o puslu ve rüya gibi his korunmalı)
-*   **Enstantane:** 1/60 (Ortamda hareket yok, elde güvenle tutabileceğimiz sınırdayız)
-*Bu ayarlarla Balat'ın o büyülü, sessiz saatini yakalarsınız. Otomatik mod sizi burada üzer.*
+Gövde içi görüntü sabitleme bu sınırı birkaç stop genişletir. Dikkat edilmesi gereken nokta, sabitlemenin yalnızca sizin titremenizi düzeltmesidir. Kamera ne kadar sabit olursa olsun, 1/15 saniyede yürüyen bir insan bulanık çıkar.
 
 ---
 
-## Işık Okumanın Kısa Sözlüğü
+## ISO: Sinyalin Kuvvetlendirilmesi
 
-Şehirde hızlı reaksiyon göstermek için kafanızda bulunması gereken referans tablosu:
+ISO'yu sıklıkla "sensörün ışığa duyarlılığı" olarak tanımlarız. Bu, film çağından kalma bir ifadedir. Dijital bir sensörün duyarlılığı aslında değişmez. ISO'yu artırdığınızda kamera, sensörün yakaladığı sinyali kuvvetlendirir. Görüntü parlaklaşır, ama kuvvetlendirilen yalnızca ışık değildir.
+
+Burada yaygın bir yanılgıyı düzeltmekte fayda var. Yüksek ISO fotoğraflardaki gürültünün asıl nedeni ISO'nun kendisi değil, sensöre ulaşan ışığın azlığıdır. Işık doğası gereği düzensiz gelir ve az ışıkta bu düzensizlik gürültü olarak görünür. Bu yüzden büyük sensörler daha temiz görüntü verir: daha büyük pikselleri olduğu için değil, toplam olarak daha fazla ışık topladıkları için. Aynı nedenle karanlık bir sahnede ISO'yu düşük tutup fotoğrafı sonradan aydınlatmak, genellikle ISO'yu doğru ayarlamaktan daha iyi bir sonuç vermez. Çoğu zaman daha kötüsünü verir.
+
+Pratik olarak, gün ışığında ISO 100 ile 400 arası, bulutlu havada ve kapalı çarşılarda 800 ile 1600 arası, gece sokaklarında 3200 ile 6400 arası günümüz kameraları için rahat bölgelerdir. Ve şunu unutmayın: biraz gürültülü ama net bir fotoğraf, temiz ama titremiş bir fotoğraftan her zaman daha iyidir.
+
+---
+
+## Kamera Işığı Nasıl Ölçer, Neden Yanılır?
+
+Kamera, sahnenin parlaklığını ölçerken her şeyin ortalama bir gri tonunda olduğunu varsayar. Çoğu sahnede bu varsayım iş görür. Ama sahne bundan saptığında kamera yanılır.
+
+Kar ya da güneş alan beyaz bir duvar gibi çok parlak bir sahnede kamera, bu parlaklığı griye çekmeye çalışır ve fotoğrafı karartır. Karanlık bir sahnede ise tersini yapar ve her şeyi fazla aydınlatır. Ters ışıkta durum daha da karmaşıktır: Eminönü'nde batan güneşe karşı çektiğinizde kamera parlak gökyüzüne göre ölçüm yapar ve önünüzdeki insanları siluete dönüştürür. Bu bazen tam istediğiniz şeydir, bazen değil.
+
+Kameraların farklı ölçüm modları bu yüzden vardır. Matris ya da değerlendirmeli ölçüm tüm kareye bakıp akıllı bir ortalama çıkarır ve çoğu zaman en iyi başlangıçtır. Merkez ağırlıklı ölçüm karenin ortasına daha çok önem verir. Spot ölçüm ise yalnızca küçük bir noktayı ölçer ve ters ışıkta bir yüzü doğru pozlamak için en hassas araçtır.
+
+Ölçümü düzeltmenin en hızlı yolu ise pozlama telafisidir. Kameranızdaki artı eksi düğmesi ya da kadranı, kameraya "senin bulduğun değerden bir stop daha parlak çek" demenizi sağlar. Beyaz bir duvarın önünde artıya, karanlık bir pasajda eksiye. Pozlama telafisini refleks hâline getirmek, manuel moda geçmekten çok daha hızlı ve çoğu zaman daha etkilidir.
+
+---
+
+## Modlar ve Otomatik ISO
+
+Diyafram öncelikli modda (A ya da Av) siz diyaframı seçersiniz, kamera enstantaneyi ayarlar. Şehirde en çok kullanılan moddur, çünkü alan derinliği genellikle ilk verdiğiniz karardır. Enstantane öncelikli modda (S ya da Tv) hareketi siz belirlersiniz. Manuel modda ise her şey sizdedir.
+
+Sokakta en güçlü kombinasyonlardan biri, manuel mod ile Otomatik ISO'yu birlikte kullanmaktır. Diyaframı ve enstantaneyi siz sabitlersiniz, örneğin f/5.6 ve 1/250, kamera ise ISO'yu ışığa göre sürekli ayarlar. Gölgeden güneşe geçtiğinizde hiçbir şeye dokunmanız gerekmez. Pozlama telafisi de çoğu kamerada bu modda çalışmaya devam eder.
+
+Diyafram öncelikli modda Otomatik ISO kullanıyorsanız mutlaka "minimum enstantane" ayarını yapın. Bu ayar, kameranın enstantaneyi belirlediğiniz değerin altına düşürmeden önce ISO'yu artırmasını sağlar. Çoğu kamerada bunu odak uzaklığına göre otomatik ve bir kademe daha hızlı olacak şekilde ayarlayabilirsiniz.
+
+---
+
+## Histogram: Ekranın Söylemediği Gerçek
+
+Kameranızın ekranı sizi yanıltır. Gece karanlığında parlak, güneş altında soluk görünür. Pozlamanın gerçek hakemi histogramdır.
+
+Histogram, fotoğraftaki tonların dağılımını gösteren bir grafiktir. Sol uç saf siyahı, sağ uç saf beyazı temsil eder. Grafik sağ kenara dayanıp orada bir duvar oluşturuyorsa parlak alanlarınız patlamıştır; o bölgelerde hiçbir detay kalmamıştır ve RAW dosyası bile onu geri getiremez. Sol kenara dayanıyorsa gölgeler ezilmiştir.
+
+Dijital fotoğrafın temel kuralı şudur: parlak alanları koruyun. Gölgelerden detay kurtarmak, özellikle RAW çekiyorsanız, şaşırtıcı ölçüde mümkündür. Patlamış bir gökyüzünü kurtarmak ise değildir. Kameranızın "yanıp sönen parlak alan uyarısı" özelliğini açın. Video çekiyorsanız aynı işi zebra çizgileri yapar.
+
+Histogramın ortada toplanması da her zaman ideal değildir. Sisli bir sabah açık tonlarda, gece sokağı koyu tonlarda toplanır. Histogram size neyin doğru olduğunu değil, neyin olup bittiğini söyler. Kararı yine siz verirsiniz.
+
+---
+
+## İstanbul'da Beş Sahne
+
+Aşağıdaki ayarlar başlangıç noktalarıdır. Her birinde üç değerin nasıl birbirini dengelediğine bakın.
+
+**Karaköy, sabah 08.00, güneşli.** Balıkçılar tekneyi iskeleye yanaştırıyor, biri kasaya bir palamut fırlatıyor. Hem balıkçının hem teknenin net olmasını, balığın da havada donmasını istiyorsunuz. ISO 200, f/5.6, 1/1000. Işık bol olduğu için yüksek bir enstantane rahatça sığıyor.
+
+**Kapalıçarşı, öğle, iç mekân.** Kubbelerden süzülen ışık hüzmeleri ve dükkân lambalarının sarı ışığı. Tripod kuracak yer yok. ISO 1600 ile 3200 arası, f/2, 1/125. Diyaframı sonuna kadar açıp içerideki tüm ışığı alıyoruz, enstantaneyi titremeye ve yürüyen insanlara yetecek kadar kısa tutuyoruz. Gürültü olacak, ama bu karanlıkta gürültü karakterin bir parçasıdır.
+
+**Eminönü, akşam, altın saat.** Her şey sıcak bir sarıya bürünmüş. Vapur iskelesi, martılar, eve dönen kalabalık. ISO 400, f/8, 1/250. Hem ön plandaki iskele hem arkadaki Galata Kulesi net kalırken martılar büyük ölçüde donuyor.
+
+**Boğaz kıyısı, gece, tripod.** Köprünün ışıkları, akan trafik, kapkara su. ISO 100, f/11, 15 ila 20 saniye. Araçlar kayboluyor, farları ışıktan nehirlere dönüşüyor. Bu karenin elde çekilmesi mümkün değil.
+
+**Balat, sabah 07.00, sis.** Sokak lambaları hâlâ yanıyor, ince bir sis her şeyi yumuşatmış. ISO 800, f/2.8, 1/125. Arka plan hafifçe eriyor, sisin derinliği korunuyor. Kamera büyük ihtimalle sisi griye çekip fotoğrafı karartmaya çalışacak; yarım ila bir stop artı pozlama telafisi, o açık ve havadar duyguyu geri getirir.
+
+---
+
+## Hızlı Başvuru Tablosu
+
+Güneşli bir günde, ISO 100'de f/16 ile enstantaneyi ISO değerinin tersine yakın tutmak (1/100 ya da 1/125) doğru pozlamayı verir. Fotoğrafçılar buna "güneşli 16 kuralı" der ve ışık ölçerin olmadığı zamanlardan kalma bu kural hâlâ şaşırtıcı derecede işe yarar. Aşağıdaki tablo bu mantıktan türetilmiştir:
 
 | Koşul | ISO | Diyafram | Enstantane |
-| :--- | :--- | :--- | :--- |
-| **Güneşli, Açık Hava** | 100-200 | f/8 | 1/500 |
-| **Bulutlu, Difüz Işık** | 400-800 | f/5.6 | 1/250 |
-| **Altın Saat (Sunset)** | 400-800 | f/5.6 | 1/250 |
-| **Alacakaranlık** | 1600-3200 | f/2.8 | 1/125 |
-| **Gece, Elde Çekim** | 3200-6400 | f/1.8 | 1/60 - 1/125 |
-| **İç Mekan, Loş** | 1600-6400 | f/2 | 1/60 |
-| **Gece, Tripod** | 100 | f/8 - f/11 | 10-30 saniye |
-
-*(Bu tablo bir başlangıç noktasıdır. Sensörünüz, lensinizin yeteneği ve güneşin anlık açısı bu değerleri esnetir.)*
+|---|---|---|---|
+| Güneşli, açık hava | 100 | f/8 | 1/500 |
+| Bulutlu, yumuşak ışık | 200 | f/5.6 | 1/250 |
+| Altın saat | 400 | f/5.6 | 1/500 |
+| Alacakaranlık, sokak | 1600 | f/2.8 | 1/125 |
+| Gece, elde | 3200 | f/1.8 | 1/125 |
+| Loş iç mekân | 3200 | f/2 | 1/60 |
+| Gece, tripod | 100 | f/8 ile f/11 | 10 ile 30 saniye |
 
 ---
 
-## Histogram: Gerçeğin Grafiği
-
-Ekrana baktığınızda rüya gibi görünen bir fotoğraf, bilgisayara attığınızda simsiyah veya patlamış bembeyaz çıkabilir. Çünkü ekranın parlaklığı sizi yanıltır. 
-
-**Histogram**, bir fotoğraftaki ton dağılımını gösteren tartışmasız hakemdir. Sol taraf siyahlar (gölgeler), sağ taraf beyazlar (parlak alanlar), orta kısım gri tonlardır.
-
-*   **Sol tarafa yığılmış histogram:** Fotoğraf karanlık, az pozlanmış. Siyahlar "ezilmiş", gölge detayı kayıp.
-*   **Sağa yığılmış histogram:** Fotoğraf aşırı parlak, fazla pozlanmış. Bulutlar veya ışıklar "patlamış", parlak alanlarda detay sonsuza kadar silinmiş.
-*   **İdeal Histogram:** Dağ grafiğinin ne en sola (karanlığa) ne en sağa (aydınlığa) çarpıp kesilmediği, ortalarda dağıldığı yapıdır. 
-
-*(Elbette sisli bir sabah bilerek karanlık (Low-Key) çekmek istiyorsanız histogram sola yığılacaktır, bu bilinçli bir ihlaldir ve sanattır.)*
-
----
-
-## Son Söz: Üçgeni Unutun
+## Son Söz: Üçgeni Unutmak
 
 Pozlama üçgenini öğrendikten sonra yapmanız gereken ilk şey onu unutmaktır.
 
-Bu bir paradoks değildir. Bisiklet sürmek gibidir. Önce dengeyi, gidonu, frene ne kadar basacağınızı saniye saniye hesaplarsınız. Sonra bir gün fark edersiniz ki, düşünmüyorsunuz. Bedeniniz biliyor. Rüzgara göre eğiliyor, kasise göre frenliyorsunuz.
+Bu bir paradoks değil. Bisiklet sürmeyi öğrenirken önce dengeyi, gidonu, frene ne kadar basacağınızı tek tek düşünürsünüz. Bir gün fark edersiniz ki artık düşünmüyorsunuz; bedeniniz biliyor. Pozlama da böyledir. Bugün bilinçli bir hesap yapıyorsunuz. Birkaç bin kare sonra bir sahneye baktığınızda parmaklarınız doğru kadranı kendiliğinden bulacak.
 
-Pozlama üçgeni de öyledir. Şu an bilinçli bir matematik yapıyorsunuz. Ama o binlerce karelik pratikten sonra, bir sahneye baktığınızda parmaklarınız doğru değerleri kadranlarda bulacaktır. Düşünmeden. Hissederek.
-
-O noktaya geldiğinizde kamera sizinle savaşan bir cihaz olmaktan çıkar. Dilinizin bir parçası olur.
-
-Ve siz o dili konuşmaya başladığınızda, şehir size daha önce hiç göstermediği anlarını sunmaya başlar.
+O noktaya geldiğinizde kamera sizinle savaşan bir cihaz olmaktan çıkar ve dilinizin bir parçası olur. Ve siz o dili konuşmaya başladığınızda, şehir size daha önce hiç göstermediği anları göstermeye başlar.
 
 ---
 
-*Urbankare serisinin devamında: "Balat Fotoğraf Rotası — Işık, Renk ve Doğru Saatler" ve "Raw mı JPEG mi — Gerçekten Fark Var mı?"*
+*Atölye'de devam: [ND Filtre Rehberi](/atolye/nd-filtre-rehberi/) · [CPL Filtre Rehberi](/atolye/cpl-filtre-rehberi/) · [Kameranı Aldın, Dışarı Çıktın](/atolye/ilk-gun-rehberi/)*
