@@ -410,7 +410,16 @@ nav.seri-kutusu, .seri-kutusu { margin-top: 48px; padding: 22px 24px; background
 .seri-kutusu p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 600px) { .seri-gecis { grid-template-columns: 1fr; } .seri-sonraki { grid-column: 1; text-align: left; } }
 /* Atölye bölüm sayfasındaki başlangıç bandı */
-.baslangic-bandi { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin: 24px 0 8px; padding: 20px 24px; background: var(--black, #111); color: #fff; text-decoration: none; }
-.baslangic-bandi strong { font-family: var(--serif, Georgia, serif); font-size: 22px; font-weight: 500; display: block; }
-.baslangic-bandi span { font-size: 14px; opacity: 0.8; }
-.baslangic-bandi em { font-style: normal; font-size: 12px; letter-spacing: 0.1em; border-bottom: 1px solid currentColor; white-space: nowrap; }
+.baslangic-bandi { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; margin: 28px 20px 12px; padding: 26px 32px; background: var(--cobalt, #1B30C8); color: var(--white, #fff); text-decoration: none; border-left: 6px solid var(--orange, #F04E1A); transition: background 0.2s; }
+.baslangic-bandi:hover { background: var(--cobalt-dark, #1226A0); }
+.baslangic-metin { display: flex; flex-direction: column; gap: 6px; }
+.baslangic-ust { font-size: 10px; letter-spacing: 0.14em; font-weight: 600; color: var(--yellow, #F5C842); }
+.baslangic-bandi strong { font-family: var(--serif, Georgia, serif); font-size: 28px; line-height: 1.15; font-weight: 500; }
+.baslangic-alt { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.75); max-width: 560px; }
+.baslangic-dugme { flex-shrink: 0; font-size: 11px; letter-spacing: 0.12em; font-weight: 600; padding: 12px 20px; background: var(--yellow, #F5C842); color: var(--black, #0D0D0D); white-space: nowrap; }
+.baslangic-bandi:hover .baslangic-dugme { background: var(--white, #fff); }
+@media (max-width: 700px) { .baslangic-bandi { flex-direction: column; align-items: flex-start; margin: 20px 16px 8px; padding: 22px 20px; } .baslangic-bandi strong { font-size: 24px; } }
+/* Bölüm listeleri: masaüstünde 3, tablette 2, telefonda 1 sütun */
+.ed-event-grid.liste-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .ed-event-grid.liste-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .ed-event-grid.liste-grid { grid-template-columns: 1fr; } }

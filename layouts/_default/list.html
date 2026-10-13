@@ -13,12 +13,16 @@
   {{ if eq .Section "atolye" }}{{ with site.GetPage "/atolye/fotografa-baslangic" }}
   {{ $sayfalar = where $sayfalar "Permalink" "!=" .Permalink }}
   <a class="baslangic-bandi" href="{{ .Permalink }}">
-    <div><strong>Fotoğrafa nereden başlamalı?</strong><span>Atölyedeki rehberleri, kamera seçiminden ışığa ve sokağa uzanan bir öğrenme yoluna dizdik.</span></div>
-    <em>YOLA ÇIK</em>
+    <span class="baslangic-metin">
+      <span class="baslangic-ust">20 REHBER, TEK YOL</span>
+      <strong>Fotoğrafa nereden başlamalı?</strong>
+      <span class="baslangic-alt">Atölyedeki rehberleri, kamera seçiminden ışığa ve sokağa uzanan bir öğrenme yoluna dizdik.</span>
+    </span>
+    <span class="baslangic-dugme">YOLA ÇIK →</span>
   </a>
   {{ end }}{{ end }}
 
-  <div class="ed-event-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="ed-event-grid liste-grid">
     {{ range $sayfalar }}
     <a href="{{ .Permalink }}" class="ed-event-card">
       {{ if .Params.image }}
