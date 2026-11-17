@@ -1,5 +1,6 @@
 baseURL = "https://urbanistanbul.com/"
 languageCode = "tr-TR"
+timeZone = "Europe/Istanbul"
 defaultContentLanguage = "tr"
 title = "URBANİSTANBUL"
 enableRobotsTXT = true
