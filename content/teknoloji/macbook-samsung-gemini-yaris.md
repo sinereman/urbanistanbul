@@ -2,7 +2,7 @@
 title: "MacBook'un Tahtı Sallantıda: Gemini, Samsung ve Yapay Zekanın Laptop Savaşı"
 date: 2026-05-21
 konu: "Bilgisayar"
-draft: false
+draft: true
 image: "/images/uploads/macbook-samsung-yaris.jpg"
 ---
 
