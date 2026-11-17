@@ -20,8 +20,6 @@ Bu okurlarla, onların güvenini sarsmadan buluşmak isteyen markalar ve kurumla
 
 **Ekipman incelemesi.** Fotoğraf, video ya da yazılım ürünlerini sahada, gerçek çekimlerde deneyerek değerlendiririz. İnceleme için ürün göndermeniz, yazının olumlu olacağı anlamına gelmez; ürünün bize nasıl ulaştığını yazıda belirtiriz.
 
-**Urban Kare iş birliği.** Fotoğraf yürüyüşü formatımız için ekipman, mekân ya da yayın iş birlikleri.
-
 ---
 
 ## İlkelerimiz

@@ -4,7 +4,7 @@ date: 2026-04-30
 draft: false
 ---
 
-Bir fikriniz mi var? Bir etkinliği duyurmak mı istiyorsunuz? Urbankare atölyesi hakkında soru sormak mı?
+Bir fikriniz mi var? Bir etkinliği duyurmak mı istiyorsunuz? Fotoğraf atölyeleri hakkında soru sormak mı?
 
 Yazın.
 
@@ -42,11 +42,11 @@ Mailinizin konusuna **"Reklam"** yazın. Medya kitimizi ve fiyat listemizi size 
 
 ---
 
-## Urbankare Atölyesi
+## Fotoğraf Atölyeleri
 
-Fotoğrafçılık atölyelerimiz, içerik iş birlikleri ya da Urbankare markasıyla ilgili sorularınız için:
+Fotoğrafçılık atölyelerimiz ve içerik iş birlikleri ile ilgili sorularınız için:
 
-**[info@urbanistanbul.com](mailto:info@urbanistanbul.com)** — konu satırına **"Urbankare"** yazın.
+**[info@urbanistanbul.com](mailto:info@urbanistanbul.com)** — konu satırına **"Atölye"** yazın.
 
 ---
 

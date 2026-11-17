@@ -10,13 +10,11 @@
 {{ $kesfet := where .Site.RegularPages "Section" "kesfet" }}
 {{ $festival := partial "aktif.html" (where .Site.RegularPages "Section" "festival").ByDate.Reverse }}
 {{ $perde := partial "aktif.html" (where .Site.RegularPages "Section" "perde").ByDate.Reverse }}
-{{ $urbankare := where .Site.RegularPages "Section" "urbankare" }}
 
 {{ $tumEtkinliklerSorted := partial "aktif.html" (where .Site.RegularPages "Section" "in" (slice "tiyatro" "sergi" "muzik" "etkinlikler" "festival")).ByDate.Reverse }}
 
 {{/* Vitrin: kalıcı içerik ile güncel etkinliklerin dengeli karışımı */}}
 {{ $heroSlides := slice }}
-{{ range first 1 $urbankare.ByDate.Reverse }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
 {{ range first 2 $festival }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
 {{ range first 2 $atolye.ByLastmod.Reverse }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
 {{ range first 2 $muzik }}{{ $heroSlides = $heroSlides | append . }}{{ end }}
@@ -217,7 +215,7 @@
   <!-- Atölye -->
   <div class="ed-ak-col">
     <div class="ed-col-header">
-      <span class="ed-col-title">URBANKARE — ATÖLYE</span>
+      <span class="ed-col-title">ATÖLYE</span>
       <a href="/atolye" class="ed-col-more">tüm dersler →</a>
     </div>
     <div class="ed-atolye-cards">

@@ -11,7 +11,7 @@ URBANİSTANBUL'da okuduğunuz her yazının arkasında bir dizi karar var. Bu sa
 
 ## Kim Yazıyor?
 
-Aksi belirtilmedikçe sitedeki yazılar URBANİSTANBUL'un kurucusu Batıkan Kurşat tarafından yazılır ve düzenlenir. Urban Kare bölümlerinde ve misafir yazılarda yazarın ya da fotoğrafçının adı açıkça belirtilir.
+Aksi belirtilmedikçe sitedeki yazılar URBANİSTANBUL'un kurucusu Batıkan Kurşat tarafından yazılır ve düzenlenir. Misafir yazılarda yazarın ya da fotoğrafçının adı açıkça belirtilir.
 
 ---
 

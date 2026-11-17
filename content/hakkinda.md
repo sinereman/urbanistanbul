@@ -20,17 +20,9 @@ Sitedeki yazılar Batıkan Kurşat tarafından yazılıyor.
 
 ---
 
-## Urban Kare
-
-Urban Kare, URBANİSTANBUL'un video ve fotoğraf yürüyüşü formatı. Her bölümde bir fotoğrafçıyla İstanbul'un bir semtinde yürüyoruz. Fotoğrafçı çekiyor, kamera ise o fotoğraflara giden yolu kaydediyor: nerede durduğunu, neye baktığını, neyi beklediğini. Ardından fotoğrafçı kendi gözünden yürüyüşü yazıyor.
-
-Amacımız, bir fotoğrafın yalnızca sonucunu değil, onu doğuran bakışı da göstermek.
-
----
-
 ## Ne Yazıyoruz?
 
-**Atölye** bölümünde fotoğraf tekniği, ekipman ve şehirde çekim üzerine kapsamlı rehberler yayımlıyoruz. **Urban Kare** ve **Keşfet** bölümlerinde İstanbul'un semtlerini, rotalarını ve gözden kaçan köşelerini anlatıyoruz. **Etkinlikler** ve **Perde** bölümlerinde şehirdeki konserleri, festivalleri ve sinemayı takip ediyoruz. **Teknoloji** bölümünde ise fotoğraf ve video dünyasındaki yenilikleri, bir kullanıcının gözünden değerlendiriyoruz.
+**Atölye** bölümünde fotoğraf tekniği, ekipman ve şehirde çekim üzerine kapsamlı rehberler yayımlıyoruz. **Keşfet** bölümünde İstanbul'un semtlerini, rotalarını ve gözden kaçan köşelerini anlatıyoruz. **Etkinlikler** ve **Perde** bölümlerinde şehirdeki konserleri, festivalleri ve sinemayı takip ediyoruz. **Teknoloji** bölümünde ise fotoğraf ve video dünyasındaki yenilikleri, bir kullanıcının gözünden değerlendiriyoruz.
 
 Bir turizm rehberi değiliz. "İstanbul'da mutlaka görülmesi gereken on yer" listeleri yazmıyoruz. Bir etkinlik takvimi de değiliz; tarihleri sıralamak yerine bağlam kurmaya, düşünmeye, yorum yapmaya çalışıyoruz.
 

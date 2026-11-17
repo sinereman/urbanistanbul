@@ -11,7 +11,7 @@ relativeURLs = false
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "İstanbul'un kültür, fotoğraf ve teknoloji rehberi. Fotoğraf atölyeleri, şehir rotaları, Urban Kare yürüyüşleri, etkinlikler ve sinema."
+  description = "İstanbul'un kültür, fotoğraf ve teknoloji rehberi. Fotoğraf atölyeleri, şehir rotaları, etkinlikler ve sinema."
   gold = "#C8A96E"
   author = "Batıkan Kurşat"
   authorPage = "/hakkinda/"
