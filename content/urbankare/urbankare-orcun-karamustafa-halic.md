@@ -10,7 +10,7 @@ youtube: ""
 draft: false
 ---
 
-Ara Güler'in pek de sevmediği Haliç Metro Köprüsü'nden başladım yürüyüşe. Tarihî Yarımada'ya geçip Süleymaniye Camii'nden Yeni Cami'ye doğru, yarım daire çizen bir rota izledim. Urban İstanbul'un Urban Kare formatı için iki kamerayla, tek başıma çıktığım bir fotoğraf yürüyüşüydü bu. Bir yandan fotoğraf çekerken bir yandan da o fotoğraflara giden yolu kaydettim; nerede durduğumu, neye baktığımı, neyi beklediğimi.
+Ara Güler'in pek de sevmediği Haliç Metro Köprüsü'nden başladım yürüyüşe. Tarihî Yarımada'ya geçip Süleymaniye Camii'nden Yeni Cami'ye doğru, yarım daire çizen bir rota izledim. URBANİSTANBUL'un Urban Kare formatı için iki kamerayla, tek başıma çıktığım bir fotoğraf yürüyüşüydü bu. Bir yandan fotoğraf çekerken bir yandan da o fotoğraflara giden yolu kaydettim; nerede durduğumu, neye baktığımı, neyi beklediğimi.
 
 İstanbul'da, bana İstanbul'da olduğumu hissettiren yerleri çekmeyi seviyorum. Şehrin doğup büyüdüğü, İstanbul'u İstanbul yapan semtlere dönüp durmam biraz bundan. O semtlerin yüzündeki tarihsel izlerin peşinde yürürken, bugün orada devam eden hayatla ilgileniyorum. Eski bir duvarın önünden geçen biri, bir yokuşta karşılaşan insanlar, kalabalığın içinde kendi işine dalmış bir esnaf...
 

@@ -24,7 +24,7 @@ Nisan 2026'da Los Angeles'taki SoFi Stadyumu'nda gerçekleşen Ye: Homecoming ko
 
 Stadyumun ortasına yerleştirilen dev yarı-küre — çapı 50 feet'i aşan özel tasarım bir yapı. Ye bu kürenin tepesinde, yalnız, tek başına, sahneleri geziyor. Küre zaman zaman dünyayı andırıyor — dönen bir Dünya, bazen ay, bazen yalnız bir gezegen. Tasarımı Ye'nin kendisi, yakın çalışma arkadaşı Aus Taylor ile birlikte yaptı.
 
-Variety bu sahneyi şöyle tanımladı: Ye kelimenin tam anlamıyla dünyanın tepesinde duruyordu — ve bu, görsel bir metafor olmaktan çok fazlasıydı. Rolling Stone ise kürenin izleyiciyi bir gezegenyuvaya dönüştürdüğünü yazdı. Geleneksel LED backdrop değil; mühendislik ve görsel sanatın kesişiminde bir prodüksiyon.
+Variety bu sahneyi şöyle tanımladı: Ye kelimenin tam anlamıyla dünyanın tepesinde duruyordu — ve bu, görsel bir metafor olmaktan çok fazlasıydı. Rolling Stone ise kürenin izleyiciyi bir planetaryuma dönüştürdüğünü yazdı. Geleneksel LED backdrop değil; mühendislik ve görsel sanatın kesişiminde bir prodüksiyon.
 
 Bu sahnenin İstanbul'a geleceği açıklandı. Atatürk Olimpiyat Stadyumu'nda kurulacak.
 

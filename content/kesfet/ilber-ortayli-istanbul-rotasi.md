@@ -77,7 +77,7 @@ Süleymaniye tepesinden bakıldığında Haliç ile Boğaz'ın buluştuğu nokta
 
 Ortaylı, 2005'te Topkapı Sarayı'nın müdürü olarak atandı. 2012'ye kadar bu görevde kaldı. Bu yıllarda sarayı defalarca, defalarca yürüdü. Her köşesini, her avlusunu, her hazinesini bildi.
 
-Topkapı'ya bir turistik ziyaret olarak gitmemeyi önerirdi. "Çabucak gezip çıkmak değil" derdî — sarayın belgelerini, arşivini, koleksiyonunun mantığını anlamaya çalışmak. III. Ahmet Kütüphanesi'nde durup el yazmalarını görmek. Harem'in mimari mantığını kavramak. Hazine'deki nesnelerin nereden geldiğini, kimlerin elleriyle yapıldığını sormak.
+Topkapı'ya bir turistik ziyaret olarak gitmemeyi önerirdi. "Çabucak gezip çıkmak değil" derdi — sarayın belgelerini, arşivini, koleksiyonunun mantığını anlamaya çalışmak. III. Ahmet Kütüphanesi'nde durup el yazmalarını görmek. Harem'in mimari mantığını kavramak. Hazine'deki nesnelerin nereden geldiğini, kimlerin elleriyle yapıldığını sormak.
 
 Bu sormak ve merak etmek hali Ortaylı'nın tarih anlayışının özüydü.
 

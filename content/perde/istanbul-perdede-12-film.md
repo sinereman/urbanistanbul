@@ -80,4 +80,4 @@ Ve kamera bunu görüyor. Her yönetmen bu şehre ilk kez baktığında aynı ş
 
 ---
 
-*Perde — **URBAN ISTANBUL**'un sinema bölümü. Her hafta vizyon, inceleme ve İstanbul sineması.*
+*Perde — **URBANİSTANBUL**'un sinema bölümü. Her hafta vizyon, inceleme ve İstanbul sineması.*

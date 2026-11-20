@@ -38,6 +38,6 @@ Festival, Kültür ve Turizm Bakanlığı'nın Türkiye Kültür Yolu Festivali 
 
 ## Bir Fotoğrafçı İçin Neden Önemli?
 
-Urban İstanbul olarak bu festivale ayrı bir sevgi besliyoruz. Çünkü fotoğrafı yalnızca bir teknik ya da bir ekipman meselesi olarak değil, bir bakma biçimi olarak ele alıyor. Festivalin bu yılki yaklaşımı da tam olarak bu: fotoğrafı bellek yaratan, dönüştüren ve iz bırakan bir ifade aracı olarak düşünmek.
+URBANİSTANBUL olarak bu festivale ayrı bir sevgi besliyoruz. Çünkü fotoğrafı yalnızca bir teknik ya da bir ekipman meselesi olarak değil, bir bakma biçimi olarak ele alıyor. Festivalin bu yılki yaklaşımı da tam olarak bu: fotoğrafı bellek yaratan, dönüştüren ve iz bırakan bir ifade aracı olarak düşünmek.
 
 İki yüz yıl sonra hâlâ aynı soruyu soruyoruz: bir fotoğraf neyi saklar, neyi gösterir? Festival 11 Ekim'de bitiyor. Kameranızı alın ve gidin. Sergiler arasında yürürken çekeceğiniz kareler de bu iki yüz yıllık hikâyenin bir parçası.

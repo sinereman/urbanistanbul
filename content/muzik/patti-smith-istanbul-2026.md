@@ -30,9 +30,9 @@ Boğaz'ın gri suları nasıl ki bazen hırçın bazen durağansa, Patti Smith'i
 
 ---
 
-### Urban Istanbul Özel: Konser Öncesi Hazırlık Ritüeli
+### URBANİSTANBUL Özel: Konser Öncesi Hazırlık Ritüeli
 
-Bu geceye zihinsel olarak hazırlanmak, bilet alıp alana girmek kadar değerlidir. Bu bir Urban Istanbul tavsiyesidir: Eğer daha önce okumadıysanız, konsere gitmeden önceki şu birkaç gün içinde sanatçının Robert Mapplethorpe ile olan destansı dostluğunu, açlığı, sanatı ve 70'ler New York'unu anlattığı efsanevi otobiyografik kitabı **"Just Kids" (Çoluk Çocuk)** veya kahve eşliğinde dünyayı gezdiği **"M Train" (M Treni)** kitaplarından birini mutlaka okuyun. 
+Bu geceye zihinsel olarak hazırlanmak, bilet alıp alana girmek kadar değerlidir. Bu bir URBANİSTANBUL tavsiyesidir: Eğer daha önce okumadıysanız, konsere gitmeden önceki şu birkaç gün içinde sanatçının Robert Mapplethorpe ile olan destansı dostluğunu, açlığı, sanatı ve 70'ler New York'unu anlattığı efsanevi otobiyografik kitabı **"Just Kids" (Çoluk Çocuk)** veya kahve eşliğinde dünyayı gezdiği **"M Train" (M Treni)** kitaplarından birini mutlaka okuyun. 
 
 O satırları okuduktan sonra sahnede mikrofona tutunan o kadına, onun sesindeki kırılganlığa ve güce bambaşka bir saygıyla, bambaşka bir derinlikle bakacaksınız.
 
@@ -47,7 +47,7 @@ Bonus Parkorman, doğayla şehrin kesiştiği noktada, bu epik konserin ruhunu v
 * **Patti Smith Sahnede:** 21:00
 * **Biletler:** Biletix ve Passo platformları üzerinden temin edilebilir. Müzikseverlerin ve edebiyat tutkunlarının bu geceyi kaçırmak istemeyeceği göz önüne alındığında karaborsa platformlarına düşmeden resmi kanallardan yerinizi ayırmanızı öneririz.
 
-**Urban Istanbul Ulaşım Önerisi:** Pazar akşamı Maslak ve Büyükdere Caddesi hattında oluşabilecek etkinlik trafiği ve otopark çilesini çekmek, böyle sanatsal bir gece öncesi ruh halinizi baltalayacaktır. En stressiz yöntem kesinlikle metroyu kullanmaktır. **M2 (Yenikapı - Hacıosman)** metro hattını kullanarak **Darüşşafaka** durağında inin. İstasyonun "Fatih Ormanı / Parkorman" çıkışından yeryüzüne adım attığınızda, sadece 2 dakikalık bir yürüyüşle konser alanının kapısında olacaksınız.
+**URBANİSTANBUL Ulaşım Önerisi:** Pazar akşamı Maslak ve Büyükdere Caddesi hattında oluşabilecek etkinlik trafiği ve otopark çilesini çekmek, böyle sanatsal bir gece öncesi ruh halinizi baltalayacaktır. En stressiz yöntem kesinlikle metroyu kullanmaktır. **M2 (Yenikapı - Hacıosman)** metro hattını kullanarak **Darüşşafaka** durağında inin. İstasyonun "Fatih Ormanı / Parkorman" çıkışından yeryüzüne adım attığınızda, sadece 2 dakikalık bir yürüyüşle konser alanının kapısında olacaksınız.
 
 Gecenin sonunda ormandan şehre dönerken, "People Have the Power" (Güç İnsanlardadır) nakaratı uzun süre zihninizde yankılanmaya devam edecek.
 

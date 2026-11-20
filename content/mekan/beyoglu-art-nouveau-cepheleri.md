@@ -15,15 +15,15 @@ Bunlar Art Nouveau'nun izleri. Ve İstanbul'da bu izlerin en yoğun biçimde his
 
 Art Nouveau, 19. yüzyılın son çeyreğinde Avrupa'da yükselen bir akımdır. Doğadan esinlenen organik formlar, simetriyi reddeden kıvrımlar, bitkisel bezemeler, çiçek ve yaprak motifleri. Mimari ile dekorasyonun sınırlarını eritip ikisini tek bir estetik dilde buluşturan bu anlayış, dönemin Avrupa metropollerinde büyük ilgi gördü. Paris, Brüksel, Viyana, Barselona bu üslupla donandı. Ve İstanbul, o dönemde Osmanlı başkenti olarak Avrupa ile derin bağlar içindeydi. Pera, yani bugünkü Beyoğlu, bu bağların en somut adresiydi.
 
-Pera Neydi?
+## Pera Neydi?
 
 Pera, Yunancada "öte taraf" anlamına gelir. Haliç'in kuzeyinde, eski Konstantinopolis yarımadasının karşısında yer alan bu tepede yüzyıllar boyunca Cenevizliler, Venedikliler, Rumlar, Ermeniler, Yahudiler ve çeşitli Avrupa uyruklu Levanten aileler yaşadı. 19. yüzyılda bu kozmopolit topluluk Pera'yı Osmanlı başkentinin en Avrupalı mahallesine dönüştürdü. Elektrik, telefon, tramvay, yeraltı metrosu olarak dünyanın ikinci tünel hattı olan Tünel (1875) hep burada, bu mahallede hayata geçti.
 
-Grande Rue de Péra, yani bugünkü İstiklal Caddesi, bu kozmopolit dünyanın ana ekseniydi. Fransız pâtisserileri, opera binaları, tiyatrolar, konsolosluklar, otellar ve zarif alışveriş pasajları bu cadde boyunca sıralandı.
+Grande Rue de Péra, yani bugünkü İstiklal Caddesi, bu kozmopolit dünyanın ana ekseniydi. Fransız pâtisserileri, opera binaları, tiyatrolar, konsolosluklar, oteller ve zarif alışveriş pasajları bu cadde boyunca sıralandı.
 
 1870'deki büyük yangın Pera'yı kül etti. Ama yeniden inşa sürecinde bir şey değişti: 1865'te yabancılara mülk edinme hakkı tanınmıştı. Bu karar Pera'nın yüzünü köklü biçimde dönüştürdü. Ahşap yerine taş ve tuğla, geleneksel yapılar yerine Avrupa'nın yeni mimari üsluplarını yansıtan görkemli binalar yükseldi. Neo-Gotik, Neo-Klasik, Eklektisist ve nihayet Art Nouveau bu cephelere sızdı.
 
-Casa Botter: İstanbul'un İlk Art Nouveau Yapısı
+## Casa Botter: İstanbul'un İlk Art Nouveau Yapısı
 
 İstiklal Caddesi 235 numarada, bugünkü İsveç Konsolosluğu'nun hemen yanında yükselen bina, bu dönüşümün en çarpıcı belgesidir.
 
@@ -39,7 +39,7 @@ Binanın zemin katında İstanbul'un ilk moda evi açıldı. Modaevinin caddeye 
 
 Bugün zemin katı sergi salonu olarak işlev görüyor. Pazartesi hariç her gün 10:00 ile 19:00 saatleri arasında ziyarete açık. Giriş ücretsiz.
 
-Hazzopulo Pasajı: 1871'den Bir Avlu
+## Hazzopulo Pasajı: 1871'den Bir Avlu
 
 İstiklal Caddesi 116 numaradaki dar girişten içeri girdiğinizde aniden farklı bir atmosfere geçersiniz. Kalabalık cadde geride kalır. Önünüzde ağaçların gölgelediği, arnavut kaldırımlı küçük bir avlu açılır.
 
@@ -51,7 +51,7 @@ Pasajın karakterini oluşturan şey mimarisinin ötesindedir. Avlunun çevresin
 
 Hazzopulo Pasajı bugün kuyumcular, küçük kafeler ve el işi ürün satan dükkânlarla dolu. Ama burasının asıl değeri ticarette değil atmosferindedir. Şehrin sesinden birkaç adım uzaklaşmak, İstiklal'in kalabalığından kaçmak, dar bir geçitten geçerek farklı bir zamana adım atmak istiyorsanız bu avlu bunun için biçilmiş kaftandır.
 
-Cité de Péra: Pasajların Pasajı
+## Cité de Péra: Pasajların Pasajı
 
 İstiklal Caddesi'nde Galatasaray'a doğru yürürken sağ tarafta, neredeyse fark edilmeyecek bir kapı aralığından içeri girildiğinde birbirine bağlanan koridorlardan oluşan Cité de Péra ortaya çıkar.
 
@@ -59,13 +59,13 @@ Cité de Péra: Pasajların Pasajı
 
 Cité de Péra bugün büyük ölçüde değişmiş durumda. Giriş katlarında sıradan dükkânlar yer alıyor, özgün süslemeler büyük ölçüde kaybolmuş. Ama binanın kemerleri, demir konstrüksiyonun kalıntıları ve geçitlerin geometrisi hâlâ orijinal dönemin izlerini taşıyor. Dikkatli bir göz için bu geçit, yüzeyinin altında başka bir kentin siluetini saklıyor.
 
-Mısır Apartmanı: İstiklal'in En Görkemli Art Nouveau Cephesi
+## Mısır Apartmanı: İstiklal'in En Görkemli Art Nouveau Cephesi
 
 Botter Apartmanı'ndan sonra İstiklal'in en çarpıcı Art Nouveau cephelerinden biri Mısır Apartmanı'na aittir. İstiklal Caddesi üzerinde, köşe konumuyla dikkat çeken bu yapı 20. yüzyılın başında inşa edilmiştir.
 
 Köşe kulesinin şapkası, bitkisel bezemeler, yuvarlak balkonlar ve zengin silüetiyle apartman bugün de İstiklal'in en çok fotoğraflanan yapıları arasındadır. Zemin katında yıllar içinde farklı işlevler görmüş olmakla birlikte üst katlardaki konutlar varlığını sürdürüyor. Cephesinin zamanla gördüğü bakımsızlığa karşın kütlesi ve yüksek silueti hâlâ etkisini koruyor.
 
-Raimondo D'Aronco: Pera'nın Art Nouveau Mimarı
+## Raimondo D'Aronco: Pera'nın Art Nouveau Mimarı
 
 Botter Apartmanı'nın mimarı Raimondo D'Aronco, Art Nouveau'yu Osmanlı başkentine taşıyan en önemli isimdir. Ancak onun İstanbul'daki katkısı tek bir yapıyla sınırlı değildir.
 
@@ -73,7 +73,7 @@ D'Aronco, 1893 ile 1909 yılları arasında geçirdiği İstanbul döneminde Yı
 
 D'Aronco'nun Osmanlı başkentindeki varlığı bir Avrupalı mimarın yabancı bir coğrafyada iş yapmasının ötesinde bir anlam taşır. Onun gelişiyle birlikte Art Nouveau, Osmanlı sarayının resmi mimarisine bile dokundu. Bu temas, üslubun Pera dışındaki İstanbul yapılarına da sızmasının yolunu açtı.
 
-Pera'nın Altın Çağı ve Sonu
+## Pera'nın Altın Çağı ve Sonu
 
 Pera'nın bu cepheleri sadece mimari değil, sosyal bir tarihin de belgesidir. Pera, geçmişte Franz Liszt, Mata Hari, Théophile Gautier, Pierre Loti, Lamartine, Agatha Christie, Greta Garbo ve Marlene Dietrich gibi isimleri ağırlamıştır. Bu liste Pera'nın yalnızca mimari değil, kültürel çekim gücünü de özetler.
 
@@ -83,7 +83,7 @@ Pera'nın bu cepheleri sadece mimari değil, sosyal bir tarihin de belgesidir. P
 
 Bugün Pera'nın Art Nouveau cepheleri bu uzun tarihin sessiz tanıklarıdır. Bazıları restore edilmiş, bazıları hâlâ bakımsız. Ama hepsi orada duruyor. Kalabalığın üzerinde, tabelaların arkasında, çatı silüetlerinde.
 
-Neden Gitmeli?
+## Neden Gitmeli?
 
 Art Nouveau cephelerini görmek için İstanbul'a gelenlerin sayısı her geçen yıl artıyor. Avrupa'nın büyük şehirlerinde benzer cepheleri inceleyen turistler, İstanbul'daki örneklerin farkında olarak geliyor; ama bu yapıların öneminin tam olarak kavranmadığını, rehberlerin ve tabelaların yetersiz kaldığını düşünüyorlar.
 
@@ -91,7 +91,7 @@ Bu fark bir şansı temsil ediyor: Botter Apartmanı kalabalıklar içinde fark 
 
 Bilmek isteyenler için adresler aşağıda.
 
-Pratik Rehber
+## Pratik Rehber
 
 **Casa Botter (Botter Apartmanı)**
 İstiklal Caddesi No: 235, Beyoğlu

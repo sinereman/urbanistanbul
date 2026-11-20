@@ -38,4 +38,4 @@ Yarışma dışında üç kısa film ve altı belgesel de gösterilecek. Belgese
 
 Altın Portakal, Türk sinemasının yıllık bir fotoğrafını çekiyor. Hangi yönetmenlerin hangi sorularla uğraştığını, hangi yeni seslerin ortaya çıktığını, sinemamızın nereye doğru yürüdüğünü görmek için bu bir haftadan daha iyi bir fırsat yok. Ve bu filmlerin çoğu, festivalden sonra İstanbul sinemalarına ancak aylar sonra, bazen sadece birkaç salonda geliyor.
 
-Antalya'ya gidemeyenler için iyi haber şu: festivalde öne çıkan filmlerin önemli bir kısmı, kış boyunca İstanbul'daki bağımsız salonlarda ve festival seçkilerinde gösterilecek. Programı takip etmeye değer. Urban İstanbul olarak festivalde dikkat çeken filmleri önümüzdeki haftalarda bu sayfada konuşacağız.
+Antalya'ya gidemeyenler için iyi haber şu: festivalde öne çıkan filmlerin önemli bir kısmı, kış boyunca İstanbul'daki bağımsız salonlarda ve festival seçkilerinde gösterilecek. Programı takip etmeye değer. URBANİSTANBUL olarak festivalde dikkat çeken filmleri önümüzdeki haftalarda bu sayfada konuşacağız.
