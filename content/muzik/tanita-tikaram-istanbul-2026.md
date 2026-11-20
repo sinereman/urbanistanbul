@@ -3,6 +3,10 @@ title: "Tanita Tikaram İstanbul'da: Twist in My Sobriety'nin Sesi Geri Dönüyo
 date: 2026-10-02
 tarih: 2026-12-01
 mekan: "Zorlu PSM Turkcell Sahnesi, İstanbul"
+etkinlik_adi: "Tanita Tikaram"
+sanatci: "Tanita Tikaram"
+organizator: "Stagepass"
+bilet_url: "https://www.zorlupsm.com/en/events/tanita-tikaram"
 image: "/images/uploads/tanita-tikaram-istanbul-2026.jpg"
 foto_yon: "yatay"
 draft: false

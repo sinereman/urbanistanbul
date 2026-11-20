@@ -3,6 +3,9 @@ title: "Floydian Night Zorlu PSM'de: Yılın Son Cumartesisi Ayın Karanlık Yü
 date: 2026-11-20
 tarih: 2026-12-26
 mekan: "Zorlu PSM %100 Studio, Beşiktaş, İstanbul"
+etkinlik_adi: "Floydian Night: A Tribute to Pink Floyd"
+sanatci: "Floydian Night"
+bilet_url: "https://www.zorlupsm.com/"
 image: "/images/uploads/floydian-night-zorlu-psm-2026.jpg"
 foto_yon: "yatay"
 draft: false

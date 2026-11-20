@@ -45,8 +45,28 @@
   {{- $etkinlikBolumleri := slice "muzik" "festival" "etkinlikler" "tiyatro" }}
   {{- if and (in $etkinlikBolumleri .Section) .Params.tarih .Params.mekan (not $gecmis) }}
   {{- $ad := .Params.etkinlik_adi | default (trim (index (split .Title ":") 0) " ") }}
-  {{- $etkinlik := dict "@context" "https://schema.org" "@type" "Event" "name" $ad "description" $aciklama "image" (slice $gorsel) "url" .Permalink "startDate" ((time .Params.tarih).Format "2006-01-02") "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "location" (dict "@type" "Place" "name" .Params.mekan "address" (dict "@type" "PostalAddress" "addressLocality" "İstanbul" "addressCountry" "TR")) }}
-  {{- with (.Params.bitis | default .Params.tarih_bitis) }}{{ $etkinlik = merge $etkinlik (dict "endDate" ((time .).Format "2006-01-02")) }}{{ end }}
+  {{- $baslangic := (time .Params.tarih).Format "2006-01-02" }}
+  {{- $bitis := $baslangic }}
+  {{- with (.Params.bitis | default .Params.tarih_bitis) }}{{ $bitis = (time .).Format "2006-01-02" }}{{ end }}
+  {{- $etkinlik := dict "@context" "https://schema.org" "@type" "Event" "name" $ad "description" $aciklama "image" (slice $gorsel) "url" .Permalink "startDate" $baslangic "endDate" $bitis "eventStatus" "https://schema.org/EventScheduled" "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode" "location" (dict "@type" "Place" "name" .Params.mekan "address" (dict "@type" "PostalAddress" "addressLocality" "İstanbul" "addressCountry" "TR")) }}
+  {{- /* Sanatçı: "sanatci" alanı (tek isim ya da liste) */}}
+  {{- with .Params.sanatci }}
+  {{- $sanatcilar := slice }}
+  {{- range (cond (reflect.IsSlice .) . (slice .)) }}{{ $sanatcilar = $sanatcilar | append (dict "@type" "PerformingGroup" "name" .) }}{{ end }}
+  {{- $etkinlik = merge $etkinlik (dict "performer" $sanatcilar) }}
+  {{- end }}
+  {{- /* Organizatör: "organizator" ve isteğe bağlı "organizator_url" */}}
+  {{- with .Params.organizator }}
+  {{- $org := dict "@type" "Organization" "name" . }}
+  {{- with $.Params.organizator_url }}{{ $org = merge $org (dict "url" .) }}{{ end }}
+  {{- $etkinlik = merge $etkinlik (dict "organizer" $org) }}
+  {{- end }}
+  {{- /* Bilet: "bilet_url", isteğe bağlı "fiyat" ve "para_birimi" (varsayılan TRY) */}}
+  {{- with .Params.bilet_url }}
+  {{- $teklif := dict "@type" "Offer" "url" . "availability" "https://schema.org/InStock" "validFrom" ($.Date.Format "2006-01-02") }}
+  {{- with $.Params.fiyat }}{{ $teklif = merge $teklif (dict "price" (string .) "priceCurrency" ($.Params.para_birimi | default "TRY")) }}{{ end }}
+  {{- $etkinlik = merge $etkinlik (dict "offers" $teklif) }}
+  {{- end }}
   <script type="application/ld+json">
   {{ $etkinlik | jsonify | safeJS }}
   </script>

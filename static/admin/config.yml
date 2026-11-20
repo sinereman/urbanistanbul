@@ -17,7 +17,14 @@ collections:
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Bitiş Tarihi (birden fazla gün sürüyorsa)", name: "bitis", widget: "datetime", time_format: false, required: false}
       - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Etkinlik Adı (Google için, isteğe bağlı)", name: "etkinlik_adi", widget: "string", required: false}
+      - {label: "Sanatçılar", name: "sanatci", widget: "list", required: false}
+      - {label: "Organizatör", name: "organizator", widget: "string", required: false}
+      - {label: "Organizatör Sitesi", name: "organizator_url", widget: "string", required: false}
+      - {label: "Bilet Linki", name: "bilet_url", widget: "string", required: false}
+      - {label: "En Düşük Bilet Fiyatı (TL)", name: "fiyat", widget: "number", required: false}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
       - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
       - {label: "İçerik", name: "body", widget: "markdown"}
@@ -30,7 +37,14 @@ collections:
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Bitiş Tarihi (birden fazla gün sürüyorsa)", name: "bitis", widget: "datetime", time_format: false, required: false}
       - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Etkinlik Adı (Google için, isteğe bağlı)", name: "etkinlik_adi", widget: "string", required: false}
+      - {label: "Sanatçılar", name: "sanatci", widget: "list", required: false}
+      - {label: "Organizatör", name: "organizator", widget: "string", required: false}
+      - {label: "Organizatör Sitesi", name: "organizator_url", widget: "string", required: false}
+      - {label: "Bilet Linki", name: "bilet_url", widget: "string", required: false}
+      - {label: "En Düşük Bilet Fiyatı (TL)", name: "fiyat", widget: "number", required: false}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
       - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
       - {label: "İçerik", name: "body", widget: "markdown"}
@@ -43,7 +57,14 @@ collections:
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Tarih", name: "tarih", widget: "datetime", time_format: false}
+      - {label: "Bitiş Tarihi (birden fazla gün sürüyorsa)", name: "bitis", widget: "datetime", time_format: false, required: false}
       - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Etkinlik Adı (Google için, isteğe bağlı)", name: "etkinlik_adi", widget: "string", required: false}
+      - {label: "Sanatçılar", name: "sanatci", widget: "list", required: false}
+      - {label: "Organizatör", name: "organizator", widget: "string", required: false}
+      - {label: "Organizatör Sitesi", name: "organizator_url", widget: "string", required: false}
+      - {label: "Bilet Linki", name: "bilet_url", widget: "string", required: false}
+      - {label: "En Düşük Bilet Fiyatı (TL)", name: "fiyat", widget: "number", required: false}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
       - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
       - {label: "İçerik", name: "body", widget: "markdown"}
@@ -72,6 +93,12 @@ collections:
       - {label: "Tarih Başlangıç", name: "tarih", widget: "datetime", time_format: false}
       - {label: "Tarih Bitiş", name: "tarih_bitis", widget: "datetime", time_format: false, required: false}
       - {label: "Mekan", name: "mekan", widget: "string"}
+      - {label: "Etkinlik Adı (Google için, isteğe bağlı)", name: "etkinlik_adi", widget: "string", required: false}
+      - {label: "Sanatçılar", name: "sanatci", widget: "list", required: false}
+      - {label: "Organizatör", name: "organizator", widget: "string", required: false}
+      - {label: "Organizatör Sitesi", name: "organizator_url", widget: "string", required: false}
+      - {label: "Bilet Linki", name: "bilet_url", widget: "string", required: false}
+      - {label: "En Düşük Bilet Fiyatı (TL)", name: "fiyat", widget: "number", required: false}
       - {label: "Kapak Fotoğrafı", name: "image", widget: "image", required: false}
       - {label: "Fotoğraf Yönü", name: "foto_yon", widget: "select", options: ["yatay", "dikey"], default: "yatay"}
       - {label: "İçerik", name: "body", widget: "markdown"}

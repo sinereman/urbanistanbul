@@ -5,6 +5,9 @@ tur: "Edebiyat"
 tarih: 2026-12-12
 bitis: 2026-12-20
 mekan: "TÜYAP Fuar ve Kongre Merkezi, Büyükçekmece"
+etkinlik_adi: "43. Uluslararası İstanbul Kitap Fuarı"
+organizator: "TÜYAP"
+organizator_url: "https://www.tuyap.com.tr/"
 slug: "istanbul-kitap-fuari-2026"
 image: "/images/uploads/istanbul-kitap-fuari-2026.jpg"
 foto_yon: "yatay"

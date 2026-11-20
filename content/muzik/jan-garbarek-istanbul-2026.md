@@ -3,6 +3,10 @@ title: "Jan Garbarek ve Trilok Gurtu İstanbul'da: Kuzeyin Sessizliği, Hindista
 date: 2026-10-02
 tarih: 2026-12-04
 mekan: "Zorlu PSM Turkcell Sahnesi, İstanbul"
+etkinlik_adi: "Jan Garbarek Group feat. Trilok Gurtu"
+sanatci: ["Jan Garbarek Group", "Trilok Gurtu"]
+organizator: "Stagepass"
+bilet_url: "https://www.zorlupsm.com/en/events/jan-garbarek-group-feat-trilok-gurtu"
 image: "/images/uploads/jan-garbarek-istanbul-2026.jpg"
 foto_yon: "yatay"
 draft: false

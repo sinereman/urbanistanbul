@@ -5,6 +5,10 @@ tur: "Tiyatro"
 tarih: 2026-10-22
 bitis: 2026-12-03
 mekan: "Zorlu PSM, AKM, Alan Kadıköy, Harbiye Muhsin Ertuğrul Sahnesi ve diğer sahneler"
+etkinlik_adi: "30. İstanbul Tiyatro Festivali"
+organizator: "İKSV"
+organizator_url: "https://www.iksv.org/"
+bilet_url: "https://tiyatro.iksv.org/"
 slug: "istanbul-tiyatro-festivali-2026"
 image: "/images/uploads/istanbul-tiyatro-festivali-2026.jpg"
 foto_yon: "yatay"
